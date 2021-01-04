@@ -37,7 +37,7 @@ cat /proc/meminfo
 ```
 Check the output for MemTotal, MemFree, MemAvailable  
 
-
+---- 
 Can I see the memory layout and the stack of a process?  
 To see all files related to a process with PID = $$  
 ``` 
@@ -55,7 +55,7 @@ cat /proc/$$/stack
 Using the output of the above commands, convince yourself that you can visualise stack, heap, text segment of a process using virtual addresses and the output. Also, see /lib/x84_64-linux-gnu/lib\*  files and other shared libraries.  
 In the above example, replace $$ with a process id you are interested in.  
 
-
+---- 
 How can I list hardware details?  
 ```
 lshw
@@ -75,3 +75,14 @@ On Ubuntu to get hardinfo:
 ```
 sudo apt install hardinfo 
 ```
+
+----
+Cool compilers/interpreters:  
+clang  
+gcc  
+g++  
+java  
+python  
+
+To check if Java runtime environment (JRE) is installed: $ java --version  
+To see if Java SDK is installed: $ javac  
