@@ -54,3 +54,23 @@ cat /proc/$$/stack
 ```
 Using the output of the above commands, convince yourself that you can visualise stack, heap, text segment of a process using virtual addresses and the output. Also, see /lib/x84_64-linux-gnu/lib\*  files and other shared libraries.  
 In the above example, replace $$ with a process id you are interested in.  
+
+
+How can I list hardware details?  
+```
+lshw
+lshw -short
+```
+
+It is nice to know about system hardware such as hard disk, audio and network controllers (wired and wifi)  
+```
+lshw | grep -A7 -i "disk"  <== Hard disk details  
+lspci -v | grep -A7 -i "audio"  <== Audio device details  
+lspci -v | grep -A7 -i "eternet"  <== Network Controller for Ethernet (LAN)  
+lspci -v | grep -A7 -i "wireless"  <== Network Controller for wireless (Wi-Fi)  
+```
+
+There is a GUI as well for hardinfo: on Ubuntu get hardinfo:  
+```
+sudo apt install hardinfo 
+```
