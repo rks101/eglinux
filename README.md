@@ -70,7 +70,8 @@ lspci -v | grep -A7 -i "eternet"  <== Network Controller for Ethernet (LAN)
 lspci -v | grep -A7 -i "wireless"  <== Network Controller for wireless (Wi-Fi)  
 ```
 
-There is a GUI as well for hardinfo: on Ubuntu get hardinfo:  
+There is a GUI as well for hardware info:  
+On Ubuntu to get hardinfo:  
 ```
 sudo apt install hardinfo 
 ```
