@@ -29,16 +29,27 @@ Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 
 
 How many processors do we have on the system? Details and processor flags?  
 **cat /proc/cpuinfo**  
-**cat /proc/cpuinfo | grep "processor"**  check the output. If you get 8 entries with processor numbered from 0 to 7, this suggests an 8 core cpu.  
+**cat /proc/cpuinfo | grep "processor"**  
+Check the output. If you get 8 entries with processor numbered from 0 to 7, this suggests an 8 core cpu.  
 
 How much memory (RAM) do we have on the system? Installed, free, and other memory details?  
-**cat /proc/meminfo**  check the output for MemTotal, MemFree, MemAvailable  
+**cat /proc/meminfo**  
+Check the output for MemTotal, MemFree, MemAvailable  
 
 
-Can I see the stack of a process?  
+Can I see the memory layout and the stack of a process?  
+To see all files related to a process with PID = $$  
+``` 
+ls -lrt /proc/$$
+```
+Now, check process memory layout:  
+```
+cat /proc/$$/maps 
+```
 
-
-
-Can I see the process memory layout of a process?  
-
-
+and stack associated with process $$:  
+```
+cat /proc/$$/stack
+```
+Using the output of the above commands, convince yourself that you can visualise stack, heap, text segment of a process using virtual addresses and the output. Also, see **/lib/x84_64-linux-gnu/lib\* ** files and other shared libraries.  
+In the above example, replace $$ with a process id you are interested in.  
