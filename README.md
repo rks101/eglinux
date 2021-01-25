@@ -118,3 +118,24 @@ python
 
 To check if Java runtime environment (JRE) is installed: $ java --version  
 To see if Java SDK is installed: $ javac  
+
+---- 
+Sometime(s), you may forget mysql admin password and you want to reset the password.  
+
+Login into mysql using sudo and issue the below command: 
+```
+alter user 'root'@'localhost' identified with mysql_native_password by 'nopassisgoodpass';
+```
+
+**To backup mysql db**  
+```
+mysqldump --databases testdb --user=root --password > backupdb.sql
+```
+
+If required on the target system, set password using alter user command as above.  
+
+**To restore mysql db**  
+```
+mysql -u root -p < backupdb.sql
+```
+---- 
