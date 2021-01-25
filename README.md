@@ -77,6 +77,16 @@ sudo apt install hardinfo
 ```
 
 ----
+To know about Linux bulit-ins and commands, always ask man, using: 
+```
+man man 
+man cd 
+man uname 
+man timedatectl 
+man system 
+```
+
+----  
 Cool compilers/interpreters:  
 clang  
 gcc  
