@@ -31,11 +31,13 @@ cat /proc/cpuinfo | grep "processor"
 ```
 Check the output. If you get 8 entries with processor numbered from 0 to 7, this suggests an 8 core cpu.  
 
+
 How much memory (RAM) do we have on the system? Installed, free, and other memory details?  
 ```
 cat /proc/meminfo  
 ```
 Check the output for MemTotal, MemFree, MemAvailable  
+
 
 ---- 
 Can I see the memory layout and the stack of a process?  
@@ -77,13 +79,33 @@ sudo apt install hardinfo
 ```
 
 ----
+How can I find out about a service or daemon running or not? 
+```
+service <service_or_daemon_name> status 
+service mysql status 
+service apache2 status 
+```
+See the output, if Active field shows "active (running)", it is running, good to go. 
+If Active field shows failed, there was some problem to run the service, need to fix it. 
+
+
+Where do I see for logs and errors? 
+```
+dmesg 
+ls -lrt /var/log/ 
+```
+In /var/log/ directory, see the most recent logs, like dmesg, syslog, dpkg log, etc. to debug the problem.  
+
+----
 To know about Linux bulit-ins and commands, always ask man, using: 
 ```
 man man 
 man cd 
 man uname 
+man touch 
 man timedatectl 
-man system 
+man execve 
+man service 
 ```
 
 ----  
