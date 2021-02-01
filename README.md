@@ -85,6 +85,8 @@ How do I find out installed software packages?
 ```
 sudo dpkg --get-selections
 ```
+This is equivalent to rpm -qa in case of RHEL/Fedora/CentOS. 
+
 
 ----
 How can I find out about a service or daemon running or not? 
