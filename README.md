@@ -67,6 +67,7 @@ lshw -short
 It is nice to know about system hardware such as hard disk, audio and network controllers (wired and wifi)  
 ```
 lshw | grep -A7 -i "disk"  <== Hard disk details  
+lshw -short <== for graphics card, look for display  
 lspci -v | grep -A7 -i "audio"  <== Audio device details  
 lspci -v | grep -A7 -i "eternet"  <== Network Controller for Ethernet (LAN)  
 lspci -v | grep -A7 -i "wireless"  <== Network Controller for wireless (Wi-Fi)  
@@ -76,6 +77,13 @@ There is a GUI as well for hardware info:
 On Ubuntu to get hardinfo:  
 ```
 sudo apt install hardinfo 
+```
+
+
+----
+How do I find out installed software packages? 
+```
+sudo dpkg --get-selections
 ```
 
 ----
