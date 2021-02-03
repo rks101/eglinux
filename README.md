@@ -89,26 +89,26 @@ This is equivalent to rpm -qa in case of RHEL/Fedora/CentOS.
 
 
 ----
-Debugging - processes 
+Debugging - processes and system resources  
 
 Use **top** command to display linux processes with PID, CPU and memory usage in real-time  
 ```
 $ top
 
-top - 10:34:56 up 6 days, 21:06,  1 user,  load average: 0.80, 0.51, 0.55
-Tasks: 333 total,   1 running, 323 sleeping,   8 stopped,   1 zombie
-%Cpu(s):  0.7 us,  0.4 sy,  0.0 ni, 98.2 id,  0.6 wa,  0.0 hi,  0.0 si,  0.0 st
-MiB Mem :  15908.0 total,   3389.9 free,   5168.0 used,   7350.0 buff/cache
-MiB Swap:  30518.0 total,  30518.0 free,      0.0 used.   9270.3 avail Mem 
+top - 10:34:56 up 6 days, 21:06,  1 user,  load average: 0.80, 0.51, 0.55  
+Tasks: 333 total,   1 running, 323 sleeping,   8 stopped,   1 zombie  
+%Cpu(s):  0.7 us,  0.4 sy,  0.0 ni, 98.2 id,  0.6 wa,  0.0 hi,  0.0 si,  0.0 st  
+MiB Mem :  15908.0 total,   3389.9 free,   5168.0 used,   7350.0 buff/cache  
+MiB Swap:  30518.0 total,  30518.0 free,      0.0 used.   9270.3 avail Mem  
 
-    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                                  
-   7648 msg       20   0 7303440 507100 143564 S   6.0   3.1 166:37.55 zoom                                                                     
-   2142 msg       20   0 5153328 399196 130928 S   1.3   2.5 141:03.20 gnome-shell                                                              
-   3241 msg       20   0 1551784 368148 186284 S   1.0   2.3  55:48.93 chrome                                                                   
-   3286 msg       20   0  390048 111048  68588 S   0.7   0.7  15:12.61 chrome                                                                   
- 100726 mysql     20   0 2265400 399708  35948 S   0.7   2.5   1:17.47 mysqld                                                                   
- 129414 msg       20   0   12336   4372   3408 R   0.7   0.0   0:00.05 top                                                                      
-    883 root      20   0  484176  21492  17276 S   0.3   0.1   1:08.84 NetworkManager    
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND  
+   7648 msg       20   0 7303440 507100 143564 S   6.0   3.1 166:37.55 zoom  
+   2142 msg       20   0 5153328 399196 130928 S   1.3   2.5 141:03.20 gnome-shell  
+   3241 msg       20   0 1551784 368148 186284 S   1.0   2.3  55:48.93 chrome  
+   3286 msg       20   0  390048 111048  68588 S   0.7   0.7  15:12.61 chrome  
+ 100726 mysql     20   0 2265400 399708  35948 S   0.7   2.5   1:17.47 mysqld  
+ 129414 msg       20   0   12336   4372   3408 R   0.7   0.0   0:00.05 top  
+    883 root      20   0  484176  21492  17276 S   0.3   0.1   1:08.84 NetworkManager  
 ```
 
 Use **dstat** - a tool for generating system resource statistics such as cpu usage, disk read/write, network data received/sent, etc. To exit type Ctrl+C.    
