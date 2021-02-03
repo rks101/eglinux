@@ -196,6 +196,20 @@ man execve
 man service 
 ```
 
+----
+One line webserver => a great and simplest way to show files from a directory  
+```
+$ python3 -m http.server 
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+127.0.0.1 - - [03/Feb/2021 23:33:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Feb/2021 23:33:31] "GET /myvideos/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Feb/2021 23:33:36] "GET /Downloads/ HTTP/1.1" 200 -
+^C 
+Keyboard interrupt received, exiting.
+
+```
+The webserver started above can be opened in a web browser: http://0.0.0.0:8000/  
+
 ----  
 Cool compilers/interpreters:  
 clang  
