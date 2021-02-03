@@ -268,3 +268,22 @@ Hosts/Net: 254                   Class A, Private Internet
 ```
 
 ----
+
+View and manage Wireless network settings, similar to ifconfig for wireless  
+```
+$ iwconfig
+lo        no wireless extensions.
+
+wlp3s0    IEEE 802.11  ESSID:"Test"  
+          Mode:Managed  Frequency:5.18 GHz  Access Point: 88:B1:E1:28:6A:60   
+          Bit Rate=780 Mb/s   Tx-Power=22 dBm   
+          Retry short limit:7   RTS thr:off   Fragment thr:off
+          Power Management:on
+          Link Quality=51/70  Signal level=-59 dBm  
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:50   Missed beacon:0
+
+enp2s0    no wireless extensions.
+
+gpd0      no wireless extensions.
+```
