@@ -87,6 +87,23 @@ sudo dpkg --get-selections
 ```
 This is equivalent to rpm -qa in case of RHEL/Fedora/CentOS. 
 
+----
+How to display and change environment variables? 
+
+List all environment variables using printenv. 
+List a variable called PATH
+```
+echo $PATH
+```
+Change path to include Videos directory
+```
+$ echo $PATH
+/home/rps/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+$ export PATH=$PATH:/home/rps/Videos
+$ echo $PATH
+/home/rps/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/rps/Videos
+
+```
 
 ----
 Debugging - processes and system resources  
