@@ -90,12 +90,28 @@ This is equivalent to rpm -qa in case of RHEL/Fedora/CentOS.
 ----
 How to display and change environment variables? 
 
-List all environment variables using printenv. 
-List a variable called PATH
+List all environment variables using printenv 
+```
+printenv
+SHELL=/bin/bash
+COLORTERM=truecolor
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+LANGUAGE=en_IN:en
+PWD=/home/rps
+LOGNAME=rps
+......
+HOME=/home/rks
+USERNAME=rks
+USER=rks                   <= check echo $USER
+......
+_=/usr/bin/printenv        <= check echo $_
+
+```
+List a special environment variable called PATH
 ```
 echo $PATH
 ```
-Change path to include Videos directory
+Change PATH variable to include Videos directory
 ```
 $ echo $PATH
 /home/rps/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -104,6 +120,14 @@ $ echo $PATH
 /home/rps/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/rps/Videos
 
 ```
+
+----
+What is a path? How do we refer them?  
+
+Path helps to navigate around the file system and files in Linux where almost everything is a file.  
+In the hierarchical directory structure, we can refer path of a regular file (-) or directory (d) or symbolic link (l) using absolute or a relative path.  
+Absolute path corresponds to a path beginning from / or root. e.g. /home/rps/example.desktop  
+Relative path corresponds to a path relative to current directory (pwd) or any other directory. e.g. Downloads/package.deb or ../../home/rps/Downloads/package.deb  
 
 ----
 Debugging - processes and system resources  
