@@ -15,6 +15,21 @@ Description:	Ubuntu 20.04.1 LTS
 Release:	20.04
 Codename:	focal
 ```
+TIMTOWTDI: you can use /etc/os-release 
+```
+$ cat /etc/os-release 
+NAME="Ubuntu"
+VERSION="20.04.2 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.2 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+......
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+
+```
 
 
 What is my system name, kernel, OS, kernel version, date updated?  
@@ -29,7 +44,7 @@ How many processors do we have on the system? Details and processor flags?
 cat /proc/cpuinfo  
 cat /proc/cpuinfo | grep "processor"  
 ```
-Check the output. If you get 8 entries with processor numbered from 0 to 7, this suggests an 8 core cpu.  
+Check the output. If you get 8 entries with processor numbered from 0 to 7, this suggests 8 logical cores.  
 
 
 How much memory (RAM) do we have on the system? Installed, free, and other memory details?  
@@ -64,7 +79,7 @@ lshw
 lshw -short
 ```
 
-It is nice to know about system hardware such as hard disk, audio and network controllers (wired and wifi)  
+It is nice to know about system hardware such as hard disk, graphics card, audio and network controllers (wired and wifi)  
 ```
 lshw | grep -A7 -i "disk"  <== Hard disk details  
 lshw -short <== for graphics card, look for display  
@@ -79,6 +94,11 @@ On Ubuntu to get hardinfo:
 sudo apt install hardinfo 
 ```
 
+----
+Learn to use tab key for command completion or completing file / directory names. This can save time in typing.  
+
+Hint: type ds and press tab to see command completion (e.g. dstat) if exists or to see matching options.  
+Hint: type ls -lrt /home/rps/Do  and then press tab twice, you will get matching suggestions.  
 
 ----
 How do I find out installed software packages? 
@@ -122,7 +142,7 @@ $ echo $PATH
 ```
 
 ----
-What is a path? How do we refer them?  
+What is a path? How do we refer to it in commands?  
 
 Path helps to navigate around the file system and files in Linux where almost everything is a file.  
 In the hierarchical directory structure, we can refer path of a regular file (-) or directory (d) or symbolic link (l) using absolute or a relative path.  
@@ -209,6 +229,7 @@ Keyboard interrupt received, exiting.
 
 ```
 The webserver started above can be opened in a web browser: http://0.0.0.0:8000/  
+This page can be opened before you close the server using Ctrl+C.  
 
 ----  
 Cool compilers/interpreters:  
@@ -242,48 +263,3 @@ mysql -u root -p < backupdb.sql
 ```
 ---- 
 
-Know - IP addressing using ipcalc  
-```
-$ ipcalc 192.168.0.1/24
-Address:   192.168.0.1          11000000.10101000.00000000. 00000001
-Netmask:   255.255.255.0 = 24   11111111.11111111.11111111. 00000000
-Wildcard:  0.0.0.255            00000000.00000000.00000000. 11111111
-=>
-Network:   192.168.0.0/24       11000000.10101000.00000000. 00000000
-HostMin:   192.168.0.1          11000000.10101000.00000000. 00000001
-HostMax:   192.168.0.254        11000000.10101000.00000000. 11111110
-Broadcast: 192.168.0.255        11000000.10101000.00000000. 11111111
-Hosts/Net: 254                   Class C, Private Internet
-
-$ ipcalc 10.10.50.1/24
-Address:   10.10.50.1           00001010.00001010.00110010. 00000001
-Netmask:   255.255.255.0 = 24   11111111.11111111.11111111. 00000000
-Wildcard:  0.0.0.255            00000000.00000000.00000000. 11111111
-=>
-Network:   10.10.50.0/24        00001010.00001010.00110010. 00000000
-HostMin:   10.10.50.1           00001010.00001010.00110010. 00000001
-HostMax:   10.10.50.254         00001010.00001010.00110010. 11111110
-Broadcast: 10.10.50.255         00001010.00001010.00110010. 11111111
-Hosts/Net: 254                   Class A, Private Internet
-```
-
-----
-
-View and manage Wireless network settings, similar to ifconfig for wireless  
-```
-$ iwconfig
-lo        no wireless extensions.
-
-wlp3s0    IEEE 802.11  ESSID:"Test"  
-          Mode:Managed  Frequency:5.18 GHz  Access Point: 88:B1:E1:28:6A:60   
-          Bit Rate=780 Mb/s   Tx-Power=22 dBm   
-          Retry short limit:7   RTS thr:off   Fragment thr:off
-          Power Management:on
-          Link Quality=51/70  Signal level=-59 dBm  
-          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
-          Tx excessive retries:0  Invalid misc:50   Missed beacon:0
-
-enp2s0    no wireless extensions.
-
-gpd0      no wireless extensions.
-```
