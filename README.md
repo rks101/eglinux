@@ -120,9 +120,9 @@ LANGUAGE=en_IN:en
 PWD=/home/rps
 LOGNAME=rps
 ......
-HOME=/home/rks
-USERNAME=rks
-USER=rks                   <= check echo $USER
+HOME=/home/rps
+USERNAME=rps
+USER=rps                   <= check echo $USER
 ......
 _=/usr/bin/printenv        <= check echo $_
 
