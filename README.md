@@ -1,6 +1,10 @@
 # eglinux
 Easy and helpful Linux commands for beginners and intermediate users  
 
+* [eglinux](#eglinux)
+  * [ls -lrt](#ls-lrt)
+
+#ls-lrt
 Everytime you open terminal or shell, the first command you should check out to list all files and directries (ls) in a long (l) and reverse (r) order of time (t) updated.  
 ```
 ls -lrt
