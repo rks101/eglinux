@@ -1,21 +1,25 @@
+Table of Contents
+=================
+
+   * [eglinux](#eglinux)
+      * [ls -lrt](#ls--lrt)
+      * [lsb_release](#lsb_release)
+      * [Know processors](#know-processors)
+      * [Know memory](#know-memory)
+      * [Process Memory Layout](#process-memory-layout)
+      * [List hardware](#list-hardware)
+      * [Command completion](#command-completion)
+      * [Installed packages](#installed-packages)
+      * [Environment variables](#environment-variables)
+      * [Debugging](#debugging)
+      * [Getting help on-system](#getting-help-on-system)
+      * [Simple web server](#simple-web-server)
+      * [Reset mysql admin password](#reset-mysql-admin-password)
+      * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
+
+
 # eglinux
 Easy and helpful Linux commands for beginners and intermediate users  
-
-* [eglinux](#eglinux)
-  * [ls -lrt](#ls--lrt)
-  * [lsb_release](#lsb_release)
-  * [Know processors](#know-processors)
-  * [Know memory](#know-memory)
-  * [Process Memory Layout](#process-memory-layout)
-  * [List hardware](#list-hardware)
-  * [Command completion](#command-completion)
-  * [Installed packages](#installed-packages)
-  * [Environment variables](#environment-variables)
-  * [Debugging](#debugging)
-  * [Getting help on-system](#getting-help-on-system)
-  * [Simple web server](#simple-web-server)
-  * [Reset mysql admin password](#Reset-mysql-admin-password)
-  * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
 
 
 ## ls -lrt
