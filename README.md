@@ -12,6 +12,7 @@ Easy and helpful Linux commands for beginners and intermediate users
   * [Installed packages](#installed-packages)
   * [Environment variables](#environment-variables)
   * [Debugging](#debugging)
+  * [Getting help on-system](#getting-help-on--system)
   * [Simple web server](#simple-web-server)
   * [Reset mysql admin password](#Reset-mysql-admin-password)
   * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
@@ -55,7 +56,7 @@ uname -a
 Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-## know processors
+## Know processors
 How many processors do we have on the system? Details and processor flags?  
 ```
 cat /proc/cpuinfo  
@@ -63,7 +64,7 @@ cat /proc/cpuinfo | grep "processor"
 ```
 Check the output. If you get 8 entries with processor numbered from 0 to 7, this suggests 8 logical cores.  
 
-## know memory
+## Know memory
 How much memory (RAM) do we have on the system? Installed, free, and other memory details?  
 ```
 cat /proc/meminfo  
@@ -73,7 +74,7 @@ Check the output for MemTotal, MemFree, MemAvailable
 
 ---- 
 
-## process memory layout 
+## Process Memory Layout 
 Can I see the memory layout and the stack of a process?  
 To see all files related to a process with PID = $$  
 ``` 
@@ -93,7 +94,7 @@ In the above example, replace $$ with a process id you are interested in.
 
 ---- 
 
-## list hardware 
+## List hardware 
 How can I list hardware details?  
 ```
 lshw
@@ -231,6 +232,8 @@ ls -lrt /var/log/
 In /var/log/ directory, see the most recent logs, like dmesg, syslog, dpkg log, etc. to debug the problem.  
 
 ----
+## Getting help on-system 
+
 To know about Linux bulit-ins and commands, always ask man, using: 
 ```
 man man 
@@ -241,6 +244,7 @@ man timedatectl
 man execve 
 man service 
 ```
+Also, you can explore info pages.  
 
 ----
 ## Simple web server 
@@ -294,8 +298,7 @@ mysql -u root -p < backupdb.sql
 ## Remove old Linux kernel images 
 How do we remove old linux kernel images and headers?  
 
-At times, one can find on the system some old linux-images / linux-headers / linux-modules that are occupying storage.  
-If you want to remove these old linux kernel images and headers (5.0* / 5.3*), while you have upgraded to higher versions (5.4*):  
+At times, one can find on the system some old linux-images / linux-headers / linux-modules that are occupying storage. If you want to remove these old linux kernel images and headers (5.0* / 5.3*), while you have upgraded to higher versions (5.4*):  
 
 - first, query using uname -a and dpkg --list | egrep "linux-image|linux-headers|linux-modules|linux-image-generic" | awk '{print $2 " " $3}'  
 - next, use apt purge linux-image-5.0* or apt purge linux-image-5.4.2*  
@@ -407,7 +410,8 @@ Note, selecting 'linux-image-5.0.0-36-generic' for glob 'linux-image-5.0*'
 Note, selecting 'linux-image-5.0.0-23-generic' for glob 'linux-image-5.0*'
 Note, selecting 'linux-image-5.0.0-32-generic' for glob 'linux-image-5.0*'
 The following packages will be REMOVED:
-  linux-image-5.0.0-23-generic* linux-image-5.0.0-32-generic* linux-image-5.0.0-36-generic* linux-image-5.0.0-37-generic*
+  linux-image-5.0.0-23-generic* linux-image-5.0.0-32-generic* linux-image-5.0.0-36-generic* 
+  linux-image-5.0.0-37-generic*
 0 upgraded, 0 newly installed, 4 to remove and 0 not upgraded.
 After this operation, 0 B of additional disk space will be used.
 Do you want to continue? [Y/n] Y
@@ -428,8 +432,8 @@ Note, selecting 'linux-image-5.3.0-42-generic' for glob 'linux-image-5.3*'
 Note, selecting 'linux-image-5.3.0-46-generic' for glob 'linux-image-5.3*'
 Note, selecting 'linux-image-5.3.0-28-generic' for glob 'linux-image-5.3*'
 The following packages will be REMOVED:
-  linux-image-5.3.0-26-generic* linux-image-5.3.0-28-generic* linux-image-5.3.0-40-generic* linux-image-5.3.0-42-generic*
-  linux-image-5.3.0-46-generic*
+  linux-image-5.3.0-26-generic* linux-image-5.3.0-28-generic* linux-image-5.3.0-40-generic* 
+  linux-image-5.3.0-42-generic* linux-image-5.3.0-46-generic*
 0 upgraded, 0 newly installed, 5 to remove and 0 not upgraded.
 After this operation, 0 B of additional disk space will be used.
 Do you want to continue? [Y/n] Y
