@@ -8,13 +8,13 @@ Easy and helpful Linux commands for beginners and intermediate users
   * [know memory](#memory)
   * [Process Memory Layout](#procmem_layout)
 
-#ls
+# ls
 Everytime you open terminal or shell, the first command you should check out to list all files and directries (ls) in a long (l) and reverse (r) order of time (t) updated.  
 ```
 ls -lrt
 ```
 
-#lsb_release
+# lsb_release
 What is OS major and minor numbers amd any code name associated with the release  
 ```
 lsb_release -a  
