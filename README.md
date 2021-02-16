@@ -4,11 +4,6 @@ Easy and helpful Linux commands for beginners and intermediate users
 * [eglinux](#eglinux)
   * [ls -lrt](#ls -lrt)
   * [lsb_release](#lsb_release)
-  * [Know processors](#know processors)
-  * [Know memory](#know memory)
-  * [Process Memory Layout](#process memory layout)
-  * [List Hardware](#list hardware)
-  * [Environment variables](# Environment variables)
 
 # ls -lrt
 Everytime you open terminal or shell, the first command you should check out to list all files and directries (ls) in a long (l) and reverse (r) order of time (t) updated.  
