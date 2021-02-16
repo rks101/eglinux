@@ -243,7 +243,7 @@ man service
 ```
 
 ----
-## Simple web server
+## Simple web server 
 One line webserver => a great and simplest way to show files from a directory  
 ```
 $ python3 -m http.server 
@@ -291,7 +291,7 @@ mysql -u root -p < backupdb.sql
 ```
 ---- 
 
-## Remove old linux kernel images 
+## Remove old Linux kernel images 
 How do we remove old linux kernel images and headers?  
 
 At times, one can find on the system some old linux-images / linux-headers / linux-modules that are occupying storage.  
