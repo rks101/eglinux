@@ -1,5 +1,6 @@
-Table of Contents
-=================
+# eglinux
+Easy and helpful Linux commands for beginners and intermediate users  
+
 
    * [eglinux](#eglinux)
       * [ls -lrt](#ls--lrt)
@@ -16,10 +17,6 @@ Table of Contents
       * [Simple web server](#simple-web-server)
       * [Reset mysql admin password](#reset-mysql-admin-password)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
-
-
-# eglinux
-Easy and helpful Linux commands for beginners and intermediate users  
 
 
 ## ls -lrt
@@ -53,7 +50,6 @@ UBUNTU_CODENAME=focal
 
 ```
 
-
 What is my system name, kernel, OS, kernel version, date updated?  
 ```
 uname -a  
@@ -74,7 +70,6 @@ How much memory (RAM) do we have on the system? Installed, free, and other memor
 cat /proc/meminfo  
 ```
 Check the output for MemTotal, MemFree, MemAvailable  
-
 
 ---- 
 
@@ -119,7 +114,6 @@ On Ubuntu to get hardinfo:
 ```
 sudo apt install hardinfo 
 ```
-
 ----
 ## Command completion
 Learn to use tab key for command completion or completing file / directory names. This can save time in typing.  
@@ -171,7 +165,6 @@ $ echo $PATH
 $ export PATH=$PATH:/home/rps/Videos
 $ echo $PATH
 /home/rps/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/rps/Videos
-
 ```
 
 ----
@@ -180,7 +173,7 @@ What is a path? How do we refer to it in commands?
 Path helps to navigate around the file system and files in Linux where almost everything is a file.  
 In the hierarchical directory structure, we can refer path of a regular file (-) or directory (d) or symbolic link (l) using absolute or a relative path.  
 Absolute path corresponds to a path beginning from / or root. e.g. /home/rps/example.desktop  
-Relative path corresponds to a path relative to current directory (pwd) or any other directory. e.g. Downloads/package.deb or ../../home/rps/Downloads/package.deb  
+Relative path corresponds to a path relative to current directory (pwd) or any other directory. e.g. Downloads/package.deb or ../../home/rps/Downloads/package.deb 
 
 ----
 ## Debugging
