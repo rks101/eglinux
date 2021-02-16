@@ -127,6 +127,8 @@ Learn to use tab key for command completion or completing file / directory names
 Hint: type ds and press tab to see command completion (e.g. dstat) if exists or to see matching options.  
 Hint: type ls -lrt /home/rps/Do  and then press tab twice, you will get matching suggestions.  
 
+Tip: in case command completion is not working on system, check you have installed bash-completion and bash-completion-extras  
+
 ----
 ## Installed packages
 How do I find out installed software packages? 
