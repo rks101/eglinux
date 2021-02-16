@@ -2,7 +2,7 @@
 Easy and helpful Linux commands for beginners and intermediate users  
 
 * [eglinux](#eglinux)
-  * [ls -lrt](#ls-lrt)
+  * [ls -lrt](#ls--lrt)
   * [lsb_release](#lsb_release)
   * [Know processors](#know-processors)
   * [Know memory](#know-memory)
