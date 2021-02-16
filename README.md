@@ -2,16 +2,22 @@
 Easy and helpful Linux commands for beginners and intermediate users  
 
 * [eglinux](#eglinux)
-  * [ls -lrt](#ls -lrt)
-  * [lsb_release](#lsb_release)
+  * [ls -lrt](##ls-lrt)
+  * [lsb_release](##lsb_release)
+  * [Know processors](#know-processors)
+  * [Know memory](#know-memory)
+  * [Process Memory Layout](#process-memory-layout)
+  * [List Hardware](#list-hardware)
+  * [Environment variables](#environment-variables)
 
-# ls -lrt
+
+## ls -lrt
 Everytime you open terminal or shell, the first command you should check out to list all files and directries (ls) in a long (l) and reverse (r) order of time (t) updated.  
 ```
 ls -lrt
 ```
 
-# lsb_release
+## lsb_release
 What is OS major and minor numbers amd any code name associated with the release  
 ```
 lsb_release -a  
@@ -43,7 +49,7 @@ uname -a
 Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-# Know processors
+# know processors
 How many processors do we have on the system? Details and processor flags?  
 ```
 cat /proc/cpuinfo  
@@ -51,7 +57,7 @@ cat /proc/cpuinfo | grep "processor"
 ```
 Check the output. If you get 8 entries with processor numbered from 0 to 7, this suggests 8 logical cores.  
 
-# Know memory
+# know memory
 How much memory (RAM) do we have on the system? Installed, free, and other memory details?  
 ```
 cat /proc/meminfo  
@@ -61,7 +67,7 @@ Check the output for MemTotal, MemFree, MemAvailable
 
 ---- 
 
-# Process Memory Layout 
+# process memory layout 
 Can I see the memory layout and the stack of a process?  
 To see all files related to a process with PID = $$  
 ``` 
@@ -81,7 +87,7 @@ In the above example, replace $$ with a process id you are interested in.
 
 ---- 
 
-# List Hardware 
+# list hardware 
 How can I list hardware details?  
 ```
 lshw
