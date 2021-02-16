@@ -7,12 +7,14 @@ Easy and helpful Linux commands for beginners and intermediate users
   * [Know processors](#know-processors)
   * [Know memory](#know-memory)
   * [Process Memory Layout](#process-memory-layout)
-  * [List Hardware](#list-hardware)
+  * [List hardware](#list-hardware)
   * [Command completion](#command-completion)
   * [Installed packages](#installed-packages)
   * [Environment variables](#environment-variables)
   * [Debugging](#debugging)
   * [Simple web server](#simple-web-server)
+  * [Reset mysql admin password](#Reset-mysql-admin-password)
+  * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
 
 
 ## ls -lrt
@@ -172,7 +174,7 @@ Absolute path corresponds to a path beginning from / or root. e.g. /home/rps/exa
 Relative path corresponds to a path relative to current directory (pwd) or any other directory. e.g. Downloads/package.deb or ../../home/rps/Downloads/package.deb  
 
 ----
-## debugging
+## Debugging
 
 For debugging issues, the following can help about processes and system resources.  
 
@@ -241,7 +243,7 @@ man service
 ```
 
 ----
-## simple web server
+## Simple web server
 One line webserver => a great and simplest way to show files from a directory  
 ```
 $ python3 -m http.server 
@@ -268,6 +270,7 @@ To check if Java runtime environment (JRE) is installed: $ java --version
 To see if Java SDK is installed: $ javac  
 
 ---- 
+## Reset mysql admin password
 Sometime(s), you may forget mysql admin password and you want to reset the password.  
 
 Login into mysql using sudo and issue the below command: 
@@ -288,6 +291,7 @@ mysql -u root -p < backupdb.sql
 ```
 ---- 
 
+## Remove old linux kernel images 
 How do we remove old linux kernel images and headers?  
 
 At times, one can find on the system some old linux-images / linux-headers / linux-modules that are occupying storage.  
