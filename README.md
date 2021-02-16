@@ -12,7 +12,7 @@ Easy and helpful Linux commands for beginners and intermediate users
   * [Installed packages](#installed-packages)
   * [Environment variables](#environment-variables)
   * [Debugging](#debugging)
-  * [Getting help on-system](#getting-help-on--system)
+  * [Getting help on-system](#getting-help-on-system)
   * [Simple web server](#simple-web-server)
   * [Reset mysql admin password](#Reset-mysql-admin-password)
   * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
