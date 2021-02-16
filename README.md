@@ -128,6 +128,8 @@ Hint: type ds and press tab to see command completion (e.g. dstat) if exists or 
 Hint: type ls -lrt /home/rps/Do  and then press tab twice, you will get matching suggestions.  
 
 Tip: in case command completion is not working on system, check you have installed bash-completion and bash-completion-extras  
+A related [long story](long story 
+https://unix.stackexchange.com/questions/264102/bash-completion-is-very-incomplete-on-centos-7).  
 
 ----
 ## Installed packages
