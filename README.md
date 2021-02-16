@@ -8,7 +8,11 @@ Easy and helpful Linux commands for beginners and intermediate users
   * [Know memory](#know-memory)
   * [Process Memory Layout](#process-memory-layout)
   * [List Hardware](#list-hardware)
+  * [Command completion](#command-completion)
+  * [Installed packages](#installed-packages)
   * [Environment variables](#environment-variables)
+  * [Debugging](#debugging)
+  * [Simple web server](#simple-web-server)
 
 
 ## ls -lrt
@@ -67,7 +71,7 @@ Check the output for MemTotal, MemFree, MemAvailable
 
 ---- 
 
-# process memory layout 
+## process memory layout 
 Can I see the memory layout and the stack of a process?  
 To see all files related to a process with PID = $$  
 ``` 
@@ -87,7 +91,7 @@ In the above example, replace $$ with a process id you are interested in.
 
 ---- 
 
-# list hardware 
+## list hardware 
 How can I list hardware details?  
 ```
 lshw
@@ -110,14 +114,14 @@ sudo apt install hardinfo
 ```
 
 ----
-# Command completion
+## Command completion
 Learn to use tab key for command completion or completing file / directory names. This can save time in typing.  
 
 Hint: type ds and press tab to see command completion (e.g. dstat) if exists or to see matching options.  
 Hint: type ls -lrt /home/rps/Do  and then press tab twice, you will get matching suggestions.  
 
 ----
-# Installed packages
+## Installed packages
 How do I find out installed software packages? 
 ```
 sudo dpkg --get-selections
@@ -125,7 +129,7 @@ sudo dpkg --get-selections
 This is equivalent to rpm -qa in case of RHEL/Fedora/CentOS. 
 
 ----
-# Environment variables
+## Environment variables
 How to display and change environment variables? 
 
 List all environment variables using printenv 
@@ -168,7 +172,9 @@ Absolute path corresponds to a path beginning from / or root. e.g. /home/rps/exa
 Relative path corresponds to a path relative to current directory (pwd) or any other directory. e.g. Downloads/package.deb or ../../home/rps/Downloads/package.deb  
 
 ----
-Debugging - processes and system resources  
+## debugging
+
+For debugging issues, the following can help about processes and system resources.  
 
 Use **top** command to display linux processes with PID, CPU and memory usage in real-time  
 ```
@@ -235,6 +241,7 @@ man service
 ```
 
 ----
+## simple web server
 One line webserver => a great and simplest way to show files from a directory  
 ```
 $ python3 -m http.server 
