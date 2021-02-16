@@ -2,12 +2,13 @@
 Easy and helpful Linux commands for beginners and intermediate users  
 
 * [eglinux](#eglinux)
-  * [ls -lrt](#ls)
+  * [ls -lrt](#ls -lrt)
   * [lsb_release](#lsb_release)
-  * [know processors](#processor)
-  * [know memory](#memory)
-  * [Process Memory Layout](#procmem_layout)
-  * [List Hardware](#list_hw)
+  * [Know processors](#know processors)
+  * [Know memory](#know memory)
+  * [Process Memory Layout](#process memory layout)
+  * [List Hardware](#list hardware)
+  * [Environment variables](# Environment variables)
 
 # ls -lrt
 Everytime you open terminal or shell, the first command you should check out to list all files and directries (ls) in a long (l) and reverse (r) order of time (t) updated.  
@@ -15,7 +16,7 @@ Everytime you open terminal or shell, the first command you should check out to 
 ls -lrt
 ```
 
-# know OS release
+# lsb_release
 What is OS major and minor numbers amd any code name associated with the release  
 ```
 lsb_release -a  
@@ -47,7 +48,7 @@ uname -a
 Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-# processor
+# Know processors
 How many processors do we have on the system? Details and processor flags?  
 ```
 cat /proc/cpuinfo  
@@ -55,7 +56,7 @@ cat /proc/cpuinfo | grep "processor"
 ```
 Check the output. If you get 8 entries with processor numbered from 0 to 7, this suggests 8 logical cores.  
 
-# memory
+# Know memory
 How much memory (RAM) do we have on the system? Installed, free, and other memory details?  
 ```
 cat /proc/meminfo  
@@ -65,7 +66,7 @@ Check the output for MemTotal, MemFree, MemAvailable
 
 ---- 
 
-# procmem_layout 
+# Process Memory Layout 
 Can I see the memory layout and the stack of a process?  
 To see all files related to a process with PID = $$  
 ``` 
@@ -85,7 +86,7 @@ In the above example, replace $$ with a process id you are interested in.
 
 ---- 
 
-# list_hw
+# List Hardware 
 How can I list hardware details?  
 ```
 lshw
@@ -108,12 +109,14 @@ sudo apt install hardinfo
 ```
 
 ----
+# Command completion
 Learn to use tab key for command completion or completing file / directory names. This can save time in typing.  
 
 Hint: type ds and press tab to see command completion (e.g. dstat) if exists or to see matching options.  
 Hint: type ls -lrt /home/rps/Do  and then press tab twice, you will get matching suggestions.  
 
 ----
+# Installed packages
 How do I find out installed software packages? 
 ```
 sudo dpkg --get-selections
@@ -121,6 +124,7 @@ sudo dpkg --get-selections
 This is equivalent to rpm -qa in case of RHEL/Fedora/CentOS. 
 
 ----
+# Environment variables
 How to display and change environment variables? 
 
 List all environment variables using printenv 
