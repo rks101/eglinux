@@ -2,8 +2,8 @@
 Easy and helpful Linux commands for beginners and intermediate users  
 
 * [eglinux](#eglinux)
-  * [ls -lrt](##ls-lrt)
-  * [lsb_release](##lsb_release)
+  * [ls -lrt](#ls-lrt)
+  * [lsb_release](#lsb_release)
   * [Know processors](#know-processors)
   * [Know memory](#know-memory)
   * [Process Memory Layout](#process-memory-layout)
@@ -49,7 +49,7 @@ uname -a
 Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-# know processors
+## know processors
 How many processors do we have on the system? Details and processor flags?  
 ```
 cat /proc/cpuinfo  
@@ -57,7 +57,7 @@ cat /proc/cpuinfo | grep "processor"
 ```
 Check the output. If you get 8 entries with processor numbered from 0 to 7, this suggests 8 logical cores.  
 
-# know memory
+## know memory
 How much memory (RAM) do we have on the system? Installed, free, and other memory details?  
 ```
 cat /proc/meminfo  
