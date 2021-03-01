@@ -17,6 +17,7 @@ Easy and helpful Linux commands for beginners and intermediate users
       * [Simple web server](#simple-web-server)
       * [Reset mysql admin password](#reset-mysql-admin-password)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
+      * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
 
 
 ## ls -lrt
@@ -446,4 +447,40 @@ Purging configuration files for linux-image-5.3.0-28-generic (5.3.0-28.30~18.04.
 Purging configuration files for linux-image-5.3.0-40-generic (5.3.0-40.32~18.04.1) ...
 
 ```
+----
 
+## Free space on Ubuntu system
+
+Find thumbnail images and remove them. 
+```
+$ du -sh ~/.cache/thumbnails 
+$ sudo rm -rf ~/.cache/thumbnails/* 
+```
+
+APT related cleanup of unused packages. 
+```
+$ sudo apt autoremove --purge
+```
+
+Remove old kernel files manually. Caution: Know what you are deleting! Do not delete current and previous kernel image/headers and  module files. 
+```
+$ sudo dpkg --list 'linux-*'
+$ sudo apt remove linux-image-5.0*
+$ sudo apt remove linux-headers-5.0*
+$ sudo apt remove linux-modules-5.0*
+$ sudo apt remove linux-modules-extra-5.0*
+```
+
+Find APT cache and clean it up. 
+
+```
+$ sudo du -sh /var/cache/apt
+$ sudo apt clean
+```
+
+Clean journal log files. Caution: Know what you are deleting! 
+
+```
+$ journalctl --disk-usage
+$ sudo journalctl --vacuum-time=7d   <= older than 7 days 
+```
