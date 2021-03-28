@@ -27,7 +27,7 @@ ls -lrt
 ```
 
 ## lsb_release
-What is OS major and minor numbers amd any code name associated with the release  
+What is OS major and minor numbers and any code name associated with the release  
 ```
 lsb_release -a  
 Distributor ID:	Ubuntu
@@ -91,6 +91,16 @@ cat /proc/$$/stack
 ```
 Using the output of the above commands, convince yourself that you can visualise stack, heap, text segment of a process using virtual addresses and the output. Also, see /lib/x84_64-linux-gnu/lib\*  files and other shared libraries.  
 In the above example, replace $$ with a process id you are interested in.  
+
+
+What shared object / libraries are used by a program? 
+
+```
+$ ldd <program>
+$ ldd /bin/bash
+$ ldd /bin/ls
+$ ldd /usr/bin/python3.8 
+```
 
 ---- 
 
