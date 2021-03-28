@@ -35,6 +35,8 @@ Description:	Ubuntu 20.04.1 LTS
 Release:	20.04
 Codename:	focal
 ```
+Note:- LSB is Linux Standard Base. If you are more interested, after this article you can refer to [what is LSB](https://wiki.linuxfoundation.org/lsb/start) and [LSB Specs](https://refspecs.linuxfoundation.org/lsb.shtml). To maintain the flow, continue reading.  
+
 TIMTOWTDI: you can use /etc/os-release 
 ```
 $ cat /etc/os-release 
