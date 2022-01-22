@@ -21,13 +21,13 @@ Easy and helpful Linux commands for beginners and intermediate users
 
 
 ## ls -lrt
-Everytime you open terminal or shell, the first command you should check out to list all files and directries (ls) in a long (l) and reverse (r) order of time (t) updated.  
+Everytime you open terminal or shell, the first command you should check out to list all files and directries (ls) in a long (l) and reverse (r) order of time (t) updated. Do compare this output with various other outputs from ls options.    
 ```
 ls -lrt
 ```
 
 ## lsb_release
-What is OS major and minor numbers and any code name associated with the release  
+What is OS major and minor release numbers? and any code name associated with the release?   
 ```
 lsb_release -a  
 Distributor ID:	Ubuntu
@@ -37,7 +37,7 @@ Codename:	focal
 ```
 Note:- LSB is Linux Standard Base. If you are more interested, after this article you can refer to [what is LSB](https://wiki.linuxfoundation.org/lsb/start) and [LSB Specs](https://refspecs.linuxfoundation.org/lsb.shtml). To maintain the flow, continue reading.  
 
-TIMTOWTDI: you can use /etc/os-release 
+TIMTOWTDI (There Is More Than One Way To Do It): you can use /etc/os-release 
 ```
 $ cat /etc/os-release 
 NAME="Ubuntu"
@@ -53,33 +53,33 @@ UBUNTU_CODENAME=focal
 
 ```
 
-What is my system name, kernel, OS, kernel version, date updated?  
+What is my system name, kernel, OS, kernel version, date last updated?  
 ```
 uname -a  
 Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
 ## Know processors
-How many processors do we have on the system? Details and processor flags?  
+How many processors do we have on the system? To know details and processor flags:   
 ```
 cat /proc/cpuinfo  
 cat /proc/cpuinfo | grep "processor"  
 ```
-Check the output. If you get 8 entries with processor numbered from 0 to 7, this suggests 8 logical cores.  
+Check the output. If you get eight entries with processor numbered from 0 to 7, this suggests 8 logical cores.  
 
 ## Know memory
-How much memory (RAM) do we have on the system? Installed, free, and other memory details?  
+How much memory (RAM / main memmory / primary memory to run programs) do we have on the system? You can see installed, free, and other memory details:  
 ```
 cat /proc/meminfo  
 ```
-Check the output for MemTotal, MemFree, MemAvailable  
+Check the output for MemTotal, MemFree, MemAvailable.  
 
-Note: Why should you consider MemAvailable from 2014? [Check this patch](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34e431b0ae398fc54ea69ff85ec700722c9da773) and [post 1](https://stackoverflow.com/questions/30869297/difference-between-memfree-and-memavailable) and [post 2](https://superuser.com/questions/980820/what-is-the-difference-between-memfree-and-memavailable-in-proc-meminfo). To maintain the flow, continue reading.   
+Note: Why should you consider MemAvailable from 2014 onward? [Check this patch](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34e431b0ae398fc54ea69ff85ec700722c9da773) and [post 1](https://stackoverflow.com/questions/30869297/difference-between-memfree-and-memavailable) and [post 2](https://superuser.com/questions/980820/what-is-the-difference-between-memfree-and-memavailable-in-proc-meminfo). To maintain the flow, continue reading.   
 
 ---- 
 
 ## Process Memory Layout 
-Can I see the memory layout and the stack of a process?  
+Can I see the memory layout and the stack of a process? See my [presentation]() with more details.   
 To see all files related to a process with PID = $$  
 ``` 
 ls -lrt /proc/$$
@@ -124,7 +124,8 @@ lspci -v | grep -A7 -i "eternet"  <== Network Controller for Ethernet (LAN)
 lspci -v | grep -A7 -i "wireless"  <== Network Controller for wireless (Wi-Fi)  
 ```
 
-There is a GUI as well for hardware info:  
+There is a GUI as well for hardware info.   
+
 On Ubuntu to get hardinfo:  
 ```
 sudo apt install hardinfo 
@@ -195,7 +196,7 @@ Relative path corresponds to a path relative to current directory (pwd) or any o
 
 For debugging issues, the following can help about processes and system resources.  
 
-Use **top** command to display linux processes with PID, CPU and memory usage in real-time  
+Use **top** command to display linux processes with PID, CPU and memory usage in real-time. Avoid this using for a long time on servers with active users.   
 ```
 $ top
 
@@ -250,7 +251,10 @@ In /var/log/ directory, see the most recent logs, like dmesg, syslog, dpkg log, 
 ----
 ## Getting help on-system 
 
-To know about Linux bulit-ins and commands, always ask man, using: 
+What if I do not know commands or their options and arguments?   
+- To know about Linux built-ins and commands, there are plain text on-screen manuals.   
+- There is a **man** I know from 2003 who can help, and he tells me the most from reliable sources.   
+- Always ask **man**, using: 
 ```
 man man 
 man cd 
@@ -259,8 +263,11 @@ man touch
 man timedatectl 
 man execve 
 man service 
+man find 
+man grep 
+man info 
 ```
-Also, you can explore info pages.  
+Also, you can explore **info** pages.  
 
 ----
 ## Simple web server 
@@ -277,6 +284,8 @@ Keyboard interrupt received, exiting.
 ```
 The webserver started above can be opened in a web browser: http://0.0.0.0:8000/  
 This page can be opened before you close the server using Ctrl+C.  
+
+Note:- In case you are struggling to connect to this webserver to access files from another system, check your wired/wireless network or vlan you are on.   
 
 ----  
 Cool compilers/interpreters:  
