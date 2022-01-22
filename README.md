@@ -510,4 +510,10 @@ $ sudo journalctl --vacuum-time=7d   <= older than 7 days
 
 Clean up that stuff audio/video/movie files, duplicate photos on the system.  
 
-Just in case you run out of space, check dmesg and try to clean up the last activity that caused it. It may be excessive logs generated. 
+Just in case you run out of space, check dmesg and try to clean up the last activity that caused it. It may be excessive logs generated.   
+
+
+## Thank you 
+
+I am grateful, if you have reached this far after reading the content above.  
+If you have learnt something new, that's a gift. Thank you!   
