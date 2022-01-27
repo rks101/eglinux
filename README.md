@@ -318,6 +318,17 @@ If required on the target system, set password using alter user command as above
 ```
 mysql -u root -p < backupdb.sql
 ```
+
+Note on - **MySQL authentication** error   
+
+There is an issue about authentication plugin while upgrading or migrating MySQL database (from 5.7) to 8.0.   
+Error message on the screen is not very informative about it - ERROR 1698 - Access Denied for user 'root'@'localhost'.   
+
+The default authentication type in mysql 8.0 is **caching_sha2_password** and this newer plugin may not load or is not available.   
+One way to get around is alter database user to use earlier authentication type as mysql_native_password or .    
+
+Relevant posts: [A Tale of Two Password Authentication plugins](https://dev.mysql.com/blog-archive/a-tale-of-two-password-authentication-plugins/), [change authentication methods](https://ostechnix.com/change-authentication-method-for-mysql-root-user-in-ubuntu/), [alter user with mysql_native_password](https://medium.com/@crmcmullen/how-to-run-mysql-8-0-with-native-password-authentication-502de5bac661)    
+
 ---- 
 
 ## Remove old Linux kernel images 
