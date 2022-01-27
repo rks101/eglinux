@@ -327,7 +327,10 @@ Error message on the screen is not very informative about it - ERROR 1698 - Acce
 The default authentication type in mysql 8.0 is **caching_sha2_password** and this newer plugin may not load or is not available.   
 One way to get around is alter database user to use earlier authentication type as mysql_native_password or .    
 
-Relevant posts: [A Tale of Two Password Authentication plugins](https://dev.mysql.com/blog-archive/a-tale-of-two-password-authentication-plugins/), [change authentication methods](https://ostechnix.com/change-authentication-method-for-mysql-root-user-in-ubuntu/), [alter user with mysql_native_password](https://medium.com/@crmcmullen/how-to-run-mysql-8-0-with-native-password-authentication-502de5bac661)    
+Relevant posts:    
+[A Tale of Two Password Authentication plugins](https://dev.mysql.com/blog-archive/a-tale-of-two-password-authentication-plugins/)    
+[change authentication methods](https://ostechnix.com/change-authentication-method-for-mysql-root-user-in-ubuntu/)    
+[alter user with mysql_native_password](https://medium.com/@crmcmullen/how-to-run-mysql-8-0-with-native-password-authentication-502de5bac661)    
 
 ---- 
 
