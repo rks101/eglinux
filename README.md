@@ -1,5 +1,5 @@
 # eglinux 
-[muscot](https://commons.wikimedia.org/wiki/File:Tux.png)
+//[muscot](https://commons.wikimedia.org/wiki/File:Tux.png)
 Easy and helpful Linux commands for beginners and intermediate users  
 
 
