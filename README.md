@@ -1,4 +1,4 @@
-# eglinux
+# eglinux [[https://commons.wikimedia.org/wiki/File:Tux.png|alt=tux]]
 Easy and helpful Linux commands for beginners and intermediate users  
 
 
