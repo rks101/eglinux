@@ -1,7 +1,8 @@
 # eglinux 
 <!--[muscot](https://commons.wikimedia.org/wiki/File:Tux.png)-->
-Easy and helpful Linux commands for beginners and intermediate users  
+eglinux => pronounced as "easy Linux" compiles - easy and helpful Linux commands for beginners and intermediate users.   
 
+Voluntary Disclosure: The output shown for commands or utilities mentioned below is compiled for illustration purpose only. You may not find all or same details in your lab/office/dungeon.   
 
    * [eglinux](#eglinux)
       * [ls -lrt](#ls--lrt)
@@ -77,11 +78,13 @@ Check the output for MemTotal, MemFree, MemAvailable.
 
 Note: Why should you consider MemAvailable from 2014 onward? [Check this patch](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34e431b0ae398fc54ea69ff85ec700722c9da773) and [post 1](https://stackoverflow.com/questions/30869297/difference-between-memfree-and-memavailable) and [post 2](https://superuser.com/questions/980820/what-is-the-difference-between-memfree-and-memavailable-in-proc-meminfo). To maintain the flow, continue reading.   
 
-Note:- It is good to learn about [types of RAM](https://www.techtarget.com/searchstorage/definition/DIMM), such as earlier SIMM, and DIMM, bufferred memory, Load Reduced DIMM (with iMB to isolate data and address), SODIMM (compact form factor for recent laptops/tablets), etc. A post on [which one to use](https://www.dasher.com/server-memory-rdimm-vs-lrdimm-and-when-to-use-them/) and [difference](https://www.faceofit.com/rdimm-vs-irdimm-vs-udimms/) can be helpful.    
+Note:- It is good to learn about [types of RAM](https://www.techtarget.com/searchstorage/definition/DIMM), such as earlier SIMM, and DIMM, bufferred memory, Load Reduced or LR-DIMM (with iMB to isolate data and address), Small Outline or SO-DIMM (compact form factor for recent laptops/tablets), etc. A post on [which one to use](https://www.dasher.com/server-memory-rdimm-vs-lrdimm-and-when-to-use-them/) and [difference](https://www.faceofit.com/rdimm-vs-irdimm-vs-udimms/) can be helpful. To maintain the flow, continue reading.    
 
 ---- 
 
 ## Process Memory Layout 
+This one is my favorite topic in OS lab. Helps to visualise virtual memory, process layout, proc interface, and shared libs/objects.     
+
 Can I see the memory layout and the stack of a process? See my [presentation]() with more details.   
 To see all files related to a process with PID = $$  
 ``` 
@@ -328,9 +331,9 @@ There is an issue about authentication plugin while upgrading or migrating MySQL
 Error message on the screen is not very informative about it - ERROR 1698 - Access Denied for user 'root'@'localhost'.   
 
 The default authentication type in mysql 8.0 is **caching_sha2_password** and this newer plugin may not load or is not available.   
-One way to get around is alter database user to use earlier authentication type as mysql_native_password or .    
+One way to get around is alter database user to use earlier authentication type as mysql_native_password (as in mysql-5.7) or better migrate to cashing_sha2_password for future.    
 
-Relevant posts:    
+Relevant posts on this auhentication type conundrum:    
 [A Tale of Two Password Authentication plugins](https://dev.mysql.com/blog-archive/a-tale-of-two-password-authentication-plugins/)    
 [change authentication methods](https://ostechnix.com/change-authentication-method-for-mysql-root-user-in-ubuntu/)    
 [alter user with mysql_native_password](https://medium.com/@crmcmullen/how-to-run-mysql-8-0-with-native-password-authentication-502de5bac661)    
