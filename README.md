@@ -17,7 +17,7 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [Debugging](#debugging)
       * [Getting help on-system](#getting-help-on-system)
       * [Simple web server](#simple-web-server)
-      * [Reset mysql admin password](#reset-mysql-admin-password)
+      * [The One with mysql admin password](#the-one-with-mysql-admin-password)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
 
@@ -305,7 +305,7 @@ To check if Java runtime environment (JRE) is installed: $ java --version
 To see if Java SDK is installed: $ javac  
 
 ---- 
-## Reset mysql admin password
+## The One with mysql admin password
 Sometime(s), you may forget mysql admin password and you want to reset the password.  
 
 Login into mysql using sudo and issue the below command: 
