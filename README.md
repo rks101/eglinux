@@ -532,6 +532,31 @@ Clean up that stuff audio/video/movie files, duplicate photos on the system.
 
 Just in case you run out of space, check dmesg and try to clean up the last activity that caused it. It may be excessive logs generated.   
 
+----
+
+## The One with UNIX History 
+
+One can say, in a very crude way:    
+open-source OS is - free to download from online repo, free to use, or modify (no license cost) - free refers to freedom of choice! there may be a packaging or  shipping cost or a suppport cost.    
+closed source OS is someone's proprietary binary source files and user cannot modify source, usually this comes with a license cost or cost is added with accompanying device being sold.   
+
+Some closed-source early UNIX favours:   
+BSD UNIX: Berkeley Software Distribution had three flavours or varients, such as freeBSD, openBSD, netBSD.    
+SCO UNIX: was based on freeBSD, managed by Santa Cruz Operations, later sold to OpenServer maintainer.    
+Solaris:   
+AIX:   
+HP-UX:    
+Mac OS:   
+
+Some open-source UNIX/linux favours/varients:   
+Linux:    
+Debian:   
+Ubuntu:   
+Fedora:    
+Open SUSE:   
+CentOS:    
+
+---- 
 
 ## Thank you 
 
