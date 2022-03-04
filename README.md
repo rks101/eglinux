@@ -556,6 +556,14 @@ Fedora:
 Open SUSE:   
 CentOS:    
 
+Q. Does a mainframe or AS400 run Unix/Linux?   
+A. Unix that ran or runs on Mainframe is called AIX (POSIX compliant). AS400 - specifically IBM iSeries or System i or IBM i run Linux with ease.   
+
+Some reading material:   
+[1](http://www.linfo.org/flavors.html)   
+[2](https://www.lifewire.com/unix-flavors-list-4094248)   
+[FreeBSD](https://en.wikipedia.org/wiki/FreeBSD)    
+
 ---- 
 
 ## Thank you 
