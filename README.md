@@ -187,6 +187,7 @@ $ export PATH=$PATH:/home/rps/Videos
 $ echo $PATH
 /home/rps/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/rps/Videos
 ```
+If you want newly added directory to be searched first in the path, add the new directory first and then append existing contents of path variable. Use which command to locate the first binary or built-in util being referenced.    
 
 ----
 What is a path? How do we refer to it in commands?  
