@@ -569,4 +569,4 @@ Some reading material:
 ## Thank you 
 
 I am grateful, if you have reached this far after reading the content above.  
-If you have learnt something new, that's a gift. Thank you!   
+If you have learnt something new, that's awesome! Thank you!   
