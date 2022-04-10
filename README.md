@@ -5,12 +5,12 @@ eglinux => pronounced as "easy Linux" compiles - easy and helpful Linux commands
 Voluntary Disclosure: The output shown for commands or utilities mentioned below is compiled for illustration purpose only. You may not find all or same details in your lab/office/dungeon.   
 
    * [eglinux](#eglinux)
-      * [ls -lrt](#ls--lrt)
-      * [lsb_release](#lsb_release)
+      * [`ls -lrt`](#ls--lrt)
+      * [`lsb_release`](#lsb_release)
       * [Know processors](#know-processors)
       * [Know memory](#know-memory)
-      * [Process Memory Layout](#process-memory-layout)
-      * [List hardware](#list-hardware)
+      * [Process Memory Layout using `proc`](#process-memory-layout)
+      * [List hardware using `lshw`](#list-hardware)
       * [Command completion](#command-completion)
       * [Installed packages](#installed-packages)
       * [Environment variables](#environment-variables)
