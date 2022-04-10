@@ -90,7 +90,7 @@ To see all files related to a process with PID = $$
 ``` 
 ls -lrt /proc/$$
 ```
-Now, check process memory layout:  
+Now, check process memory layout (TODO: add link from OS course file having exercises on proc):   
 ```
 cat /proc/$$/maps 
 ```
