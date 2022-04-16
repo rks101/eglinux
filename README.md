@@ -20,6 +20,7 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [The One with mysql admin password](#the-one-with-mysql-admin-password)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
+      * [The One with Linus](#the-one-with-linus)
 
 
 ## ls -lrt
@@ -534,7 +535,7 @@ Just in case you run out of space, check dmesg and try to clean up the last acti
 
 ----
 
-## The One with UNIX History 
+## The One with UNIX/Linux History 
 
 One can say, in a very crude way:    
 open-source OS is - free to download from online repo, free to use, or modify (no license cost) - free refers to freedom of choice! there may be a packaging or  shipping cost or a suppport cost.    
@@ -565,6 +566,13 @@ Some reading material:
 [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD)    
 
 ---- 
+
+## The One with Linus
+
+[The talk with not so visionary, not so people-person, a simple happy engineer](https://www.youtube.com/watch?v=o8NPllzkFhE) Linus Torvalds who changed the world at least twice with Linux and Git projects.   
+
+
+----
 
 ## Thank you 
 
