@@ -222,7 +222,7 @@ $ ls -lrt /bin/sh
 lrwxrwxrwx 1 root root 4 Mar 23 19:19 /bin/sh -> dash
 ```
 
-Using buffer overflow, if a remote user can get a shell /bin/sh executing some shellcode, then what he can do - try to visualise using permissions of /bin/sh - specifically see owner and all permissions.   
+Using buffer overflow, if a remote user can get a shell /bin/sh executing some [shellcode](https://cocomelonc.github.io/tutorial/2021/10/09/linux-shellcoding-1.html), then what he can do - try to visualise using permissions of /bin/sh - specifically see owner and all permissions.   
 
 ----
 ## Command completion
