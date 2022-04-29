@@ -11,6 +11,7 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [Know memory](#know-memory)
       * [Process Memory Layout using `proc`](#process-memory-layout)
       * [List hardware using `lshw`](#list-hardware)
+      * [The One with File Permissions](#the-one-with-file-permissions) 
       * [Command completion](#command-completion)
       * [Installed packages](#installed-packages)
       * [Environment variables](#environment-variables)
@@ -137,6 +138,92 @@ On Ubuntu to get hardinfo:
 ```
 sudo apt install hardinfo 
 ```
+----
+## The One with File Permissions   
+
+A linux user is a regular user or a system user (without login) or superuser aka root.   
+
+Notice the first column of /etc/passwd file is a linux user.   
+
+```
+$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd/netif:/usr/sbin/nologin
+syslog:x:102:106::/home/syslog:/usr/sbin/nologin
+avahi:x:116:122:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/usr/sbin/nologin
+gdm:x:121:125:Gnome Display Manager:/var/lib/gdm3:/bin/false
+rps:x:1000:1000:rps,,,:/home/rps:/bin/bash
+mysql:x:122:129:MySQL Server,,,:/nonexistent:/bin/false
+systemd-timesync:x:123:130:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+tcpdump:x:125:133::/nonexistent:/usr/sbin/nologin
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+```
+
+Linux user can belong to one or more groups. Group level rights can be defined for users inside it. User and group are two different things, they can have a same name. A user can belong to multiple groups for defined access rights.   
+
+Notice /etc/group file, first column is a group name.   
+
+```
+$ cat /etc/group
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:syslog,rps
+tty:x:5:syslog
+disk:x:6:
+lp:x:7:
+mail:x:8:
+```
+
+Memorise the first command we learnt, ls -lrt, now type this in any directory for files and see the output.   
+First column shows file permission mode, column 3 and 4 show owner and group names respectively.   
+
+File permission mode can be viewed as:   
+=> first char is file type, - for regular file, d for directory, l for symbolic link   
+=> next view 3 characters in pair - first three chars for user or owner who owns a file, next for group and last three for other than group users.   
+=> these three chars pairs contain access permissions in order: r = read, w = write or x = execute   
+=> there is a numeric weight associated with r, w, and x. r => 4, w => 2, and x = 1 and we can sum if any of r/w/x is present (see examples below)   
+=> if a user is missing a certain access permission that respective character is displayed as - or numerically adds up to 0   
+
+Using r - regular file can be opened in read-only mode, directory cantent can be listed (cd to directory is not allowed by r)   
+Using w - regular file can be edited, deleted, renamed, modified and saved, directory can be created inside a directory, deleted, renamed, access can be modifed as well.   
+Using x - regular file can be executed if it is a script, directory can be accessed, cd to directory is allowed by x   
+
+Some examples of file permissions are listed below.   
+
+-rwx------ : regular file, (400), only owner can read, write, execute this file.   
+-rw-r--r-- : regualr file, (544), anyone can read, only owner can modify or delete.   
+drwxr-xr-x : directory, (755), owner can read, write and access directory, group and other users can read contents and access it, cd is allowed   
+-rwxr-xr-x : regular file, (755), only owner can modify or delete, however anyone can read or execute it   
+
+Using chmod you can modify file permissions. You can grant (+) ore revoke (-) for one or more users.   
+Grant r or w or x permission using +r or +w or +x    
+Revoke r or w or x permission using -r or -w or -x    
+Before + or -, specify groups without space.    
+
+chmod +x : grant execute permission to all    
+chmod g+w : grant write permission to same group users   
+chmod go+r : grant read permission to group and other users    
+chmod 777 : grant rwx to owner, group and non-group users, be very careful why such permission mode is being set    
+chmod 744 : grant rwx to user and read to group and others    
+
+Recall /bin/sh is a shell.    
+
+```
+$ ls -lrt /bin/sh
+lrwxrwxrwx 1 root root 4 Mar 23 19:19 /bin/sh -> dash
+```
+
+Using buffer overflow, if a remote user can get a shell /bin/sh executing some shellcode, then what he can do - try to visualise using permissions of /bin/sh - specifically see owner and all permissions.   
+
 ----
 ## Command completion
 Learn to use tab key for command completion or completing file / directory names. This can save time in typing.  
@@ -538,7 +625,7 @@ Just in case you run out of space, check dmesg and try to clean up the last acti
 ## The One with UNIX/Linux History 
 
 One can say, in a very crude way:    
-open-source OS is - free to download from online repo, free to use, or modify (no license cost) - free refers to freedom of choice! there may be a packaging or  shipping cost or a suppport cost.    
+open-source OS is - free to download from online repo, free to use, or modify (no license cost) - free refers to freedom of choice! there may be a packaging or  shipping cost or a support cost.    
 closed source OS is someone's proprietary binary source files and user cannot modify source, usually this comes with a license cost or cost is added with accompanying device being sold.   
 
 Some closed-source early UNIX favours:   
