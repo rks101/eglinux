@@ -589,10 +589,3 @@ Some reading material:
 
 [The talk with not so visionary, not so people-person, a simple happy engineer](https://www.youtube.com/watch?v=o8NPllzkFhE) Linus Torvalds who changed the world at least twice with Linux and Git projects.   
 
-
-----
-
-## Thank you 
-
-I am grateful, if you have reached this far after reading the content above.  
-If you have learnt something new, that's awesome! Thank you!   
