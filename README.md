@@ -17,6 +17,7 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [Environment variables](#environment-variables)
       * [Debugging](#debugging)
       * [Getting help on-system](#getting-help-on-system)
+      * [Advantage Linux](#advantage-linux)
       * [Simple web server](#simple-web-server)
       * [The One with mysql admin password](#the-one-with-mysql-admin-password)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
@@ -362,6 +363,16 @@ man grep
 man info 
 ```
 Also, you can explore **info** pages.  
+
+----
+
+## Advantage Linux 
+
+I have been using Linux as primary desktop/laptop OS since 2003, well before I owned my first desktop. I can always count on community support, forums, and there are so many instances, I could get help on online forums, web pages. At times, I wondered what gets them going? who pays their bills? what I could do this going?   
+
+A few recent instances where I could get help:   
+
+* [Anydesk not loading due to missing shared object from libpangox](http://technoworkshop.in/solved-error-while-loading-shared-libraries-libpangox-1-0-so-0-anydesk-on-ubuntu-22-04-lts/)   
 
 ----
 ## Simple web server 
