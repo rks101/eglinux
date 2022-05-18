@@ -23,6 +23,7 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
       * [The One with Linus](#the-one-with-linus)
+      * [Linux Software](#linux-software) 
 
 
 ## ls -lrt
