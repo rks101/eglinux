@@ -600,3 +600,8 @@ Some reading material:
 
 [The talk with not so visionary, not so people-person, a simple happy engineer](https://www.youtube.com/watch?v=o8NPllzkFhE) Linus Torvalds who changed the world at least twice with Linux and Git projects.   
 
+---- 
+
+## Linux software
+
+[Linux Software](https://github.com/luong-komorebi/Awesome-Linux-Software)   
