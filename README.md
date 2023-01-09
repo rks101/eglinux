@@ -106,6 +106,12 @@ cat /proc/$$/stack
 Using the output of the above commands, convince yourself that you can visualise stack, heap, text segment of a process using virtual addresses and the output. Also, see /lib/x84_64-linux-gnu/lib\*  files and other shared libraries.  
 In the above example, replace $$ with a process id you are interested in.  
 
+Ok, next you should try out:   
+```
+cat /proc/self/maps
+```
+Here is a link to [understand the output](https://www.baeldung.com/linux/proc-id-maps) almost line by line.   
+
 
 What shared object / libraries are used by a program? 
 
