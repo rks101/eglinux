@@ -19,6 +19,7 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [Getting help on-system](#getting-help-on-system)
       * [Advantage Linux](#advantage-linux)
       * [Simple web server](#simple-web-server)
+      * [crt and key file](#crt-and-key-file) 
       * [The One with mysql admin password](#the-one-with-mysql-admin-password)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
@@ -409,6 +410,12 @@ python
 
 To check if Java runtime environment (JRE) is installed: $ java --version  
 To see if Java SDK is installed: $ javac  
+
+----
+
+## crt and key file   
+For SSL/TLS certificate setup on a HTTP server, it requires a certificate and a private file.   
+[Public key certificate and private key file](https://www.baeldung.com/linux/crt-key-files)   
 
 ---- 
 ## The One with mysql admin password
