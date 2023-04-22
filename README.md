@@ -123,6 +123,10 @@ $ ldd /bin/ls
 $ ldd /usr/bin/python3.8 
 ```
 
+Where and how to know more about /proc?  
+
+One of the best way to understand virtual memory and process memory layout: [Cheese on /proc](https://www.kernel.org/doc/Documentation/filesystems/proc.txt)   
+
 ---- 
 
 ## List hardware 
