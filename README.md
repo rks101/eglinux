@@ -361,7 +361,7 @@ In /var/log/ directory, see the most recent logs, like dmesg, syslog, dpkg log, 
 What if I do not know commands or their options and arguments?   
 - To know about Linux built-ins and commands, there are plain text on-screen manuals.   
 - There is a **man** I know from 2003 who can help, and he tells me the most from reliable sources.   
-- Always ask **man**, using: 
+- (While I am not around,) Always ask **man**, using: 
 ```
 man man 
 man cd 
