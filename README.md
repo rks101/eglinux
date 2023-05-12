@@ -13,6 +13,7 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [List hardware using `lshw`](#list-hardware)
       * [The One with File Permissions](#the-one-with-file-permissions) 
       * [Command completion](#command-completion)
+      * [xdg-open](#xdg--open)
       * [Installed packages](#installed-packages)
       * [Environment variables](#environment-variables)
       * [Debugging](#debugging)
@@ -248,6 +249,24 @@ Tip: in case command completion is not working on system, check you have install
 A related [long story](https://unix.stackexchange.com/questions/264102/bash-completion-is-very-incomplete-on-centos-7).  
 
 ----
+
+## xdg-open 
+
+You may have come across xdg-open message when starting or joining a conference call/meeting from a browser link to a specific meeting application. It can be visible when you click a link on website menu and that menu does not have a actual target link.    
+
+From man-page of xdg-open:   
+xdg-open is a linux command to open a file or URL in the user's preferred application. xdg-open supports file, ftp, http and https URLs.   
+
+e.g. open a web page    
+```
+$ xdg-open 'http://www.freedesktop.org/'
+$ Gtk-Message: 11:56:17.079: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
+Opening in existing browser session.
+```
+TODO: add image of browser pop-up showing xdg-open message   
+
+----
+
 ## Installed packages
 How do I find out installed software packages? 
 ```
