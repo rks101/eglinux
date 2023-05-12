@@ -13,7 +13,7 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [List hardware using `lshw`](#list-hardware)
       * [The One with File Permissions](#the-one-with-file-permissions) 
       * [Command completion](#command-completion)
-      * [xdg-open](#xdg--open)
+      * [xdg-open](#xdg-open)
       * [Installed packages](#installed-packages)
       * [Environment variables](#environment-variables)
       * [Debugging](#debugging)
