@@ -10,6 +10,7 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [Know processors](#know-processors)
       * [Know memory](#know-memory)
       * [Process Memory Layout using `proc`](#process-memory-layout)
+      * [Processes](#processes)
       * [List hardware using `lshw`](#list-hardware)
       * [The One with File Permissions](#the-one-with-file-permissions) 
       * [Command completion](#command-completion)
@@ -129,6 +130,20 @@ Where and how to know more about /proc?
 
 One of the best way to understand virtual memory and process memory layout: [Cheese on /proc](https://www.kernel.org/doc/Documentation/filesystems/proc.txt)   
 
+---- 
+
+## Processes   
+
+Use ps command with flags -aef or -aux and grep for user or other strings.    
+
+ps -aux shows USER running the process, PID of the process, %CPU used, %MEM used, status of the process, timestamp of starting the process, and command used to start the process.    
+
+```
+ps
+ps -aef 
+ps -aux
+ps -aux | grep $USER 
+```
 ---- 
 
 ## List hardware 
