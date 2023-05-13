@@ -423,6 +423,8 @@ MiB Swap:  30518.0 total,  30518.0 free,      0.0 used.   9270.3 avail Mem
  129414 msg       20   0   12336   4372   3408 R   0.7   0.0   0:00.05 top  
     883 root      20   0  484176  21492  17276 S   0.3   0.1   1:08.84 NetworkManager  
 ```
+Interesting: Try pressing any arrow key while top is on.   
+
 
 Use **dstat** - a tool for generating system resource statistics such as cpu usage, disk read/write, network data received/sent, etc. To exit type Ctrl+C.    
 ```
