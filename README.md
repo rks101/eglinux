@@ -13,6 +13,7 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [List hardware using `lshw`](#list-hardware)
       * [The One with File Permissions](#the-one-with-file-permissions) 
       * [Command completion](#command-completion)
+      * [Transfer file using Secure Copy `scp`](#scp)
       * [`xdg-open`](#xdg-open)
       * [Installed packages](#installed-packages)
       * [Environment variables](#environment-variables)
@@ -248,6 +249,19 @@ Hint: type ls -lrt /home/rps/Do  and then press tab twice, you will get matching
 Tip: in case command completion is not working on system, check you have installed bash-completion and bash-completion-extras  
 A related [long story](https://unix.stackexchange.com/questions/264102/bash-completion-is-very-incomplete-on-centos-7).  
 
+----
+
+## Transfer file using Secure Copy `scp`   
+
+Using Secure Copy or scp, we can tarnsfer files to-and-from local to remote systems. Underneath, scp uses SSH for auth and encryption.    
+
+```
+scp SOURCE DESTINATION    
+
+scp  path-of-local-file-or-dir  user@remote-system:/path-to-remote-file-or-dir    
+
+scp  user@remote-system:/path-of-remote-file-dir  path-of-local-file-or-dir    
+```
 ----
 
 ## xdg-open 
