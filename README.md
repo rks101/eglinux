@@ -144,6 +144,7 @@ ps -aef
 ps -aux
 ps -aux | grep $USER 
 ```
+
 ---- 
 
 ## List hardware 
@@ -255,6 +256,56 @@ lrwxrwxrwx 1 root root 4 Mar 23 19:19 /bin/sh -> dash
 Using buffer overflow, if a remote user can get a shell /bin/sh executing some [shellcode](https://cocomelonc.github.io/tutorial/2021/10/09/linux-shellcoding-1.html), then what he can do - try to visualise using permissions of /bin/sh - specifically see owner and all permissions.   
 
 ----
+
+Let us discuss two interesting questions using ps, ls and permissions.    
+
+Q1. If a program is owned by root or other user, how a non-root user can run it?       Hint: setUserId() bit.     
+
+A. Follow the commands below and understand the output.   
+```
+$ ps -eo euser,ruser,suser,fuser,f,comm,label                   <== check a few effective user and real user entries in the listing   
+EUSER    RUSER    SUSER    FUSER    F COMMAND         LABEL
+root     root     root     root     4 systemd         unconfined
+........ 
+root     rks      root     root     4 fusermount3     unconfined
+.......
+
+$ which fusermount3                                            <== get path of fusermount3   
+/usr/bin/fusermount3
+
+$ ls -lrt /usr/bin/fusermount3                                 <== ask ls for permissions on fusermount3  
+-rwsr-xr-x 1 root root 35200 Dec 23  2020 /usr/bin/fusermount3    <== notice  s  after -rw, this is SUID bit.   
+
+```
+If SUID bit is set for a program/executable, while running the program, effective user id gets updated to the user id of owner of the program while it was run by a real user.   
+
+Now, check SUID bit for passwd :)    
+
+```
+$ ls -lrt /usr/bin/passwd
+-rwsr-xr-x 1 root root 59976 Nov 24 17:35 /usr/bin/passwd
+```
+That's why a non-root user can change password on linux, even if passwd is owned by root.    
+
+Note: There are other such programs as well, check using find / -perm /4000    
+
+
+Q2. Can a user see (read) or delete files created by other users under /tmp directory?         Hint: sticky bit. 
+
+A. Try to understand the output of the commands below:
+```
+$ ls -ld /tmp
+drwxrwxrwt 23 root root 4096 Nov 24 12:19 /tmp                  <== notice  t  instead of x or - this t is for sticky bit 
+
+$ ls -ld /run/lock
+drwxrwxrwt 4 root root 100 May 11 18:02 /run/lock
+```
+If sticky bit is set for a directory, all files inside this directory can de deleted or moved by the owner of the files or the guru (root).    
+
+See if there are other such directories like tmp using find / -perm /1000 
+
+----
+
 ## Command completion
 Learn to use tab key for command completion or completing file / directory names. This can save time in typing.  
 
