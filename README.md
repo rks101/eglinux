@@ -13,7 +13,7 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [List hardware using `lshw`](#list-hardware)
       * [The One with File Permissions](#the-one-with-file-permissions) 
       * [Command completion](#command-completion)
-      * [Transfer file using Secure Copy `scp`](#scp)
+      * [Transfer file using Secure Copy (scp)](#scp) 
       * [`xdg-open`](#xdg-open)
       * [Installed packages](#installed-packages)
       * [Environment variables](#environment-variables)
@@ -251,7 +251,7 @@ A related [long story](https://unix.stackexchange.com/questions/264102/bash-comp
 
 ----
 
-## Transfer file using Secure Copy `scp`   
+## Transfer file using Secure Copy (scp)   
 
 Using Secure Copy or scp, we can tarnsfer files to-and-from local to remote systems. Underneath, scp uses SSH for auth and encryption.    
 
