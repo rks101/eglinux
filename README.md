@@ -214,7 +214,7 @@ lp:x:7:
 mail:x:8:
 ```
 
-Memorise the first command we learnt, ls -lrt, now type this in any directory for files and see the output.   
+Memorise the first command we learnt, ls -lrt, now type this in any directory for files and see the output. For a directory use ls -ld    
 First column shows file permission mode, column 3 and 4 show owner and group names respectively.   
 
 File permission mode can be viewed as:   
@@ -230,10 +230,12 @@ Using x - regular file can be executed if it is a script, directory can be acces
 
 Some examples of file permissions are listed below.   
 
+```
 -rwx------ : regular file, (400), only owner can read, write, execute this file.   
 -rw-r--r-- : regualr file, (544), anyone can read, only owner can modify or delete.   
 drwxr-xr-x : directory, (755), owner can read, write and access directory, group and other users can read contents and access it, cd is allowed   
 -rwxr-xr-x : regular file, (755), only owner can modify or delete, however anyone can read or execute it   
+```
 
 Using chmod you can modify file permissions. You can grant (+) ore revoke (-) for one or more users.   
 Grant r or w or x permission using +r or +w or +x    
