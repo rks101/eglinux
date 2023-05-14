@@ -306,6 +306,8 @@ If sticky bit is set for a directory, all files inside this directory can de del
 
 See if there are other such directories like tmp using find / -perm /1000 
 
+A Redhat article on [Linux permissions: SUID, SGID and sticky bits](https://www.redhat.com/sysadmin/suid-sgid-sticky-bit).    
+
 ----
 
 ## Command completion
