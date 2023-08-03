@@ -16,6 +16,7 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [Command completion](#command-completion)
       * [Transfer files using Secure Copy scp](#transfer-files-using-secure-copy-scp) 
       * [`xdg-open`](#xdg-open)
+      * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Installed packages](#installed-packages)
       * [Environment variables](#environment-variables)
       * [Debugging](#debugging)
@@ -358,7 +359,7 @@ Wayland (default on Ubuntu 22.04 LTS)
 
 Zoom app has an interesting bug for screen sharing in Linux systems (desktop/laptop image) using the default Wayland windowing system. Only Whiteboard sharing is enabled options and there is no option to share desktop/laptop screen. It appears Zoom has decided not to fix this bug.    
 
-To enable screen sharing on Linux Desktop/Laptop with Zoom, disable Wayland in Graphical Display Manager (GDM) config and switch to Xorg/X11 windowing system. 
+To enable screen sharing on Linux Desktop/Laptop with Zoom, disable Wayland in Graphical Display Manager (GDM) config and switch to Xorg/X11 windowing system.   
 
 ```
 $ sudo vi /etc/gdm3/custom.conf    <== edit gdm custom.conf using editor   
