@@ -351,6 +351,25 @@ TODO: add image of browser pop-up showing xdg-open message
 
 ----
 
+## Windowing System for GUI   
+
+Xorg   
+Wayland (default on Ubuntu 22.04 LTS)   
+
+Zoom app has an interesting bug for screen sharing in Linux systems (desktop/laptop image) using the default Wayland windowing system. Only Whiteboard sharing is enabled options and there is no option to share desktop/laptop screen. It appears Zoom has decided not to fix this bug.    
+
+To enable screen sharing on Linux Desktop/Laptop with Zoom, disable Wayland in Graphical Display Manager (GDM) config and switch to Xorg/X11 windowing system. 
+
+```
+$ sudo vi /etc/gdm3/custom.conf    <== edit gdm custom.conf using editor   
+# Uncomment the line below to force the login screen to use Xorg   
+#WaylandEnable=false               <== Uncomment this and restart the system   
+```
+
+Now, after this workaround, Zoom will show Desktop sharing alongside Whiteboard sharing.    
+
+---- 
+
 ## Installed packages
 How do I find out installed software packages? 
 ```
