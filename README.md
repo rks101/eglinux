@@ -14,7 +14,8 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [List hardware using `lshw`](#list-hardware)
       * [The One with File Permissions](#the-one-with-file-permissions) 
       * [Command completion](#command-completion)
-      * [Transfer files using Secure Copy scp](#transfer-files-using-secure-copy-scp) 
+      * [Transfer files using Secure Copy scp](#transfer-files-using-secure-copy-scp)
+      * [Remote login using ssh](#remote-login-using-ssh) 
       * [`xdg-open`](#xdg-open)
       * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Installed packages](#installed-packages)
@@ -333,6 +334,23 @@ scp  path-of-local-file-or-dir  user@remote-system:/path-to-remote-file-or-dir
 
 scp  user@remote-system:/path-of-remote-file-dir  path-of-local-file-or-dir    
 ```
+----
+
+## Remote login using ssh    
+
+To login to a server or virtual machine remotely from your own Linux system, you can use ssh:    
+```
+ssh remote_username@remote_server_ip_or_name
+```
+SSH using pem file:    
+```
+ssh -i filename.pem remote_username@remote_server_ip_or_name   
+```
+You should change permissions of pem file to 644 to remove error: Permissions 0664 for 'filename.pem' are too open.   
+```
+chmod 600 filename.pem  
+```
+
 ----
 
 ## xdg-open 
