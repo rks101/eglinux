@@ -346,9 +346,10 @@ SSH using pem file:
 ```
 ssh -i filename.pem remote_username@remote_server_ip_or_name   
 ```
-You should change permissions of pem file to 644 to remove error: Permissions 0664 for 'filename.pem' are too open.   
+SSH ignores a private key file (.pem file) if it is accessible by others.   
+You should change the permissions of the pem file to remove access for other users (600 or 400) to remove the error: Permissions 0664 for 'filename.pem' are too open.   
 ```
-chmod 600 filename.pem  
+chmod 400 filename.pem  
 ```
 
 ----
