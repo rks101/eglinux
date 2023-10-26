@@ -760,7 +760,7 @@ Some reading material:
 
 ## The One with Linus
 
-[The talk with not so visionary, not so people-person, a simple happy engineer](https://www.youtube.com/watch?v=o8NPllzkFhE) Linus Torvalds who changed the world at least twice with Linux and Git projects.   
+[The talk with not so visionary, not so people-person, a simple happy engineer](https://www.youtube.com/watch?v=o8NPllzkFhE) Linus Torvalds who changed the world at least twice with Linux and Git. He started both the projects as a hobby and to solve the problems he was facing. On mailing lists, he speaks his mind, if he does not agree with something - he logs it, registers it.    
 
 ---- 
 
