@@ -1,8 +1,8 @@
 # eglinux 
 <!--[muscot](https://commons.wikimedia.org/wiki/File:Tux.png)-->
-eglinux => pronounced as "easy Linux" compiles - easy and helpful Linux commands for beginners and intermediate users.   
+eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux commands, pointers for beginners and intermediate users.   
 
-Voluntary Disclosure: The output shown for commands or utilities mentioned below is compiled for illustration purpose only. You may not find all or same details in your lab/office/dungeon.   
+Voluntary Disclosure: The output shown for commands or utilities mentioned below is compiled for illustration purpose only. You may not find all or same details in your lab/office/dungeon.    
 
    * [eglinux](#eglinux)
       * [`ls -lrt`](#ls--lrt)
@@ -29,7 +29,8 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
       * [The One with Linus](#the-one-with-linus)
-      * [Linux Software](#linux-software) 
+      * [Linux Software](#linux-software)
+      * [Linux Security](linux-security) 
 
 
 ## ls -lrt
@@ -767,3 +768,14 @@ Some reading material:
 ## Linux software
 
 [Linux Software](https://github.com/luong-komorebi/Awesome-Linux-Software)   
+
+---- 
+
+## Linux Security    
+
+* Unlike Windows, Linux was designed from the ground up as a multiuser operating system. Therefore, user-level security provisions tend to be a bit better on a Linux system.   
+* Linux offers a better separation between administrative users and unprivileged users. This makes it a bit harder for intruders, and it also makes it a bit harder for a user to accidentally infect a Linux machine with something nasty.
+* Linux is much more resistant to viruses and malware infections than Windows is. Certain Linux distributions come with built-in mechanisms, such as SELinux in Red Hat and its free-of-charge clones, and AppArmor in Ubuntu and SUSE, that help prevent intruders from taking control of a system.
+* Linux is free and open source software. This allows anyone who has the skill to audit Linux code to hunt for bugs or backdoors.
+
+Yet even with those advantages, Linux is just like everything else that has been created by mankind. That is, it is not perfect.   
