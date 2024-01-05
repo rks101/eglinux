@@ -30,7 +30,8 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
       * [The One with Linus](#the-one-with-linus)
       * [Linux Software](#linux-software)
-      * [Linux Security](linux-security) 
+      * [Linux Security](#linux-security)
+      * [Linux Kernel](#linux-kernel)
 
 
 ## ls -lrt
@@ -779,3 +780,11 @@ Some reading material:
 * Linux is free and open source software. This allows anyone who has the skill to audit Linux code to hunt for bugs or backdoors.
 
 Yet even with those advantages, Linux is just like everything else that has been created by mankind. That is, it is not perfect.   
+
+----
+
+## Linux Kernel   
+
+[Linux Kernel Home](https://www.kernel.org/)    
+[Core API Documentation](https://www.kernel.org/doc/html/latest/core-api/index.html)    
+Examples for logging [printk](https://www.kernel.org/doc/html/latest/core-api/printk-basics.html)    
