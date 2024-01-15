@@ -11,6 +11,8 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [Know memory](#know-memory)
       * [Process Memory Layout using `proc`](#process-memory-layout)
       * [Processes](#processes)
+      * [Environment Variables](#environment-variables)
+      * [Kernel Parameters](#kernel-parameters)
       * [List hardware using `lshw`](#list-hardware)
       * [The One with File Permissions](#the-one-with-file-permissions) 
       * [Command completion](#command-completion)
@@ -151,7 +153,77 @@ ps -aux
 ps -aux | grep $USER 
 ```
 
+----
+
+## Environment Variables    
+
+Using printenv, we can print environment variables that may be helpful to set or display PATH, alias, user, and session details for scripting or debugging.    
+
+```
+$ printenv
+SHELL=/bin/bash
+SSH_AGENT_LAUNCHER=gnome-keyring
+XDG_MENU_PREFIX=gnome-
+LANGUAGE=en_IN:en
+PWD=/wah/rks
+LOGNAME=rks
+XDG_SESSION_TYPE=x11
+SYSTEMD_EXEC_PID=2798
+HOME=/wah/rks
+USERNAME=rks
+LANG=en_IN
+USER=rks
+DISPLAY=:1
+SHLVL=1
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/wah/scripts
+GDMSESSION=ubuntu
+_=/usr/bin/printenv
+
+```
+
 ---- 
+
+## Kernel Parameters    
+
+Like printenv for the current session, we can set or display kernel parameters for the currently booted kernel. You would like to know what values you set before you set them :)    
+
+```
+$ cat /proc/cmdline 
+BOOT_IMAGE=/boot/vmlinuz-6.2.0-39-generic root=UUID=d56a27d6-0a3c-40a1-b85f-b4fa53bff998 ro quiet splash vt.handoff=7
+```
+
+```
+$ sysctl -a
+abi.vsyscall32 = 1
+debug.exception-trace = 1
+debug.kprobes-optimization = 1
+...
+dev.scsi.logging_level = 0
+...
+
+...
+user.max_net_namespaces = 61251
+user.max_pid_namespaces = 61251
+...
+vm.overcommit_memory = 0
+vm.overcommit_ratio = 50
+...
+vm.swappiness = 60
+vm.unprivileged_userfaultfd = 0
+vm.user_reserve_kbytes = 131072
+vm.vfs_cache_pressure = 100
+vm.watermark_boost_factor = 15000
+vm.watermark_scale_factor = 10
+vm.zone_reclaim_mode = 0
+
+```
+----
+
+## Overcommit memory    
+
+Know more about vm.overcommit_memory and vm.overcommit_ratio at [serverfault](https://serverfault.com/questions/606185/how-does-vm-overcommit-memory-work)     
+
+----
 
 ## List hardware 
 How can I list hardware details?  
