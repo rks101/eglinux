@@ -236,13 +236,14 @@ $ getpcap PID
 ```
 
 When asked the man (man capabilities) , got this reply :)     
- |      For  the purpose of performing permission checks, traditional UNIX implementations distinguish two categories of processes: privileged processes (whose effective user ID is 0,   
- |      referred to as superuser or root), and unprivileged processes (whose effective UID is nonzero).  Privileged processes bypass all kernel permission checks,  while  unprivileged   
- |      processes are subject to full permission checking based on the process's credentials (usually: effective UID, effective GID, and supplementary group list).   
- |   
- |      Starting  with  Linux  2.2, Linux divides the privileges traditionally associated with superuser into distinct units, known as capabilities, which can be independently enabled   
- |      and disabled.  Capabilities are a per-thread attribute.   
-
+```
+  For  the purpose of performing permission checks, traditional UNIX implementations distinguish two categories of processes: privileged processes (whose effective user ID is 0,   
+  referred to as superuser or root), and unprivileged processes (whose effective UID is nonzero).  Privileged processes bypass all kernel permission checks,  while  unprivileged   
+  processes are subject to full permission checking based on the process's credentials (usually: effective UID, effective GID, and supplementary group list).   
+   
+  Starting  with  Linux  2.2, Linux divides the privileges traditionally associated with superuser into distinct units, known as capabilities, which can be independently enabled   
+  and disabled.  Capabilities are a per-thread attribute.   
+```
 
 ----
 
