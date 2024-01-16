@@ -13,6 +13,7 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [Processes](#processes)
       * [Environment Variables](#environment-variables)
       * [Kernel Parameters](#kernel-parameters)
+      * [Linux capabilities](#linux-capabilities)
       * [List hardware using `lshw`](#list-hardware)
       * [The One with File Permissions](#the-one-with-file-permissions) 
       * [Command completion](#command-completion)
@@ -222,6 +223,26 @@ vm.zone_reclaim_mode = 0
 ## Overcommit memory    
 
 Know more about vm.overcommit_memory and vm.overcommit_ratio at [serverfault](https://serverfault.com/questions/606185/how-does-vm-overcommit-memory-work)     
+
+----
+
+## Linux Capabilities   
+
+Unprivileged or non-root processes can be enabled or disabled for certain tasks or to access some resources. They are pretty much permissions for a process.    
+
+You can check capabilities for a process using    
+```
+$ getpcap PID   
+```
+
+When asked the man (man capabilities) , got this reply :)     
+ |      For  the purpose of performing permission checks, traditional UNIX implementations distinguish two categories of processes: privileged processes (whose effective user ID is 0,   
+ |      referred to as superuser or root), and unprivileged processes (whose effective UID is nonzero).  Privileged processes bypass all kernel permission checks,  while  unprivileged   
+ |      processes are subject to full permission checking based on the process's credentials (usually: effective UID, effective GID, and supplementary group list).   
+ |   
+ |      Starting  with  Linux  2.2, Linux divides the privileges traditionally associated with superuser into distinct units, known as capabilities, which can be independently enabled   
+ |      and disabled.  Capabilities are a per-thread attribute.   
+
 
 ----
 
