@@ -12,6 +12,7 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
       * [Process Memory Layout using `proc`](#process-memory-layout)
       * [Processes](#processes)
       * [Environment Variables](#environment-variables)
+      * [PATH](#path)   
       * [Kernel Parameters](#kernel-parameters)
       * [Linux capabilities](#linux-capabilities)
       * [List hardware using `lshw`](#list-hardware)
@@ -158,12 +159,14 @@ ps -aux | grep $USER
 
 ## Environment Variables    
 
-Using printenv, we can print environment variables that may be helpful to set or display PATH, alias, user, and session details for scripting or debugging.    
+How to display and change environment variables? Using printenv, we can display/print environment variables that may be helpful to set or display PATH, alias, user, and session details for scripting or debugging.    
 
 ```
 $ printenv
 SHELL=/bin/bash
 SSH_AGENT_LAUNCHER=gnome-keyring
+COLORTERM=truecolor
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
 XDG_MENU_PREFIX=gnome-
 LANGUAGE=en_IN:en
 PWD=/wah/rks
@@ -173,14 +176,43 @@ SYSTEMD_EXEC_PID=2798
 HOME=/wah/rks
 USERNAME=rks
 LANG=en_IN
-USER=rks
+USER=rps                   <= check echo $USER
 DISPLAY=:1
 SHLVL=1
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/wah/scripts
 GDMSESSION=ubuntu
-_=/usr/bin/printenv
+_=/usr/bin/printenv        <= check echo $_
 
 ```
+
+----
+
+## PATH   
+
+What is a path? No one figured out this quite well. Jokes apart, in Linux everything is a file and we may need to refer files where are they, where files reside?    
+
+Path helps to navigate around the file system and files in Linux where almost everything is a file.  
+In the hierarchical directory structure, we can refer path of a regular file (-) or directory (d) or symbolic link (l) using absolute or a relative path.   
+Absolute path corresponds to a path beginning from / or root. e.g. /home/rps/example.desktop   
+Relative path corresponds to a path relative to current directory (pwd) or any other directory. e.g. Downloads/package.deb or ../../home/rps/Downloads/package.deb     
+
+How do we refer to path in commands?    
+
+List a special environment variable called PATH    
+```
+echo $PATH
+```
+
+Update PATH variable to include Videos directory   
+```
+$ echo $PATH
+/home/rps/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+$ export PATH=$PATH:/home/rps/Videos
+$ echo $PATH
+/home/rps/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/rps/Videos
+```
+
+If you want a newly added directory to be searched first in the path, add the new directory first and then append existing contents of path variable. Use which command to locate the first binary or built-in util being referenced.    
 
 ---- 
 
@@ -496,49 +528,7 @@ sudo dpkg --get-selections
 This is equivalent to rpm -qa in case of RHEL/Fedora/CentOS. 
 
 ----
-## Environment variables
-How to display and change environment variables? 
 
-List all environment variables using printenv 
-```
-printenv
-SHELL=/bin/bash
-COLORTERM=truecolor
-XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
-LANGUAGE=en_IN:en
-PWD=/home/rps
-LOGNAME=rps
-......
-HOME=/home/rps
-USERNAME=rps
-USER=rps                   <= check echo $USER
-......
-_=/usr/bin/printenv        <= check echo $_
-
-```
-List a special environment variable called PATH
-```
-echo $PATH
-```
-Change PATH variable to include Videos directory
-```
-$ echo $PATH
-/home/rps/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-$ export PATH=$PATH:/home/rps/Videos
-$ echo $PATH
-/home/rps/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/rps/Videos
-```
-If you want newly added directory to be searched first in the path, add the new directory first and then append existing contents of path variable. Use which command to locate the first binary or built-in util being referenced.    
-
-----
-What is a path? How do we refer to it in commands?  
-
-Path helps to navigate around the file system and files in Linux where almost everything is a file.  
-In the hierarchical directory structure, we can refer path of a regular file (-) or directory (d) or symbolic link (l) using absolute or a relative path.  
-Absolute path corresponds to a path beginning from / or root. e.g. /home/rps/example.desktop  
-Relative path corresponds to a path relative to current directory (pwd) or any other directory. e.g. Downloads/package.deb or ../../home/rps/Downloads/package.deb 
-
-----
 ## Debugging
 
 For debugging issues, the following can help about processes and system resources.  
