@@ -1,8 +1,8 @@
 # eglinux 
 <!--[muscot](https://commons.wikimedia.org/wiki/File:Tux.png)-->
-eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux commands, pointers for beginners and intermediate users.   
+eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux commands, and pointers for beginners and intermediate users.   
 
-Voluntary Disclosure: The output shown for commands or utilities mentioned below is compiled for illustration purpose only. You may not find all or same details in your lab/office/dungeon.    
+Voluntary Disclosure: The output shown for commands or utilities below is compiled for illustration purposes only. You may not find all or the same details in your lab/office/dungeon.    
 
    * [eglinux](#eglinux)
       * [`ls -lrt`](#ls--lrt)
@@ -39,7 +39,7 @@ Voluntary Disclosure: The output shown for commands or utilities mentioned below
 
 
 ## ls -lrt
-Everytime you open terminal or shell, the first command you should check out to list all files and directries (ls) in a long (l) and reverse (r) order of time (t) updated. Do compare this output with various other outputs from ls options.    
+Every time you open a terminal or shell, the first command you should check out is to list all files and directories (ls) in a long (l) and reverse (r) order of time (t) updated. Do compare this output with various other outputs from ls options.    
 ```
 ls -lrt
 ```
@@ -53,7 +53,7 @@ Description:	Ubuntu 20.04.1 LTS
 Release:	20.04
 Codename:	focal
 ```
-Note:- LSB is Linux Standard Base. If you are more interested, after this article you can refer to [what is LSB](https://wiki.linuxfoundation.org/lsb/start) and [LSB Specs](https://refspecs.linuxfoundation.org/lsb.shtml). To maintain the flow, continue reading.  
+Note:- LSB is Linux Standard Base. If you are more interested, after this article, you can refer to [what is LSB](https://wiki.linuxfoundation.org/lsb/start) and [LSB Specs](https://refspecs.linuxfoundation.org/lsb.shtml). To maintain the flow, continue reading.  
 
 TIMTOWTDI (There Is More Than One Way To Do It): you can use /etc/os-release 
 ```
@@ -83,10 +83,10 @@ How many processors do we have on the system? To know details and processor flag
 cat /proc/cpuinfo  
 cat /proc/cpuinfo | grep "processor"  
 ```
-Check the output. If you get eight entries with processor numbered from 0 to 7, this suggests 8 logical cores.  
+Check the output. If you get eight entries with processors numbered from 0 to 7, this suggests eight logical cores.  
 
 ## Know memory
-How much memory (RAM / main memmory / primary memory to run programs) do we have on the system? You can see installed, free, and other memory details:  
+How much memory (RAM / main memory / primary memory to run programs) do we have on the system? You can see installed, free, and other memory details:  
 ```
 cat /proc/meminfo  
 ```
@@ -94,12 +94,12 @@ Check the output for MemTotal, MemFree, MemAvailable.
 
 Note: Why should you consider MemAvailable from 2014 onward? [Check this patch](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34e431b0ae398fc54ea69ff85ec700722c9da773) and [post 1](https://stackoverflow.com/questions/30869297/difference-between-memfree-and-memavailable) and [post 2](https://superuser.com/questions/980820/what-is-the-difference-between-memfree-and-memavailable-in-proc-meminfo). To maintain the flow, continue reading.   
 
-Note:- It is good to learn about [types of RAM](https://www.techtarget.com/searchstorage/definition/DIMM), such as earlier SIMM, and DIMM, bufferred memory, Load Reduced or LR-DIMM (with iMB to isolate data and address), Small Outline or SO-DIMM (compact form factor for recent laptops/tablets), etc. A post on [which one to use](https://www.dasher.com/server-memory-rdimm-vs-lrdimm-and-when-to-use-them/) and [difference](https://www.faceofit.com/rdimm-vs-irdimm-vs-udimms/) can be helpful. To maintain the flow, continue reading.    
+Note:- It is good to learn about [types of RAM](https://www.techtarget.com/searchstorage/definition/DIMM), such as earlier SIMM, and DIMM, buffered memory, Load-Reduced or LR-DIMM (with iMB to isolate data and address), Small Outline or SO-DIMM (compact form factor for recent laptops/tablets), etc. A post on [which one to use](https://www.dasher.com/server-memory-rdimm-vs-lrdimm-and-when-to-use-them/) and [difference](https://www.faceofit.com/rdimm-vs-irdimm-vs-udimms/) can be helpful. To maintain the flow, continue reading.    
 
 ---- 
 
 ## Process Memory Layout 
-This one is my favorite topic in OS lab. Helps to visualise virtual memory, process layout, proc interface, and shared libs/objects.     
+This one is my favorite topic in OS lab. It helps to visualize virtual memory, process layout, proc interface, and shared libs/objects.     
 
 Can I see the memory layout and the stack of a process? See my [presentation]() with more details.   
 To see all files related to a process with PID = $$  
@@ -824,8 +824,9 @@ Some closed-source early UNIX favours:
 BSD UNIX: Berkeley Software Distribution had three flavours or varients, such as freeBSD, openBSD, netBSD.    
 SCO UNIX: was based on freeBSD, managed by Santa Cruz Operations, later sold to OpenServer maintainer.    
 Solaris:   
-AIX:   
-HP-UX:    
+AIX: IBM Unix    
+HP-UX: HP Unix     
+[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution)    
 Mac OS:   
 
 Some open-source UNIX/linux favours/varients:   
