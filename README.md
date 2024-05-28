@@ -868,6 +868,8 @@ Some reading material:
 
 Yet even with those advantages, Linux is just like everything else that has been created by mankind. That is, it is not perfect.   
 
+[LinEnum - Linux Enumeration and Privilege Escalation/Exploration Script](https://github.com/rebootuser/LinEnum)    
+
 ----
 
 ## Linux Kernel   
