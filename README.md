@@ -870,6 +870,8 @@ Yet even with those advantages, Linux is just like everything else that has been
 
 [LinEnum - Linux Enumeration and Privilege Escalation/Exploration Script](https://github.com/rebootuser/LinEnum)    
 
+[Linux privilege escalation and exploration](https://sushant747.gitbooks.io/total-oscp-guide/content/privilege_escalation_-_linux.html)    
+
 ----
 
 ## Linux Kernel   
