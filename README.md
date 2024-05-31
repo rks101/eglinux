@@ -36,6 +36,7 @@ Voluntary Disclosure: The output shown for commands or utilities below is compil
       * [Linux Software](#linux-software)
       * [Linux Security](#linux-security)
       * [Linux Kernel](#linux-kernel)
+      * [Virtualization](#virtualization)
 
 
 ## ls -lrt
@@ -879,3 +880,9 @@ Yet even with those advantages, Linux is just like everything else that has been
 [Linux Kernel Home](https://www.kernel.org/)    
 [Core API Documentation](https://www.kernel.org/doc/html/latest/core-api/index.html)    
 Examples for logging [printk](https://www.kernel.org/doc/html/latest/core-api/printk-basics.html)    
+
+## Virtualization    
+
+
+[Virtualization and QEMU](https://docs.saferwall.com/blog/virtualization-internals-part-4-qemu/)    
+
