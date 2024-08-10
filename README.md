@@ -78,6 +78,36 @@ uname -a
 Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
+----
+## Getting help on-system 
+
+What if I do not know commands or their options and arguments?   
+- To know about Linux built-ins and commands, there are plain text on-screen manuals.   
+- There is a **man** I know from 2003 who can help, and he tells me the most from reliable sources.   
+- (While I am not around,) Always ask **man**, using: 
+```
+man man 
+man cd 
+man uname 
+man touch 
+man timedatectl 
+man execve 
+man service 
+man find 
+man grep 
+man info 
+```
+Also, you can explore **info** pages.  
+
+Okay, try one of the coolest commands on bash script built-ins:   
+```
+man [ 
+```
+[Advanced]: ls -lrt /usr/bin/[ output will confirm it is a binary executable file.    
+The source is in the coreutils package, src/lbracket.c and src/test.c    
+
+----
+
 ## Know processors
 How many processors do we have on the system? To know details and processor flags:   
 ```
@@ -587,27 +617,6 @@ dmesg
 ls -lrt /var/log/ 
 ```
 In /var/log/ directory, see the most recent logs, like dmesg, syslog, dpkg log, etc. to debug the problem.  
-
-----
-## Getting help on-system 
-
-What if I do not know commands or their options and arguments?   
-- To know about Linux built-ins and commands, there are plain text on-screen manuals.   
-- There is a **man** I know from 2003 who can help, and he tells me the most from reliable sources.   
-- (While I am not around,) Always ask **man**, using: 
-```
-man man 
-man cd 
-man uname 
-man touch 
-man timedatectl 
-man execve 
-man service 
-man find 
-man grep 
-man info 
-```
-Also, you can explore **info** pages.  
 
 ----
 
