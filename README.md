@@ -1,8 +1,8 @@
 # eglinux 
 <!--[muscot](https://commons.wikimedia.org/wiki/File:Tux.png)-->
-eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux commands, and pointers for beginners and intermediate users.   
+eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux commands and pointers for beginners and intermediate users.   
 
-Voluntary Disclosure: The output shown for commands or utilities below is compiled for illustration purposes only. You may not find all or the same details in your lab/office/dungeon.    
+Disclaimer: The output below for commands or utilities is compiled for illustration purposes only. You may not find all the exact details in your lab/office.    
 
    * [eglinux](#eglinux)
       * [`ls -lrt`](#ls--lrt)
@@ -82,8 +82,8 @@ Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 
 ## Getting help on-system 
 
 What if I do not know commands or their options and arguments?   
-- To know about Linux built-ins and commands, there are plain text on-screen manuals.   
-- There is a **man** I know from 2003 who can help, and he tells me the most from reliable sources.   
+- There are plain text on-screen manuals about Linux built-ins and commands.   
+- There is a **man** I know who can help, and he tells us the most from reliable sources.   
 - (While I am not around,) Always ask **man**, using: 
 ```
 man man 
@@ -114,7 +114,7 @@ How many processors do we have on the system? To know details and processor flag
 cat /proc/cpuinfo  
 cat /proc/cpuinfo | grep "processor"  
 ```
-Check the output. If you get eight entries with processors numbered from 0 to 7, this suggests eight logical cores.  
+Could you check the output? If you get eight entries with processors numbered from 0 to 7, this suggests eight logical cores.  
 
 ## Know memory
 How much memory (RAM / main memory / primary memory to run programs) do we have on the system? You can see installed, free, and other memory details:  
@@ -142,7 +142,7 @@ Now, check process memory layout (TODO: add link from OS course file having exer
 cat /proc/$$/maps 
 ```
 
-and stack associated with process $$:  
+And stack associated with process $$:  
 ```
 cat /proc/$$/stack
 ```
@@ -156,7 +156,7 @@ cat /proc/self/maps
 Here is a link to [understand the output](https://www.baeldung.com/linux/proc-id-maps) almost line by line.   
 
 
-What shared object / libraries are used by a program? 
+What shared objects/libraries are used by a program? 
 
 ```
 $ ldd <program>
@@ -165,9 +165,9 @@ $ ldd /bin/ls
 $ ldd /usr/bin/python3.8 
 ```
 
-Where and how to know more about /proc?  
+Do you know where and how to know more about /proc?  
 
-One of the best way to understand virtual memory and process memory layout: [Cheese on /proc](https://www.kernel.org/doc/Documentation/filesystems/proc.txt)   
+One of the best ways to understand virtual memory and process memory layout: [Cheese on /proc](https://www.kernel.org/doc/Documentation/filesystems/proc.txt)   
 
 [procmap](https://github.com/kaiwan/procmap)     
 
@@ -298,13 +298,13 @@ You can check capabilities for a process using
 $ getpcap PID   
 ```
 
-When asked the man (man capabilities) , got this reply :)     
+When asked the man (man capabilities), got this reply :)     
 ```
   For  the purpose of performing permission checks, traditional UNIX implementations distinguish two categories of processes: privileged processes (whose effective user ID is 0,   
   referred to as superuser or root), and unprivileged processes (whose effective UID is nonzero).  Privileged processes bypass all kernel permission checks,  while  unprivileged   
   processes are subject to full permission checking based on the process's credentials (usually: effective UID, effective GID, and supplementary group list).   
    
-  Starting  with  Linux  2.2, Linux divides the privileges traditionally associated with superuser into distinct units, known as capabilities, which can be independently enabled   
+  Starting  with  Linux  2.2, Linux divides the privileges traditionally associated with superusers into distinct units, known as capabilities, which can be independently enabled   
   and disabled.  Capabilities are a per-thread attribute.   
 ```
 
@@ -332,6 +332,12 @@ On Ubuntu to get hardinfo:
 ```
 sudo apt install hardinfo 
 ```
+
+To know about peripheral interconnects/ports:    
+```
+lspci -vvv 
+```
+
 ----
 ## The One with File Permissions   
 
@@ -360,9 +366,9 @@ tcpdump:x:125:133::/nonexistent:/usr/sbin/nologin
 systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
 ```
 
-Linux user can belong to one or more groups. Group level rights can be defined for users inside it. User and group are two different things, they can have a same name. A user can belong to multiple groups for defined access rights.   
+Linux users can belong to one or more groups. Group-level rights can be defined for users inside it. User and group are two different things, they can have a same name. A user can belong to multiple groups for defined access rights.   
 
-Notice /etc/group file, first column is a group name.   
+Notice /etc/group file; the first column is a group name.   
 
 ```
 $ cat /etc/group
@@ -377,8 +383,8 @@ lp:x:7:
 mail:x:8:
 ```
 
-Memorise the first command we learnt, ls -lrt, now type this in any directory for files and see the output. For a directory use ls -ld    
-First column shows file permission mode, column 3 and 4 show owner and group names respectively.   
+Memorise the first command we learnt, ls -lrt, now type this in any directory for files and see the output. For a directory, use: ls -ld    
+The first column shows file permission mode, and columns 3 and 4 show owner and group names, respectively.   
 
 File permission mode can be viewed as:   
 => first char is file type, - for regular file, d for directory, l for symbolic link   
@@ -418,7 +424,7 @@ $ ls -lrt /bin/sh
 lrwxrwxrwx 1 root root 4 Mar 23 19:19 /bin/sh -> dash
 ```
 
-Using buffer overflow, if a remote user can get a shell /bin/sh executing some [shellcode](https://cocomelonc.github.io/tutorial/2021/10/09/linux-shellcoding-1.html), then what he can do - try to visualise using permissions of /bin/sh - specifically see owner and all permissions.   
+Using buffer overflow, if a remote user can get a shell /bin/sh executing some [shellcode](https://cocomelonc.github.io/tutorial/2021/10/09/linux-shellcoding-1.html), then what he can do - try to visualize using permissions of /bin/sh - specifically see the owner and all permissions.   
 
 ----
 
@@ -444,7 +450,7 @@ $ ls -lrt /usr/bin/fusermount3                                 <== ask ls for pe
 ```
 If SUID bit is set for a program/executable, while running the program, effective user id gets updated to the user id of owner of the program while it was run by a real user.   
 
-Now, check SUID bit for passwd :)    
+Now, check the SUID bit for passwd :)    
 
 ```
 $ ls -lrt /usr/bin/passwd
