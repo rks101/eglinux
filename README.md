@@ -26,12 +26,12 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Installed packages](#installed-packages)
       * [Environment variables](#environment-variables)
       * [Debugging](#debugging)
-      * [Advantage Linux](#advantage-linux)
       * [Simple web server](#simple-web-server)
       * [crt and key file](#crt-and-key-file) 
       * [The One with mysql admin password](#the-one-with-mysql-admin-password)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
+      * [Advantage Linux](#advantage-linux)
       * [The One with Linus](#the-one-with-linus)
       * [Linux Software](#linux-software)
       * [Linux Security](#linux-security)
@@ -626,15 +626,6 @@ In /var/log/ directory, see the most recent logs, like dmesg, syslog, dpkg log, 
 
 ----
 
-## Advantage Linux 
-
-I have been using Linux as primary desktop/laptop OS since 2003, well before I owned my first desktop. I can always count on community support, forums, and there are so many instances, I could get help on online forums, web pages. At times, I wondered what gets them going? who pays their bills? what I could do this going?   
-
-A few recent instances where I could get help:   
-
-* [Anydesk not loading due to missing shared object from libpangox](http://technoworkshop.in/solved-error-while-loading-shared-libraries-libpangox-1-0-so-0-anydesk-on-ubuntu-22-04-lts/)   
-
-----
 ## Simple web server 
 One line webserver => a great and simplest way to show files from a directory  
 ```
@@ -862,6 +853,12 @@ Some reading material:
 [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD)    
 
 ---- 
+
+## Advantage Linux 
+
+I have been using Linux as primary desktop/laptop OS since 2003, well before I owned my first desktop. I can always count on community support, forums, and there are so many instances, I could get help on online forums, web pages. At times, I wondered what gets them going? who pays their bills? what I could do this going?   
+
+----
 
 ## The One with Linus
 
