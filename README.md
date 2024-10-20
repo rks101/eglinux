@@ -697,13 +697,13 @@ Relevant posts on this auhentication type conundrum:
 ---- 
 
 ## Remove old Linux kernel images 
-How do we remove old linux kernel images and headers?  
+How do we remove old Linux kernel images and headers?  
 
-At times, one can find on the system some old linux-images / linux-headers / linux-modules that are occupying storage. If you want to remove these old linux kernel images and headers (5.0* / 5.3*), while you have upgraded to higher versions (5.4*):  
+At times, one can find some old Linux images / Linux headers / Linux modules that are occupying storage on the system. If you want to remove these old Linux kernel images and headers (5.0* / 5.3*), while you have upgraded to higher versions (5.4*):  
 
 - first, query using uname -a and dpkg --list | egrep "linux-image|linux-headers|linux-modules|linux-image-generic" | awk '{print $2 " " $3}'  
 - next, use apt purge linux-image-5.0* or apt purge linux-image-5.4.2*  
-- Take precaution, you should not remove the current and the previous images/headers.  
+- Take precaution, you should not remove the current and the immediate previous images/headers.  
 
 ```
 $ uname -a
@@ -812,10 +812,10 @@ Clean journal log files. Caution: Know what you are deleting!
 
 ```
 $ journalctl --disk-usage
-$ sudo journalctl --vacuum-time=7d   <= older than 7 days 
+$ sudo journalctl --vacuum-time=14d   <= older than 14 days 
 ```
 
-Clean up that stuff audio/video/movie files, duplicate photos on the system.  
+Clean up the audio/video/movie files and duplicate photos on the system.  
 
 Just in case you run out of space, check dmesg and try to clean up the last activity that caused it. It may be excessive logs generated.   
 
