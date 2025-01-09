@@ -868,7 +868,9 @@ I have been using Linux as primary desktop/laptop OS since 2003, well before I o
 
 ## Linux software
 
-[Linux Software](https://github.com/luong-komorebi/Awesome-Linux-Software)   
+[Linux Software](https://github.com/luong-komorebi/Awesome-Linux-Software)    
+
+[Writing mathematical equations in Libre Office Writer](https://www.ubuntubuzz.com/2016/09/libreoffice-writer-equation-editor-writing-mathematical-formulas.html)     
 
 ---- 
 
