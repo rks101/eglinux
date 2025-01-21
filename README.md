@@ -20,7 +20,8 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [The One with File Permissions](#the-one-with-file-permissions) 
       * [Command completion](#command-completion)
       * [Transfer files using Secure Copy scp](#transfer-files-using-secure-copy-scp)
-      * [Remote login using ssh](#remote-login-using-ssh) 
+      * [Remote login using ssh](#remote-login-using-ssh)
+      * [su and sudo](#su-and-sudo)
       * [`xdg-open`](#xdg-open)
       * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Installed packages](#installed-packages)
@@ -82,6 +83,7 @@ Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 
 ## Getting help on-system 
 
 What if I do not know commands or their options and arguments?   
+- Command has a name, options, and/or arguments.   
 - There are plain text on-screen manuals about Linux built-ins and commands.   
 - There is a **man** I know who can help, and he tells us the most from reliable sources.   
 - (While I am not around,) Always ask **man**, using: 
@@ -132,7 +134,7 @@ Note:- It is good to learn about [types of RAM](https://www.techtarget.com/searc
 ## Process Memory Layout 
 This one is my favorite topic in OS lab. It helps to visualize virtual memory, process layout, proc interface, and shared libs/objects.     
 
-Can I see the memory layout and the stack of a process? See my [presentation]() with more details.   
+Can I see the memory layout and the stack of a process? See [presentation]() for more details.   
 To see all files related to a process with PID = $$  
 ``` 
 ls -lrt /proc/$$
@@ -220,12 +222,12 @@ _=/usr/bin/printenv        <= check echo $_
 
 ## PATH   
 
-What is a path? No one figured out this quite well. Jokes apart, in Linux everything is a file and we may need to refer files where are they, where files reside?    
+What is path? No one figured out this quite well. Jokes apart, in Linux, everything is a file, and we may need to refer files, to where files reside.    
 
-Path helps to navigate around the file system and files in Linux where almost everything is a file.  
-In the hierarchical directory structure, we can refer path of a regular file (-) or directory (d) or symbolic link (l) using absolute or a relative path.   
-Absolute path corresponds to a path beginning from / or root. e.g. /home/rps/example.desktop   
-Relative path corresponds to a path relative to current directory (pwd) or any other directory. e.g. Downloads/package.deb or ../../home/rps/Downloads/package.deb     
+Path helps to navigate around the file system and files in Linux, where almost everything is a file.  
+In the hierarchical directory structure, we can refer path of a regular file (-) or directory (d) or symbolic link (l) using an absolute or a relative path.   
+An absolute path corresponds to a path beginning from / or root. e.g. /home/rps/example.desktop   
+A relative path corresponds to a path relative to the current directory (pwd) or any other directory. e.g. Downloads/package.deb or ../../home/rps/Downloads/package.deb or ~/data/file.txt     
 
 How do we refer to path in commands?    
 
@@ -243,7 +245,7 @@ $ echo $PATH
 /home/rps/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/rps/Videos
 ```
 
-If you want a newly added directory to be searched first in the path, add the new directory first and then append existing contents of path variable. Use which command to locate the first binary or built-in util being referenced.    
+If you want a newly added directory to be searched first in the path, add the new directory first and then append the existing contents of the path variable. Use "which" command to locate the first binary or built-in util being referenced.    
 
 ---- 
 
@@ -400,10 +402,10 @@ Using x - regular file can be executed if it is a script, directory can be acces
 Some examples of file permissions are listed below.   
 
 ```
--rwx------ : regular file, (400), only owner can read, write, execute this file.   
+-rwx------ : regular file, (700), only owner can read, write, execute this file.   
 -rw-r--r-- : regualr file, (544), anyone can read, only owner can modify or delete.   
 drwxr-xr-x : directory, (755), owner can read, write and access directory, group and other users can read contents and access it, cd is allowed   
--rwxr-xr-x : regular file, (755), only owner can modify or delete, however anyone can read or execute it   
+-rwxr-xr-x : regular file, (755), only owner can modify or delete, however, anyone can read or execute it   
 ```
 
 Using chmod you can modify file permissions. You can grant (+) ore revoke (-) for one or more users.   
@@ -428,9 +430,9 @@ Using buffer overflow, if a remote user can get a shell /bin/sh executing some [
 
 ----
 
-Let us discuss two interesting questions using ps, ls and permissions.    
+Let us discuss two interesting questions using ps, ls, and permissions.    
 
-Q1. If a program is owned by root or other user, how a non-root user can run it?       Hint: setUserId() bit.     
+Q1. If a program is owned by a root or another user, how a non-root user can run it?       Hint: setUserId() bit.     
 
 A. Follow the commands below and understand the output.   
 ```
@@ -448,7 +450,7 @@ $ ls -lrt /usr/bin/fusermount3                                 <== ask ls for pe
 -rwsr-xr-x 1 root root 35200 Dec 23  2020 /usr/bin/fusermount3    <== notice  s  after -rw, this is SUID bit.   
 
 ```
-If SUID bit is set for a program/executable, while running the program, effective user id gets updated to the user id of owner of the program while it was run by a real user.   
+If SUID bit is set for a program/executable while running the program, effective user id gets updated to the user id of owner of the program while it was run by a real user.   
 
 Now, check the SUID bit for passwd :)    
 
@@ -492,7 +494,7 @@ A related [long story](https://unix.stackexchange.com/questions/264102/bash-comp
 
 ## Transfer files using Secure Copy scp   
 
-Using Secure Copy or scp, we can tarnsfer files to-and-from local to remote systems. Underneath, scp uses SSH for auth and encryption.    
+Using Secure Copy or SCP, we can transfer files to and from local to remote systems. Underneath, scp uses SSH for auth and encryption.    
 
 ```
 scp SOURCE DESTINATION    
@@ -517,6 +519,24 @@ SSH ignores a private key file (.pem file) if it is accessible by others.
 You should change the permissions of the pem file to remove access for other users (600 or 400) to remove the error: Permissions 0664 for 'filename.pem' are too open.   
 ```
 chmod 400 filename.pem  
+```
+
+----
+
+## su and sudo    
+
+su = substitute user, su <user> starts another shell with permissions of mentioned <user>.      
+sudo = sudo verifies password of the user who executed sudo for any privileged command.     
+
+`sudo -i` can be used to acquire root user's environment. On Ubuntu and other Debian-based systems, the root password may not be set or may be locked.    
+To check if root password is set:    
+```
+rps@eg:~$ sudo -i                 <== get me root environment 
+root@eg:~# passwd -S              <== password status: P = usable password is set, NP = No password is set, L = Password is locked.     
+root NP 2022-12-08 0 99999 7 -1
+root@eg:~# exit
+logout
+
 ```
 
 ----
