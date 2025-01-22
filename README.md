@@ -546,13 +546,13 @@ Q. Should I use "su" or "su -" as administrator?
 A. Always use "su -" for a clean substitution to indented user identity.    
 "su -" substitutes the root/target user and creates a clean shell without environment variables set by the previous user. It's a complete user substitution.    
 "su" existing shell environment is more or less retained and substitutes the user. It's like mimicking a new user environment.    
+After su or "su -", you can check `pwd` or `ls -lrt ~/`  and exit after any such operations.    
 
 **Tip**:     
-After su or "su -", you can check `pwd` or `ls -lrt ~/`  and exit after any such operations.    
-On Ubuntu, you can live without a root password and manage most of the things using sudo.     
+On Ubuntu, you can live without a root password and manage most of the things using sudo. Instead of sharing the root password with every user (in the lab or office) for admin tasks such as installations and running privileged utilities, sudo is a better alternative.      
 ** Always ask man => man passwd, man shadow, man sudo, man sudoers, man su, man crypt before making changes**    
-** Double-check as a root for any recursive operation.**    
-** This behavior can vary across Linux distributions and versions over the years.    
+Double-check as a root for any recursive operation.     
+This behavior can vary across Linux distributions and versions over the years.    
 
 Related posts:    
 [su or sudo](https://askubuntu.com/questions/70534/what-are-the-differences-between-su-sudo-s-sudo-i-sudo-su)    
