@@ -22,6 +22,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Transfer files using Secure Copy scp](#transfer-files-using-secure-copy-scp)
       * [Remote login using ssh](#remote-login-using-ssh)
       * [su and sudo](#su-and-sudo)
+      * [Know File System](#know-file-system)
       * [`xdg-open`](#xdg-open)
       * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Installed packages](#installed-packages)
@@ -561,6 +562,57 @@ This behavior can vary across Linux distributions and versions over the years.
 Related posts:    
 [su or sudo](https://askubuntu.com/questions/70534/what-are-the-differences-between-su-sudo-s-sudo-i-sudo-su)    
 [su or su -](https://unix.stackexchange.com/questions/7013/why-do-we-use-su-and-not-just-su)    
+
+----
+
+## Know File System 
+
+Linux File System - ext4, btrfs, xfs, ZFS, etc. define how to store, retrieve, and manage files on the system.     
+
+/etc/fstab can show Linux partitions  
+```
+$  cat /etc/fstab 
+# /etc/fstab: static file system information.
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/nvme0n1p7 during installation
+UUID=d56a27d6-0a3c-40a1-b85f-b4fa53bff123 /               ext4    errors=remount-ro 0       1
+# /boot/efi was on /dev/nvme0n1p1 during installation
+UUID=4CF2-479A  /boot/efi       vfat    umask=0077      0       1
+# swap was on /dev/nvme0n1p6 during installation
+UUID=cceb039a-dbe7-4441-800c-a0548fe2fb45 none            swap    sw              0       0
+```
+
+mount or df can show file systems mounted. 
+```
+$ df -Th
+Filesystem     Type      Size  Used Avail Use% Mounted on
+tmpfs          tmpfs     1.6G  2.7M  1.6G   1% /run
+/dev/nvme0n1p7 ext4      210G  116G   84G  58% /
+tmpfs          tmpfs     7.6G  560M  7.0G   8% /dev/shm
+tmpfs          tmpfs     5.0M  8.0K  5.0M   1% /run/lock
+efivarfs       efivarfs  374K  259K  111K  71% /sys/firmware/efi/efivars
+/dev/nvme0n1p1 vfat      246M  130M  117M  53% /boot/efi
+tmpfs          tmpfs     1.6G  160K  1.6G   1% /run/user/1000
+```
+lsblk and exclude loop devices
+```
+$ lsblk -f | grep -v loop
+NAME        FSTYPE   FSVER LABEL       UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+nvme0n1                                                                                    
+├─nvme0n1p1 vfat     FAT32 ESP         4CF2-479A                             216.8M    53% /boot/efi
+├─nvme0n1p2                                                                                
+├─nvme0n1p3 ntfs           OS          B496F47996F12345                                    
+├─nvme0n1p4 ntfs                       EA40D7DD40D78901                                    
+├─nvme0n1p5 ntfs           DELLSUPPORT 1EFE4A7DFE412345                                    
+├─nvme0n1p6 swap     1                 cceb039a-dbe7-4441-800c-a0548fe12345                [SWAP]
+└─nvme0n1p7 ext4     1.0               d56a27d6-0a3c-40a1-b85f-b4fa53b67890   183.4G    55% /
+```
+
+References:      
+https://www.fosslinux.com/126128/choosing-the-right-linux-file-system-your-ultimate-guide.htm     
+https://www.geeksforgeeks.org/linux-file-system/    
+https://www.baeldung.com/linux/find-system-type     
 
 ----
 
