@@ -529,7 +529,7 @@ su = substitute user, su <user> starts another shell with permissions of mention
 sudo = sudo verifies the password of the user who executed sudo for any privileged command.     
 
 
-Q. Is my root password set? 
+Q. Is my root password set?    
 A. `sudo -i` can be used to acquire root environment (privileged administrator). On Ubuntu and other Debian-based systems, the root password may not be set or may be locked.    
 To check if the root password is set:    
 ```
@@ -542,15 +542,17 @@ logout
 ```
 Try `passwd -l root` to lock the password or `passwd -d root` to delete the password. Check entries in /etc/passwd and /etc/shadow around this.    
 
-Q. Should I use "su" or "su -" as administrator? 
+Q. Should I use "su" or "su -" as administrator?     
 A. Always use "su -" for a clean substitution to indented user identity.    
 "su -" substitutes the root/target user and creates a clean shell without environment variables set by the previous user. It's a complete user substitution.    
-"su" existing shell environment is more or less retained and substitutes user. It's like mimicking a new user environment.    
+"su" existing shell environment is more or less retained and substitutes the user. It's like mimicking a new user environment.    
 
-**Tip**: After su or "su -", you can check `pwd` or `ls -lrt ~/`  and exit after any such operations.    
+**Tip**:     
+After su or "su -", you can check `pwd` or `ls -lrt ~/`  and exit after any such operations.    
 On Ubuntu, you can live without a root password and manage most of the things using sudo.     
 ** Always ask man => man passwd, man shadow, man sudo, man sudoers, man su, man crypt before making changes**    
 ** Double-check as a root for any recursive operation.**    
+** This behavior can vary across Linux distributions and versions over the years.    
 
 Related posts:    
 [su or sudo](https://askubuntu.com/questions/70534/what-are-the-differences-between-su-sudo-s-sudo-i-sudo-su)    
