@@ -202,12 +202,12 @@ COLORTERM=truecolor
 XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
 XDG_MENU_PREFIX=gnome-
 LANGUAGE=en_IN:en
-PWD=/wah/rks
-LOGNAME=rks
+PWD=/wah/rps
+LOGNAME=rps
 XDG_SESSION_TYPE=x11
 SYSTEMD_EXEC_PID=2798
-HOME=/wah/rks
-USERNAME=rks
+HOME=/wah/rps
+USERNAME=rps
 LANG=en_IN
 USER=rps                   <= check echo $USER
 DISPLAY=:1
@@ -440,7 +440,7 @@ $ ps -eo euser,ruser,suser,fuser,f,comm,label                   <== check a few 
 EUSER    RUSER    SUSER    FUSER    F COMMAND         LABEL
 root     root     root     root     4 systemd         unconfined
 ........ 
-root     rks      root     root     4 fusermount3     unconfined
+root     rps      root     root     4 fusermount3     unconfined
 .......
 
 $ which fusermount3                                            <== get path of fusermount3   
@@ -473,7 +473,7 @@ drwxrwxrwt 23 root root 4096 Nov 24 12:19 /tmp                  <== notice  t  i
 $ ls -ld /run/lock
 drwxrwxrwt 4 root root 100 May 11 18:02 /run/lock
 ```
-If sticky bit is set for a directory, all files inside this directory can de deleted or moved by the owner of the files or the guru (root).    
+If the sticky bit is set for a directory, all files inside this directory can be deleted or moved by the owner of the files or the guru (root).    
 
 See if there are other such directories like tmp using find / -perm /1000 
 
@@ -482,12 +482,12 @@ A Redhat article on [Linux permissions: SUID, SGID and sticky bits](https://www.
 ----
 
 ## Command completion
-Learn to use tab key for command completion or completing file / directory names. This can save time in typing.  
+Learn to use the tab key for command completion or completing file/directory names. This can save time in typing.  
 
-Hint: type ds and press tab to see command completion (e.g. dstat) if exists or to see matching options.  
+Hint: type ds and press the tab to see command completion (e.g., dstat) if it exists or to see matching options.  
 Hint: type ls -lrt /home/rps/Do  and then press tab twice, you will get matching suggestions.  
 
-Tip: in case command completion is not working on system, check you have installed bash-completion and bash-completion-extras  
+Tip: in case command completion is not working on a system, check you have installed bash-completion and bash-completion-extras  
 A related [long story](https://unix.stackexchange.com/questions/264102/bash-completion-is-very-incomplete-on-centos-7).  
 
 ----
@@ -525,8 +525,11 @@ chmod 400 filename.pem
 
 ## su and sudo    
 
-su = substitute user, su <user> starts another shell with permissions of mentioned <user>.      
+su = substitute user, su <user> starts another shell with permissions of <user> specified.      
 sudo = sudo verifies the password of the user who executed sudo for any privileged command.     
+
+Q. Do I really need to have a root password set on Linux? And then, how do I manage things without sharing it with others?     
+A. On Ubuntu (and Debian-based systems), you can live without a root password and manage most things using sudo. Instead of sharing the root password with every user (in the lab or office) for admin tasks such as installations and running privileged utilities, sudo is a better alternative. This may not apply to Red-Hat-like systems.      
 
 
 Q. Is my root password set?    
@@ -541,6 +544,7 @@ logout
 
 ```
 Try `passwd -l root` to lock the password or `passwd -d root` to delete the password. Check entries in /etc/passwd and /etc/shadow around this.    
+
 
 Q. Should I use "su" or "su -" as administrator?     
 A. Always use "su -" for a clean substitution to indented user identity.    
