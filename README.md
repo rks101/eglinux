@@ -614,6 +614,8 @@ https://www.fosslinux.com/126128/choosing-the-right-linux-file-system-your-ultim
 https://www.geeksforgeeks.org/linux-file-system/    
 https://www.baeldung.com/linux/find-system-type     
 
+[File System Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)     
+
 ----
 
 ## xdg-open 
