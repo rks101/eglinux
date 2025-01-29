@@ -23,6 +23,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Remote login using ssh](#remote-login-using-ssh)
       * [su and sudo](#su-and-sudo)
       * [Know File System](#know-file-system)
+      * [Scheduling jobs](#scheduling-jobs)
       * [`xdg-open`](#xdg-open)
       * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Installed packages](#installed-packages)
@@ -615,6 +616,41 @@ https://www.geeksforgeeks.org/linux-file-system/
 https://www.baeldung.com/linux/find-system-type     
 
 [File System Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)     
+
+----
+
+## Scheduling Jobs 
+
+Cron jobs come to the rescue when scheduling jobs, taking backups, or running scripts at a defined frequency.     
+
+Relevant file: /etc/crontab is a system-wide configuration file to schedule hourly, day of the month, monthly, and weekly jobs to be run by a user and scripts to invoke.    
+
+To make an entry, you should know the columns in the crontab file.    
+
+```
+$ cat /etc/crontab 
+# /etc/crontab: system-wide crontab
+
+SHELL=/bin/sh
+# You can also override PATH, but by default, newer versions inherit it from the environment
+#PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+17 *	* * *	root	cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.daily; }
+47 6	* * 7	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.weekly; }
+52 6	1 * *	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.monthly; }
+#
+0,10,20,30,40,50 *    * * *	rps	cd /home/rps/lsav && touch a.out            <== every 0,10,20,30,40,50th minute cd /home/rps/lsav and record timestamp or touch a.out   
+00 7,13,19    * * *	root	cd /home/eg/backup && ./run_backup.sh             <== every day 7:00 am, 1:00 pm, 7:00 pm, go to /home/eg/backup directory and execute script run_backup.sh          
+```
 
 ----
 
