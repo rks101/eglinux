@@ -625,7 +625,7 @@ Cron jobs come to the rescue when scheduling jobs, taking backups, or running sc
 
 Relevant file: /etc/crontab is a system-wide configuration file to schedule hourly, day of the month, monthly, and weekly jobs to be run by a user and scripts to invoke.    
 
-To make an entry, you should know the columns in the crontab file.    
+To make an entry, you should know the columns in the crontab file. The first five columns define job frequency, followed by user-name and command-to-be-executed    
 
 ```
 $ cat /etc/crontab 
