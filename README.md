@@ -24,6 +24,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [su and sudo](#su-and-sudo)
       * [Know File System](#know-file-system)
       * [Scheduling jobs](#scheduling-jobs)
+      * [Shell Scripting](#shell-scripting)
       * [`xdg-open`](#xdg-open)
       * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Installed packages](#installed-packages)
@@ -651,6 +652,18 @@ SHELL=/bin/sh
 0,10,20,30,40,50 *    * * *	rps	cd /home/rps/lsav && touch a.out            <== every 0,10,20,30,40,50th minute cd /home/rps/lsav and record timestamp or touch a.out   
 00 7,13,19    * * *	root	cd /home/eg/backup && ./run_backup.sh             <== every day 7:00 am, 1:00 pm, 7:00 pm, go to /home/eg/backup directory and execute script run_backup.sh          
 ```
+
+----
+
+## Shell Scripting    
+
+Shell Scripting offers a nice and robust way to automate system administration and daily tasks on Linux for both sysadmins and normal Linux users.     
+
+[Bash Scripting](https://linuxsimply.com/cheat-sheets/bash-scripting/)     
+Check [Bash options](https://devhints.io/bash)    
+Try [Bash one-liners](https://onceupon.github.io/Bash-Oneliner/) and [more](https://www.bashoneliners.com/oneliners/newest/) to see the expressiveness of bash scripting    
+
+Note: Some options may vary from shell to shell and across versions installed and distributions. Do not worry, explore different options.     
 
 ----
 
