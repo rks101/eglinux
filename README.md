@@ -26,6 +26,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Scheduling jobs](#scheduling-jobs)
       * [Shell Scripting](#shell-scripting)
       * [`xdg-open`](#xdg-open)
+      * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
       * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Installed packages](#installed-packages)
       * [Environment variables](#environment-variables)
@@ -681,6 +682,14 @@ $ Gtk-Message: 11:56:17.079: Not loading module "atk-bridge": The functionality 
 Opening in existing browser session.
 ```
 TODO: add image of browser pop-up showing xdg-open message   
+
+----
+
+## Systemd versus init based systems     
+
+[Systemd-based versus init-based Linux systems](https://itsfoss.com/systemd-init/)     
+
+[Systemd-free Linux Distributions](https://itsfoss.com/systemd-free-distros/)     
 
 ----
 
