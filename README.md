@@ -691,6 +691,19 @@ TODO: add image of browser pop-up showing xdg-open message
 
 [Systemd-free Linux Distributions](https://itsfoss.com/systemd-free-distros/)     
 
+Systemd brought parallelization of processes in the booting process and configuration files-driven service management.    
+
+```
+rps@eg:~$ systemctl get-default                 <== default target to boot into 
+graphical.target
+
+rps@eg:~$ systemctl get-default --version       <== also tells what the target has been booted into with 
+systemd 255 (255.4-1ubuntu8.5)
++PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified
+```
+
+Check systemctl start <cmd>.target and systemctl isolate <cmd>.target under man systemctl :)     
+
 ----
 
 ## Windowing System for GUI   
