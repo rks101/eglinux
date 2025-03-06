@@ -395,34 +395,34 @@ Memorise the first command we learnt, ls -lrt, now type this in any directory fo
 The first column shows file permission mode, and columns 3 and 4 show owner and group names, respectively.   
 
 File permission mode can be viewed as:   
-=> first char is file type, - for regular file, d for directory, l for symbolic link   
-=> next view 3 characters in pair - first three chars for user or owner who owns a file, next for group and last three for other than group users.   
-=> these three chars pairs contain access permissions in order: r = read, w = write or x = execute   
-=> there is a numeric weight associated with r, w, and x. r => 4, w => 2, and x = 1 and we can sum if any of r/w/x is present (see examples below)   
-=> if a user is missing a certain access permission that respective character is displayed as - or numerically adds up to 0   
+=> first char is file type, - for a regular file, d for a directory, l for a symbolic link, c for a character device (/dev/null), b for a block device (/dev/loop1)   
+=> Next, view 3 characters in pairs - the first three chars for the user or owner who owns a file, the next 3 chars for the group, and the last three for other than group users.   
+=> These three chars pairs contain access permissions in order: r = read, w = write or x = execute   
+=> There is a numeric weight associated with r, w, and x. r => 4, w => 2, and x = 1 and we can sum if any of r/w/x is present (see examples below)   
+=> If a user is missing a certain access permission, that respective character is displayed as - or numerically adds up to 0   
 
-Using r - regular file can be opened in read-only mode, directory cantent can be listed (cd to directory is not allowed by r)   
+Using r - regular file can be opened in read-only mode, and directory content can be listed (cd to the directory is not allowed by r)   
 Using w - regular file can be edited, deleted, renamed, modified and saved, directory can be created inside a directory, deleted, renamed, access can be modifed as well.   
-Using x - regular file can be executed if it is a script, directory can be accessed, cd to directory is allowed by x   
+Using x - regular file can be executed if it is a script, the directory can be accessed, cd to the directory is allowed by x   
 
 Some examples of file permissions are listed below.   
 
 ```
 -rwx------ : regular file, (700), only owner can read, write, execute this file.   
--rw-r--r-- : regualr file, (544), anyone can read, only owner can modify or delete.   
+-rw-r--r-- : regular file, (544), anyone can read, only owner can modify or delete.   
 drwxr-xr-x : directory, (755), owner can read, write and access directory, group and other users can read contents and access it, cd is allowed   
 -rwxr-xr-x : regular file, (755), only owner can modify or delete, however, anyone can read or execute it   
 ```
 
-Using chmod you can modify file permissions. You can grant (+) ore revoke (-) for one or more users.   
+Using chmod you can modify file permissions. You can grant (+) or revoke (-) for one or more users.   
 Grant r or w or x permission using +r or +w or +x    
 Revoke r or w or x permission using -r or -w or -x    
 Before + or -, specify groups without space.    
 
 chmod +x : grant execute permission to all    
 chmod g+w : grant write permission to same group users   
-chmod go+r : grant read permission to group and other users    
-chmod 777 : grant rwx to owner, group and non-group users, be very careful why such permission mode is being set    
+chmod go+r : grant read permission to group and other users, NOTE: Do not use numeric perms as we do not know other perms    
+chmod 777 : grant rwx to owner, group, and non-group users, NOTE: Be very careful why such permission mode is being set    
 chmod 744 : grant rwx to user and read to group and others    
 
 Recall /bin/sh is a shell.    
@@ -495,6 +495,8 @@ Hint: type ls -lrt /home/rps/Do  and then press tab twice, you will get matching
 
 Tip: in case command completion is not working on a system, check you have installed bash-completion and bash-completion-extras  
 A related [long story](https://unix.stackexchange.com/questions/264102/bash-completion-is-very-incomplete-on-centos-7).  
+
+Reference file: /usr/share/bash-completion/bash_completion    
 
 ----
 
