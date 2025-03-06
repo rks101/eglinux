@@ -664,6 +664,8 @@ Min Hr DoM Mon DoW user command
 
 Note: There is another option to schedule jobs using crontab -e, and that option is for per user, by default for logged-in users. There is no user option present when editing using crontab -e. It can be run for a user rps using -u flag =>  crontab -e -u rps     
 
+Also refer: [Cron periodic config](https://docs.freebsd.org/en/books/handbook/config/#cron-periodic)     
+
 ----
 
 ## Shell Scripting    
