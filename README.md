@@ -658,6 +658,12 @@ SHELL=/bin/sh
 00 7,13,19    * * *	root	cd /home/eg/backup && ./run_backup.sh             <== every day 7:00 am, 1:00 pm, 7:00 pm, go to /home/eg/backup directory and execute script run_backup.sh          
 ```
 
+Note: /etc/crontab is a global system-wide cron job scheduler. It contains a user option in the entry. Remember syntax as:    
+Min Hr DoM Mon DoW user command     
+00 00 01 01 * root { cd / && echo "Happy New Year!" > greetings.txt }     
+
+Note: There is another option to schedule jobs using crontab -e, and that option is for per user, by default for logged-in users. There is no user option present when editing using crontab -e. It can be run for a user rps using -u flag =>  crontab -e -u rps     
+
 ----
 
 ## Shell Scripting    
