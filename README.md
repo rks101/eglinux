@@ -24,6 +24,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [su and sudo](#su-and-sudo)
       * [Know File System](#know-file-system)
       * [Scheduling jobs](#scheduling-jobs)
+      * [`nohup`](#nohup)
       * [Shell Scripting](#shell-scripting)
       * [`xdg-open`](#xdg-open)
       * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
@@ -665,6 +666,24 @@ Min Hr DoM Mon DoW user command
 Note: There is another option to schedule jobs using crontab -e, and that option is for per user, by default for logged-in users. There is no user option present when editing using crontab -e. It can be run for a user rps using -u flag =>  crontab -e -u rps     
 
 Also refer: [Cron periodic config](https://docs.freebsd.org/en/books/handbook/config/#cron-periodic)     
+
+----
+
+## nohup   
+
+When running a command on the terminal, upon closing the terminal or due to disconnecting the remote session (ssh), the command stops.   
+Suppose the command was executed interactively, now the exit status may be unknown or incomplete.    
+
+We can use nohup (no hang up) to tell the OS not to trap the SIGHUP signal to stop such interactive command execution.    
+
+Run a bash script to backup resources:   
+```
+nohup bash backup.sh    
+```
+Run system update that can longer and may remain unattended   
+```
+nohup sudo apt upgrade   
+```
 
 ----
 
