@@ -581,6 +581,12 @@ Often, we type the password for commands that require sudo. And then, the same o
 There is one timeout period per user. The start timestamp of the timeout is stored in /var/lib/sudo/ts or /var/run/sudo/ts directory.    
 In Ubuntu, it may be 15 minutes. [Referenced discussion](https://unix.stackexchange.com/questions/457995/when-does-it-start-to-count-the-time-limit-set-for-password-caching-in-sudo) and [here is how you can change it](https://www.maketecheasier.com/change-the-sudo-password-timeout-in-ubuntu/).    
 
+One way to check if a sudo password is required is to use sudo -nv, and no output suggests you do not need to enter the password for sudo:   
+```
+$ sudo -nv
+sudo: a password is required
+```
+
 ----
 
 ## Know File System 
