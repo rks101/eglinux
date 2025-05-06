@@ -22,6 +22,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Transfer files using Secure Copy scp](#transfer-files-using-secure-copy-scp)
       * [Remote login using ssh](#remote-login-using-ssh)
       * [su and sudo](#su-and-sudo)
+      * [Password caching in `sudo`](#password-caching-in-sudo)
       * [Know File System](#know-file-system)
       * [Scheduling jobs](#scheduling-jobs)
       * [`nohup`](#nohup)
@@ -570,6 +571,15 @@ This behavior can vary across Linux distributions and versions over the years.
 Related posts:    
 [su or sudo](https://askubuntu.com/questions/70534/what-are-the-differences-between-su-sudo-s-sudo-i-sudo-su)    
 [su or su -](https://unix.stackexchange.com/questions/7013/why-do-we-use-su-and-not-just-su)    
+
+----
+
+## Password caching in sudo   
+
+Often, we type the password for commands that require sudo. And then, the same or similar command does not require the password. This suggests that there is some caching of the sudo password or a time limit before the password for sudo is asked again.    
+
+There is one timeout period per user. The start timestamp of the timeout is stored in /var/lib/sudo/ts or /var/run/sudo/ts directory.    
+In Ubuntu, it may be 15 minutes. [Referenced discussion](https://unix.stackexchange.com/questions/457995/when-does-it-start-to-count-the-time-limit-set-for-password-caching-in-sudo) and [here is how you can change it](https://www.maketecheasier.com/change-the-sudo-password-timeout-in-ubuntu/).    
 
 ----
 
