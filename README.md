@@ -85,6 +85,8 @@ uname -a
 Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
+[Ubuntu release cycle](https://ubuntu.com/about/release-cycle) - Each April release in even years is LTS (e.g., 18.04, 20.04, 24.04), and supported for 5 to 10 years or more. Production-grade applications should be hosted on LTS releases.     
+
 ----
 ## Getting help on-system 
 
