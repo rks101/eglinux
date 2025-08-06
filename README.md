@@ -152,9 +152,12 @@ _=/usr/bin/printenv        <= check echo $_
 
 What is path? No one figured out this quite well. Jokes apart, in Linux, everything is a file, and we may need to refer files, to where files reside.    
 
-Path helps to navigate around the file system and files in Linux, where almost everything is a file.  
+Path helps to navigate around the file system and files in Linux, where almost everything is a file.   
+
 In the hierarchical directory structure, we can refer path of a regular file (-) or directory (d) or symbolic link (l) using an absolute or a relative path.   
+
 An absolute path corresponds to a path beginning from / or root. e.g. /home/rps/example.desktop   
+
 A relative path corresponds to a path relative to the current directory (pwd) or any other directory. e.g. Downloads/package.deb or ../../home/rps/Downloads/package.deb or ~/data/file.txt     
 
 How do we refer to path in commands?    
