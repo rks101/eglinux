@@ -10,15 +10,15 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Getting help on-system](#getting-help-on-system)
       * [Know processors](#know-processors)
       * [Know memory](#know-memory)
-      * [Process Memory Layout using `proc`](#process-memory-layout)
-      * [Processes](#processes)
       * [Environment Variables](#environment-variables)
       * [PATH](#path)   
+      * [Command completion](#command-completion)
+      * [Processes](#processes)
+      * [Process Memory Layout using `proc`](#process-memory-layout)
       * [Kernel Parameters](#kernel-parameters)
       * [Linux capabilities](#linux-capabilities)
       * [List hardware using `lshw`](#list-hardware)
       * [The One with File Permissions](#the-one-with-file-permissions) 
-      * [Command completion](#command-completion)
       * [Transfer files using Secure Copy `scp`](#transfer-files-using-secure-copy-scp)
       * [Remote login using `ssh`](#remote-login-using-ssh)
       * [`su` and `sudo`](#su-and-sudo)
@@ -118,86 +118,6 @@ The source is in the coreutils package, src/lbracket.c and src/test.c
 
 ----
 
-## Know processors
-How many processors do we have on the system? To know details and processor flags:   
-```
-cat /proc/cpuinfo  
-cat /proc/cpuinfo | grep "processor"  
-```
-Could you check the output? If you get eight entries with processors numbered from 0 to 7, this suggests eight logical cores.  
-
-## Know memory
-How much memory (RAM / main memory / primary memory to run programs) do we have on the system? You can see installed, free, and other memory details:  
-```
-cat /proc/meminfo  
-```
-Check the output for MemTotal, MemFree, MemAvailable.  
-
-Note: Why should you consider MemAvailable from 2014 onward? [Check this patch](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34e431b0ae398fc54ea69ff85ec700722c9da773) and [post 1](https://stackoverflow.com/questions/30869297/difference-between-memfree-and-memavailable) and [post 2](https://superuser.com/questions/980820/what-is-the-difference-between-memfree-and-memavailable-in-proc-meminfo). To maintain the flow, continue reading.   
-
-Note:- It is good to learn about [types of RAM](https://www.techtarget.com/searchstorage/definition/DIMM), such as earlier SIMM, and DIMM, buffered memory, Load-Reduced or LR-DIMM (with iMB to isolate data and address), Small Outline or SO-DIMM (compact form factor for recent laptops/tablets), etc. A post on [which one to use](https://www.dasher.com/server-memory-rdimm-vs-lrdimm-and-when-to-use-them/) and [difference](https://www.faceofit.com/rdimm-vs-irdimm-vs-udimms/) can be helpful. To maintain the flow, continue reading.    
-
----- 
-
-## Process Memory Layout 
-This one is my favorite topic in OS lab. It helps to visualize virtual memory, process layout, proc interface, and shared libs/objects.     
-
-Can I see the memory layout and the stack of a process? See [presentation]() for more details.   
-To see all files related to a process with PID = $$  
-``` 
-ls -lrt /proc/$$
-```
-Now, check process memory layout (TODO: add link from OS course file having exercises on proc):   
-```
-cat /proc/$$/maps 
-```
-
-And stack associated with process $$:  
-```
-cat /proc/$$/stack
-```
-Using the output of the above commands, convince yourself that you can visualise stack, heap, text segment of a process using virtual addresses and the output. Also, see /lib/x84_64-linux-gnu/lib\*  files and other shared libraries.  
-In the above example, replace $$ with a process id you are interested in.  
-
-Ok, next you should try out:   
-```
-cat /proc/self/maps
-```
-Here is a link to [understand the output](https://www.baeldung.com/linux/proc-id-maps) almost line by line.   
-
-
-What shared objects/libraries are used by a program? 
-
-```
-$ ldd <program>
-$ ldd /bin/bash
-$ ldd /bin/ls
-$ ldd /usr/bin/python3.8 
-```
-
-Do you know where and how to know more about /proc?  
-
-One of the best ways to understand virtual memory and process memory layout: [Cheese on /proc](https://www.kernel.org/doc/Documentation/filesystems/proc.txt)   
-
-[procmap](https://github.com/kaiwan/procmap)     
-
----- 
-
-## Processes   
-
-Use ps command with flags -aef or -aux and grep for user or other strings.    
-
-ps -aux shows USER running the process, PID of the process, %CPU used, %MEM used, status of the process, timestamp of starting the process, and command used to start the process.    
-
-```
-ps
-ps -aef 
-ps -aux
-ps -aux | grep $USER 
-```
-
-----
-
 ## Environment Variables    
 
 How to display and change environment variables? Using printenv, we can display/print environment variables that may be helpful to set or display PATH, alias, user, and session details for scripting or debugging.    
@@ -254,6 +174,99 @@ $ echo $PATH
 ```
 
 If you want a newly added directory to be searched first in the path, add the new directory first and then append the existing contents of the path variable. Use "which" command to locate the first binary or built-in util being referenced.    
+
+---- 
+
+## Command completion
+Learn to use the tab key for command completion or completing file/directory names. This can save time in typing.  
+
+Hint: type ds and press the tab to see command completion (e.g., dstat) if it exists or to see matching options.  
+Hint: type ls -lrt /home/rps/Do  and then press tab twice, you will get matching suggestions.  
+
+Tip: in case command completion is not working on a system, check you have installed bash-completion and bash-completion-extras  
+A related [long story](https://unix.stackexchange.com/questions/264102/bash-completion-is-very-incomplete-on-centos-7).  
+
+Reference file: /usr/share/bash-completion/bash_completion    
+
+----
+
+## Know processors
+How many processors do we have on the system? To know details and processor flags:   
+```
+cat /proc/cpuinfo  
+cat /proc/cpuinfo | grep "processor"  
+```
+Could you check the output? If you get eight entries with processors numbered from 0 to 7, this suggests eight logical cores.  
+
+## Know memory
+How much memory (RAM / main memory / primary memory to run programs) do we have on the system? You can see installed, free, and other memory details:  
+```
+cat /proc/meminfo  
+```
+Check the output for MemTotal, MemFree, MemAvailable.  
+
+Note: Why should you consider MemAvailable from 2014 onward? [Check this patch](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34e431b0ae398fc54ea69ff85ec700722c9da773) and [post 1](https://stackoverflow.com/questions/30869297/difference-between-memfree-and-memavailable) and [post 2](https://superuser.com/questions/980820/what-is-the-difference-between-memfree-and-memavailable-in-proc-meminfo). To maintain the flow, continue reading.   
+
+Note:- It is good to learn about [types of RAM](https://www.techtarget.com/searchstorage/definition/DIMM), such as earlier SIMM, and DIMM, buffered memory, Load-Reduced or LR-DIMM (with iMB to isolate data and address), Small Outline or SO-DIMM (compact form factor for recent laptops/tablets), etc. A post on [which one to use](https://www.dasher.com/server-memory-rdimm-vs-lrdimm-and-when-to-use-them/) and [difference](https://www.faceofit.com/rdimm-vs-irdimm-vs-udimms/) can be helpful. To maintain the flow, continue reading.    
+
+---- 
+
+## Processes   
+
+Use ps command with flags -aef or -aux and grep for user or other strings.    
+
+ps -aux shows USER running the process, PID of the process, %CPU used, %MEM used, status of the process, timestamp of starting the process, and command used to start the process.    
+
+```
+ps
+ps -aef 
+ps -aux
+ps -aux | grep $USER 
+```
+
+----
+
+## Process Memory Layout 
+This one is my favorite topic in OS lab. It helps to visualize virtual memory, process layout, proc interface, and shared libs/objects.     
+
+Can I see the memory layout and the stack of a process? See [presentation]() for more details.   
+To see all files related to a process with PID = $$  
+``` 
+ls -lrt /proc/$$
+```
+Now, check process memory layout (TODO: add link from OS course file having exercises on proc):   
+```
+cat /proc/$$/maps 
+```
+
+And stack associated with process $$:  
+```
+cat /proc/$$/stack
+```
+Using the output of the above commands, convince yourself that you can visualise stack, heap, text segment of a process using virtual addresses and the output. Also, see /lib/x84_64-linux-gnu/lib\*  files and other shared libraries.  
+In the above example, replace $$ with a process id you are interested in.  
+
+Ok, next you should try out:   
+```
+cat /proc/self/maps
+```
+Here is a link to [understand the output](https://www.baeldung.com/linux/proc-id-maps) almost line by line.   
+
+
+What shared objects/libraries are used by a program? 
+
+```
+$ ldd <program>
+$ ldd /bin/bash
+$ ldd /bin/ls
+$ ldd /usr/bin/python3.8 
+```
+
+Do you know where and how to know more about /proc?  
+
+One of the best ways to understand virtual memory and process memory layout: [Cheese on /proc](https://www.kernel.org/doc/Documentation/filesystems/proc.txt)   
+
+[procmap](https://github.com/kaiwan/procmap)     
 
 ---- 
 
@@ -488,19 +501,6 @@ If the sticky bit is set for a directory, all files inside this directory can be
 See if there are other such directories like tmp using find / -perm /1000 
 
 A Redhat article on [Linux permissions: SUID, SGID and sticky bits](https://www.redhat.com/sysadmin/suid-sgid-sticky-bit).    
-
-----
-
-## Command completion
-Learn to use the tab key for command completion or completing file/directory names. This can save time in typing.  
-
-Hint: type ds and press the tab to see command completion (e.g., dstat) if it exists or to see matching options.  
-Hint: type ls -lrt /home/rps/Do  and then press tab twice, you will get matching suggestions.  
-
-Tip: in case command completion is not working on a system, check you have installed bash-completion and bash-completion-extras  
-A related [long story](https://unix.stackexchange.com/questions/264102/bash-completion-is-very-incomplete-on-centos-7).  
-
-Reference file: /usr/share/bash-completion/bash_completion    
 
 ----
 
