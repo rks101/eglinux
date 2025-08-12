@@ -412,6 +412,7 @@ mail:x:8:
 ```
 
 Memorise the first command we learnt, ls -lrt, now type this in any directory for files and see the output. For a directory, use: ls -ld    
+
 The first column shows file permission mode, and columns 3 and 4 show owner and group names, respectively.   
 
 File permission mode can be viewed as:   
@@ -420,6 +421,17 @@ File permission mode can be viewed as:
 => These three chars pairs contain access permissions in order: r = read, w = write or x = execute   
 => There is a numeric weight associated with r, w, and x. r => 4, w => 2, and x = 1 and we can sum if any of r/w/x is present (see examples below)   
 => If a user is missing a certain access permission, that respective character is displayed as - or numerically adds up to 0   
+=> These numeric values essentially come from the octal representation of r, w, x permissions.    
+```
+rwx : 111 or 7    
+rw- : 110 or 6    
+r-x : 101 or 5    
+r-- : 100 or 4    
+-wx : 011 or 3    
+-w- : 010 or 2    
+--x : 001 or 1    
+--- : 000 or 0    
+```
 
 Using r - regular file can be opened in read-only mode, and directory content can be listed (cd to the directory is not allowed by r)   
 Using w - regular file can be edited, deleted, renamed, modified and saved, directory can be created inside a directory, deleted, renamed, access can be modifed as well.   
@@ -453,6 +465,10 @@ lrwxrwxrwx 1 root root 4 Mar 23 19:19 /bin/sh -> dash
 ```
 
 Using buffer overflow, if a remote user can get a shell /bin/sh executing some [shellcode](https://cocomelonc.github.io/tutorial/2021/10/09/linux-shellcoding-1.html), then what he can do - try to visualize using permissions of /bin/sh - specifically see the owner and all permissions.   
+
+**Changing default permissions using umask**     
+umask is used to set default permissions for new files or directories to be created. umask digits specify what permissions to revoke. Maximum permissions for a file are 666 and for a directory 777. Now using a umask of 022, default permissions for a file are 644 (-rw-r--r--) and for a directory 755 (drwxr-xr-x). Similarly, umask 002 will grant files 664 (-rw-rw-r--) and to directories 775 (drwxrwxr-x) permissions.      
+umask can be set in /etc/profile for all users or in ~/.bashrc for a user. e.g. umask 022     
 
 ----
 
