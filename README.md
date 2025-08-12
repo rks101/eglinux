@@ -150,7 +150,7 @@ _=/usr/bin/printenv        <= check echo $_
 
 ## PATH   
 
-What is path? No one figured out this quite well. Jokes apart, in Linux, everything is a file, and we may need to refer files, to where files reside.    
+What is path? No one figured out this quite well. Jokes apart, in Linux, everything is a file (LIFE is FILE and FILE is LIFE), and we may need to refer files, to where files reside.    
 
 Path helps to navigate around the file system and files in Linux, where almost everything is a file.   
 
