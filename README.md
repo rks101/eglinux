@@ -203,7 +203,7 @@ compgen -abckA function > compgen_help.txt        <== list most of what compgen 
 compgen -abckA function | grep -i --color ^ls     <== color, list most of compgen begining with ls
 compgen -abckA function | grep -i --color ls$     <== color, list most of compgen ending with ls
 ```
-Q. Hhow does compgen get this powerful list of itens?     
+Q. How does compgen get this powerful list of itens?     
 A. tomorrow 
 
 ----
