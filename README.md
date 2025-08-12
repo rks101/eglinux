@@ -191,6 +191,21 @@ A related [long story](https://unix.stackexchange.com/questions/264102/bash-comp
 
 Reference file: /usr/share/bash-completion/bash_completion    
 
+**compgen** is a bash builtin to complete aliases, builtins, commands, bash keywords, and functions.     
+```
+compgen -a                      <== list all aliases 
+compgen -b                      <== list all builtins 
+compgen -c                      <== list all commands 
+compgen -c ls                   <== list all coomands starting with ls 
+compgen -k                      <== list all keywords 
+compgen -A function             <== lits all functions 
+compgen -abckA function > compgen_help.txt        <== list most of what compgen can complete
+compgen -abckA function | grep -i --color ^ls     <== color, list most of compgen begining with ls
+compgen -abckA function | grep -i --color ls$     <== color, list most of compgen ending with ls
+```
+Q. Hhow does compgen get this powerful list of itens?     
+A. tomorrow 
+
 ----
 
 ## Know processors
