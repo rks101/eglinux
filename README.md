@@ -482,8 +482,17 @@ lrwxrwxrwx 1 root root 4 Mar 23 19:19 /bin/sh -> dash
 Using buffer overflow, if a remote user can get a shell /bin/sh executing some [shellcode](https://cocomelonc.github.io/tutorial/2021/10/09/linux-shellcoding-1.html), then what he can do - try to visualize using permissions of /bin/sh - specifically see the owner and all permissions.   
 
 **Changing default permissions using umask**     
-umask is used to set default permissions for new files or directories to be created. umask digits specify what permissions to revoke. Maximum permissions for a file are 666 and for a directory 777. Now using a umask of 022, default permissions for a file are 644 (-rw-r--r--) and for a directory 755 (drwxr-xr-x). Similarly, umask 002 will grant files 664 (-rw-rw-r--) and to directories 775 (drwxrwxr-x) permissions.      
-umask can be set in /etc/profile for all users or in ~/.bashrc for a user. e.g. umask 022     
+* umask is used to set default permissions for new files or directories to be created.
+* umask digits specify what permissions to be revoked from new files or directories.
+* Maximum permissions for a file are 666 and for a directory 777.
+* Now using a umask of 022, default permissions for a file are 644 (-rw-r--r--) and for a directory 755 (drwxr-xr-x).
+* Similarly, umask 002 will grant files 664 (-rw-rw-r--) and to directories 775 (drwxrwxr-x) permissions.
+* type umask on bash prompt to get current umask value, ignore leading zeros except rightmost 3 digits
+* with umask in four digits, leading digit 4, 2, 1 have special meaning. 4xxx SUID bit set, 2xxx SGID bit set, 1xxx sticky bit set (they are different)
+* umask can be set in /etc/profile for all users or in ~/.bashrc for a user by adding one line
+```
+umask 022
+```
 
 ----
 
