@@ -13,6 +13,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Environment Variables](#environment-variables)
       * [PATH](#path)   
       * [Command completion](#command-completion)
+      * [Command history](#command-history)
       * [Processes](#processes)
       * [Process Memory Layout using `proc`](#process-memory-layout)
       * [Kernel Parameters](#kernel-parameters)
@@ -205,6 +206,13 @@ compgen -abckA function | grep -i --color ls$     <== color, list most of compge
 ```
 Q. How does compgen get this powerful list of itens?     
 A. tomorrow 
+
+----
+
+## Command history    
+
+Q. How do you hide a command from bash shell? Suppose you did not want to reveal something :) 
+A. try with a " " 
 
 ----
 
