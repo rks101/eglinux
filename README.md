@@ -56,6 +56,8 @@ Every time you open a terminal or shell, the first command you should check out 
 ls -lrt
 ```
 
+----
+
 ## lsb_release
 What is OS major and minor release numbers? and any code name associated with the release?   
 ```
@@ -92,6 +94,7 @@ Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 
 [Ubuntu release cycle](https://ubuntu.com/about/release-cycle) - Each April release in even years is LTS (e.g., 18.04, 20.04, 24.04), and supported for 5 to 10 years or more. Production-grade applications should be hosted on LTS releases.     
 
 ----
+
 ## Getting help on-system 
 
 What if I do not know commands or their options and arguments?   
@@ -121,6 +124,29 @@ man [
 The source is in the coreutils package, src/lbracket.c and src/test.c    
 
 ----
+
+## Know processors
+How many processors do we have on the system? To know details and processor flags:   
+```
+cat /proc/cpuinfo  
+cat /proc/cpuinfo | grep "processor"  
+```
+Could you check the output? If you get eight entries with processors numbered from 0 to 7, this suggests eight logical cores.  
+
+----
+
+## Know memory
+How much memory (RAM / main memory / primary memory to run programs) do we have on the system? You can see installed, free, and other memory details:  
+```
+cat /proc/meminfo  
+```
+Check the output for MemTotal, MemFree, MemAvailable.  
+
+Note: Why should you consider MemAvailable from 2014 onward? [Check this patch](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34e431b0ae398fc54ea69ff85ec700722c9da773) and [post 1](https://stackoverflow.com/questions/30869297/difference-between-memfree-and-memavailable) and [post 2](https://superuser.com/questions/980820/what-is-the-difference-between-memfree-and-memavailable-in-proc-meminfo). To maintain the flow, continue reading.   
+
+Note:- It is good to learn about [types of RAM](https://www.techtarget.com/searchstorage/definition/DIMM), such as earlier SIMM, and DIMM, buffered memory, Load-Reduced or LR-DIMM (with iMB to isolate data and address), Small Outline or SO-DIMM (compact form factor for recent laptops/tablets), etc. A post on [which one to use](https://www.dasher.com/server-memory-rdimm-vs-lrdimm-and-when-to-use-them/) and [difference](https://www.faceofit.com/rdimm-vs-irdimm-vs-udimms/) can be helpful. To maintain the flow, continue reading.    
+
+---- 
 
 ## Environment Variables    
 
@@ -214,31 +240,34 @@ A. tomorrow
 
 ## Command history    
 
-Q. How do you hide a command from bash shell? Suppose you did not want to reveal something :) 
-A. try with a " " 
+To list existing history:    
+```
+history
+```
+To search history recursively:     
+Use ctrl+r and type few characters to search history, and then use tab to get that command:      
+```
+(reverse-i-search)`ssh': ssh -i rps.pem ubuntu@10.10.120.120      <== ctrl+r and then typed ssh   
+```
+To see a few previous commands:      
+Use arrow keys => Up for previous command and down to next in the history list.     
+
+To repeat just immediate previous command
+```
+!!
+```
+To clear history from current terminal session or shell:    
+```
+history -c
+```
+
+Q. How do you hide a command from bash shell history? Suppose you did not want to reveal something :)    
+A. try prefixing command with one or more spaces
+```
+  compgen -abckA function > compgen_help.txt       <== comamnd with a space prefix won't appear in history. Check using up arrow key    
+```
 
 ----
-
-## Know processors
-How many processors do we have on the system? To know details and processor flags:   
-```
-cat /proc/cpuinfo  
-cat /proc/cpuinfo | grep "processor"  
-```
-Could you check the output? If you get eight entries with processors numbered from 0 to 7, this suggests eight logical cores.  
-
-## Know memory
-How much memory (RAM / main memory / primary memory to run programs) do we have on the system? You can see installed, free, and other memory details:  
-```
-cat /proc/meminfo  
-```
-Check the output for MemTotal, MemFree, MemAvailable.  
-
-Note: Why should you consider MemAvailable from 2014 onward? [Check this patch](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34e431b0ae398fc54ea69ff85ec700722c9da773) and [post 1](https://stackoverflow.com/questions/30869297/difference-between-memfree-and-memavailable) and [post 2](https://superuser.com/questions/980820/what-is-the-difference-between-memfree-and-memavailable-in-proc-meminfo). To maintain the flow, continue reading.   
-
-Note:- It is good to learn about [types of RAM](https://www.techtarget.com/searchstorage/definition/DIMM), such as earlier SIMM, and DIMM, buffered memory, Load-Reduced or LR-DIMM (with iMB to isolate data and address), Small Outline or SO-DIMM (compact form factor for recent laptops/tablets), etc. A post on [which one to use](https://www.dasher.com/server-memory-rdimm-vs-lrdimm-and-when-to-use-them/) and [difference](https://www.faceofit.com/rdimm-vs-irdimm-vs-udimms/) can be helpful. To maintain the flow, continue reading.    
-
----- 
 
 ## Processes   
 
