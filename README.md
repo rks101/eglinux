@@ -4,7 +4,8 @@ eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux command
 
 Disclaimer: The output below for commands or utilities is compiled for illustration purposes only. You may not find all the exact details in your lab/office.    
 
-   * [eglinux](#eglinux)
+* [eglinux](#eglinux)
+  * Part-1
       * [`ls -lrt`](#ls--lrt)
       * [`lsb_release`](#lsb_release)
       * [Getting help on-system](#getting-help-on-system)
@@ -25,6 +26,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [`su` and `sudo`](#su-and-sudo)
       * [Password caching in `sudo`](#password-caching-in-sudo)
       * [Know File System](#know-file-system)
+  * Part-2
       * [Scheduling jobs](#scheduling-jobs)
       * [`nohup`](#nohup)
       * [Shell Scripting](#shell-scripting)
@@ -35,6 +37,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Environment variables](#environment-variables)
       * [Debugging](#debugging)
       * [Simple web server](#simple-web-server)
+  * Part-3
       * [crt and key file](#crt-and-key-file) 
       * [The One with mysql admin password](#the-one-with-mysql-admin-password)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
@@ -42,6 +45,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Advantage Linux](#advantage-linux)
       * [The One with Linus](#the-one-with-linus)
       * [Linux Software](#linux-software)
+  * Part-4
       * [Linux Security](#linux-security)
       * [Linux Kernel](#linux-kernel)
       * [Virtualization](#virtualization)
