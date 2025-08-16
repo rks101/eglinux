@@ -93,6 +93,13 @@ Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 
 
 [Ubuntu release cycle](https://ubuntu.com/about/release-cycle) - Each April release in even years is LTS (e.g., 18.04, 20.04, 24.04), and supported for 5 to 10 years or more. Production-grade applications should be hosted on LTS releases.     
 
+A Computer System contains:      
+- Compute
+- Memory
+- Network
+- (persistent) Storage
+- These days all above four component/sub-systems are virtualized.
+
 ----
 
 ## Getting help on-system 
@@ -264,7 +271,7 @@ compgen -abckA function | grep -i --color ^ls     <== color, list most of compge
 compgen -abckA function | grep -i --color ls$     <== color, list most of compgen ending with ls
 ```
 Q. How does compgen get this powerful list of itens?     
-A. tomorrow 
+Hint: complete 
 
 ----
 
@@ -298,6 +305,87 @@ A. try prefixing command with one or more spaces
 ```
 
 ----
+
+## Know File System 
+
+Linux File System - ext4, btrfs, xfs, ZFS, etc. define how to store, retrieve, and manage files on the system.     
+
+Use **fdisk -l** (output may contain loop devices, ignore them for now):  
+```
+$ sudo fdisk -l
+...
+Disk /dev/nvme0n1: 476.94 GiB, 512110190592 bytes, 1000215216 sectors
+Disk model: BC711 NVMe SK hynix 512GB               
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 90AC9BEA-BE65-4C42-8C6D-4CE4C6349709
+
+Device             Start        End   Sectors   Size Type
+/dev/nvme0n1p1      2048     514047    512000   250M EFI System
+/dev/nvme0n1p2   1562624    1824767    262144   128M Microsoft reserved
+/dev/nvme0n1p3   1824768  483047423 481222656 229.5G Microsoft basic data
+/dev/nvme0n1p4 995047424  997257215   2209792   1.1G Windows recovery environmen
+/dev/nvme0n1p5 997261312 1000187903   2926592   1.4G Windows recovery environmen
+/dev/nvme0n1p6 483047424  547047423  64000000  30.5G Linux swap
+/dev/nvme0n1p7 547047424  995047423 448000000 213.6G Linux filesystem
+
+Partition table entries are not in disk order.
+...
+
+```
+
+**/etc/fstab** can show Linux partitions  
+```
+$  cat /etc/fstab 
+# /etc/fstab: static file system information.
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/nvme0n1p7 during installation
+UUID=d56a27d6-0a3c-40a1-b85f-b4fa53bff123 /               ext4    errors=remount-ro 0       1
+# /boot/efi was on /dev/nvme0n1p1 during installation
+UUID=4CF2-479A  /boot/efi       vfat    umask=0077      0       1
+# swap was on /dev/nvme0n1p6 during installation
+UUID=cceb039a-dbe7-4441-800c-a0548fe2fb45 none            swap    sw              0       0
+```
+
+**mount** or **df** can show file systems mounted. 
+```
+$ df -Th
+Filesystem     Type      Size  Used Avail Use% Mounted on
+tmpfs          tmpfs     1.6G  2.7M  1.6G   1% /run
+/dev/nvme0n1p7 ext4      210G  116G   84G  58% /
+tmpfs          tmpfs     7.6G  560M  7.0G   8% /dev/shm
+tmpfs          tmpfs     5.0M  8.0K  5.0M   1% /run/lock
+efivarfs       efivarfs  374K  259K  111K  71% /sys/firmware/efi/efivars
+/dev/nvme0n1p1 vfat      246M  130M  117M  53% /boot/efi
+tmpfs          tmpfs     1.6G  160K  1.6G   1% /run/user/1000
+```
+
+**lsblk** and exclude loop devices
+```
+$ lsblk -f | grep -v loop
+NAME        FSTYPE   FSVER LABEL       UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+nvme0n1                                                                                    
+├─nvme0n1p1 vfat     FAT32 ESP         4CF2-479A                             216.8M    53% /boot/efi
+├─nvme0n1p2                                                                                
+├─nvme0n1p3 ntfs           OS          B496F47996F12345                                    
+├─nvme0n1p4 ntfs                       EA40D7DD40D78901                                    
+├─nvme0n1p5 ntfs           DELLSUPPORT 1EFE4A7DFE412345                                    
+├─nvme0n1p6 swap     1                 cceb039a-dbe7-4441-800c-a0548fe12345                [SWAP]
+└─nvme0n1p7 ext4     1.0               d56a27d6-0a3c-40a1-b85f-b4fa53b67890   183.4G    55% /
+```
+
+References:      
+https://www.fosslinux.com/126128/choosing-the-right-linux-file-system-your-ultimate-guide.htm     
+https://www.geeksforgeeks.org/linux-file-system/    
+https://www.baeldung.com/linux/find-system-type     
+
+[File System Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)     
+
+----
+
 
 ## The One with File Permissions   
 
@@ -548,59 +636,6 @@ One way to check if a sudo password is required is to use sudo -nv, and no outpu
 $ sudo -nv
 sudo: a password is required
 ```
-
-----
-
-## Know File System 
-
-Linux File System - ext4, btrfs, xfs, ZFS, etc. define how to store, retrieve, and manage files on the system.     
-
-/etc/fstab can show Linux partitions  
-```
-$  cat /etc/fstab 
-# /etc/fstab: static file system information.
-#
-# <file system> <mount point>   <type>  <options>       <dump>  <pass>
-# / was on /dev/nvme0n1p7 during installation
-UUID=d56a27d6-0a3c-40a1-b85f-b4fa53bff123 /               ext4    errors=remount-ro 0       1
-# /boot/efi was on /dev/nvme0n1p1 during installation
-UUID=4CF2-479A  /boot/efi       vfat    umask=0077      0       1
-# swap was on /dev/nvme0n1p6 during installation
-UUID=cceb039a-dbe7-4441-800c-a0548fe2fb45 none            swap    sw              0       0
-```
-
-mount or df can show file systems mounted. 
-```
-$ df -Th
-Filesystem     Type      Size  Used Avail Use% Mounted on
-tmpfs          tmpfs     1.6G  2.7M  1.6G   1% /run
-/dev/nvme0n1p7 ext4      210G  116G   84G  58% /
-tmpfs          tmpfs     7.6G  560M  7.0G   8% /dev/shm
-tmpfs          tmpfs     5.0M  8.0K  5.0M   1% /run/lock
-efivarfs       efivarfs  374K  259K  111K  71% /sys/firmware/efi/efivars
-/dev/nvme0n1p1 vfat      246M  130M  117M  53% /boot/efi
-tmpfs          tmpfs     1.6G  160K  1.6G   1% /run/user/1000
-```
-lsblk and exclude loop devices
-```
-$ lsblk -f | grep -v loop
-NAME        FSTYPE   FSVER LABEL       UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
-nvme0n1                                                                                    
-├─nvme0n1p1 vfat     FAT32 ESP         4CF2-479A                             216.8M    53% /boot/efi
-├─nvme0n1p2                                                                                
-├─nvme0n1p3 ntfs           OS          B496F47996F12345                                    
-├─nvme0n1p4 ntfs                       EA40D7DD40D78901                                    
-├─nvme0n1p5 ntfs           DELLSUPPORT 1EFE4A7DFE412345                                    
-├─nvme0n1p6 swap     1                 cceb039a-dbe7-4441-800c-a0548fe12345                [SWAP]
-└─nvme0n1p7 ext4     1.0               d56a27d6-0a3c-40a1-b85f-b4fa53b67890   183.4G    55% /
-```
-
-References:      
-https://www.fosslinux.com/126128/choosing-the-right-linux-file-system-your-ultimate-guide.htm     
-https://www.geeksforgeeks.org/linux-file-system/    
-https://www.baeldung.com/linux/find-system-type     
-
-[File System Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)     
 
 ----
 
