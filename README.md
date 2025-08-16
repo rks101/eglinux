@@ -148,6 +148,36 @@ Note:- It is good to learn about [types of RAM](https://www.techtarget.com/searc
 
 ---- 
 
+## List hardware 
+How can I list hardware details?  
+```
+lshw
+lshw -short
+```
+
+It is nice to know about system hardware such as hard disk, graphics card, audio and network controllers (wired and wifi)  
+```
+lshw | grep -A7 -i "disk"  <== Hard disk details  
+lshw -short <== for graphics card, look for display  
+lspci -v | grep -A7 -i "audio"  <== Audio device details  
+lspci -v | grep -A7 -i "eternet"  <== Network Controller for Ethernet (LAN)  
+lspci -v | grep -A7 -i "wireless"  <== Network Controller for wireless (Wi-Fi)  
+```
+
+There is a GUI as well for hardware info.   
+
+On Ubuntu to get hardinfo:  
+```
+sudo apt install hardinfo 
+```
+
+To know about peripheral interconnects/ports:    
+```
+lspci -vvv 
+```
+
+----
+
 ## Environment Variables    
 
 How to display and change environment variables? Using printenv, we can display/print environment variables that may be helpful to set or display PATH, alias, user, and session details for scripting or debugging.    
@@ -264,164 +294,11 @@ history -c
 Q. How do you hide a command from bash shell history? Suppose you did not want to reveal something :)    
 A. try prefixing command with one or more spaces
 ```
-  compgen -abckA function > compgen_help.txt       <== comamnd with a space prefix won't appear in history. Check using up arrow key    
+  compgen -abckA function > compgen_help.txt       <== command with a space prefix won't appear in history. Check using up arrow key    
 ```
 
 ----
 
-## Processes   
-
-Use ps command with flags -aef or -aux and grep for user or other strings.    
-
-ps -aux shows USER running the process, PID of the process, %CPU used, %MEM used, status of the process, timestamp of starting the process, and command used to start the process.    
-
-```
-ps
-ps -aef 
-ps -aux
-ps -aux | grep $USER 
-```
-
-----
-
-## Process Memory Layout 
-This one is my favorite topic in OS lab. It helps to visualize virtual memory, process layout, proc interface, and shared libs/objects.     
-
-Can I see the memory layout and the stack of a process? See [presentation]() for more details.   
-To see all files related to a process with PID = $$  
-``` 
-ls -lrt /proc/$$
-```
-Now, check process memory layout (TODO: add link from OS course file having exercises on proc):   
-```
-cat /proc/$$/maps 
-```
-
-And stack associated with process $$:  
-```
-cat /proc/$$/stack
-```
-Using the output of the above commands, convince yourself that you can visualise stack, heap, text segment of a process using virtual addresses and the output. Also, see /lib/x84_64-linux-gnu/lib\*  files and other shared libraries.  
-In the above example, replace $$ with a process id you are interested in.  
-
-Ok, next you should try out:   
-```
-cat /proc/self/maps
-```
-Here is a link to [understand the output](https://www.baeldung.com/linux/proc-id-maps) almost line by line.   
-
-
-What shared objects/libraries are used by a program? 
-
-```
-$ ldd <program>
-$ ldd /bin/bash
-$ ldd /bin/ls
-$ ldd /usr/bin/python3.8 
-```
-
-Do you know where and how to know more about /proc?  
-
-One of the best ways to understand virtual memory and process memory layout: [Cheese on /proc](https://www.kernel.org/doc/Documentation/filesystems/proc.txt)   
-
-[procmap](https://github.com/kaiwan/procmap)     
-
----- 
-
-## Kernel Parameters    
-
-Like printenv for the current session, we can set or display kernel parameters for the currently booted kernel. You would like to know what values you set before you set them :)    
-
-```
-$ cat /proc/cmdline 
-BOOT_IMAGE=/boot/vmlinuz-6.2.0-39-generic root=UUID=d56a27d6-0a3c-40a1-b85f-b4fa53bff998 ro quiet splash vt.handoff=7
-```
-
-```
-$ sysctl -a
-abi.vsyscall32 = 1
-debug.exception-trace = 1
-debug.kprobes-optimization = 1
-...
-dev.scsi.logging_level = 0
-...
-
-...
-user.max_net_namespaces = 61251
-user.max_pid_namespaces = 61251
-...
-vm.overcommit_memory = 0
-vm.overcommit_ratio = 50
-...
-vm.swappiness = 60
-vm.unprivileged_userfaultfd = 0
-vm.user_reserve_kbytes = 131072
-vm.vfs_cache_pressure = 100
-vm.watermark_boost_factor = 15000
-vm.watermark_scale_factor = 10
-vm.zone_reclaim_mode = 0
-
-```
-----
-
-## Overcommit memory    
-
-Know more about vm.overcommit_memory and vm.overcommit_ratio at [serverfault](https://serverfault.com/questions/606185/how-does-vm-overcommit-memory-work)     
-
-----
-
-## Linux Capabilities   
-
-Unprivileged or non-root processes can be enabled or disabled for certain tasks or to access some resources. They are pretty much permissions for a process.    
-
-You can check capabilities for a process using    
-```
-$ getpcaps PID   
-```
-
-When asked the man (man capabilities), got this reply :)     
-```
-  For  the purpose of performing permission checks, traditional UNIX implementations distinguish two categories of processes:   
-  privileged processes (whose effective user ID is 0, referred to as superuser or root), and unprivileged processes (whose
-  effective UID is nonzero).  Privileged processes bypass all kernel permission checks,  while  unprivileged processes are
-  subject to full permission checking based on the process's credentials (usually: effective UID, effective GID, and
-  supplementary group list).   
-   
-  Starting  with  Linux  2.2, Linux divides the privileges traditionally associated with superusers into distinct units,
-  known as capabilities, which can be independently enabled and disabled.  Capabilities are a per-thread attribute.   
-```
-
-----
-
-## List hardware 
-How can I list hardware details?  
-```
-lshw
-lshw -short
-```
-
-It is nice to know about system hardware such as hard disk, graphics card, audio and network controllers (wired and wifi)  
-```
-lshw | grep -A7 -i "disk"  <== Hard disk details  
-lshw -short <== for graphics card, look for display  
-lspci -v | grep -A7 -i "audio"  <== Audio device details  
-lspci -v | grep -A7 -i "eternet"  <== Network Controller for Ethernet (LAN)  
-lspci -v | grep -A7 -i "wireless"  <== Network Controller for wireless (Wi-Fi)  
-```
-
-There is a GUI as well for hardware info.   
-
-On Ubuntu to get hardinfo:  
-```
-sudo apt install hardinfo 
-```
-
-To know about peripheral interconnects/ports:    
-```
-lspci -vvv 
-```
-
-----
 ## The One with File Permissions   
 
 A linux user is a regular user or a system user (without login) or superuser aka root.   
@@ -587,19 +464,6 @@ A Redhat article on [Linux permissions: SUID, SGID and sticky bits](https://www.
 
 ----
 
-## Transfer files using Secure Copy scp   
-
-Using Secure Copy or SCP, we can transfer files to and from local to remote systems. Underneath, scp uses SSH for auth and encryption.    
-
-```
-scp SOURCE DESTINATION    
-
-scp  path-of-local-file-or-dir  user@remote-system:/path-to-remote-file-or-dir    
-
-scp  user@remote-system:/path-of-remote-file-dir  path-of-local-file-or-dir    
-```
-----
-
 ## Remote login using ssh    
 
 To login to a server or virtual machine remotely from your own Linux system, you can use ssh:    
@@ -616,6 +480,19 @@ You should change the permissions of the pem file to remove access for other use
 chmod 400 filename.pem  
 ```
 
+----
+
+## Transfer files using Secure Copy scp   
+
+Using Secure Copy or SCP, we can transfer files to and from local to remote systems. Underneath, scp uses SSH for auth and encryption.    
+
+```
+scp SOURCE DESTINATION    
+
+scp  path-of-local-file-or-dir  user@remote-system:/path-to-remote-file-or-dir    
+
+scp  user@remote-system:/path-of-remote-file-dir  path-of-local-file-or-dir    
+```
 ----
 
 ## su and sudo    
@@ -724,6 +601,132 @@ https://www.geeksforgeeks.org/linux-file-system/
 https://www.baeldung.com/linux/find-system-type     
 
 [File System Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)     
+
+----
+
+PART-2    
+
+## Processes   
+
+Use ps command with flags -aef or -aux and grep for user or other strings.    
+
+ps -aux shows USER running the process, PID of the process, %CPU used, %MEM used, status of the process, timestamp of starting the process, and command used to start the process.    
+
+```
+ps
+ps -aef 
+ps -aux
+ps -aux | grep $USER 
+```
+
+----
+
+## Process Memory Layout 
+This one is my favorite topic in OS lab. It helps to visualize virtual memory, process layout, proc interface, and shared libs/objects.     
+
+Can I see the memory layout and the stack of a process? See [presentation]() for more details.   
+To see all files related to a process with PID = $$  
+``` 
+ls -lrt /proc/$$
+```
+Now, check process memory layout (TODO: add link from OS course file having exercises on proc):   
+```
+cat /proc/$$/maps 
+```
+
+And stack associated with process $$:  
+```
+cat /proc/$$/stack
+```
+Using the output of the above commands, convince yourself that you can visualise stack, heap, text segment of a process using virtual addresses and the output. Also, see /lib/x84_64-linux-gnu/lib\*  files and other shared libraries.  
+In the above example, replace $$ with a process id you are interested in.  
+
+Ok, next you should try out:   
+```
+cat /proc/self/maps
+```
+Here is a link to [understand the output](https://www.baeldung.com/linux/proc-id-maps) almost line by line.   
+
+
+What shared objects/libraries are used by a program? 
+
+```
+$ ldd <program>
+$ ldd /bin/bash
+$ ldd /bin/ls
+$ ldd /usr/bin/python3.8 
+```
+
+Do you know where and how to know more about /proc?  
+
+One of the best ways to understand virtual memory and process memory layout: [Cheese on /proc](https://www.kernel.org/doc/Documentation/filesystems/proc.txt)   
+
+[procmap](https://github.com/kaiwan/procmap)     
+
+---- 
+
+## Kernel Parameters    
+
+Like printenv for the current session, we can set or display kernel parameters for the currently booted kernel. You would like to know what values you set before you set them :)    
+
+```
+$ cat /proc/cmdline 
+BOOT_IMAGE=/boot/vmlinuz-6.2.0-39-generic root=UUID=d56a27d6-0a3c-40a1-b85f-b4fa53bff998 ro quiet splash vt.handoff=7
+```
+
+```
+$ sysctl -a
+abi.vsyscall32 = 1
+debug.exception-trace = 1
+debug.kprobes-optimization = 1
+...
+dev.scsi.logging_level = 0
+...
+
+...
+user.max_net_namespaces = 61251
+user.max_pid_namespaces = 61251
+...
+vm.overcommit_memory = 0
+vm.overcommit_ratio = 50
+...
+vm.swappiness = 60
+vm.unprivileged_userfaultfd = 0
+vm.user_reserve_kbytes = 131072
+vm.vfs_cache_pressure = 100
+vm.watermark_boost_factor = 15000
+vm.watermark_scale_factor = 10
+vm.zone_reclaim_mode = 0
+
+```
+----
+
+## Overcommit memory    
+
+Know more about vm.overcommit_memory and vm.overcommit_ratio at [serverfault](https://serverfault.com/questions/606185/how-does-vm-overcommit-memory-work)     
+
+----
+
+## Linux Capabilities   
+
+Unprivileged or non-root processes can be enabled or disabled for certain tasks or to access some resources. They are pretty much permissions for a process.    
+
+You can check capabilities for a process using    
+```
+$ getpcaps PID   
+```
+
+When asked the man (man capabilities), got this reply :)     
+```
+  For  the purpose of performing permission checks, traditional UNIX implementations distinguish two categories of processes:   
+  privileged processes (whose effective user ID is 0, referred to as superuser or root), and unprivileged processes (whose
+  effective UID is nonzero).  Privileged processes bypass all kernel permission checks,  while  unprivileged processes are
+  subject to full permission checking based on the process's credentials (usually: effective UID, effective GID, and
+  supplementary group list).   
+   
+  Starting  with  Linux  2.2, Linux divides the privileges traditionally associated with superusers into distinct units,
+  known as capabilities, which can be independently enabled and disabled.  Capabilities are a per-thread attribute.   
+```
 
 ----
 
@@ -860,15 +863,6 @@ Now, after this workaround, Zoom will show Desktop sharing alongside Whiteboard 
 
 ---- 
 
-## Installed packages
-How do I find out installed software packages? 
-```
-sudo dpkg --get-selections
-```
-This is equivalent to rpm -qa in case of RHEL/Fedora/CentOS. 
-
-----
-
 ## Debugging
 
 For debugging issues, the following can help about processes and system resources.  
@@ -998,6 +992,15 @@ Relevant posts on this auhentication type conundrum:
 [alter user with mysql_native_password](https://medium.com/@crmcmullen/how-to-run-mysql-8-0-with-native-password-authentication-502de5bac661)    
 
 ---- 
+
+## Installed packages
+How do I find out installed software packages? 
+```
+sudo dpkg --get-selections
+```
+This is equivalent to rpm -qa in case of RHEL/Fedora/CentOS. 
+
+----
 
 ## Remove old Linux kernel images 
 How do we remove old Linux kernel images and headers?  
@@ -1176,6 +1179,8 @@ I have been using Linux as primary desktop/laptop OS since 2003, well before I o
 [Writing mathematical equations in Libre Office Writer](https://www.ubuntubuzz.com/2016/09/libreoffice-writer-equation-editor-writing-mathematical-formulas.html)     
 
 ---- 
+
+PART-4     
 
 ## Linux Security    
 
