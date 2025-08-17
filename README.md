@@ -172,7 +172,7 @@ GiB - Gibibyte: is based on binary system, 1 GiB = 2^30 bytes (1,073,741,824 byt
 
 Note:-    
 1. International Electrotechnical Commission (IEC - https://iec.ch) standardized the use of prefixes like "kibi-", "mebi-", "gibi-", "tebi", etc., to represent binary multiples, reserving "kilo-", "mega-", "giga-", "tera-", etc., for decimal multiples.     
-2. Certain OS or utilities may display storage slightly different or less as compared to vendor because of GB/GiB used.     
+2. Certain OS or software utilities may display storage values slightly different or less as compared to vendor published values because of GB/GiB unit used. For TeraBytes, PetaBytes (and higher) the difference becomes significant because of growth of power of 2 versus power of 10.     
 
 ---- 
 
