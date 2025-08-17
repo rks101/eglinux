@@ -572,37 +572,6 @@ A Redhat article on [Linux permissions: SUID, SGID and sticky bits](https://www.
 
 ----
 
-## Remote login using ssh    
-
-To login to a server or virtual machine remotely from your own Linux system, you can use ssh:    
-```
-ssh remote_username@remote_server_ip_or_name
-```
-SSH using pem file:    
-```
-ssh -i filename.pem remote_username@remote_server_ip_or_name   
-```
-SSH ignores a private key file (.pem file) if it is accessible by others.   
-You should change the permissions of the pem file to remove access for other users (600 or 400) to remove the error: Permissions 0664 for 'filename.pem' are too open.   
-```
-chmod 400 filename.pem  
-```
-
-----
-
-## Transfer files using Secure Copy scp   
-
-Using Secure Copy or SCP, we can transfer files to and from local to remote systems. Underneath, scp uses SSH for auth and encryption.    
-
-```
-scp SOURCE DESTINATION    
-
-scp  path-of-local-file-or-dir  user@remote-system:/path-to-remote-file-or-dir    
-
-scp  user@remote-system:/path-of-remote-file-dir  path-of-local-file-or-dir    
-```
-----
-
 ## su and sudo    
 
 su = substitute user, su <user> starts another shell with permissions of <user> specified.      
@@ -657,6 +626,37 @@ $ sudo -nv
 sudo: a password is required
 ```
 
+----
+
+## Remote login using ssh    
+
+To login to a server or virtual machine remotely from your own Linux system, you can use ssh:    
+```
+ssh remote_username@remote_server_ip_or_name
+```
+SSH using pem file:    
+```
+ssh -i filename.pem remote_username@remote_server_ip_or_name   
+```
+SSH ignores a private key file (.pem file) if it is accessible by others.   
+You should change the permissions of the pem file to remove access for other users (600 or 400) to remove the error: Permissions 0664 for 'filename.pem' are too open.   
+```
+chmod 400 filename.pem  
+```
+
+----
+
+## Transfer files using Secure Copy scp   
+
+Using Secure Copy or SCP, we can transfer files to and from local to remote systems. Underneath, scp uses SSH for auth and encryption.    
+
+```
+scp SOURCE DESTINATION    
+
+scp  path-of-local-file-or-dir  user@remote-system:/path-to-remote-file-or-dir    
+
+scp  user@remote-system:/path-of-remote-file-dir  path-of-local-file-or-dir    
+```
 ----
 
 PART-2    
