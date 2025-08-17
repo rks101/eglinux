@@ -11,6 +11,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Getting help on-system](#getting-help-on-system)
       * [Know processors](#know-processors)
       * [Know memory](#know-memory)
+      * [GB or GiB](#gb-or-gib)
       * [List hardware using `lshw`](#list-hardware)
       * [Environment Variables](#environment-variables)
       * [PATH](#path)   
@@ -51,7 +52,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
 
 
 ## ls -lrt
-Every time you open a terminal or shell, the first command you should check out is to list all files and directories (ls) in a long (l) and reverse (r) order of time (t) updated. Do compare this output with various other outputs from ls options.    
+Every time you open a terminal or shell, the first command you should check out is to list all files and directories (ls) in a long (l) and reverse (r) order of time (t) updated. Do compare this output with various other outputs from ls options. Also, this command helps to see permissions and who touched what files recently.    
 ```
 ls -lrt
 ```
@@ -153,12 +154,32 @@ Note: Why should you consider MemAvailable from 2014 onward? [Check this patch](
 
 Note:- It is good to learn about [types of RAM](https://www.techtarget.com/searchstorage/definition/DIMM), such as earlier SIMM, and DIMM, buffered memory, Load-Reduced or LR-DIMM (with iMB to isolate data and address), Small Outline or SO-DIMM (compact form factor for recent laptops/tablets), etc. A post on [which one to use](https://www.dasher.com/server-memory-rdimm-vs-lrdimm-and-when-to-use-them/) and [difference](https://www.faceofit.com/rdimm-vs-irdimm-vs-udimms/) can be helpful. To maintain the flow, continue reading.    
 
+----
+
+## GB or GiB    
+
+GB and GiB are data storage units in terms of bytes.    
+
+GB  - Gigabyte: is based on decimal system, 1 GB = 10^9 bytes (1,000,000,000 bytes or 1 billion bytes, 1 followed by 9 zeros)    
+GiB - Gibibyte: is based on binary system, 1 GiB = 2^30 bytes (1,073,741,824 bytes).     
+
+1 GiB is slightly larger than 1 GB (7.3%)     
+
+1 TB  = 10^12 bytes or 1,000,000,000,000 bytes or 1 trillion bytes, 1 followed by 12 zeros     
+1 TiB = 2^40 bytes  or 1,099,511,627,776 bytes     
+
+1 TiB is larger than 1 TB (9.9%)     
+
+Note:-    
+1. International Electrotechnical Commission (IEC - https://iec.ch) standardized the use of prefixes like "kibi-", "mebi-", "gibi-", "tebi", etc., to represent binary multiples, reserving "kilo-", "mega-", "giga-", "tera-", etc., for decimal multiples.     
+2. Certain OS or utilities may display storage slightly different or less as compared to vendor because of GB/GiB used.     
+
 ---- 
 
 ## List hardware 
 How can I list hardware details?  
 ```
-lshw
+
 lshw -short
 ```
 
