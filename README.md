@@ -51,6 +51,8 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Virtualization](#virtualization)
 
 
+#PART-1
+
 ## ls -lrt
 Every time you open a terminal or shell, the first command you should check out is to list all files and directories (ls) in a long (l) and reverse (r) order of time (t) updated. Do compare this output with various other outputs from ls options. Also, this command helps to see permissions and who touched what files recently.    
 ```
@@ -659,7 +661,7 @@ scp  user@remote-system:/path-of-remote-file-dir  path-of-local-file-or-dir
 ```
 ----
 
-PART-2    
+#PART-2    
 
 ## Processes   
 
@@ -1007,6 +1009,8 @@ To check if Java runtime environment (JRE) is installed: $ java --version
 To see if Java SDK is installed: $ javac  
 
 ----
+
+#PART-3
 
 ## crt and key file   
 For SSL/TLS certificate setup on a HTTP server, it requires a certificate and a private file.   
