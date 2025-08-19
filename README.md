@@ -880,6 +880,32 @@ Q. How to remove ^M (a single control character) in a file at the end of each li
 
 ----
 
+## Input Outout Redirection     
+
+> redirect output     
+>> append to redirected output     
+
+2> redirect error     
+2>> append to redirected error    
+
+< redirect input    
+
+<< used in "here document" by cat << END  (get anything till you type delimiter END)     
+
+There are three file streams: standard input (0), standard output (1), standard error (2)     
+Generally, input comes from keyboard, both output and error are displayed on console/terminal.    
+
+When desired to suppress noise of output, stdout and stderr can be merged:     
+```
+locate canary 1 >& 2          <== locate may generate a lot of permission errors and this redirection makes it quiet. 
+```
+Scripts use even a quieter way:    
+```
+command_goes_here  1 >& 2 /dev/null       <== /dev/null eats everything, super cool and quiet, always test it once and then go quiet    
+```
+
+----
+
 ## Shell Scripting    
 
 Shell Scripting offers a nice and robust way to automate system administration and daily tasks on Linux for both sysadmins and normal Linux users.     
@@ -892,6 +918,12 @@ Try [Bash one-liners](https://onceupon.github.io/Bash-Oneliner/) and [more](http
 [Practice simple commands from RHCSA](https://github.com/soficx/rhcsa)     
 
 Note: Some options may vary from shell to shell and across versions installed and distributions. Do not worry; explore different options.     
+
+Bash builtin variables    
+$0   
+$#    
+$?    
+$$    
 
 ----
 
