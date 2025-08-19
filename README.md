@@ -99,7 +99,7 @@ A Computer System contains:
 - Memory
 - Network
 - (persistent) Storage
-- These days all above four component/sub-systems are virtualized.
+- These days all above four components/sub-systems are virtualized. 
 
 ----
 
