@@ -882,8 +882,8 @@ Q. How to remove ^M (a single control character) in a file at the end of each li
 
 ## Input Output Redirection     
 
-- >  redirect output     
-- >> : append to redirected output     
+- ">"  redirect output     
+- ">>" : append to redirected output     
 
 - 2> redirect error     
 - 2>> append to redirected error    
