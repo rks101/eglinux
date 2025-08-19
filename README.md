@@ -880,17 +880,16 @@ Q. How to remove ^M (a single control character) in a file at the end of each li
 
 ----
 
-## Input Outout Redirection     
+## Input Output Redirection     
 
-> redirect output     
->> append to redirected output     
+- >  redirect output     
+- >> : append to redirected output     
 
-2> redirect error     
-2>> append to redirected error    
+- 2> redirect error     
+- 2>> append to redirected error    
 
-< redirect input    
-
-<< used in "here document" by cat << END  (get anything till you type delimiter END)     
+- < redirect input    
+- << used in "here document" by cat << END  (get anything till you type delimiter END)     
 
 There are three file streams: standard input (0), standard output (1), standard error (2)     
 Generally, input comes from keyboard, both output and error are displayed on console/terminal.    
