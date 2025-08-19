@@ -30,6 +30,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Linux capabilities](#linux-capabilities)
       * [Scheduling jobs](#scheduling-jobs)
       * [`nohup`](#nohup)
+      * [vi editor](#vi-editor)
       * [Shell Scripting](#shell-scripting)
       * [`xdg-open`](#xdg-open)
       * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
@@ -845,6 +846,26 @@ Run system update that can longer and may remain unattended
 ```
 nohup sudo apt upgrade   
 ```
+
+----
+
+## vi editor    
+
+vi editor has two modes: command mode (to navigate and commands) and insert mode (edit files in a buffer). Press i (to in-place insert) or a (to append) to enter into insert mode. Use escape to switch from insert to command mode.      
+
+In comamnd mode:     
+search using **/**searchstring , then use ctrl+f to go forward (page down) and ctrl+b togo backward (like page up).     
+:1 go to first line, G (shift+ **g**) go to the last line, :n to go to nth line in the buffer.    
+:%s/SRC/TGT/g to search SRC and replace all occurrences with TGT    
+:%s/SRC/TGT/gc to search SRC and confirm to replace an occurrences of SRC with TGT    
+nYY - copy/yank n lines from the current line    
+p - paste after the current line    
+P (shift + p) to paste above the current line     
+nDD - delete n lines from the current line   
+HW: Block copy in vi     
+
+In insert/edit mode:    
+vi filename.txt, then use i to insert at any place in the buffer, a to append next to the current place of cursor    
 
 ----
 
