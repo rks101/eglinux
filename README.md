@@ -31,6 +31,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Scheduling jobs](#scheduling-jobs)
       * [`nohup`](#nohup)
       * [vi editor](#vi-editor)
+      * [Input Output Redirection](#input-output-redirection)
       * [Shell Scripting](#shell-scripting)
       * [`xdg-open`](#xdg-open)
       * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
@@ -856,7 +857,7 @@ vi editor has two modes: command mode (to navigate and commands) and insert mode
 In insert/edit mode:    
 - vi filename.txt, then use i to insert at any place in the buffer, a to append next to the current place of cursor    
 
-In comamnd mode:     
+In command mode:     
 - :w to save, :wq to save and exit, :q! to exit without save    
 - search using **/** followed by searchstring, then use ctrl+f to go forward (page down) and ctrl+b togo backward (like page up).     
 - :1 go to first line, G (shift+ **g**) go to the last line, :n to go to nth line in the buffer.    
@@ -866,8 +867,16 @@ In comamnd mode:
 - p - paste after the current line    
 - P (shift + p) to paste above the current line     
 - nDD - delete n lines from the current line   
-- HW: Block copy in vi     
+- . (dot) to repeat the immediate previous command     
+- cw to change a word, takes you into insert mode   
 
+Q. How to copy a block of text and paste it elsewhere? Refer block copy in vi editor.     
+
+Q. How to remove ^M (a single control character) in a file at the end of each line? When files are transmitted across OS, this may happen.    
+
+[vim adventures game](https://vim-adventures.com/)     
+
+[Little history and an opinion on vi](https://medium.com/@eddiec76/i-have-opinions-3a2c0af1e1ad)     
 
 ----
 
