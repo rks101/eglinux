@@ -5,7 +5,7 @@ eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux command
 Disclaimer: The output below for commands or utilities is compiled for illustration purposes only. You may not find all the exact details in your lab/office.    
 
 * [eglinux](#eglinux)
-    * Part-1
+  * Part-1
       * [`ls -lrt`](#ls--lrt)
       * [`lsb_release`](#lsb_release)
       * [Getting help on-system](#getting-help-on-system)
@@ -51,7 +51,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Virtualization](#virtualization)
 
 
-#PART-1
+PART-1
 
 ## ls -lrt
 Every time you open a terminal or shell, the first command you should check out is to list all files and directories (ls) in a long (l) and reverse (r) order of time (t) updated. Do compare this output with various other outputs from ls options. Also, this command helps to see permissions and who touched what files recently.    
@@ -661,7 +661,7 @@ scp  user@remote-system:/path-of-remote-file-dir  path-of-local-file-or-dir
 ```
 ----
 
-#PART-2    
+PART-2    
 
 ## Processes   
 
@@ -1010,7 +1010,7 @@ To see if Java SDK is installed: $ javac
 
 ----
 
-#PART-3
+PART-3
 
 ## crt and key file   
 For SSL/TLS certificate setup on a HTTP server, it requires a certificate and a private file.   
