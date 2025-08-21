@@ -930,6 +930,12 @@ $#
 $?    
 $$    
 
+[Bash Conditional Expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)     
+[[   ]] compund command    
+[ ] test command    
+(( )) evaluate and substitute expression    
+
+
 ----
 
 ## xdg-open 
