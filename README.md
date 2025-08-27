@@ -913,6 +913,8 @@ command_goes_here > output.txt 2>&1 /dev/null       <== /dev/null eats everythin
 
 ## Shell Scripting    
 
+[bash page](bash/README.md)    
+
 Shell Scripting offers a nice and robust way to automate system administration and daily tasks on Linux for both sysadmins and normal Linux users.     
 
 [Bash Scripting](https://linuxsimply.com/cheat-sheets/bash-scripting/)     
