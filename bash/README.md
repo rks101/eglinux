@@ -26,9 +26,9 @@ Bash built-in variables
 - `$$` : PID of current bash   
 
 [Bash Conditional Expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)     
-- [[   ]] compound command    
-- [ ] test command    
-- (( )) evaluate and substitute the expression    
+- [[ expression  ]] compound command    
+- [ expression ] test command    
+- (( expression )) evaluate and substitute the expression    
 
 [Bash Scripting](https://linuxsimply.com/cheat-sheets/bash-scripting/)     
 
