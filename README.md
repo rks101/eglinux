@@ -892,7 +892,7 @@ Q. How to remove ^M (a single control character) in a file at the end of each li
 - << used in "here document" by cat << END  (get anything till you type delimiter END)     
 
 There are three file streams: standard input (0), standard output (1), standard error (2)     
-Generally, input comes from keyboard, both output and error are displayed on console/terminal.    
+Generally, input comes from the keyboard, and both output and error are displayed on the console/terminal.    
 ```
 $ ls -lrt /dev/std* 
 lrwxrwxrwx 1 root root 15 Aug  1 15:25 /dev/stdout -> /proc/self/fd/1 
@@ -900,14 +900,20 @@ lrwxrwxrwx 1 root root 15 Aug  1 15:25 /dev/stdin -> /proc/self/fd/0
 lrwxrwxrwx 1 root root 15 Aug  1 15:25 /dev/stderr -> /proc/self/fd/2 
 ```
 
-When desired to suppress noise of output, stdout and stderr can be merged:     
+When desired to suppress the noise of output, stdout and stderr can be merged:     
 ```
-locate canary > output.txt 2>&1          <== locate may generate a lot of permission errors and this redirection makes it quiet. 
+locate canary > output.txt 2>&1          <== locate may generate a lot of permission errors, and this redirection makes it quiet. 
 ```
-Scripts use even a quieter way:    
+Scripts use an even quieter way:    
 ```
 command_goes_here > output.txt 2>&1 /dev/null       <== /dev/null eats everything, super cool and quiet, always test it once and then go quiet    
 ```
+
+Trick: Storage is almost full (due to content or excessive logging after an error), even rm is not working, now, to empty a large file when rm is not working!    
+```
+>large_file.tar                      
+```
+This will empty large_file.tar; this option is more handy than any type of cat, echo, or rm, and a less bulky operation.   
 
 ----
 
