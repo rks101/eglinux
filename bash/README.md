@@ -35,7 +35,9 @@ To print something:
 echo -e "Starting script to print diagnostic information...\n"    
 ```
 
-Note: -e flag allows escape sequence \n characters.    
+Note:     
+"-e" flag allows escape sequence \n characters.    
+"-n" flag omits the trailing newline character, that is continue printing.    
 
 [bash grammar](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_10_02) for what characters need to be escaped or require quoting.   
 
