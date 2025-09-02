@@ -21,7 +21,6 @@ Find out the current bash executable from `which bash` and add that after #! in 
 ```
 #!/usr/bin/bash
 echo "Hello! bash"
-
 ````
 To run a bash script:     
 ./filename.sh  or    
@@ -35,6 +34,10 @@ To print something:
 ```
 echo -e "Starting script to print diagnostic information...\n"    
 ```
+
+Note: -e flag allows escape sequence \n characters.    
+
+[bash grammar](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_10_02) for what characters need to be escaped or require quoting.   
 
 ----
 
