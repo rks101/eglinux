@@ -16,6 +16,17 @@
 
 Shell Scripting offers a nice and robust way to automate system administration and daily tasks on Linux for both sysadmins and normal Linux users.     
 
+Find out the current bash executable from `which bash` and add that after #! in the first line of .sh file. Save and grant executable permissions to this sh file using chmod +x filename.sh   
+
+```
+#!/usr/bin/bash
+echo "Hello! bash"
+
+````
+To run a bash script:     
+./filename.sh  or    
+bash filename.sh   
+
 ----
 
 ## echo  
