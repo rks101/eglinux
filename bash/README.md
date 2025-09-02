@@ -1,11 +1,33 @@
 # Shell Scripting    
 
+* [bash](#bash)
+  * [Intro](#intro)
+  * [`echo`](#echo)
+  * [Comamnd Substitution](#command-substitution)
+  * [Reading input](#reading-input)
+  * [Bash builtin](#bash-builtin)
+  * [Test expressions](#test-expressions)
+  * [Help](#help)
+  * [bash one liners](#bash-one-liners)
+
+
+
+## Intro 
+
 Shell Scripting offers a nice and robust way to automate system administration and daily tasks on Linux for both sysadmins and normal Linux users.     
+
+----
+
+## echo  
 
 To print something: 
 ```
 echo -e "Starting script to print diagnostic information...\n"    
 ```
+
+----
+
+## Command Substitution   
 
 Command substitution:   
 ```
@@ -13,10 +35,18 @@ PWD=`pwd`
 echo -e "PWD = $PWD \n"
 ```
 
+----
+
+## Reading input   
+
 To read value from stdin:
 ```
 read var_name
 ```
+
+----
+
+## Bash builtin  
 
 Bash built-in variables    
 - `$0` : filename of the script 
@@ -25,16 +55,29 @@ Bash built-in variables
 - `$?` : return status of the last command executed  
 - `$$` : PID of current bash   
 
+---- 
+
+## Test expressions   
+
+Okay, try one of the coolest commands on bash script built-ins:
+```
+man [
+```
+[Advanced]: ls -lrt /usr/bin/[ output will confirm it is a binary executable file.
+The source is in the coreutils package, src/lbracket.c and src/test.c
+
 [Bash Conditional Expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)     
 - [[ expression  ]] compound command    
 - [ expression ] test command    
 - (( expression )) evaluate and substitute the expression    
 
+----
+
+## Help   
+
 [Bash Scripting](https://linuxsimply.com/cheat-sheets/bash-scripting/)     
 
 Check [Bash options](https://devhints.io/bash)    
-
-Try [Bash one-liners](https://onceupon.github.io/Bash-Oneliner/) and [more](https://www.bashoneliners.com/oneliners/newest/) to see the expressiveness of bash scripting    
 
 Note: Some options may vary from shell to shell and across versions installed and distributions. Do not worry; explore different options.     
 
@@ -42,3 +85,9 @@ Note: Some options may vary from shell to shell and across versions installed an
 
 [Practice simple commands from RHCSA](https://github.com/soficx/rhcsa)     
 
+----
+
+## bash one liners    
+Try [Bash one-liners](https://onceupon.github.io/Bash-Oneliner/) and [more](https://www.bashoneliners.com/oneliners/newest/) to see the expressiveness of bash scripting    
+
+----
