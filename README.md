@@ -921,6 +921,13 @@ This will empty large_file.tar; this option is more handy than any type of cat, 
 
 [bash page](bash/README.md)    
 
+----
+
+## regex     
+
+Regular expressions can be checked with grep (with -E), in bash scripts (=~), using sed '/pattern/action', and awk.    
+
+[regex with grep](https://www.cyberciti.biz/faq/grep-regular-expressions/)    
 
 ----
 
