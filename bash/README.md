@@ -69,13 +69,17 @@ echo -e "PWD = $PWD \n"
 
 ## Reading input   
 
-To read value from stdin:
+To read a value from stdin (standard input stream):
 ```
 read var_name
 ```
-To read the value with the message: 
+To read a value with a message: 
 ```
 read -p "Enter a number: " var_name 
+```
+To read a value without echoing it on the screen, like a password or passphrase: 
+```
+read -p "Enter password: " -s pass
 ```
 
 ----
@@ -104,6 +108,19 @@ The source is in the coreutils package, src/lbracket.c and src/test.c
 - [[ expression  ]] compound command    
 - [ expression ] test command    
 - (( expression )) evaluate and substitute the expression    
+
+e.g. 
+
+Simple conditions:    
+```
+if [[ condition ]]; then
+        echo "send a message, condition met"
+else
+        echo "condition not met"
+fi
+
+```
+Check sample scripts added for more syntactic sugar.    
 
 ----
 
