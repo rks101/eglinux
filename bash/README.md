@@ -119,7 +119,7 @@ Check sample scripts added for more syntactic sugar.
 
 ## Conditions    
 
-Check [Shell Conditional Expressions](#https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)    
+Check [Shell Conditional Expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)    
 [Shell Arithmetic](https://www.gnu.org/software/bash/manual/html_node/Shell-Arithmetic.html)    
 
 Sample conditions:    
