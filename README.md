@@ -925,7 +925,12 @@ This will empty large_file.tar; this option is more handy than any type of cat, 
 
 ## regex     
 
-Regular expressions can be checked with grep (with -E), in bash scripts (=~), using sed '/pattern/action', and awk.    
+Regular expressions can be used with bash:    
+- on the command line using "grep -E " or egrep 
+- inside a bash script using conditional expressions [[ ]] and =~ for match
+- grep inside if conditions using: if grep -E "regex_pattern" "variable_value" ; then _____ fi 
+- using sed '/pattern/action' 
+- using awk    
 
 [regex with grep](https://www.cyberciti.biz/faq/grep-regular-expressions/)    
 
