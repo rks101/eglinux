@@ -3,6 +3,7 @@
 * [bash](#bash)
   * [Intro](#intro)
   * [`echo`](#echo)
+  * [Using quotes for string literals](#using-quotes-for-string-literals) 
   * [Comamnd Substitution](#command-substitution)
   * [Reading input](#reading-input)
   * [Bash builtin](#bash-builtin)
@@ -26,6 +27,11 @@ To run or execute a bash script:
 `./filename.sh`  or  `bash filename.sh`    
 Read about the script and see if it requires any arguments or things to be set up before its execution.     
 
+Test the following:    
+- echo $SHELL 
+- cat /etc/shells 
+- which bash 
+
 ----
 
 ## echo  
@@ -43,9 +49,17 @@ Note:
 
 ----
 
+## Using quotes for string literals   
+
+While declaring and assigning value to string variables, often single quotes ('something') or double quotes ("something") are used. In bash scripting, using double quotes is safer.    
+- Double quotes (" "): support variable expansion, i.e., any variable's value is also expanded in the string literal. e.g., "image$count" will be replaced with "image" followed by the value of $count.    
+- Single quotes (' '): no variable expansion is done, i.e., 'string$count' stays as string$count.    
+
+----
+
 ## Command Substitution   
 
-Command substitution:   
+Command substitution is accomplished using back-tick `command`:   
 ```
 PWD=`pwd`
 echo -e "PWD = $PWD \n"
@@ -58,6 +72,10 @@ echo -e "PWD = $PWD \n"
 To read value from stdin:
 ```
 read var_name
+```
+To read the value with the message: 
+```
+read -p "Enter a number: " var_name 
 ```
 
 ----
