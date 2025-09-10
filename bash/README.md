@@ -59,7 +59,7 @@ While declaring and assigning value to string variables, often single quotes ('s
 
 ## Command Substitution   
 
-Command substitution is accomplished using back-tick `command`:   
+Command substitution is accomplished using back-tick \`command\`:   
 ```
 PWD=`pwd`
 echo -e "PWD = $PWD \n"
