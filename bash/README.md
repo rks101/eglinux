@@ -8,6 +8,9 @@
   * [Reading input](#reading-input)
   * [Bash builtin](#bash-builtin)
   * [Test expressions](#test-expressions)
+  * [Conditions](#conditions)
+  * [Loops](#loops)
+  * [Case](#case)
   * [Help](#help)
   * [bash one liners](#bash-one-liners)
 
@@ -109,9 +112,17 @@ The source is in the coreutils package, src/lbracket.c and src/test.c
 - [ expression ] test command    
 - (( expression )) evaluate and substitute the expression    
 
-e.g. 
 
-A) Simple conditions:    
+Check sample scripts added for more syntactic sugar.    
+
+----
+
+## Conditions    
+
+Check [Shell Conditional Expressions](#https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)    
+[Shell Arithmetic](https://www.gnu.org/software/bash/manual/html_node/Shell-Arithmetic.html)    
+
+Sample conditions:    
 ```
 # If no arguments are supplied to the script,
 # send an error message and exit with an error code 
@@ -150,7 +161,10 @@ else
 fi
 ```
 
-B) Loops    
+----
+
+## Loops    
+
 ```
 how_many=5
 i=0
@@ -168,13 +182,18 @@ for i in {a..t}; do
         filename="$i.txt" 
         echo $filename
 done
+```
 
+```
 for i in {5..50..5}; do
     echo "Welcome $i"
 done 
 ```
 
-C) Case 
+----
+
+## Case    
+
 ```
 echo -n "Enter the name of an animal (cat, dog, horse, kangaroo, man, pypy) : "
 read ANIMAL
@@ -193,9 +212,7 @@ esac
 echo " legs."
 ```
 
-Check sample scripts added for more syntactic sugar.    
-
-----
+---- 
 
 ## Help   
 
