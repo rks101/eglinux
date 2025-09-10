@@ -111,15 +111,88 @@ The source is in the coreutils package, src/lbracket.c and src/test.c
 
 e.g. 
 
-Simple conditions:    
+A) Simple conditions:    
 ```
-if [[ condition ]]; then
-        echo "send a message, condition met"
-else
-        echo "condition not met"
+# If no arguments are supplied to the script,
+# send an error message and exit with an error code 
+if [[ $# -eq 0 ]]; then
+        echo "Insufficient arguments, quitting..."
+        exit 255 
 fi
+```
 
 ```
+# Check if the first argument to the script is a valid IFSC
+# IFSC format is 4 alphabet letters (capitals), followed by a zero, and followed by 6 letters or digits
+# input IFSC as argument
+ifsc=$1
+
+# create a regex pattern to match 
+regexIFSC="^[A-Z]{4}0[A-Z0-9]{6}$";
+
+if [[ $ifsc =~ $regexIFSC ]]; then
+        echo "IFSC is valid"
+else
+        echo "IFSC is NOT valid"
+fi
+```
+
+An else-if ladder   
+```
+if [ $# -eq 3 ]; then
+        echo -e "Three arguments.\n"
+elif [ $# -eq 2 ]; then
+        echo -e "Two arguments.\n"
+elif [ $# -eq 1 ]; then
+        echo -e "One arguments.\n"
+else 
+        echo -e "number of arguments = $#"
+fi
+```
+
+B) Loops    
+```
+how_many=5
+i=0
+# read in a while loop
+while [ $i -lt "$how_many" ]; do
+        i=$((i + 1))
+        #echo "enter number $i: "
+        read -p "Enter number $i : " x
+        echo $x 
+done
+```
+
+```
+for i in {a..t}; do
+        filename="$i.txt" 
+        echo $filename
+done
+
+for i in {5..50..5}; do
+    echo "Welcome $i"
+done 
+```
+
+C) Case 
+```
+echo -n "Enter the name of an animal (cat, dog, horse, kangaroo, man, pypy) : "
+read ANIMAL
+echo -n "The $ANIMAL has "
+case $ANIMAL in
+        horse | dog | cat)
+                echo -n "four"
+        ;;
+        man | kangaroo )
+                echo -n "two"
+        ;;
+        *)
+                echo -n "an unknown number of"
+        ;;
+esac
+echo " legs."
+```
+
 Check sample scripts added for more syntactic sugar.    
 
 ----
