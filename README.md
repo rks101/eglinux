@@ -932,6 +932,7 @@ Regular expressions can be used with bash:
 - using sed '/pattern/action' 
 - using awk    
 
+[Regular Expressions](https://computing.stat.berkeley.edu/tutorial-using-bash/regex.html)    
 [regex with grep](https://www.cyberciti.biz/faq/grep-regular-expressions/)    
 
 ----
