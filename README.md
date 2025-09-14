@@ -32,6 +32,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [`nohup`](#nohup)
       * [vi editor](#vi-editor)
       * [Input Output Redirection](#input-output-redirection)
+      * [File compression](#file-compression) 
       * [Shell Scripting](#shell-scripting)
       * [regex](#regex)
       * [View file content](#view-file-content) 
@@ -916,6 +917,17 @@ Trick: Storage is almost full (due to content or excessive logging after an erro
 >large_file.tar                      
 ```
 This will empty large_file.tar; this option is more handy than any type of cat, echo, or rm, and a less bulky operation.   
+
+----
+
+## File compression     
+
+zip 
+unzip 
+gzip 
+gunzip 
+tar -cvf      
+
 
 ----
 
