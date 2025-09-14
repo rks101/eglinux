@@ -855,27 +855,27 @@ nohup sudo apt upgrade
 
 ## vi editor    
 
-vi editor has two modes: command mode (to navigate and commands) and insert mode (edit files in a buffer). Press i (to in-place insert) or a (to append) to enter into insert mode. Use escape to switch from insert to command mode.      
+vi editor has two modes: command mode (to navigate and issue commands) and insert mode (edit files in a buffer). Press i (to in-place insert) or a (to append) to enter into insert mode. Use escape to switch from insert to command mode.      
 
 In insert/edit mode:    
-- vi filename.txt, then use i to insert at any place in the buffer, a to append next to the current place of cursor    
+- vi filename.txt, then use i to insert at any place in the buffer, and a to append next to the current place of the cursor    
 
 In command mode:     
 - :w to save, :wq to save and exit, :q! to exit without save    
-- search using **/** followed by searchstring, then use ctrl+f to go forward (page down) and ctrl+b togo backward (like page up).     
+- search using **/** followed by searchstring, then use ctrl+f to go forward (page down) and ctrl+b to go backward (like page up).     
 - :1 go to first line, G (shift+ **g**) go to the last line, :n to go to nth line in the buffer.    
 - :%s/SRC/TGT/g to search SRC and replace all occurrences with TGT    
-- :%s/SRC/TGT/gc to search SRC and confirm to replace an occurrences of SRC with TGT    
+- :%s/SRC/TGT/gc to search SRC and confirm to replace an occurrence of SRC with TGT    
 - nYY - copy/yank n lines from the current line    
 - p - paste after the current line    
 - P (shift + p) to paste above the current line     
 - nDD - delete n lines from the current line   
 - . (dot) to repeat the immediate previous command     
-- cw to change a word, takes you into insert mode   
+- cw to change a word, this takes you into insert mode   
 
-Q. How to copy a block of text and paste it elsewhere? Refer block copy in vi editor.     
+Q. How to copy a block of text and paste it elsewhere? Refer to the block copy in the vi editor.     
 
-Q. How to remove ^M (a single control character) in a file at the end of each line? When files are transmitted across OS, this may happen.    
+Q. How to remove ^M (a single control character) in a file at the end of each line? When files are transmitted across operating systems, this may happen.    
 
 [vim adventures game](https://vim-adventures.com/)     
 
@@ -923,7 +923,7 @@ This will empty large_file.tar; this option is more handy than any type of cat, 
 ## File compression     
 
 zip, unzip, gzip, gunzip - create and extract zip archives   
-tar - a generic compression utlity for multiple compression formats (.tar, .tar.gz or .tgz, .tar.bz2, etc.)   
+tar - a generic compression utility for multiple compression formats (.tar, .tar.gz or .tgz, .tar.bz2, etc.)   
 
 ```
 zip -r archive.zip archive         <== compress and create a package   
@@ -935,17 +935,29 @@ gunzip                             <== list (-lv) and extract the compressed fil
 zcat -l compressed_file.tar        <== shows compressed, uncompressed size, and compression ratio 
 
 tar -cvf logs.tar logs             <== create tar ball (file) 
-tar -tvf logs.tar                  <== list contents of tar ball (file) 
+tar -tvf logs.tar                  <== list (-tv) contents of tar ball (file) 
 tar -xvf logs.tar                  <== extract tar ball (file)  
 
-tar -zcvf logs.tar.gz logs         <== create tar ball in .tar.gz format
-tar -ztvf logs.tar.gz              <== list contents of tar ball in .tar.gz format
+tar -zcvf logs.tar.gz logs         <== create tar ball in .tar.gz format or .tgz 
+tar -ztvf logs.tar.gz              <== list (-tv) contents of tar ball in .tar.gz format
 tar -zxvf logs.tar.gz              <== extract tar ball in .tar.gz format
 
-tar -jcvf logs.tar.bz2 logs         <== create tar ball in .tar.bz2 format (bzip2) 
-tar -jtvf logs.tar.bz2              <== list contents of tar ball in .tar.bz2 format
-tar -jxvf logs.tar.bz2              <== extract tar ball in .tar.bz2 format
+tar -jcvf logs.tar.bz2 logs        <== create tar ball in .tar.bz2 format (bzip2 compression) 
+tar -jtvf logs.tar.bz2             <== list (-tv) contents of tar ball in .tar.bz2 format
+tar -jxvf logs.tar.bz2             <== extract tar ball in .tar.bz2 format
+
+tar -Jcvf logs.tar.xz logs        <== create tar ball in .tar.xz format (LZMA compression)   
+tar -Jtvf logs.tar.xz             <== list (-tv) contents of tar ball in .tar.xz format
+tar -Jxvf logs.tar.xz             <== extract tar ball in .tar.xz format
+
+xz -z logs.xz logs               <== xz is a general utility to compress, list, and decompress archives
+xz -l logs.xz                    <== list contents of .xz file 
+xz -dk logs.xz                   <== decompress .xz file 
 ```
+v - verbose output    
+f - force command    
+
+Note:- Linux kernel (kernel.org) uses .tar.xz format   
 
 ----
 
