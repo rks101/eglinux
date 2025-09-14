@@ -192,7 +192,7 @@ It is nice to know about system hardware such as hard disk, graphics card, audio
 lshw | grep -A7 -i "disk"  <== Hard disk details  
 lshw -short <== for graphics card, look for display  
 lspci -v | grep -A7 -i "audio"  <== Audio device details  
-lspci -v | grep -A7 -i "eternet"  <== Network Controller for Ethernet (LAN)  
+lspci -v | grep -A7 -i "ethernet"  <== Network Controller for Ethernet (LAN)  
 lspci -v | grep -A7 -i "wireless"  <== Network Controller for wireless (Wi-Fi)  
 ```
 
