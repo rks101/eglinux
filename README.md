@@ -922,17 +922,34 @@ This will empty large_file.tar; this option is more handy than any type of cat, 
 
 ## File compression     
 
-zip 
-unzip 
-gzip 
-gunzip 
-tar -cvf      
+zip, unzip, gzip, gunzip - create and extract zip archives   
+tar - a generic compression utlity for multiple compression formats (.tar, .tar.gz or .tgz, .tar.bz2, etc.)   
 
+```
+zip -r archive.zip archive         <== compress and create a package   
+unzip archive.zip                  <== list (-lv) and extract the compressed file created by zip  
+
+gzip                               <== compress files using LZ compression  
+gunzip                             <== list (-lv) and extract the compressed file created by zip, gzip 
+
+zcat -l compressed_file.tar        <== shows compressed, uncompressed size, and compression ratio 
+
+tar -cvf logs.tar logs             <== create tar ball (file) 
+tar -tvf logs.tar                  <== list contents of tar ball (file) 
+tar -xvf logs.tar                  <== extract tar ball (file)  
+
+tar -zcvf logs.tar.gz logs         <== create tar ball in .tar.gz format
+tar -ztvf logs.tar.gz              <== list contents of tar ball in .tar.gz format
+tar -zxvf logs.tar.gz              <== extract tar ball in .tar.gz format
+
+tar -jcvf logs.tar.bz2 logs         <== create tar ball in .tar.bz2 format
+tar -jtvf logs.tar.bz2              <== list contents of tar ball in .tar.bz2 format
+tar -jxvf logs.tar.bz2              <== extract tar ball in .tar.bz2 format
+```
 
 ----
 
 ## Shell Scripting    
-
 [bash page](bash/README.md)    
 
 ----
