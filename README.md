@@ -942,7 +942,7 @@ tar -zcvf logs.tar.gz logs         <== create tar ball in .tar.gz format
 tar -ztvf logs.tar.gz              <== list contents of tar ball in .tar.gz format
 tar -zxvf logs.tar.gz              <== extract tar ball in .tar.gz format
 
-tar -jcvf logs.tar.bz2 logs         <== create tar ball in .tar.bz2 format
+tar -jcvf logs.tar.bz2 logs         <== create tar ball in .tar.bz2 format (bzip2) 
 tar -jtvf logs.tar.bz2              <== list contents of tar ball in .tar.bz2 format
 tar -jxvf logs.tar.bz2              <== extract tar ball in .tar.bz2 format
 ```
