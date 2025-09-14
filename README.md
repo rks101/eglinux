@@ -33,6 +33,8 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [vi editor](#vi-editor)
       * [Input Output Redirection](#input-output-redirection)
       * [Shell Scripting](#shell-scripting)
+      * [regex](#regex)
+      * [View file content](#view-file-content) 
       * [`xdg-open`](#xdg-open)
       * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
       * [Windowing System for GUI](#windowing-system-for-gui) 
@@ -934,6 +936,26 @@ Regular expressions can be used with bash:
 
 [Regular Expressions](https://computing.stat.berkeley.edu/tutorial-using-bash/regex.html)    
 [regex with grep](https://www.cyberciti.biz/faq/grep-regular-expressions/)    
+
+----
+
+## View file content
+
+more     <= show file contents on the terminal, can search and navigate forward (ctrl+f) and backward (ctrl+b)    
+less     <= show file contents, does not echo on terminal, faster to load for large files    
+tail     <= show last part/lines of a file    
+tail -f  <= show last part/lines of a file that is getting updated like logs     
+head     <= show starting lines of a file     
+
+Q. How can one view lines 91 to 95 using head and tail?    
+
+```
+head -95 id_name.txt | tail +91 
+```
+or
+```
+tail +91 id_name.txt | head -5
+``` 
 
 ----
 
