@@ -953,13 +953,16 @@ Regular expressions can be used with bash:
 
 ## View file content
 
-more     <= show file contents on the terminal, can search and navigate forward (ctrl+f) and backward (ctrl+b)    
-less     <= show file contents, does not echo on terminal, faster to load for large files    
-tail     <= show last part/lines of a file    
-tail -f  <= show last part/lines of a file that is getting updated like logs     
-head     <= show starting lines of a file     
+When dealing with large files or logs, one may need to view portions of files. `cat filename` outputs everything (too much) on the screen.     
 
-Q. How can one view lines 91 to 95 using head and tail?    
+`more`     <= show file contents on the terminal, can search and navigate forward (ctrl+f) and backward (ctrl+b)    
+`less`     <= show file contents, does not echo on terminal, faster to load for large files    
+
+`tail`     <= show last part/lines of a file, default 10 lines from the end    
+`tail -f`  <= show last part/lines of a file that is getting updated, like logs, e.g., tail -f /var/log/syslog     
+`head`     <= show starting lines of a file, default 10 lines from the start     
+
+Q. How can one view (show on the terminal) lines 91 to 95? Hint: use head and tail commands.    
 
 ```
 head -95 id_name.txt | tail +91 
