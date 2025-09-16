@@ -107,10 +107,10 @@ Bash built-in
 Read `man bash` and `compgen` for builtins.    
 
 Wild cards:   
-- *  :  any number of characters     
+- \*  :  any number of characters     
 - ?  :  any one character    
-- [ ]  : constrain search to defined characters
-- [! ]  : constrain search to exclude characters, not this will not work in a regex    
+- \[ \]  : constrain search to defined characters
+- \[! \]  : constrain search to exclude characters, not this will not work in a regex    
 
 ---- 
 
