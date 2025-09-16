@@ -314,6 +314,9 @@ whatis whereis
 whatis [
 ```
 
+Q. which compgen, whatis compgen, whereis compgen - none of them help. Why?    
+A. Recall what compgen is.    
+
 ----
 
 ## Command completion
@@ -322,7 +325,7 @@ Learn to use the tab key for command completion or completing file/directory nam
 Hint: type ds and press the tab to see command completion (e.g., dstat) if it exists or to see matching options.  
 Hint: type ls -lrt /home/rps/Do  and then press tab twice, you will get matching suggestions.  
 
-Tip: in case command completion is not working on a system, check you have installed bash-completion and bash-completion-extras  
+Tip: In case command completion is not working on a system, check that you have installed bash-completion and bash-completion-extras  
 A related [long story](https://unix.stackexchange.com/questions/264102/bash-completion-is-very-incomplete-on-centos-7).  
 
 Reference file: /usr/share/bash-completion/bash_completion    
@@ -339,8 +342,9 @@ compgen -abckA function > compgen_help.txt        <== list most of what compgen 
 compgen -abckA function | grep -i --color ^ls     <== color, list most of compgen begining with ls
 compgen -abckA function | grep -i --color ls$     <== color, list most of compgen ending with ls
 ```
-Q. How does compgen get this powerful list of itens?     
-Hint: complete 
+
+Q. How does compgen get this powerful list of items?     
+Hint: complete, bash_completion     
 
 ----
 
@@ -1005,6 +1009,10 @@ Note:- Linux kernel (kernel.org) uses .tar.xz format
 
 ## Shell Scripting    
 [bash page](bash/README.md)    
+
+b/w  here are some good scripts to learn from:     
+/usr/share/bash-completion/bash_completion     
+
 
 ----
 
