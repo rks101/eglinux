@@ -14,7 +14,8 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [GB or GiB](#gb-or-gib)
       * [List hardware using `lshw`](#list-hardware)
       * [Environment Variables](#environment-variables)
-      * [PATH](#path)   
+      * [PATH](#path)
+      * [Locating binaries](#locating-binaries)
       * [Command completion](#command-completion)
       * [Command history](#command-history)
       * [Know File System](#know-file-system)
@@ -273,6 +274,47 @@ If you want a newly added directory to be searched first in the path, add the ne
 For Java, classpath to locate classes and for libraries LD_LIBRRAY_PATH are other famous path variables used by developers.     
 
 ---- 
+
+## Locating binaries    
+
+No challenge in admitting, at some point in time, we struggle to locate stuff.    
+There are multiple ways to locate commands and binaries and determine a short description or which one is in use.    
+
+`which`             <== which can be used to locate a command or all binaries with -a 
+```
+which which
+which ls
+which bash
+which locate
+which [
+which -a which
+```
+
+`locate` or 'plocate`    <== locate files by name 
+```
+locate locate
+locate which
+locate bash_completion
+```
+
+`whereis`           <== is used to locate a binary, its source, and man page files for a command
+```
+whereis which
+whereis bash
+whereis [
+whereis whereis
+whereis bash_completion 
+```
+
+`whatis`           <== one line description from man page 
+```
+whatis whatis
+whatis which
+whatis whereis
+whatis [
+```
+
+----
 
 ## Command completion
 Learn to use the tab key for command completion or completing file/directory names. This can save time in typing.  
