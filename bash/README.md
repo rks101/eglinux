@@ -90,11 +90,27 @@ read -p "Enter password: " -s pass
 ## Bash builtin  
 
 Bash built-in variables    
-- `$0` : filename of the script 
-- `$#` : the number of arguments of the scripts
+- `$0` : filename of the script being executed 
 - `$1`, `$2`, `$3`, ... : 1st, 2nd, 3rd, ... argument of the script being executed
+- `$#` : the number of arguments of the scripts
 - `$?` : return status of the last command executed  
-- `$$` : PID of current bash   
+- `$$` : PID of current bash
+- `$!` : PID of the last backgrounded command
+- `$@` : command line arguments as an array
+- `$*` : command line arguments as a string 
+- `$-` : current shell options and flags (himBH)  
+
+Bash built-in    
+- compgen 
+- cd 
+
+Read `man bash` and `compgen` for builtins.    
+
+Wild cards:   
+*  :  any number of characters     
+?  :  any one character    
+[ ]  : constrain search to defined characters
+[! ]  : constrain search to exclude characters, not this will not work in a regex    
 
 ---- 
 
