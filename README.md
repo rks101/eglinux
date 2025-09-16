@@ -43,18 +43,20 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Debugging](#debugging)
       * [Simple web server](#simple-web-server)
   * Part-3
-      * [crt and key file](#crt-and-key-file) 
-      * [The One with mysql admin password](#the-one-with-mysql-admin-password)
       * [Installed packages](#installed-packages)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
+      * [crt and key file](#crt-and-key-file) 
+      * [The One with mysql admin password](#the-one-with-mysql-admin-password)
       * [Advantage Linux](#advantage-linux)
-      * [The One with Linus](#the-one-with-linus)
       * [Linux Software](#linux-software)
   * Part-4
       * [Linux Security](#linux-security)
       * [Linux Kernel](#linux-kernel)
       * [Virtualization](#virtualization)
+  * Part-5 
+      * [The One with Linus](#the-one-with-linus)
+      * [LWN](#lwn)
 
 
 PART-1
@@ -1202,46 +1204,6 @@ To see if Java SDK is installed: $ javac
 
 PART-3
 
-## crt and key file   
-For SSL/TLS certificate setup on a HTTP server, it requires a certificate and a private file.   
-[Public key certificate and private key file](https://www.baeldung.com/linux/crt-key-files)   
-
----- 
-## The One with mysql admin password
-Sometime(s), you may forget mysql admin password and you want to reset the password.  
-
-Login into mysql using sudo and issue the below command: 
-```
-alter user 'root'@'localhost' identified with mysql_native_password by 'nopassisgoodpass';
-```
-
-**To backup mysql db**  
-```
-mysqldump --databases testdb --user=root --password > backupdb.sql
-```
-
-If required on the target system, set password using alter user command as above.  
-
-**To restore mysql db**  
-```
-mysql -u root -p < backupdb.sql
-```
-
-Note on - **MySQL authentication** error   
-
-There is an issue about authentication plugin while upgrading or migrating MySQL database (from 5.7) to 8.0.   
-Error message on the screen is not very informative about it - ERROR 1698 - Access Denied for user 'root'@'localhost'.   
-
-The default authentication type in mysql 8.0 is **caching_sha2_password** and this newer plugin may not load or is not available.   
-One way to get around is alter database user to use earlier authentication type as mysql_native_password (as in mysql-5.7) or better migrate to cashing_sha2_password for future.    
-
-Relevant posts on this auhentication type conundrum:    
-[A Tale of Two Password Authentication plugins](https://dev.mysql.com/blog-archive/a-tale-of-two-password-authentication-plugins/)    
-[change authentication methods](https://ostechnix.com/change-authentication-method-for-mysql-root-user-in-ubuntu/)    
-[alter user with mysql_native_password](https://medium.com/@crmcmullen/how-to-run-mysql-8-0-with-native-password-authentication-502de5bac661)    
-
----- 
-
 ## Installed packages
 How do I find out installed software packages? 
 ```
@@ -1376,6 +1338,95 @@ Just in case you run out of space, check dmesg and try to clean up the last acti
 
 ----
 
+## crt and key file   
+For SSL/TLS certificate setup on a HTTP server, it requires a certificate and a private file.   
+[Public key certificate and private key file](https://www.baeldung.com/linux/crt-key-files)   
+
+---- 
+## The One with mysql admin password
+Sometime(s), you may forget mysql admin password and you want to reset the password.  
+
+Login into mysql using sudo and issue the below command: 
+```
+alter user 'root'@'localhost' identified with mysql_native_password by 'nopassisgoodpass';
+```
+
+**To backup mysql db**  
+```
+mysqldump --databases testdb --user=root --password > backupdb.sql
+```
+
+If required on the target system, set password using alter user command as above.  
+
+**To restore mysql db**  
+```
+mysql -u root -p < backupdb.sql
+```
+
+Note on - **MySQL authentication** error   
+
+There is an issue about authentication plugin while upgrading or migrating MySQL database (from 5.7) to 8.0.   
+Error message on the screen is not very informative about it - ERROR 1698 - Access Denied for user 'root'@'localhost'.   
+
+The default authentication type in mysql 8.0 is **caching_sha2_password** and this newer plugin may not load or is not available.   
+One way to get around is alter database user to use earlier authentication type as mysql_native_password (as in mysql-5.7) or better migrate to cashing_sha2_password for future.    
+
+Relevant posts on this auhentication type conundrum:    
+[A Tale of Two Password Authentication plugins](https://dev.mysql.com/blog-archive/a-tale-of-two-password-authentication-plugins/)    
+[change authentication methods](https://ostechnix.com/change-authentication-method-for-mysql-root-user-in-ubuntu/)    
+[alter user with mysql_native_password](https://medium.com/@crmcmullen/how-to-run-mysql-8-0-with-native-password-authentication-502de5bac661)    
+
+---- 
+
+## Linux software
+
+[Linux Software](https://github.com/luong-komorebi/Awesome-Linux-Software)    
+
+[Writing mathematical equations in Libre Office Writer](https://www.ubuntubuzz.com/2016/09/libreoffice-writer-equation-editor-writing-mathematical-formulas.html)     
+
+---- 
+
+PART-4     
+
+## Linux for Networking 
+
+[egnet](https://github.com/rks101/egnet  
+
+----
+
+## Linux for Security    
+
+* Unlike Windows, Linux was designed from the ground up as a multiuser operating system. Therefore, user-level security provisions tend to be a bit better on a Linux system.   
+* Linux offers a better separation between administrative users and unprivileged users. This makes it a bit harder for intruders, and it also makes it a bit harder for a user to accidentally infect a Linux machine with something nasty.
+* Linux is much more resistant to viruses and malware infections than Windows is. Certain Linux distributions come with built-in mechanisms, such as SELinux in Red Hat and its free-of-charge clones, and AppArmor in Ubuntu and SUSE, that help prevent intruders from taking control of a system.
+* Linux is free and open source software. This allows anyone who has the skill to audit Linux code to hunt for bugs or backdoors.
+
+Yet even with those advantages, Linux is just like everything else that has been created by mankind. That is, it is not perfect.   
+
+[LinEnum - Linux Enumeration and Privilege Escalation/Exploration Script](https://github.com/rebootuser/LinEnum)    
+
+[Linux privilege escalation and exploration](https://sushant747.gitbooks.io/total-oscp-guide/content/privilege_escalation_-_linux.html)    
+
+----
+
+## Linux Kernel   
+
+[Linux Kernel Home](https://www.kernel.org/) for stable kernel releases.    
+[Core API Documentation](https://www.kernel.org/doc/html/latest/core-api/index.html)    
+Examples for logging [printk](https://www.kernel.org/doc/html/latest/core-api/printk-basics.html)    
+
+[Kernel release cycle]()    
+
+----
+
+## Virtualization    
+
+[Virtualization and QEMU](https://docs.saferwall.com/blog/virtualization-internals-part-4-qemu/)    
+
+----
+
+PART-5
+
 ## The One with UNIX/Linux History 
 
 One can say, in a very crude way:    
@@ -1417,43 +1468,10 @@ I have been using Linux as primary desktop/laptop OS since 2003, well before I o
 
 ## The One with Linus
 
-[The talk with not so visionary, not so people-person, a simple happy engineer](https://www.youtube.com/watch?v=o8NPllzkFhE) Linus Torvalds who changed the world at least twice with Linux and Git. He started both the projects as a hobby and to solve the problems he was facing. On mailing lists, he speaks his mind, if he does not agree with something - he logs it, registers it.    
+[The talk with not so visionary, not so people-person, a simple, happy engineer](https://www.youtube.com/watch?v=o8NPllzkFhE) Linus Torvalds, who changed the world at least twice with Linux and Git. He started both projects as a hobby and to solve the problems he was facing. On mailing lists, he speaks his mind.    
 
 ---- 
 
-## Linux software
+## LWN 
 
-[Linux Software](https://github.com/luong-komorebi/Awesome-Linux-Software)    
-
-[Writing mathematical equations in Libre Office Writer](https://www.ubuntubuzz.com/2016/09/libreoffice-writer-equation-editor-writing-mathematical-formulas.html)     
-
----- 
-
-PART-4     
-
-## Linux Security    
-
-* Unlike Windows, Linux was designed from the ground up as a multiuser operating system. Therefore, user-level security provisions tend to be a bit better on a Linux system.   
-* Linux offers a better separation between administrative users and unprivileged users. This makes it a bit harder for intruders, and it also makes it a bit harder for a user to accidentally infect a Linux machine with something nasty.
-* Linux is much more resistant to viruses and malware infections than Windows is. Certain Linux distributions come with built-in mechanisms, such as SELinux in Red Hat and its free-of-charge clones, and AppArmor in Ubuntu and SUSE, that help prevent intruders from taking control of a system.
-* Linux is free and open source software. This allows anyone who has the skill to audit Linux code to hunt for bugs or backdoors.
-
-Yet even with those advantages, Linux is just like everything else that has been created by mankind. That is, it is not perfect.   
-
-[LinEnum - Linux Enumeration and Privilege Escalation/Exploration Script](https://github.com/rebootuser/LinEnum)    
-
-[Linux privilege escalation and exploration](https://sushant747.gitbooks.io/total-oscp-guide/content/privilege_escalation_-_linux.html)    
-
-----
-
-## Linux Kernel   
-
-[Linux Kernel Home](https://www.kernel.org/)    
-[Core API Documentation](https://www.kernel.org/doc/html/latest/core-api/index.html)    
-Examples for logging [printk](https://www.kernel.org/doc/html/latest/core-api/printk-basics.html)    
-
-## Virtualization    
-
-
-[Virtualization and QEMU](https://docs.saferwall.com/blog/virtualization-internals-part-4-qemu/)    
-
+[Linux Weekly News](https://lwn.net/)    
