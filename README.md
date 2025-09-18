@@ -1485,6 +1485,12 @@ Relevant posts on this auhentication type conundrum:
 ## Linux toolchain   
 
 Cool compilers/interpreters:  
+
+<table>
+ <tr><td>Clang</td></tr>
+ <tr><td>gcc</td></tr>
+</table>
+
 clang  
 gcc  
 g++  
