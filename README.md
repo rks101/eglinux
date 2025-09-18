@@ -191,7 +191,6 @@ Note:-
 ## List hardware 
 How can I list hardware details?  
 ```
-
 lshw -short
 ```
 
@@ -215,7 +214,6 @@ To know about peripheral interconnects/ports:
 ```
 lspci -vvv 
 ```
-
 ----
 
 ## Environment Variables    
@@ -243,9 +241,7 @@ SHLVL=1
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/wah/scripts
 GDMSESSION=ubuntu
 _=/usr/bin/printenv        <= check echo $_
-
 ```
-
 ----
 
 ## PATH   
@@ -371,6 +367,10 @@ To repeat the immediately previous command
 ```
 !!
 ```
+To execute the last command that began with ssh 
+```
+!ssh
+```
 To clear the history from the current terminal session or shell:    
 ```
 history -c
@@ -379,7 +379,7 @@ history -c
 Q. How do you hide a command from the bash shell history? Suppose you did not want to reveal something :)    
 A. Try prefixing the command with one or more spaces
 ```
-  compgen -abckA function > compgen_help.txt       <== command with a space prefix won't appear in history. Check using the up arrow key    
+  compgen -abckA function > compgen_help.txt       <== command with one or more spaces as prefix won't appear in history. Check using the up arrow key    
 ```
 
 ----
@@ -463,7 +463,6 @@ https://www.baeldung.com/linux/find-system-type
 [File System Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)     
 
 ----
-
 
 ## The One with File Permissions   
 
