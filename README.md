@@ -848,17 +848,18 @@ A. One of the best ways to understand virtual memory and process memory layout: 
 
 ## Process Termination 
 
-The command `kill` can be used to terminate a process.     
+The command `kill` can be used to send a signal, including terminating a process (TERM).     
 
 ```
 $ kill -9 PID_value     <== kill will send a signal SIGKILL (9) to the process having PID as PID_value     
 ```
+-9, -SIGKILL, -KILL serve the same purpose.    
 
 ```
-$ kill -9 -1            <== This will kill the init process and thereby terminate your session as well. 
+$ kill -9 -1            <== This will kill the init process, if it can, and thereby terminate your session as well. 
 ```
 
-To list all signals:   
+To list all signals that kill can send:   
 ```
 $ kill -l
  1) SIGHUP	 2) SIGINT	 3) SIGQUIT	 4) SIGILL	 5) SIGTRAP
@@ -875,6 +876,10 @@ $ kill -l
 58) SIGRTMAX-6	59) SIGRTMAX-5	60) SIGRTMAX-4	61) SIGRTMAX-3	62) SIGRTMAX-2
 63) SIGRTMAX-1	64) SIGRTMAX	
 ```
+
+Q. What are the signals that cannot be caught, blocked, or ignored in user space?   
+A. SIGKILL and SIGSTOP.    
+[Related post](https://stackoverflow.com/questions/35569659/the-signals-sigkill-and-sigstop-cannot-be-caught-blocked-or-ignored-why)    
 
 ---- 
 
