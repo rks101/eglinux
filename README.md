@@ -27,6 +27,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
   * Part-2
       * [Processes](#processes)
       * [Process Memory Layout using `proc`](#process-memory-layout)
+      * [Process Termination](#process-termination)
       * [Kernel Parameters](#kernel-parameters)
       * [Linux capabilities](#linux-capabilities)
       * [Scheduling jobs](#scheduling-jobs)
@@ -851,12 +852,13 @@ A. One of the best ways to understand virtual memory and process memory layout: 
 The command `kill` can be used to send a signal, including terminating a process (TERM).     
 
 ```
-$ kill -9 PID_value     <== kill will send a signal SIGKILL (9) to the process having PID as PID_value     
+$ kill -9 pid     <== kill will send a signal SIGKILL (9) to pid     
 ```
 -9, -SIGKILL, -KILL serve the same purpose.    
 
 ```
-$ kill -9 -1            <== This will kill the init process, if it can, and thereby terminate your session as well. 
+$ kill -9 -1      <== This will kill the init process, if it can,
+                  <== and thereby terminate your session as well. 
 ```
 
 To list all signals that kill can send:   
@@ -878,7 +880,7 @@ $ kill -l
 ```
 
 Q. What are the signals that cannot be caught, blocked, or ignored in user space?   
-A. SIGKILL and SIGSTOP.    
+A. SIGKILL and SIGSTOP. Because the kernel is configured to do it.    
 [Related post](https://stackoverflow.com/questions/35569659/the-signals-sigkill-and-sigstop-cannot-be-caught-blocked-or-ignored-why)    
 
 ---- 
