@@ -734,7 +734,7 @@ ps -aux | grep $USER
 ----
 
 ## Process Memory Layout 
-This one is my favorite topic in OS lab. It helps to visualize virtual memory, process layout, proc interface, and shared libs/objects.     
+This one is my favorite topic in the OS lab. Because a) it helps to visualize virtual memory, process layout, proc interface, and shared libs/objects, b) it gets interesting every time you learn something new.     
 
 Can I see the memory layout and the stack of a process? See [presentation]() for more details.   
 To see all files related to a process with PID = $$  
@@ -746,7 +746,7 @@ Now, check process memory layout (TODO: add link from OS course file having exer
 cat /proc/$$/maps 
 ```
 
-And stack associated with process $$:  
+And the stack associated with process $$:  
 ```
 cat /proc/$$/stack
 ```
@@ -757,7 +757,7 @@ Ok, next you should try out:
 ```
 cat /proc/self/maps
 ```
-Here is a link to [understand the output](https://www.baeldung.com/linux/proc-id-maps) almost line by line.   
+Here is a link to [understand the output](https://www.baeldung.com/linux/proc-id-maps), almost line by line.   
 
 
 What shared objects/libraries are used by a program? 
@@ -769,9 +769,12 @@ $ ldd /bin/ls
 $ ldd /usr/bin/python3.8 
 ```
 
-Do you know where and how to know more about /proc?  
+Q. In the process memory layout seen using maps, code, heap, stack, and shared libraries, all these memory regions are fine. What are these two vdso and vsyscall memory regions?     
+A. [vdso and vsyscall](https://www.baeldung.com/linux/vdso-vsyscall-memory-regions)     
 
-One of the best ways to understand virtual memory and process memory layout: [Cheese on /proc](https://www.kernel.org/doc/Documentation/filesystems/proc.txt)   
+Q. Where and how to learn more about /proc?   
+
+A. One of the best ways to understand virtual memory and process memory layout: [Cheese on /proc](https://www.kernel.org/doc/Documentation/filesystems/proc.txt)   
 
 [procmap](https://github.com/kaiwan/procmap)     
 
