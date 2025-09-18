@@ -64,7 +64,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
 PART-1
 
 ## ls -lrt
-Every time you open a terminal or shell, the first command you should check out is to list all files and directories (ls) in a long (l) and reverse (r) order of time (t) updated. Do compare this output with various other outputs from ls options. Also, this command helps to see permissions and who touched what files recently.    
+Every time you open a terminal or shell, the first command you should check out is to list all files and directories (ls) in a long (l) and reverse (r) order of time (t) updated. Do compare this output with various other outputs from the `ls` options. Also, this command helps to see permissions and who touched what files recently.    
 ```
 ls -lrt
 ```
@@ -72,7 +72,7 @@ ls -lrt
 ----
 
 ## lsb_release
-What is OS major and minor release numbers? and any code name associated with the release?   
+What are the OS major and minor release numbers? And any code name associated with the release?   
 ```
 lsb_release -a  
 Distributor ID:	Ubuntu
@@ -82,7 +82,7 @@ Codename:	focal
 ```
 Note:- LSB is Linux Standard Base. If you are more interested, after this article, you can refer to [what is LSB](https://wiki.linuxfoundation.org/lsb/start) and [LSB Specs](https://refspecs.linuxfoundation.org/lsb.shtml). To maintain the flow, continue reading.  
 
-TIMTOWTDI (There Is More Than One Way To Do It): you can use /etc/os-release 
+TIMTOWTDI (There Is More Than One Way To Do It): You can use /etc/os-release 
 ```
 $ cat /etc/os-release 
 NAME="Ubuntu"
@@ -98,7 +98,7 @@ UBUNTU_CODENAME=focal
 
 ```
 
-What is my system name, kernel, OS, kernel version, date last updated?  
+What is my system name, kernel, OS, kernel version, and date last updated?  
 ```
 uname -a  
 Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
@@ -111,7 +111,7 @@ A Computer System contains:
 - Memory
 - Network
 - (persistent) Storage
-- These days all above four components/sub-systems are virtualized. 
+- These days, all four components/sub-systems are virtualized. 
 
 ----
 
@@ -119,7 +119,7 @@ A Computer System contains:
 
 What if I do not know commands or their options and arguments?   
 - Command has a name, options, and/or arguments.   
-- There are plain text on-screen manuals about Linux built-ins and commands.   
+- There are plain-text on-screen manuals about Linux built-ins and commands.   
 - There is a **man** I know who can help, and he tells us the most from reliable sources.   
 - (While I am not around,) Always ask **man**, using: 
 ```
@@ -160,7 +160,7 @@ How much memory (RAM / main memory / primary memory to run programs) do we have 
 ```
 cat /proc/meminfo  
 ```
-Check the output for MemTotal, MemFree, MemAvailable.  
+Check the output for MemTotal, MemFree, and MemAvailable.  
 
 Note: Why should you consider MemAvailable from 2014 onward? [Check this patch](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34e431b0ae398fc54ea69ff85ec700722c9da773) and [post 1](https://stackoverflow.com/questions/30869297/difference-between-memfree-and-memavailable) and [post 2](https://superuser.com/questions/980820/what-is-the-difference-between-memfree-and-memavailable-in-proc-meminfo). To maintain the flow, continue reading.   
 
@@ -172,8 +172,8 @@ Note:- It is good to learn about [types of RAM](https://www.techtarget.com/searc
 
 GB and GiB are data storage units in terms of bytes.    
 
-GB  - Gigabyte: is based on decimal system, 1 GB = 10^9 bytes (1,000,000,000 bytes or 1 billion bytes, 1 followed by 9 zeros)    
-GiB - Gibibyte: is based on binary system, 1 GiB = 2^30 bytes (1,073,741,824 bytes).     
+GB  - Gigabyte: is based on the decimal system, 1 GB = 10^9 bytes (1,000,000,000 bytes or 1 billion bytes, 1 followed by 9 zeros)    
+GiB - Gibibyte: is based on the binary system, 1 GiB = 2^30 bytes (1,073,741,824 bytes).     
 
 1 GiB is slightly larger than 1 GB (7.3%)     
 
@@ -184,7 +184,7 @@ GiB - Gibibyte: is based on binary system, 1 GiB = 2^30 bytes (1,073,741,824 byt
 
 Note:-    
 1. International Electrotechnical Commission (IEC - https://iec.ch) standardized the use of prefixes like "kibi-", "mebi-", "gibi-", "tebi", etc., to represent binary multiples, reserving "kilo-", "mega-", "giga-", "tera-", etc., for decimal multiples.     
-2. Certain OS or software utilities may display storage values slightly different or less as compared to vendor published values because of GB/GiB unit used. For TeraBytes, PetaBytes (and higher) the difference becomes significant because of growth of power of 2 versus power of 10.     
+2. Certain OS or software utilities may display storage values slightly different or less than vendor published values because of the GB/GiB unit used. For TeraBytes, PetaBytes (and higher), the difference becomes significant because of the growth of the power of 2 versus the power of 10.     
 
 ---- 
 
@@ -195,7 +195,7 @@ How can I list hardware details?
 lshw -short
 ```
 
-It is nice to know about system hardware such as hard disk, graphics card, audio and network controllers (wired and wifi)  
+It is nice to know about system hardware such as hard disk, graphics card, audio, and network controllers (wired and wifi)  
 ```
 lshw | grep -A7 -i "disk"  <== Hard disk details  
 lshw -short <== for graphics card, look for display  
@@ -206,7 +206,7 @@ lspci -v | grep -A7 -i "wireless"  <== Network Controller for wireless (Wi-Fi)
 
 There is a GUI as well for hardware info.   
 
-On Ubuntu to get hardinfo:  
+On Ubuntu, to get hardinfo:  
 ```
 sudo apt install hardinfo 
 ```
@@ -250,32 +250,34 @@ _=/usr/bin/printenv        <= check echo $_
 
 ## PATH   
 
-What is path? No one figured out this quite well. Jokes apart, in Linux, everything is a file (LIFE is FILE and FILE is LIFE), and we may need to refer files, to where files reside.    
+What is a path? No one figured this out quite so well. Jokes apart, in Linux, everything is a file, and we may need to refer to files and where they reside.    
+
+> In Linux, everything is a file (LIFE is FILE and FILE is LIFE).    
 
 * Path helps to navigate around the file system and files in Linux, where almost everything is a file.
-* In the hierarchical directory structure, we can refer path of a regular file (-) or directory (d) or symbolic link (l) using an absolute or a relative path.
+* In the hierarchical directory structure, we can refer to the path of a regular file (-), a directory (d), or a symbolic link (l) using an absolute or a relative path.
 * An **absolute path** corresponds to a path beginning from / or root. e.g. /home/rps/example.desktop
 * A **relative path** corresponds to a path relative to the current directory (pwd) or any other directory. e.g. Downloads/package.deb or ../../home/rps/Downloads/package.deb or ~/data/file.txt     
 
-How do we refer to path in commands?    
+How do we refer to a path in commands?    
 
 List a special environment variable called PATH    
 ```
 echo $PATH
 ```
 
-Update PATH variable to include Videos directory   
+Update PATH variable to include the Videos directory   
 ```
-$ echo $PATH
+$ echo $PATH                            <== List existing PATH 
 /home/rps/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-$ export PATH=$PATH:/home/rps/Videos
-$ echo $PATH
+$ export PATH=$PATH:/home/rps/Videos    <== appending dir will put additions in the end, pre-pending will put additions first 
+$ echo $PATH                            <== check after export 
 /home/rps/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/rps/Videos
 ```
 
-If you want a newly added directory to be searched first in the path, add the new directory first and then append the existing contents of the path variable. Use "which" command to locate the first binary or built-in util being referenced.    
+If you want a newly added directory to be searched first in the path, add the new directory first and then append the existing contents of the path variable. Use the `which` command to locate the first binary or built-in utility being referenced.    
 
-For Java, classpath to locate classes and for libraries LD_LIBRRAY_PATH are other famous path variables used by developers.     
+For Java, the classpath to locate classes and for libraries, LD_LIBRARY_PATH are other famous path variables used by developers.     
 
 ---- 
 
@@ -329,8 +331,7 @@ Learn to use the tab key for command completion or completing file/directory nam
 Hint: type ds and press the tab to see command completion (e.g., dstat) if it exists or to see matching options.  
 Hint: type ls -lrt /home/rps/Do  and then press tab twice, you will get matching suggestions.  
 
-Tip: In case command completion is not working on a system, check that you have installed bash-completion and bash-completion-extras  
-A related [long story](https://unix.stackexchange.com/questions/264102/bash-completion-is-very-incomplete-on-centos-7).  
+Tip: In case command completion is not working on a system, check that you have installed bash-completion and bash-completion-extras. A related [long story](https://unix.stackexchange.com/questions/264102/bash-completion-is-very-incomplete-on-centos-7).    
 
 Reference file: /usr/share/bash-completion/bash_completion    
 
@@ -339,9 +340,9 @@ Reference file: /usr/share/bash-completion/bash_completion
 compgen -a                      <== list all aliases 
 compgen -b                      <== list all builtins 
 compgen -c                      <== list all commands 
-compgen -c ls                   <== list all coomands starting with ls 
+compgen -c ls                   <== list all commands starting with ls 
 compgen -k                      <== list all keywords 
-compgen -A function             <== lits all functions 
+compgen -A function             <== lists all functions 
 compgen -abckA function > compgen_help.txt        <== list most of what compgen can complete
 compgen -abckA function | grep -i --color ^ls     <== color, list most of compgen begining with ls
 compgen -abckA function | grep -i --color ls$     <== color, list most of compgen ending with ls
@@ -359,26 +360,26 @@ To list existing history:
 history
 ```
 To search history recursively:     
-Use ctrl+r and type few characters to search history, and then use tab to get that command:      
+Use Ctrl+r and type a few characters to search history, and then use tab to get that command:      
 ```
 (reverse-i-search)`ssh': ssh -i rps.pem ubuntu@10.10.120.120      <== ctrl+r and then typed ssh   
 ```
 To see a few previous commands:      
 Use arrow keys => Up for previous command and down to next in the history list.     
 
-To repeat just immediate previous command
+To repeat the immediately previous command
 ```
 !!
 ```
-To clear history from current terminal session or shell:    
+To clear the history from the current terminal session or shell:    
 ```
 history -c
 ```
 
-Q. How do you hide a command from bash shell history? Suppose you did not want to reveal something :)    
-A. try prefixing command with one or more spaces
+Q. How do you hide a command from the bash shell history? Suppose you did not want to reveal something :)    
+A. Try prefixing the command with one or more spaces
 ```
-  compgen -abckA function > compgen_help.txt       <== command with a space prefix won't appear in history. Check using up arrow key    
+  compgen -abckA function > compgen_help.txt       <== command with a space prefix won't appear in history. Check using the up arrow key    
 ```
 
 ----
@@ -403,8 +404,8 @@ Device             Start        End   Sectors   Size Type
 /dev/nvme0n1p1      2048     514047    512000   250M EFI System
 /dev/nvme0n1p2   1562624    1824767    262144   128M Microsoft reserved
 /dev/nvme0n1p3   1824768  483047423 481222656 229.5G Microsoft basic data
-/dev/nvme0n1p4 995047424  997257215   2209792   1.1G Windows recovery environmen
-/dev/nvme0n1p5 997261312 1000187903   2926592   1.4G Windows recovery environmen
+/dev/nvme0n1p4 995047424  997257215   2209792   1.1G Windows recovery environment
+/dev/nvme0n1p5 997261312 1000187903   2926592   1.4G Windows recovery environment
 /dev/nvme0n1p6 483047424  547047423  64000000  30.5G Linux swap
 /dev/nvme0n1p7 547047424  995047423 448000000 213.6G Linux filesystem
 
@@ -466,7 +467,7 @@ https://www.baeldung.com/linux/find-system-type
 
 ## The One with File Permissions   
 
-A linux user is a regular user or a system user (without login) or superuser aka root.   
+A Linux user is a regular user, a system user (without login), or a superuser, aka root.   
 
 Notice the first column of /etc/passwd file is a linux user.   
 
@@ -491,7 +492,7 @@ tcpdump:x:125:133::/nonexistent:/usr/sbin/nologin
 systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
 ```
 
-Linux users can belong to one or more groups. Group-level rights can be defined for users inside it. User and group are two different things, they can have a same name. A user can belong to multiple groups for defined access rights.   
+Linux users can belong to one or more groups. Group-level rights can be defined for users inside it. User and group are two different things; they can have the same name. A user can belong to multiple groups for defined access rights.   
 
 Notice /etc/group file; the first column is a group name.   
 
@@ -518,7 +519,7 @@ File permission mode can be viewed as:
 => These three chars pairs contain access permissions in order: r = read, w = write or x = execute   
 => There is a numeric weight associated with r, w, and x. r => 4, w => 2, and x = 1 and we can sum if any of r/w/x is present (see examples below)   
 => If a user is missing a certain access permission, that respective character is displayed as - or numerically adds up to 0   
-=> These numeric values essentially come from the octal representation of r, w, x permissions.    
+=> These numeric values essentially come from the octal representation of r, w, and x permissions.    
 ```
 rwx : 111 or 7    
 rw- : 110 or 6    
@@ -537,22 +538,22 @@ Using x - regular file can be executed if it is a script, the directory can be a
 Some examples of file permissions are listed below.   
 
 ```
--rwx------ : regular file, (700), only owner can read, write, execute this file.   
--rw-r--r-- : regular file, (544), anyone can read, only owner can modify or delete.   
-drwxr-xr-x : directory, (755), owner can read, write and access directory, group and other users can read contents and access it, cd is allowed   
--rwxr-xr-x : regular file, (755), only owner can modify or delete, however, anyone can read or execute it   
+-rwx------ : regular file, (700), only the owner can read, write, and execute this file.   
+-rw-r--r-- : regular file, (544), anyone can read, only the owner can modify or delete.   
+drwxr-xr-x : directory, (755), owner can read, write, and accessthe  directory, group and other users can read the contents and access it, cd is allowed   
+-rwxr-xr-x : regular file, (755), only the owner can modify or delete; however, anyone can read or execute it   
 ```
 
-Using chmod you can modify file permissions. You can grant (+) or revoke (-) for one or more users.   
+Using chmod, you can modify file permissions. You can grant (+) or revoke (-) for one or more users.   
 Grant r or w or x permission using +r or +w or +x    
 Revoke r or w or x permission using -r or -w or -x    
-Before + or -, specify groups without space.    
+Before + or -, specify groups without a space.    
 
 chmod +x : grant execute permission to all    
-chmod g+w : grant write permission to same group users   
+chmod g+w : grant write permission to the same group of users   
 chmod go+r : grant read permission to group and other users, NOTE: Do not use numeric perms as we do not know other perms    
-chmod 777 : grant rwx to owner, group, and non-group users, NOTE: Be very careful why such permission mode is being set    
-chmod 744 : grant rwx to user and read to group and others    
+chmod 777 : grant rwx to owner, group, and non-group users. NOTE: Be very careful about why such a permission mode is being set    
+chmod 744 : grant rwx to the user, read to the group, and others    
 
 Recall /bin/sh is a shell.    
 
@@ -563,14 +564,14 @@ lrwxrwxrwx 1 root root 4 Mar 23 19:19 /bin/sh -> dash
 
 Using buffer overflow, if a remote user can get a shell /bin/sh executing some [shellcode](https://cocomelonc.github.io/tutorial/2021/10/09/linux-shellcoding-1.html), then what he can do - try to visualize using permissions of /bin/sh - specifically see the owner and all permissions.   
 
-**Changing default permissions using umask**     
+**Changing default permissions using `umask`**     
 * umask is used to set default permissions for new files or directories to be created.
-* umask digits specify what permissions to be revoked from new files or directories.
+* umask digits specify what permissions are to be revoked from new files or directories.
 * Maximum permissions for a file are 666 and for a directory 777.
 * Now using a umask of 022, default permissions for a file are 644 (-rw-r--r--) and for a directory 755 (drwxr-xr-x).
 * Similarly, umask 002 will grant files 664 (-rw-rw-r--) and to directories 775 (drwxrwxr-x) permissions.
-* type umask on bash prompt to get current umask value, ignore leading zeros except rightmost 3 digits
-* with umask in four digits, leading digit 4, 2, 1 have special meaning. 4xxx SUID bit set, 2xxx SGID bit set, 1xxx sticky bit set (they are different)
+* Type `umask` on bash prompt to get current umask value, ignore leading zeros except rightmost 3 digits
+* With umask in four digits, leading digits 4, 2, 1 have special meaning. 4xxx SUID bit set, 2xxx SGID bit set, 1xxx sticky bit set (they are different)
 * umask can be set in /etc/profile for all users or in ~/.bashrc for a user by adding one line
 ```
 umask 022
@@ -598,7 +599,7 @@ $ ls -lrt /usr/bin/fusermount3                                 <== ask ls for pe
 -rwsr-xr-x 1 root root 35200 Dec 23  2020 /usr/bin/fusermount3    <== notice  s  after -rw, this is SUID bit.   
 
 ```
-If SUID bit is set for a program/executable while running the program, effective user id gets updated to the user id of owner of the program while it was run by a real user.   
+If the SUID bit is set for a program/executable while running the program, the effective user ID gets updated to the user ID of the owner of the program while it was run by a real user.   
 
 Now, check the SUID bit for passwd :)    
 
@@ -606,12 +607,12 @@ Now, check the SUID bit for passwd :)
 $ ls -lrt /usr/bin/passwd
 -rwsr-xr-x 1 root root 59976 Nov 24 17:35 /usr/bin/passwd
 ```
-That's why a non-root user can change password on linux, even if passwd is owned by root.    
+That's why a non-root user can change a password on Linux, even if passwd is owned by root.    
 
 Note: There are other such programs as well, check using find / -perm /4000    
 
 
-Q2. Can a user see (read) or delete files created by other users under /tmp directory?         Hint: sticky bit. 
+Q2. Can a user see (read) or delete files created by other users under the /tmp directory?         Hint: sticky bit. 
 
 A. Try to understand the output of the commands below:
 ```
@@ -639,7 +640,7 @@ A. On Ubuntu (and Debian-based systems), you can live without a root password an
 
 
 Q. Is my root password set?    
-A. `sudo -i` can be used to acquire root environment (privileged administrator). On Ubuntu and other Debian-based systems, the root password may not be set or may be locked.    
+A. `sudo -i` can be used to acquire the root environment (privileged administrator). On Ubuntu and other Debian-based systems, the root password may not be set or may be locked.    
 To check if the root password is set:    
 ```
 rps@eg:~$ sudo -i                 <== get me root environment, if user rps is allowed/configured to do so      
@@ -653,13 +654,13 @@ Try `passwd -l root` to lock the password or `passwd -d root` to delete the pass
 
 
 Q. Should I use "su" or "su -" as administrator?     
-A. Always use "su -" for a clean substitution to indented user identity.    
+A. Always use "su -" for a clean substitution to the indented user identity.    
 "su -" substitutes the root/target user and creates a clean shell without environment variables set by the previous user. It's a complete user substitution.    
 "su" existing shell environment is more or less retained and substitutes the user. It's like mimicking a new user environment.    
 After su or "su -", you can check `pwd` or `ls -lrt ~/`  and exit after any such operations.    
 
 **Tip**:     
-On Ubuntu, you can live without a root password and manage most of the things using sudo. Instead of sharing the root password with every user (in the lab or office) for admin tasks such as installations and running privileged utilities, sudo is a better alternative.      
+On Ubuntu, you can live without a root password and manage most things using sudo. Instead of sharing the root password with every user (in the lab or office) for admin tasks such as installations and running privileged utilities, sudo is a better alternative.      
 ** Always ask man => man passwd, man shadow, man sudo, man sudoers, man su, man crypt before making changes**    
 Double-check as a root for any recursive operation.     
 This behavior can vary across Linux distributions and versions over the years.    
@@ -687,7 +688,7 @@ sudo: a password is required
 
 ## Remote login using ssh    
 
-To login to a server or virtual machine remotely from your own Linux system, you can use ssh:    
+To log in to a server or virtual machine remotely from your own Linux system, you can use ssh:    
 ```
 ssh remote_username@remote_server_ip_or_name
 ```
@@ -695,7 +696,7 @@ SSH using pem file:
 ```
 ssh -i filename.pem remote_username@remote_server_ip_or_name   
 ```
-SSH ignores a private key file (.pem file) if it is accessible by others.   
+SSH ignores a private key file (.pem file) if it is accessible to others.   
 You should change the permissions of the pem file to remove access for other users (600 or 400) to remove the error: Permissions 0664 for 'filename.pem' are too open.   
 ```
 chmod 400 filename.pem  
@@ -705,7 +706,7 @@ chmod 400 filename.pem
 
 ## Transfer files using Secure Copy scp   
 
-Using Secure Copy or SCP, we can transfer files to and from local to remote systems. Underneath, scp uses SSH for auth and encryption.    
+Using Secure Copy or SCP, we can transfer files to and from local to remote systems. Underneath, scp uses SSH for authentication and encryption.    
 
 ```
 scp SOURCE DESTINATION    
@@ -816,8 +817,8 @@ And the stack associated with process $$:
 ```
 cat /proc/$$/stack
 ```
-Using the output of the above commands, convince yourself that you can visualise stack, heap, text segment of a process using virtual addresses and the output. Also, see /lib/x84_64-linux-gnu/lib\*  files and other shared libraries.  
-In the above example, replace $$ with a process id you are interested in.  
+Using the output of the above commands, convince yourself that you can visualise the stack, heap, and text segment of a process using virtual addresses and the output. Also, see /lib/x84_64-linux-gnu/lib\*  files and other shared libraries.  
+In the above example, replace $$ with a process ID you are interested in.  
 
 Ok, next you should try out:   
 ```
@@ -892,7 +893,7 @@ Know more about vm.overcommit_memory and vm.overcommit_ratio at [serverfault](ht
 
 Unprivileged or non-root processes can be enabled or disabled for certain tasks or to access some resources. They are pretty much permissions for a process.    
 
-You can check capabilities for a process using    
+You can check the capabilities for a process using    
 ```
 $ getpcaps PID   
 ```
@@ -917,7 +918,7 @@ Cron jobs come to the rescue when scheduling jobs, taking backups, or running sc
 
 Relevant file: /etc/crontab is a system-wide configuration file to schedule hourly, day of the month, monthly, and weekly jobs to be run by a user and scripts to invoke.    
 
-To make an entry, you should know the columns in the crontab file. The first five columns define job frequency, followed by user-name and command-to-be-executed    
+To make an entry, you should know the columns in the crontab file. The first five columns define job frequency, followed by the user-name and the command-to-be-executed    
 
 ```
 $ cat /etc/crontab 
@@ -956,16 +957,16 @@ Also refer: [Cron periodic config](https://docs.freebsd.org/en/books/handbook/co
 
 ## nohup   
 
-When running a command on the terminal, upon closing the terminal or due to disconnecting the remote session (ssh), the command stops.   
-Suppose the command was executed interactively, now the exit status may be unknown or incomplete.    
+When running a command on the terminal, upon closing the terminal or disconnecting the remote session (ssh), the command stops.   
+Suppose the command was executed interactively; now the exit status may be unknown or incomplete.    
 
 We can use nohup (no hang up) to tell the OS not to trap the SIGHUP signal to stop such interactive command execution.    
 
-Run a bash script to backup resources:   
+Run a bash script to back up resources:   
 ```
 nohup bash backup.sh    
 ```
-Run system update that can longer and may remain unattended   
+Run system update that can run longer and may remain unattended   
 ```
 nohup sudo apt upgrade   
 ```
@@ -974,7 +975,7 @@ nohup sudo apt upgrade
 
 ## vi editor    
 
-vi editor has two modes: command mode (to navigate and issue commands) and insert mode (edit files in a buffer). Press i (to in-place insert) or a (to append) to enter into insert mode. Use escape to switch from insert to command mode.      
+vi editor has two modes: command mode (to navigate and issue commands) and insert mode (edit files in a buffer). Press i (to in-place insert) or a (to append) to enter insert mode. Use escape to switch from insert to command mode.      
 
 In insert/edit mode:    
 - vi filename.txt, then use i to insert at any place in the buffer, and a to append next to the current place of the cursor    
@@ -1114,7 +1115,7 @@ When dealing with large files or logs, one may need to view portions of files. `
 `tail -f`  <= show last part/lines of a file that is getting updated, like logs, e.g., tail -f /var/log/syslog     
 `head`     <= show starting lines of a file, default 10 lines from the start     
 
-Q. How can one view (show on the terminal) lines 91 to 95? Hint: use head and tail commands.    
+Q. How can one view (show on the terminal) lines 91 to 95? Hint: Use head and tail commands.    
 
 ```
 head -95 id_name.txt | tail +91 
@@ -1128,15 +1129,15 @@ tail +91 id_name.txt | head -5
 
 ## xdg-open 
 
-You may have come across xdg-open message when starting or joining a conference call/meeting from a browser link to a specific meeting application. It can be visible when you click a link on website menu and that menu does not have a actual target link.    
+You may have come across the xdg-open message when starting or joining a conference call/meeting from a browser link to a specific meeting application. It can be visible when you click a link on the website menu and that menu does not have an actual target link.    
 
-From man-page of xdg-open:   
-xdg-open is a linux command to open a file or URL in the user's preferred application. xdg-open supports file, ftp, http and https URLs.   
+From the man page of xdg-open:   
+xdg-open is a Linux command to open a file or URL in the user's preferred application. xdg-open supports file, ftp, http, and https URLs.   
 
 e.g. open a web page    
 ```
 $ xdg-open 'http://www.freedesktop.org/'
-$ Gtk-Message: 11:56:17.079: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
+$ Gtk-Message: 11:56:17.079: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try not to load it.
 Opening in existing browser session.
 ```
 TODO: add image of browser pop-up showing xdg-open message   
@@ -1169,9 +1170,9 @@ Check systemctl start <cmd>.target and systemctl isolate <cmd>.target under man 
 Xorg   
 Wayland (default on Ubuntu 22.04 LTS)   
 
-Zoom app has an interesting bug for screen sharing in Linux systems (desktop/laptop image) using the default Wayland windowing system. Only Whiteboard sharing is enabled and there is no option to share desktop/laptop screens. It appears Zoom has decided not to fix this bug.    
+The Zoom app has an interesting bug for screen sharing in Linux systems (desktop/laptop image) using the default Wayland windowing system. Only Whiteboard sharing is enabled, and there is no option to share desktop/laptop screens. It appears Zoom has decided not to fix this bug.    
 
-To enable screen sharing on Linux Desktop/Laptop with Zoom, disable Wayland in Graphical Display Manager (GDM) config and switch to Xorg/X11 windowing system.   
+To enable screen sharing on Linux Desktop/Laptop with Zoom, disable Wayland in the Graphical Display Manager (GDM) config and switch to Xorg/X11 windowing system.   
 
 ```
 $ sudo vi /etc/gdm3/custom.conf    <== edit gdm custom.conf using editor   
@@ -1185,9 +1186,9 @@ Now, after this workaround, Zoom will show Desktop sharing alongside Whiteboard 
 
 ## Debugging
 
-For debugging issues, the following can help about processes and system resources.  
+For debugging issues, the following can help with processes and system resources.  
 
-Use **top** command to display linux processes with PID, CPU and memory usage in real-time. Avoid this using for a long time on servers with active users.   
+Use the **top** command to display Linux processes with PID, CPU, and memory usage in real-time. Avoid using this for a long time on servers with active users.   
 ```
 $ top
 
@@ -1209,7 +1210,7 @@ MiB Swap:  30518.0 total,  30518.0 free,      0.0 used.   9270.3 avail Mem
 Interesting: Try pressing any arrow key while top is on.   
 
 
-Use **dstat** - a tool for generating system resource statistics such as cpu usage, disk read/write, network data received/sent, etc. To exit type Ctrl+C.    
+Use **dstat** - a tool for generating system resource statistics such as cpu usage, disk read/write, network data received/sent, etc. To exit, type Ctrl+C.    
 ```
 $ dstat
 You did not select any stats, using -cdngy by default.
@@ -1224,27 +1225,29 @@ usr sys idl wai stl| read  writ| recv  send|  in   out | int   csw
 ```
 
 ----
-How can I find out about a service or daemon running or not? 
+How can I find out whether a service or daemon is running or not? 
 ```
 service <service_or_daemon_name> status 
 service mysql status 
 service apache2 status 
 ```
-See the output, if Active field shows "active (running)", it is running, good to go. 
-If Active field shows failed, there was some problem to run the service, need to fix it. 
+See the output; if the Active field shows "active (running)", it is running, good to go. 
+If the Active field shows failed, there was a problem running the service, and it needs to be fixed. 
 
 
-Where do I see for logs and errors? 
+Where do I see the logs and errors? 
 ```
 dmesg 
 ls -lrt /var/log/ 
 ```
-In /var/log/ directory, see the most recent logs, like dmesg, syslog, dpkg log, etc. to debug the problem.  
+In /var/log/ directory, see the most recent logs, like dmesg, syslog, dpkg log, etc., to debug the problem.  
 
 ----
 
 ## Simple web server 
-One line webserver => a great and simplest way to show files from a directory  
+
+One-line web server => the simplest way to show files from a directory   
+
 ```
 $ python3 -m http.server 
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
@@ -1255,21 +1258,10 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 Keyboard interrupt received, exiting.
 
 ```
-The webserver started above can be opened in a web browser: http://0.0.0.0:8000/  
+The web server started above can be opened in a web browser: http://0.0.0.0:8000/  
 This page can be opened before you close the server using Ctrl+C.  
 
-Note:- In case you are struggling to connect to this webserver to access files from another system, check your wired/wireless network or vlan you are on.   
-
-----  
-Cool compilers/interpreters:  
-clang  
-gcc  
-g++  
-java  
-python  
-
-To check if Java runtime environment (JRE) is installed: $ java --version  
-To see if Java SDK is installed: $ javac  
+Note:- In case you are struggling to connect to this web server to access files from another system, check your wired/wireless network or the VLAN you are on.   
 
 ----
 
@@ -1375,12 +1367,12 @@ $ du -sh ~/.cache/thumbnails
 $ sudo rm -rf ~/.cache/thumbnails/* 
 ```
 
-APT related cleanup of unused packages. 
+APT-related cleanup of unused packages. 
 ```
 $ sudo apt autoremove --purge
 ```
 
-Remove old kernel files manually. Caution: Know what you are deleting! Do not delete current and previous kernel image/headers and  module files. 
+Remove old kernel files manually. Caution: Know what you are deleting! Do not delete the current and previous kernel image/headers and  module files. 
 ```
 $ sudo dpkg --list 'linux-*'
 $ sudo apt remove linux-image-5.0*
@@ -1389,7 +1381,7 @@ $ sudo apt remove linux-modules-5.0*
 $ sudo apt remove linux-modules-extra-5.0*
 ```
 
-Find APT cache and clean it up. 
+Find the APT cache and clean it up. 
 
 ```
 $ sudo du -sh /var/cache/apt
@@ -1410,14 +1402,15 @@ Just in case you run out of space, check dmesg and try to clean up the last acti
 ----
 
 ## crt and key file   
-For SSL/TLS certificate setup on a HTTP server, it requires a certificate and a private file.   
+For SSL/TLS certificate setup on an HTTP server, it requires a certificate and a private key.   
 [Public key certificate and private key file](https://www.baeldung.com/linux/crt-key-files)   
 
 ---- 
 ## The One with mysql admin password
-Sometime(s), you may forget mysql admin password and you want to reset the password.  
 
-Login into mysql using sudo and issue the below command: 
+Sometimes, you may forget your MySQL admin password and you want to reset it.  
+
+Log in to mysql using sudo and issue the following command: 
 ```
 alter user 'root'@'localhost' identified with mysql_native_password by 'nopassisgoodpass';
 ```
@@ -1456,6 +1449,21 @@ Relevant posts on this auhentication type conundrum:
 [Writing mathematical equations in Libre Office Writer](https://www.ubuntubuzz.com/2016/09/libreoffice-writer-equation-editor-writing-mathematical-formulas.html)     
 
 ---- 
+
+## Linux toolchain   
+
+Cool compilers/interpreters:  
+clang  
+gcc  
+g++  
+java  
+python  
+
+To check if Java runtime environment (JRE) is installed: $ java --version  
+To see if Java SDK is installed: $ javac  
+
+----
+
 
 PART-4     
 
