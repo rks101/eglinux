@@ -731,13 +731,14 @@ ps -aux
 ps -aux | grep $USER 
 ```
 
-top command:    
-- For a real-time view of a running Linux system, use the top command. It is interactive, and the output gets updated dynamically.   
+The `top` command:    
+- For a real-time view of a running Linux system, use the `top` command. It is interactive, and the output gets updated dynamically.   
 - To get this view from the top at any instant, using `top -bn1`, and this is helpful in quiet scripts.    
 - To sort output from the top (by %MEM, %CPU, TIME+) using -o and the required sort option.     
 
 ```
 $ top -bn1 -o %MEM | head -n 15                       <== Find memory hungry processes 
+
 top - 10:04:04 up 7 days, 17:07,  1 user,  load average: 1.79, 0.90, 0.58
 Tasks: 382 total,   1 running, 381 sleeping,   0 stopped,   0 zombie
 %Cpu(s):  1.1 us,  1.1 sy,  0.0 ni, 97.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
@@ -745,9 +746,9 @@ MiB Mem :  15395.3 total,   1763.7 free,   7009.4 used,   7635.7 buff/cache
 MiB Swap:  31250.0 total,  31168.0 free,     82.0 used.   8385.9 avail Mem 
 
     PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
-  66308 rps       20   0 1408.4g 866944 150488 S   0.0   5.5  24:36.72 chrome
-   6520 rps       20   0   33.0g 579860 317184 S   0.0   3.7  91:25.91 chrome
-   5285 rps       20   0 2484732 537208  53760 S   0.0   3.4   1:55.39 xdg-des+
+  66308 rps       20   0 1408.4g 866944 150488 S   0.0   5.5  24:36.72 chrome      <== 
+   6520 rps       20   0   33.0g 579860 317184 S   0.0   3.7  91:25.91 chrome      <== 
+   5285 rps       20   0 2484732 537208  53760 S   0.0   3.4   1:55.39 xdg-des+    <== 
  102794 rps       20   0 1414.9g 460224 143296 S   0.0   2.9   5:24.43 chrome
  100520 rps       20   0 1408.4g 446384 156256 S   0.0   2.8   8:53.99 chrome
   38034 rps       20   0 1408.4g 411792 155632 S   0.0   2.6  13:46.40 chrome
@@ -757,6 +758,7 @@ MiB Swap:  31250.0 total,  31168.0 free,     82.0 used.   8385.9 avail Mem
 
 ```
 $ top -bn1 -o %CPU | head -n 15                       <== Find CPU hungry processes
+
 top - 10:06:29 up 7 days, 17:09,  1 user,  load average: 0.40, 0.70, 0.55
 Tasks: 379 total,   1 running, 378 sleeping,   0 stopped,   0 zombie
 %Cpu(s):  0.0 us,  1.2 sy,  0.0 ni, 98.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
@@ -764,8 +766,8 @@ MiB Mem :  15395.3 total,   1743.1 free,   7029.3 used,   7619.6 buff/cache
 MiB Swap:  31250.0 total,  31168.0 free,     82.0 used.   8365.9 avail Mem 
 
     PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
-  38118 rps       20   0 1408.4g 182600 125344 S  10.0   1.2  15:32.72 chrome
- 192799 rps       20   0   14496   5632   3584 R  10.0   0.0   0:00.01 top
+  38118 rps       20   0 1408.4g 182600 125344 S  10.0   1.2  15:32.72 chrome     <==
+ 192799 rps       20   0   14496   5632   3584 R  10.0   0.0   0:00.01 top        <== top itself can hog CPU 
       1 root      20   0   25104  16040   9460 S   0.0   0.1   0:19.79 systemd
       2 root      20   0       0      0      0 S   0.0   0.0   0:00.28 kthreadd
       3 root      20   0       0      0      0 S   0.0   0.0   0:00.00 pool_wo+
@@ -773,9 +775,11 @@ MiB Swap:  31250.0 total,  31168.0 free,     82.0 used.   8365.9 avail Mem
       5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
       6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
 ```
+Tip: top itself can hog CPU time; that's why you should avoid using top on production Linux systems, same as WRKACTJOB on iSeries.    
 
 ```
-$ top -bn1 -o TIME+ | head -n 15                       <== Find CPU Time hungry processes 
+$ top -bn1 -o TIME+ | head -n 15                       <== Find CPU Time consumed processes since last reboot 
+
 top - 10:04:14 up 7 days, 17:07,  1 user,  load average: 1.51, 0.87, 0.58
 Tasks: 382 total,   1 running, 381 sleeping,   0 stopped,   0 zombie
 %Cpu(s):  2.4 us,  1.2 sy,  0.0 ni, 96.4 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
@@ -783,9 +787,9 @@ MiB Mem :  15395.3 total,   1780.1 free,   6993.0 used,   7635.6 buff/cache
 MiB Swap:  31250.0 total,  31168.0 free,     82.0 used.   8402.3 avail Mem 
 
     PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
-   6520 rps       20   0   33.0g 579452 317184 S   0.0   3.7  91:25.93 chrome
-   6568 rps       20   0   33.2g 232116 108576 S   0.0   1.5  88:09.67 chrome
-   4657 rps       20   0 4880580 349860  76108 S   0.0   2.2  70:46.85 gnome-s+
+   6520 rps       20   0   33.0g 579452 317184 S   0.0   3.7  91:25.93 chrome       <== 
+   6568 rps       20   0   33.2g 232116 108576 S   0.0   1.5  88:09.67 chrome       <== 
+   4657 rps       20   0 4880580 349860  76108 S   0.0   2.2  70:46.85 gnome-s+     <== 
    4469 rps       20   0  751420  78640  23176 S   0.0   0.5  47:04.41 Xorg
   27310 rps       20   0 1408.5g 400288 164524 S   0.0   2.5  40:17.66 chrome
   66308 rps       20   0 1408.4g 866944 150488 S   0.0   5.5  24:36.72 chrome
