@@ -1122,9 +1122,18 @@ Note:- Linux kernel (kernel.org) uses .tar.xz format
 ## Shell Scripting    
 [bash page](bash/README.md)    
 
+Executing a bash script:    
+```
+./checkDate.sh        <== execute a script in a child process or sub-shell 
+. ./checkDate.sh      <== execute a script in the current shell itself, affects variables set
+. ~/.bashrc.sh        <== same as above, gets variable set in the current shell from the script 
+source checkDate.sh   <== same as above 
+bash -v checkDate.sh  <== creates a child process/sub-shell, displays commands before running it, then executes and outputs 
+bash -x checkDate.sh  <== creates a child process/sub-shell, displays commands after processing, and expands variables 
+```
+
 b/w  here are some good scripts to learn from:     
 /usr/share/bash-completion/bash_completion     
-
 
 ----
 
