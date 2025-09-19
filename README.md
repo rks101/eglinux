@@ -471,7 +471,7 @@ https://www.baeldung.com/linux/find-system-type
 
 We often want to know free space on disk, used space, etc.    
 
-df - file system disk usage   
+`df` - file system disk space used, available   
 ```
 $ df -hk /
 Filesystem     1K-blocks      Used Available Use% Mounted on
@@ -508,7 +508,15 @@ tmpfs          tmpfs            1.6G  176K  1.6G   1% /run/user/1000
 gvfsd-fuse     fuse.gvfsd-fuse     0     0     0    - /run/user/1000/gvfs
 ```
 
-du - estimated file system used    
+Note the file system types we have on the system.   
+
+
+`du` - estimated file system used    
+```
+$ du -hs ~/Downloads/
+63G	/home/rps/Downloads/
+```
+
 ```
 du -ahkc ~/Downloads/tmp
 ....
