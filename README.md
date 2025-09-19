@@ -99,7 +99,8 @@ UBUNTU_CODENAME=focal
 
 ```
 
-What is my system name, kernel, OS, kernel version, and date last updated?  
+What is my system name, kernel, OS, kernel version, and date last updated?   
+Ask `uname` (Unix Name) for operating system name, hostname, kernel version, processor type (x86_64), hardware platform type (x86_64), etc.     
 ```
 uname -a  
 Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
