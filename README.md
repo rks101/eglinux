@@ -19,6 +19,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Command completion](#command-completion)
       * [Command history](#command-history)
       * [Know File System](#know-file-system)
+      * [Disk Usage](#disk-usage)
       * [The One with File Permissions](#the-one-with-file-permissions) 
       * [`su` and `sudo`](#su-and-sudo)
       * [Password caching in `sudo`](#password-caching-in-sudo)
@@ -463,6 +464,57 @@ https://www.geeksforgeeks.org/linux-file-system/
 https://www.baeldung.com/linux/find-system-type     
 
 [File System Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)     
+
+----
+
+## Disk Usage   
+
+We often want to know free space on disk, used space, etc.    
+
+df - file system disk usage   
+```
+$ df -hk /
+Filesystem     1K-blocks      Used Available Use% Mounted on
+/dev/nvme0n1p7 219374600 116553980  91604236  56% /
+```
+
+```
+$ df -ahT | grep -v "loop" | grep -v "snap"      <== exclude loop devices and snaps 
+df: /run/user/1000/doc: Operation not permitted
+Filesystem     Type             Size  Used Avail Use% Mounted on
+sysfs          sysfs               0     0     0    - /sys
+proc           proc                0     0     0    - /proc
+udev           devtmpfs         7.5G     0  7.5G   0% /dev
+devpts         devpts              0     0     0    - /dev/pts
+tmpfs          tmpfs            1.6G  2.7M  1.6G   1% /run
+/dev/nvme0n1p7 ext4             210G  112G   88G  56% /
+securityfs     securityfs          0     0     0    - /sys/kernel/security
+tmpfs          tmpfs            7.6G  290M  7.3G   4% /dev/shm
+tmpfs          tmpfs            5.0M  8.0K  5.0M   1% /run/lock
+cgroup2        cgroup2             0     0     0    - /sys/fs/cgroup
+pstore         pstore              0     0     0    - /sys/fs/pstore
+efivarfs       efivarfs         374K  219K  151K  60% /sys/firmware/efi/efivars
+bpf            bpf                 0     0     0    - /sys/fs/bpf
+systemd-1      -                   -     -     -    - /proc/sys/fs/binfmt_misc
+mqueue         mqueue              0     0     0    - /dev/mqueue
+hugetlbfs      hugetlbfs           0     0     0    - /dev/hugepages
+debugfs        debugfs             0     0     0    - /sys/kernel/debug
+tracefs        tracefs             0     0     0    - /sys/kernel/tracing
+fusectl        fusectl             0     0     0    - /sys/fs/fuse/connections
+configfs       configfs            0     0     0    - /sys/kernel/config
+/dev/nvme0n1p1 vfat             246M  225M   22M  92% /boot/efi
+binfmt_misc    binfmt_misc         0     0     0    - /proc/sys/fs/binfmt_misc
+tmpfs          tmpfs            1.6G  176K  1.6G   1% /run/user/1000
+gvfsd-fuse     fuse.gvfsd-fuse     0     0     0    - /run/user/1000/gvfs
+```
+
+du - estimated file system used    
+```
+du -ahkc ~/Downloads/tmp
+....
+7220	/home/rps/Downloads/tmp
+7220	total
+```
 
 ----
 
