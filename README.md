@@ -15,6 +15,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [List hardware using `lshw`](#list-hardware)
       * [Environment Variables](#environment-variables)
       * [PATH](#path)
+      * [Pathnames](#pathnames) 
       * [Locating binaries](#locating-binaries)
       * [Command completion](#command-completion)
       * [Command history](#command-history)
@@ -135,7 +136,8 @@ man execve
 man service 
 man find 
 man grep 
-man info 
+man info
+man 7 glob     <== using man page section  
 ```
 Also, you can explore **info** pages.  
 
@@ -276,7 +278,14 @@ $ echo $PATH                            <== check after export
 
 If you want a newly added directory to be searched first in the path, add the new directory first and then append the existing contents of the path variable. Use the `which` command to locate the first binary or built-in utility being referenced.    
 
-For Java, the classpath to locate classes and for libraries, LD_LIBRARY_PATH are other famous path variables used by developers.     
+For Java, the classpath to locate classes and for libraries, LD_LIBRARY_PATH are other famous path variables used by developers.   
+
+----
+
+## Pathnames 
+
+Read globbing pathnames using `man 7 glob`    
+Familiarize with wildcard matching, character classes, ranges, and complement for exclusion and ranges. With regex, this will be a lot clearer.   
 
 ---- 
 
