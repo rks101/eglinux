@@ -13,7 +13,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Know memory](#know-memory)
       * [GB or GiB](#gb-or-gib)
       * [List hardware using `lshw`](#list-hardware)
-      * [Environment Variables](#environment-variables)
+      * [Environment variables](#environment-variables)
       * [PATH](#path)
       * [Pathnames](#pathnames) 
       * [Locating binaries](#locating-binaries)
@@ -26,35 +26,35 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Password caching in `sudo`](#password-caching-in-sudo)
       * [Remote login using `ssh`](#remote-login-using-ssh)
       * [Transfer files using Secure Copy `scp`](#transfer-files-using-secure-copy-scp)
+      * [Simple web server](#simple-web-server)
   * Part-2
       * [Processes](#processes)
       * [Process Memory Layout using `proc`](#process-memory-layout)
-      * [Process Termination](#process-termination)
-      * [Kernel Parameters](#kernel-parameters)
+      * [Process termination](#process-termination)
+      * [Kernel parameters](#kernel-parameters)
       * [Linux capabilities](#linux-capabilities)
       * [Scheduling jobs](#scheduling-jobs)
       * [`nohup`](#nohup)
       * [vi editor](#vi-editor)
-      * [Input Output Redirection](#input-output-redirection)
+      * [Input Output redirection](#input-output-redirection)
       * [File compression](#file-compression) 
       * [Shell Scripting](#shell-scripting)
       * [regex](#regex)
       * [View file content](#view-file-content) 
       * [`xdg-open`](#xdg-open)
-      * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
-      * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Debugging](#debugging)
-      * [Simple web server](#simple-web-server)
   * Part-3
+      * [Windowing System for GUI](#windowing-system-for-gui) 
+      * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
       * [Installed packages](#installed-packages)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
-      * [crt and key file](#crt-and-key-file) 
       * [The One with mysql admin password](#the-one-with-mysql-admin-password)
       * [Linux Software](#linux-software)
   * Part-4
       * [Linux for Networking](#linux-for-networking)
       * [Linux for Security](#linux-for-security)
+      * [crt and key file](#crt-and-key-file) 
       * [Linux Kernel](#linux-kernel)
       * [Virtualization](#virtualization)
   * Part-5
@@ -71,6 +71,8 @@ Every time you open a terminal or shell, the first command you should check out 
 ```
 ls -lrt
 ```
+
+To list hidden files: use `ls -alrt` 
 
 ----
 
@@ -115,7 +117,7 @@ A Computer System contains:
 - Memory
 - Network
 - (persistent) Storage
-- These days, all four components/sub-systems are virtualized. 
+- These days, all four components/sub-systems are virtualized or can be virtualized.   
 
 ----
 
@@ -221,7 +223,7 @@ lspci -vvv
 ```
 ----
 
-## Environment Variables    
+## Environment variables    
 
 How to display and change environment variables? Using printenv, we can display/print environment variables that may be helpful to set or display PATH, alias, user, and session details for scripting or debugging.    
 
@@ -262,19 +264,23 @@ What is a path? No one figured this out quite so well. Jokes apart, in Linux, ev
 
 How do we refer to a path in commands?    
 
-List a special environment variable called PATH    
+List a special environment variable called PATH, which contains a list of directories separated by a colon (:)     
 ```
 echo $PATH
 ```
 
-Update PATH variable to include the Videos directory   
+Update the PATH variable to include the Videos directory   
 ```
 $ echo $PATH                            <== List existing PATH 
 /home/rps/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
 $ export PATH=$PATH:/home/rps/Videos    <== appending dir will put additions in the end, pre-pending will put additions first 
+
 $ echo $PATH                            <== check after export 
 /home/rps/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/rps/Videos
 ```
+
+Order of directories in the PATH variable matters! If any command or utility is present in more than one directory in the PATH, the first one in the PATH listing will be picked up.    
 
 If you want a newly added directory to be searched first in the path, add the new directory first and then append the existing contents of the path variable. Use the `which` command to locate the first binary or built-in utility being referenced.    
 
@@ -285,6 +291,7 @@ For Java, the classpath to locate classes and for libraries, LD_LIBRARY_PATH are
 ## Pathnames 
 
 Read globbing pathnames using `man 7 glob`    
+
 Familiarize with wildcard matching, character classes, ranges, and complement for exclusion and ranges. With regex, this will be a lot clearer.   
 
 ---- 
@@ -423,7 +430,6 @@ Device             Start        End   Sectors   Size Type
 
 Partition table entries are not in disk order.
 ...
-
 ```
 
 **/etc/fstab** can show Linux partitions  
@@ -452,6 +458,8 @@ efivarfs       efivarfs  374K  259K  111K  71% /sys/firmware/efi/efivars
 /dev/nvme0n1p1 vfat      246M  130M  117M  53% /boot/efi
 tmpfs          tmpfs     1.6G  160K  1.6G   1% /run/user/1000
 ```
+
+A simple `mount` command without options will show a lot of content.    
 
 **lsblk** and exclude loop devices
 ```
@@ -579,7 +587,7 @@ lp:x:7:
 mail:x:8:
 ```
 
-Memorise the first command we learnt, ls -lrt, now type this in any directory for files and see the output. For a directory, use: ls -ld    
+Recall the first command we learnt, ls -lrt, now type this in any directory for files and see the output. For a directory, use: ls -ld    
 
 The first column shows file permission mode, and columns 3 and 4 show owner and group names, respectively.   
 
@@ -610,7 +618,7 @@ Some examples of file permissions are listed below.
 ```
 -rwx------ : regular file, (700), only the owner can read, write, and execute this file.   
 -rw-r--r-- : regular file, (544), anyone can read, only the owner can modify or delete.   
-drwxr-xr-x : directory, (755), owner can read, write, and accessthe  directory, group and other users can read the contents and access it, cd is allowed   
+drwxr-xr-x : directory, (755), owner can read, write, and access the directory, group and other users can read the contents and access it, cd is allowed   
 -rwxr-xr-x : regular file, (755), only the owner can modify or delete; however, anyone can read or execute it   
 ```
 
@@ -702,7 +710,7 @@ If the sticky bit is set for a directory, all files inside this directory can be
 
 See if there are other such directories like tmp using find / -perm /1000 
 
-A Redhat article on [Linux permissions: SUID, SGID and sticky bits](https://www.redhat.com/sysadmin/suid-sgid-sticky-bit).    
+A Red Hat article on [Linux permissions: SUID, SGID and sticky bits](https://www.redhat.com/sysadmin/suid-sgid-sticky-bit).    
 
 ----
 
@@ -764,6 +772,12 @@ sudo: a password is required
 
 ## Remote login using ssh    
 
+One can log in to a Linux system using   
+- local login on a desktop/laptop/server using a username and password. Most convenient :) 
+- local login using a bootable USB drive for install/repair.
+- remote login using a GUI on VM/server using a username and password. This is rare. 
+- remote login using a console/terminal on VM/server. Most preferred.
+
 To log in to a server or virtual machine remotely from your own Linux system, you can use ssh:    
 ```
 ssh remote_username@remote_server_ip_or_name
@@ -772,8 +786,8 @@ SSH using pem file:
 ```
 ssh -i filename.pem remote_username@remote_server_ip_or_name   
 ```
-SSH ignores a private key file (.pem file) if it is accessible to others.   
-You should change the permissions of the pem file to remove access for other users (600 or 400) to remove the error: Permissions 0664 for 'filename.pem' are too open.   
+
+SSH ignores a private key file (.pem file) if it is accessible to others. You should change the permissions of the pem file to remove access for other users (600 or 400) to remove the error: Permissions 0664 for 'filename.pem' are too open.   
 ```
 chmod 400 filename.pem  
 ```
@@ -791,6 +805,30 @@ scp  path-of-local-file-or-dir  user@remote-system:/path-to-remote-file-or-dir
 
 scp  user@remote-system:/path-of-remote-file-dir  path-of-local-file-or-dir    
 ```
+
+While writing to the target location, make sure you do not have a file with the same name. It may get overwritten.   
+
+----
+
+## Simple web server 
+
+One-line web server => the simplest way to show files from a directory   
+
+```
+$ python3 -m http.server 
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+127.0.0.1 - - [03/Feb/2021 23:33:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Feb/2021 23:33:31] "GET /myvideos/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Feb/2021 23:33:36] "GET /Downloads/ HTTP/1.1" 200 -
+^C 
+Keyboard interrupt received, exiting.
+
+```
+The web server started above can be opened in a web browser: http://0.0.0.0:8000/  
+This page can be opened before you close the server using Ctrl+C.  
+
+Note:- In case you are struggling to connect to this web server to access files from another system, check your wired/wireless network or the VLAN you are on.   
+
 ----
 
 PART-2    
@@ -978,7 +1016,6 @@ debug.kprobes-optimization = 1
 ...
 dev.scsi.logging_level = 0
 ...
-
 ...
 user.max_net_namespaces = 61251
 user.max_pid_namespaces = 61251
@@ -993,11 +1030,9 @@ vm.vfs_cache_pressure = 100
 vm.watermark_boost_factor = 15000
 vm.watermark_scale_factor = 10
 vm.zone_reclaim_mode = 0
-
 ```
-----
 
-## Overcommit memory    
+**Overcommit memory**    
 
 Know more about vm.overcommit_memory and vm.overcommit_ratio at [serverfault](https://serverfault.com/questions/606185/how-does-vm-overcommit-memory-work)     
 
@@ -1012,7 +1047,7 @@ You can check the capabilities for a process using
 $ getpcaps PID   
 ```
 
-When asked the man (man capabilities), got this reply :)     
+When asked, the man (man capabilities), got this reply :)     
 ```
   For  the purpose of performing permission checks, traditional UNIX implementations distinguish two categories of processes:   
   privileged processes (whose effective user ID is 0, referred to as superuser or root), and unprivileged processes (whose
@@ -1026,7 +1061,7 @@ When asked the man (man capabilities), got this reply :)
 
 ----
 
-## Scheduling Jobs 
+## Scheduling jobs 
 
 Cron jobs come to the rescue when scheduling jobs, taking backups, or running scripts at a defined frequency.     
 
@@ -1080,7 +1115,7 @@ Run a bash script to back up resources:
 ```
 nohup bash backup.sh    
 ```
-Run system update that can run longer and may remain unattended   
+Run a system update that can run longer, uninterrupted, and may remain unattended   
 ```
 nohup sudo apt upgrade   
 ```
@@ -1110,6 +1145,7 @@ In command mode:
 Q. How to copy a block of text and paste it elsewhere? Refer to the block copy in the vi editor.     
 
 Q. How to remove ^M (a single control character) in a file at the end of each line? When files are transmitted across operating systems, this may happen.    
+A. In command mode inside the vi/vim editor, :%s/^M//g          <== To type ^M there, ctrl+v followed by ctrl+m or any other such character. This is cool.   
 
 [vim adventures game](https://vim-adventures.com/)     
 
@@ -1117,7 +1153,7 @@ Q. How to remove ^M (a single control character) in a file at the end of each li
 
 ----
 
-## Input Output Redirection     
+## Input Output redirection     
 
 - ">"  redirect output     
 - ">>" : append to redirected output     
@@ -1190,6 +1226,7 @@ xz -dk logs.xz                   <== decompress .xz file
 ```
 v - verbose output    
 f - force command    
+The options above may change, though it gets easier to remember them this way.    
 
 Note:- Linux kernel (kernel.org) uses .tar.xz format   
 
@@ -1267,47 +1304,6 @@ TODO: add image of browser pop-up showing xdg-open message
 
 ----
 
-## Systemd versus init based systems     
-
-[Systemd-based versus init-based Linux systems](https://itsfoss.com/systemd-init/)     
-
-[Systemd-free Linux Distributions](https://itsfoss.com/systemd-free-distros/)     
-
-Systemd brought parallelization of processes in the booting process and configuration files-driven service management.    
-
-```
-rps@eg:~$ systemctl get-default                 <== default target to boot into 
-graphical.target
-
-rps@eg:~$ systemctl get-default --version       <== also tells what the target has been booted into with 
-systemd 255 (255.4-1ubuntu8.5)
-+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified
-```
-
-Check systemctl start <cmd>.target and systemctl isolate <cmd>.target under man systemctl :)     
-
-----
-
-## Windowing System for GUI   
-
-X11 or X is a Window System for Unix/Linux distributions. While Linux came essentially as a kernel in 1991, for graphics or GUI on servers/desktops, X developed at MIT in 80s remains the default choice. The last updated protocol version 11 of X, gives it the name X11. Due to missing encryption between client and X server, Wayland has appeared as an alaternate (default on Ubuntu 22.04 LTS). Here is a [nice reading on X11](https://www.baeldung.com/linux/x11).    
-
-The Zoom app has an interesting bug for screen sharing in Linux systems (desktop/laptop image) using the default Wayland windowing system. Only Whiteboard sharing is enabled, and there is no option to share desktop/laptop screens. It appears Zoom has decided not to fix this bug.    
-
-To enable screen sharing on Linux Desktop/Laptop with Zoom, disable Wayland in the Graphical Display Manager (GDM) config and switch to Xorg/X11 windowing system.   
-
-```
-$ sudo vi /etc/gdm3/custom.conf    <== edit gdm custom.conf using editor   
-# Uncomment the line below to force the login screen to use Xorg   
-#WaylandEnable=false               <== Uncomment this and restart the system   
-```
-
-Now, after this workaround, Zoom will show Desktop sharing alongside Whiteboard sharing.    
-
-TODO: mention QT (not fully FOSS) and GTK (FOSS)    
-
----- 
-
 ## Debugging
 
 For debugging issues, the following can help with processes and system resources.  
@@ -1331,8 +1327,7 @@ MiB Swap:  30518.0 total,  30518.0 free,      0.0 used.   9270.3 avail Mem
  129414 msg       20   0   12336   4372   3408 R   0.7   0.0   0:00.05 top  
     883 root      20   0  484176  21492  17276 S   0.3   0.1   1:08.84 NetworkManager  
 ```
-Interesting: Try pressing any arrow key while top is on.   
-
+Interesting: Try pressing any arrow key while the top is on.   
 
 Use **dstat** - a tool for generating system resource statistics such as cpu usage, disk read/write, network data received/sent, etc. To exit, type Ctrl+C.    
 ```
@@ -1345,7 +1340,6 @@ usr sys idl wai stl| read  writ| recv  send|  in   out | int   csw
   3   1  96   0   0|   0     0 | 303B  405B|   0     0 |2150  3753 
   3   1  95   0   0|   0     0 |1266B 1246B|   0     0 |2272  3889 
   3   1  96   0   0|   0     0 | 984B  786B|   0     0 |2378  3952 ^C
-
 ```
 
 ----
@@ -1368,30 +1362,52 @@ In /var/log/ directory, see the most recent logs, like dmesg, syslog, dpkg log, 
 
 ----
 
-## Simple web server 
+PART-3
 
-One-line web server => the simplest way to show files from a directory   
+## Windowing System for GUI   
 
-```
-$ python3 -m http.server 
-Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
-127.0.0.1 - - [03/Feb/2021 23:33:21] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [03/Feb/2021 23:33:31] "GET /myvideos/ HTTP/1.1" 200 -
-127.0.0.1 - - [03/Feb/2021 23:33:36] "GET /Downloads/ HTTP/1.1" 200 -
-^C 
-Keyboard interrupt received, exiting.
+X11 or X is a Window System for Unix/Linux distributions. While Linux came essentially as a kernel in 1991, for graphics or GUI on servers/desktops, X developed at MIT in the 80s remains the default choice. The last updated protocol version 11 of X gives it the name X11. Due to missing encryption between client and X server, Wayland has appeared as an alternative (default on Ubuntu 22.04 LTS). Here is a [nice reading on X11](https://www.baeldung.com/linux/x11).    
+
+The Zoom app has an interesting bug for screen sharing in Linux systems (desktop/laptop image) using the default Wayland windowing system. Only Whiteboard sharing is enabled, and there is no option to share desktop/laptop screens. It appears Zoom has decided not to fix this bug.    
+
+To enable screen sharing on Linux Desktop/Laptop with Zoom, disable Wayland in the Graphical Display Manager (GDM) config and switch to Xorg/X11 windowing system.   
 
 ```
-The web server started above can be opened in a web browser: http://0.0.0.0:8000/  
-This page can be opened before you close the server using Ctrl+C.  
+$ sudo vi /etc/gdm3/custom.conf    <== edit gdm custom.conf using editor   
+# Uncomment the line below to force the login screen to use Xorg   
+#WaylandEnable=false               <== Uncomment this and restart the system   
+```
 
-Note:- In case you are struggling to connect to this web server to access files from another system, check your wired/wireless network or the VLAN you are on.   
+Now, after this workaround, Zoom will show Desktop sharing alongside Whiteboard sharing.    
+
+TODO: add QT (not fully FOSS) and GTK (FOSS)    
+add x.org, compiz, unity, GNOME, wayland     
+
+---- 
+
+## Systemd versus init based systems     
+
+[Systemd-based versus init-based Linux systems](https://itsfoss.com/systemd-init/)     
+
+[Systemd-free Linux Distributions](https://itsfoss.com/systemd-free-distros/)     
+
+Systemd brought parallelization of processes in the booting process and configuration files-driven service management.    
+
+```
+rps@eg:~$ systemctl get-default                 <== default target to boot into 
+graphical.target
+
+rps@eg:~$ systemctl get-default --version       <== also tells what the target has been booted into with 
+systemd 255 (255.4-1ubuntu8.5)
++PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified
+```
+
+Check systemctl start <cmd>.target and systemctl isolate <cmd>.target under man systemctl :)     
 
 ----
 
-PART-3
-
 ## Installed packages
+
 How do I find out installed software packages? 
 ```
 sudo dpkg --get-selections
@@ -1435,7 +1451,9 @@ linux-modules-extra-5.0.0-32-generic 5.0.0-32.34~18.04.2
 ...
 linux-modules-extra-5.4.0-64-generic 5.4.0-64.72
 linux-modules-extra-5.4.0-65-generic 5.4.0-65.73
+```
 
+```
 $ sudo apt purge linux-image-5.0*
 
 Reading package lists... Done
@@ -1456,7 +1474,9 @@ Purging configuration files for linux-image-5.0.0-23-generic (5.0.0-23.24~18.04.
 Purging configuration files for linux-image-5.0.0-36-generic (5.0.0-36.39~18.04.1) ...
 Purging configuration files for linux-image-5.0.0-37-generic (5.0.0-37.40~18.04.1) ...
 Purging configuration files for linux-image-5.0.0-32-generic (5.0.0-32.34~18.04.2) ...
+```
 
+```
 $ sudo apt purge linux-image-5.3*
 
 Reading package lists... Done
@@ -1479,7 +1499,6 @@ Purging configuration files for linux-image-5.3.0-42-generic (5.3.0-42.34~18.04.
 Purging configuration files for linux-image-5.3.0-26-generic (5.3.0-26.28~18.04.1) ...
 Purging configuration files for linux-image-5.3.0-28-generic (5.3.0-28.30~18.04.1) ...
 Purging configuration files for linux-image-5.3.0-40-generic (5.3.0-40.32~18.04.1) ...
-
 ```
 ----
 
@@ -1506,14 +1525,12 @@ $ sudo apt remove linux-modules-extra-5.0*
 ```
 
 Find the APT cache and clean it up. 
-
 ```
 $ sudo du -sh /var/cache/apt
 $ sudo apt clean
 ```
 
 Clean journal log files. Caution: Know what you are deleting! 
-
 ```
 $ journalctl --disk-usage
 $ sudo journalctl --vacuum-time=14d   <= older than 14 days 
@@ -1525,14 +1542,9 @@ Just in case you run out of space, check dmesg and try to clean up the last acti
 
 ----
 
-## crt and key file   
-For SSL/TLS certificate setup on an HTTP server, it requires a certificate and a private key.   
-[Public key certificate and private key file](https://www.baeldung.com/linux/crt-key-files)   
-
----- 
 ## The One with mysql admin password
 
-Sometimes, you may forget your MySQL admin password and you want to reset it.  
+Sometimes, you may forget your MySQL admin password, and you want to reset it.  
 
 Log in to mysql using sudo and issue the following command: 
 ```
@@ -1544,7 +1556,7 @@ alter user 'root'@'localhost' identified with mysql_native_password by 'nopassis
 mysqldump --databases testdb --user=root --password > backupdb.sql
 ```
 
-If required on the target system, set password using alter user command as above.  
+If required on the target system, set the password using the alter user command as above.  
 
 **To restore mysql db**  
 ```
@@ -1553,16 +1565,16 @@ mysql -u root -p < backupdb.sql
 
 Note on - **MySQL authentication** error   
 
-There is an issue about authentication plugin while upgrading or migrating MySQL database (from 5.7) to 8.0.   
-Error message on the screen is not very informative about it - ERROR 1698 - Access Denied for user 'root'@'localhost'.   
+There is an issue with the authentication plugin while upgrading or migrating the MySQL database (from 5.7) to 8.0.   
+The error message on the screen is not very informative about it - ERROR 1698 - Access Denied for user 'root'@'localhost'.   
 
-The default authentication type in mysql 8.0 is **caching_sha2_password** and this newer plugin may not load or is not available.   
-One way to get around is alter database user to use earlier authentication type as mysql_native_password (as in mysql-5.7) or better migrate to cashing_sha2_password for future.    
+The default authentication type in MySQL 8.0 is **caching_sha2_password**, and this newer plugin may not load or is not available.   
+One way to get around is to alter the database user to use an earlier authentication type, such as mysql_native_password (as in mysql-5.7), or better, migrate to caching_sha2_password for the future.    
 
-Relevant posts on this auhentication type conundrum:    
-[A Tale of Two Password Authentication plugins](https://dev.mysql.com/blog-archive/a-tale-of-two-password-authentication-plugins/)    
-[change authentication methods](https://ostechnix.com/change-authentication-method-for-mysql-root-user-in-ubuntu/)    
-[alter user with mysql_native_password](https://medium.com/@crmcmullen/how-to-run-mysql-8-0-with-native-password-authentication-502de5bac661)    
+Relevant posts on this authentication type conundrum:    
+- [A Tale of Two Password Authentication plugins](https://dev.mysql.com/blog-archive/a-tale-of-two-password-authentication-plugins/)    
+- [change authentication methods](https://ostechnix.com/change-authentication-method-for-mysql-root-user-in-ubuntu/)    
+- [alter user with mysql_native_password](https://medium.com/@crmcmullen/how-to-run-mysql-8-0-with-native-password-authentication-502de5bac661)    
 
 ---- 
 
@@ -1579,21 +1591,27 @@ Relevant posts on this auhentication type conundrum:
 Cool compilers/interpreters:  
 
 <table>
- <tr><td>Clang</td></tr>
+ <tr><td>clang</td></tr>
  <tr><td>gcc</td></tr>
+ <tr><td>g++</td></tr>
+ <tr><td>java</td></tr>
+ <tr><td>python</td></tr>
 </table>
 
-clang  
-gcc  
-g++  
-java  
-python  
+To check if Java runtime environment (JRE) is installed: $ java --version   
+To see if Java SDK is installed: $ javac   
 
-To check if Java runtime environment (JRE) is installed: $ java --version  
-To see if Java SDK is installed: $ javac  
+For functional programming, check Scheme first and then Haskell (GHC).    
+
+For web development: check the LAMP (Linux, Apache, MySQL, PHP) stack with HTML5 and Tailwind or MEAN/MERN/MEVN with Node.js or TypeScript.    
+TODO: add bootcamp link.    
+
+For GUI: check GTK (fully FOSS) and QT (not fully FOSS).    
+TODO: add prototype link, LDAPViewer.    
+
+The choice of the toolchain can be based on the need, stability, toolchain maintainers, and availability of manpower.    
 
 ----
-
 
 PART-4     
 
@@ -1618,10 +1636,19 @@ Yet even with those advantages, Linux is just like everything else that has been
 
 ----
 
+## crt and key file   
+
+For SSL/TLS certificate setup on an HTTP server, it requires a certificate and a private key.   
+[Public key certificate and private key file](https://www.baeldung.com/linux/crt-key-files)   
+
+---- 
+
 ## Linux Kernel   
 
 [Linux Kernel Home](https://www.kernel.org/) for stable kernel releases.    
+
 [Core API Documentation](https://www.kernel.org/doc/html/latest/core-api/index.html)    
+
 Examples for logging [printk](https://www.kernel.org/doc/html/latest/core-api/printk-basics.html)    
 
 [Kernel release cycle]()    
@@ -1638,20 +1665,20 @@ PART-5
 
 ## The One with UNIX/Linux History 
 
-One can say, in a very crude way:    
-open-source OS is - free to download from online repo, free to use, or modify (no license cost) - free refers to freedom of choice! there may be a packaging or  shipping cost or a support cost.    
-closed source OS is someone's proprietary binary source files and user cannot modify source, usually this comes with a license cost or cost is added with accompanying device being sold.   
+One can say, in a very broad way:    
+- An open-source OS is free to download from an online repo, free to use, or modify (no license cost). Free refers to freedom of choice! There may be a packaging or shipping cost or a support cost.    
+- A closed-source OS is someone's proprietary binary source files, and the user cannot modify the source. Usually, this comes with a license cost or a cost is added with the accompanying device being sold.   
 
 Some closed-source early UNIX favours:   
-BSD UNIX: Berkeley Software Distribution had three flavours or varients, such as freeBSD, openBSD, netBSD.    
-SCO UNIX: was based on freeBSD, managed by Santa Cruz Operations, later sold to OpenServer maintainer.    
-Solaris:   
+BSD UNIX: Berkeley Software Distribution had three flavours or variants, such as [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD), OpenBSD, and NetBSD.    
+SCO UNIX: was based on FreeBSD, managed by Santa Cruz Operations, and later sold to the OpenServer maintainer.    
+Solaris: Unix from Sun Microsystems.    
 AIX: IBM Unix    
-HP-UX: HP Unix     
+HP-UX: HP Unix    
 [BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution)    
 Mac OS:   
 
-Some open-source UNIX/linux favours/varients:   
+Some open-source UNIX/Linux favours/variants:   
 Linux:    
 Debian:   
 Ubuntu:   
@@ -1660,18 +1687,15 @@ Open SUSE:
 CentOS:    
 
 Q. Does a mainframe or AS400 run Unix/Linux?   
-A. Unix that ran or runs on Mainframe is called AIX (POSIX compliant). AS400 - specifically IBM iSeries or System i or IBM i run Linux with ease.   
+A. Unix that runs on a Mainframe is called AIX (POSIX-compliant). AS400 - specifically IBM iSeries or System i or IBM i runs Linux with ease.   
 
-Some reading material:   
-[1](http://www.linfo.org/flavors.html)   
-[2](https://www.lifewire.com/unix-flavors-list-4094248)   
-[FreeBSD](https://en.wikipedia.org/wiki/FreeBSD)    
+Some reading material: [1](http://www.linfo.org/flavors.html) and [2](https://www.lifewire.com/unix-flavors-list-4094248)   
 
 ---- 
 
 ## Advantage Linux 
 
-I have been using Linux as primary desktop/laptop OS since 2003, well before I owned my first desktop. I can always count on community support, forums, and there are so many instances, I could get help on online forums, web pages. At times, I wondered what gets them going? who pays their bills? what I could do this going?   
+I have been using Linux as a primary desktop/laptop OS for over 20 years, well before getting my first desktop. One can always count on community support, forums, and there are so many instances where you can get help on online forums and web pages. Ever wondered what gets them going? Who pays their bills? What could you do to get this going?   
 
 ----
 
