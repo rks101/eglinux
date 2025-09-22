@@ -616,6 +616,12 @@ chmod go+r : grant read permission to group and other users, NOTE: Do not use nu
 chmod 777 : grant rwx to owner, group, and non-group users. NOTE: Be very careful about why such a permission mode is being set    
 chmod 744 : grant rwx to the user, read to the group, and others    
 
+Note:-    
+- Three most important files related to permissions: /etc/passwd, /etc/group, /etc/shadow
+- Three most important commands related to permissions: chmod (change permissions), chown (change ownership), chgrp (change group) 
+
+[A file management reading](https://computing.stat.berkeley.edu/tutorial-using-bash/file-management.html)    
+
 Recall /bin/sh is a shell.    
 
 ```
