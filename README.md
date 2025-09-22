@@ -709,7 +709,7 @@ A Redhat article on [Linux permissions: SUID, SGID and sticky bits](https://www.
 ## su and sudo    
 
 su = substitute user, su <user> starts another shell with permissions of <user> specified.      
-sudo = sudo verifies the password of the user who executed sudo for any privileged command.     
+sudo = superuser do, sudo verifies the password of the user who executed sudo for any privileged command.     
 
 Q. Do I really need to have a root password set on Linux? And then, how do I manage things without sharing it with others?     
 A. On Ubuntu (and Debian-based systems), you can live without a root password and manage most things using sudo. Instead of sharing the root password with every user (in the lab or office) for admin tasks such as installations and running privileged utilities, sudo is a better alternative. This may not apply to Red-Hat-like systems.      
@@ -730,7 +730,7 @@ Try `passwd -l root` to lock the password or `passwd -d root` to delete the pass
 
 
 Q. Should I use "su" or "su -" as administrator?     
-A. Always use "su -" for a clean substitution to the indented user identity.    
+A. Always use "su -" for a clean substitution to the intended user identity.    
 "su -" substitutes the root/target user and creates a clean shell without environment variables set by the previous user. It's a complete user substitution.    
 "su" existing shell environment is more or less retained and substitutes the user. It's like mimicking a new user environment.    
 After su or "su -", you can check `pwd` or `ls -lrt ~/`  and exit after any such operations.    
@@ -1290,8 +1290,7 @@ Check systemctl start <cmd>.target and systemctl isolate <cmd>.target under man 
 
 ## Windowing System for GUI   
 
-Xorg   
-Wayland (default on Ubuntu 22.04 LTS)   
+X11 or X is a Window System for Unix/Linux distributions. While Linux came essentially as a kernel in 1991, for graphics or GUI on servers/desktops, X developed at MIT in 80s remains the default choice. The last updated protocol version 11 of X, gives it the name X11. Due to missing encryption between client and X server, Wayland has appeared as an alaternate (default on Ubuntu 22.04 LTS). Here is a [nice reading on X11](https://www.baeldung.com/linux/x11).    
 
 The Zoom app has an interesting bug for screen sharing in Linux systems (desktop/laptop image) using the default Wayland windowing system. Only Whiteboard sharing is enabled, and there is no option to share desktop/laptop screens. It appears Zoom has decided not to fix this bug.    
 
@@ -1304,6 +1303,8 @@ $ sudo vi /etc/gdm3/custom.conf    <== edit gdm custom.conf using editor
 ```
 
 Now, after this workaround, Zoom will show Desktop sharing alongside Whiteboard sharing.    
+
+TODO: mention QT (not fully FOSS) and GTK (FOSS)    
 
 ---- 
 
