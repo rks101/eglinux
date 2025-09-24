@@ -69,6 +69,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
 PART-1
 
 ## ls -lrt
+
 Every time you open a terminal or shell, the first command you should check out is to list all files and directories (ls) in a long (l) and reverse (r) order of time (t) updated. Do compare this output with various other outputs from the `ls` options. Also, this command helps to see permissions and who touched what files recently.    
 ```
 ls -lrt
@@ -79,9 +80,10 @@ To list hidden files: use `ls -alrt`
 ----
 
 ## lsb_release
+
 What are the OS major and minor release numbers? And any code name associated with the release?   
 ```
-lsb_release -a  
+$ lsb_release -a  
 Distributor ID:	Ubuntu
 Description:	Ubuntu 20.04.1 LTS
 Release:	20.04
@@ -102,13 +104,12 @@ HOME_URL="https://www.ubuntu.com/"
 ......
 VERSION_CODENAME=focal
 UBUNTU_CODENAME=focal
-
 ```
 
 What is my system name, kernel, OS, kernel version, and date last updated?   
 Ask `uname` (Unix Name) for operating system name, hostname, kernel version, processor type (x86_64), hardware platform type (x86_64), etc.     
 ```
-uname -a  
+$ uname -a  
 Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
@@ -155,6 +156,7 @@ The source is in the coreutils package, src/lbracket.c and src/test.c
 ----
 
 ## Know processors
+
 How many processors do we have on the system? To know details and processor flags:   
 ```
 cat /proc/cpuinfo  
@@ -165,6 +167,7 @@ Could you check the output? If you get eight entries with processors numbered fr
 ----
 
 ## Know memory
+
 How much memory (RAM / main memory / primary memory to run programs) do we have on the system? You can see installed, free, and other memory details:  
 ```
 cat /proc/meminfo  
@@ -198,6 +201,7 @@ Note:-
 ---- 
 
 ## List hardware 
+
 How can I list hardware details?  
 ```
 lshw -short
@@ -343,6 +347,7 @@ A. Recall what compgen is.
 ----
 
 ## Command completion
+
 Learn to use the tab key for command completion or completing file/directory names. This can save time in typing.  
 
 Hint: type ds and press the tab to see command completion (e.g., dstat) if it exists or to see matching options.  
