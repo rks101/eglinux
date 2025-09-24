@@ -1552,9 +1552,10 @@ To delete an existing user: `userdel`
 
 To modify an existing user: `usermod`   
 
-To disable login for a user: set login shell to nologin :)   <== check: man nologin    
+To disable login for a user:  set user login shell to nologin :)    
 ```
-usermod user_name -s /sbin/nologin           <== message to user "This account is currently not available." 
+usermod user_name -s /sbin/nologin           <== message to user "This account is currently not available."
+                                             <== check: man nologin   
 ```   
 To lock or unlock a user account:    
 ```
