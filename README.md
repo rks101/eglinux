@@ -20,6 +20,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Command completion](#command-completion)
       * [Command history](#command-history)
       * [Know File System](#know-file-system)
+      * [Mount points](#mount-points)
       * [Disk Usage](#disk-usage)
       * [The One with File Permissions](#the-one-with-file-permissions) 
       * [`su` and `sudo`](#su-and-sudo)
@@ -488,6 +489,21 @@ https://www.geeksforgeeks.org/linux-file-system/
 https://www.baeldung.com/linux/find-system-type     
 
 [File System Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)     
+
+----
+
+## Mount points   
+
+In Unix or Linux, a mount point is a directory on a file system that is linked to another file system; logically, it is not a symlink. **proc** is a pseudo-filesystem (logical) acting as an interface to kernel data structures, and it is mounted (or made available) on **/proc** directory. Another example is HDD partition /dev/sda1 or SSD partition /dev/nvme0n1p7 mounted on / as ext3 or ext4 filesystem.    
+
+```
+$ mount | grep "ext" 
+/dev/sda1      on / type ext4 (rw,relatime,errors=remount-ro)  <== HDD partition /dev/sda1 or something like that 
+or 
+/dev/nvme0n1p7 on / type ext4 (rw,relatime,errors=remount-ro)  <== SSD partition /dev/nvm0n1p7 or something like that 
+```
+
+Mount points are used to make the data on one logical filesystem, partition, or physical storage drive easily available in a directory structure to read or write. Think of data from an external device (physical) such as a CD-ROM, DVD, USB drive, another HDD/SSD/SCSI drive, phone, tablet, etc., to be available under /mnt/media directory.   
 
 ----
 
