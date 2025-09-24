@@ -49,7 +49,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Installed packages](#installed-packages)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
-      * [User management](#user-management) 
+      * [User account management](#user-account-management) 
       * [The One with mysql admin password](#the-one-with-mysql-admin-password)
       * [Linux software](#linux-software)
       * [Linux toolchain](#linux-toolchain) 
@@ -1544,7 +1544,7 @@ Just in case you run out of space, check dmesg and try to clean up the last acti
 
 ----
 
-## User management 
+## User account management 
 
 To add a new user: `useradd`   
 
@@ -1560,6 +1560,24 @@ To lock or unlock a user account:
 ```
 usermod -L username                          <== check /etc/shadow, the second column will show a ! sign 
 usermod -U username 
+```
+
+To view the user account password settings:   
+```
+$ sudo chage --list user_name
+[sudo] password for user_name: 
+Last password change					: Dec 01, 2022
+Password expires					: never
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 99999
+Number of days of warning before password expires	: 7
+```
+
+To set a user's password to expire on a date:    
+```
+sudo chage -E 2025-12-31 user_name
 ```
 
 ----
