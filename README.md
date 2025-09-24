@@ -49,8 +49,10 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Installed packages](#installed-packages)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
+      * [User management](#user-management) 
       * [The One with mysql admin password](#the-one-with-mysql-admin-password)
-      * [Linux Software](#linux-software)
+      * [Linux software](#linux-software)
+      * [Linux toolchain](#linux-toolchain) 
   * Part-4
       * [Linux for Networking](#linux-for-networking)
       * [Linux for Security](#linux-for-security)
@@ -1539,6 +1541,19 @@ $ sudo journalctl --vacuum-time=14d   <= older than 14 days
 Clean up the audio/video/movie files and duplicate photos on the system.  
 
 Just in case you run out of space, check dmesg and try to clean up the last activity that caused it. It may be excessive logs generated.   
+
+----
+
+## User management 
+
+To add a new user: `useradd`   
+
+To delete an existing user: `userdel`   
+
+To modify an existing user: `usermod`   
+
+To disable login for a user: set login shell to nologin :)   <== see man nologin    
+`usermod user_name -s /sbin/nologin`   
 
 ----
 
