@@ -1389,9 +1389,10 @@ PART-3
 
 ## Windowing System for GUI   
 
-X11 or X is a Window System for Unix/Linux distributions. While Linux came essentially as a kernel in 1991, for graphics or GUI on servers/desktops, X developed at MIT in the 80s remains the default choice. The last updated protocol version 11 of X gives it the name X11. Due to missing encryption between client and X server, Wayland has appeared as an alternative (default on Ubuntu 22.04 LTS). Here is a [nice reading on X11](https://www.baeldung.com/linux/x11).    
+X11 or X is a Window System for Unix/Linux distributions. While Linux came essentially as a kernel in 1991, it remained a terminal-based OS for time, for graphics or GUI on servers/desktops, X developed at MIT in the 80s remains the default choice. The last updated protocol version 11 of X gives it the name X11. Due to missing encryption between client and X server, [Wayland](https://wayland.freedesktop.org/architecture.html) has appeared as an alternative window system (default on Ubuntu 22.04 LTS). Here is a [nice reading on X11](https://www.baeldung.com/linux/x11).    
 
-The Zoom app has an interesting bug for screen sharing in Linux systems (desktop/laptop image) using the default Wayland windowing system. Only Whiteboard sharing is enabled, and there is no option to share desktop/laptop screens. It appears Zoom has decided not to fix this bug.    
+**Switching between X11 and Wayland**   
+The Zoom app has an interesting bug for screen sharing in Linux systems (desktop/laptop) using the default Wayland windowing system. Only Whiteboard sharing is enabled, and there is no option to share desktop/laptop screens. It appears Zoom may have decided not to fix this bug.    
 
 To enable screen sharing on Linux Desktop/Laptop with Zoom, disable Wayland in the Graphical Display Manager (GDM) config and switch to Xorg/X11 windowing system.   
 
@@ -1404,7 +1405,8 @@ $ sudo vi /etc/gdm3/custom.conf    <== edit gdm custom.conf using editor
 Now, after this workaround, Zoom will show Desktop sharing alongside Whiteboard sharing.    
 
 TODO: add QT (not fully FOSS) and GTK (FOSS)    
-add x.org, compiz, unity, GNOME, wayland     
+
+Links for further reading [x.org](https://x.org/wiki/), compiz, unity, GNOME, wayland     
 
 ---- 
 
