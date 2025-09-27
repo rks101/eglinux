@@ -1405,15 +1405,66 @@ T1_sig_25p.jpeg JPEG 400x144 400x144+0+0 8-bit sRGB 3737B 0.000u 0:00.000
 ```
 
 ### Resizing PDF files    
-For PDFs, Ghost Script provides one of the best compression using the ebook (150 dpi) and screen (72 dpi) settings. 
+Use pdfinfo to know the PDF file attributes.    
 
+For PDFs, Ghost Script provides one of the best compression outputs using the ebook (150 dpi) setting    
 ```
-$ gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=JUGGLED_Text_screen.pdf JUGGLED_Text.pdf
-
-or
-
 $ gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=JUGGLED_Text_screen.pdf JUGGLED_Text.pdf
 ```
+or screen (72 dpi) that is even smaller    
+```
+$ gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=JUGGLED_Text_screen.pdf JUGGLED_Text.pdf
+```
+
+See below, a 17.9 MB PDF file is converted to 1.5 MB PDF file.    
+```
+$ pdfinfo CanvasLMSOverview.pdf 
+Title:           WORD ONLY_Canvas LMS Overview_K-12_US.docx-ENG
+Author:          Sally Langford
+Creator:         Word
+Producer:        macOS Version 14.4.1 (Build 23E224) Quartz PDFContext
+CreationDate:    Thu Apr  4 09:55:21 2024 IST
+ModDate:         Thu Apr  4 09:55:21 2024 IST
+Custom Metadata: no
+Metadata Stream: no
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           51
+Encrypted:       no
+Page size:       595 x 842 pts (A4)           <== 51 A4 pages
+Page rot:        0
+File size:       17902878 bytes               <== 17.9 MB 
+Optimized:       no
+PDF version:     1.4
+
+$ gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=CanvasLMSOverview_screen.pdf CanvasLMSOverview.pdf 
+
+$ pdfinfo CanvasLMSOverview_screen.pdf 
+Title:           WORD ONLY_Canvas LMS Overview_K-12_US.docx-ENG
+Author:          Sally Langford
+Creator:         Word
+Producer:        GPL Ghostscript 10.02.1                 <== gs created 
+CreationDate:    Sat Mar 30 19:52:09 2025 IST
+ModDate:         Sat Mar 30 19:52:09 2025 IST
+Custom Metadata: no
+Metadata Stream: yes
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           51
+Encrypted:       no
+Page size:       595 x 842 pts (A4)
+Page rot:        0
+File size:       1524977 bytes                     <== 1.5 MB
+Optimized:       no
+PDF version:     1.4
+```
+
 ----
 
 
