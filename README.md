@@ -44,6 +44,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [View file content](#view-file-content) 
       * [`xdg-open`](#xdg-open)
       * [Debugging](#debugging)
+      * [File conversion](#file-conversion) 
   * Part-3
       * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
@@ -1384,6 +1385,37 @@ ls -lrt /var/log/
 In /var/log/ directory, see the most recent logs, like dmesg, syslog, dpkg log, etc., to debug the problem.  
 
 ----
+
+## File conversion 
+
+### File format conversion   
+Image file format conversion can be done using convert (ImageMagick).    
+
+### Resizing image files:   
+Identify and resize an image file by pixel resolution or % reduction using convert    
+
+```
+$ identify T1_sig.jpeg 
+T1_sig.jpeg JPEG 1600x574 1600x574+0+0 8-bit sRGB 45273B 0.000u 0:00.000
+
+$ convert -resize 25% T1_sig.jpeg T1_sig_25p.jpeg                 <== reduce to 25% (this is different from by 25%)  
+
+$ identify T1_sig_25p.jpeg 
+T1_sig_25p.jpeg JPEG 400x144 400x144+0+0 8-bit sRGB 3737B 0.000u 0:00.000
+```
+
+### Resizing PDF files    
+For PDFs, Ghost Script provides one of the best compression using the ebook (150 dpi) and screen (72 dpi) settings. 
+
+```
+$ gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=JUGGLED_Text_screen.pdf JUGGLED_Text.pdf
+
+or
+
+$ gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=JUGGLED_Text_screen.pdf JUGGLED_Text.pdf
+```
+----
+
 
 PART-3
 
