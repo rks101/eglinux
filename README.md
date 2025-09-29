@@ -48,6 +48,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
   * Part-3
       * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
+      * [`hostnamectl`](#hostnamectl)
       * [Installed packages](#installed-packages)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
@@ -1512,6 +1513,28 @@ systemd 255 (255.4-1ubuntu8.5)
 
 Check systemctl start <cmd>.target and systemctl isolate <cmd>.target under man systemctl :)     
 
+----
+
+## `hostnamectl`
+
+Display and change hostname (hostnamectl hostname mylaptop):   
+
+```
+$ hostnamectl 
+ Static hostname: eg
+       Icon name: computer-laptop
+         Chassis: laptop 💻
+      Machine ID: a1bf123456789ba8ba123456b1bc12f1qwerty
+         Boot ID: d12c1edcc12e1ee1bba1daa123ba1d1cqwerty
+Operating System: Ubuntu 24.04.3 LTS              
+          Kernel: Linux 6.8.0-49-generic
+    Architecture: x86-64
+ Hardware Vendor: Dell Inc.
+  Hardware Model: Latitude 5420
+Firmware Version: 1.40.0
+   Firmware Date: Tue 2024-09-09
+    Firmware Age: 6month 3w
+```
 ----
 
 ## Installed packages
