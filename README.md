@@ -1526,11 +1526,11 @@ $ hostnamectl
          Chassis: laptop 💻
       Machine ID: a1bf123456789ba8ba123456b1bc12f1qwerty
          Boot ID: d12c1edcc12e1ee1bba1daa123ba1d1cqwerty
-Operating System: Ubuntu 24.04.3 LTS              
-          Kernel: Linux 6.8.0-49-generic
+Operating System: Ubuntu 24.04.1 LTS              
+          Kernel: Linux 6.8.0-40-generic
     Architecture: x86-64
  Hardware Vendor: Dell Inc.
-  Hardware Model: Latitude 5420
+  Hardware Model: Latitude 54321
 Firmware Version: 1.40.0
    Firmware Date: Tue 2024-09-09
     Firmware Age: 6month 3w
