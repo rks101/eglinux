@@ -303,6 +303,17 @@ Read globbing pathnames using `man 7 glob`
 
 Familiarize with wildcard matching, character classes, ranges, and complement for exclusion and ranges. With regex, this will be a lot clearer.   
 
+To know the basename of a file, or the filename without the directory prefix and extension suffix:    
+```
+       basename /usr/bin/sort
+              -> "sort"
+       basename include/stdio.h .h
+              -> "stdio"
+       basename -s .h include/stdio.h
+              -> "stdio"
+       basename -a any/str1 any/str2
+              -> "str1" followed by "str2"
+```
 ---- 
 
 ## Locating binaries    
