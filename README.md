@@ -38,6 +38,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [`nohup`](#nohup)
       * [vi editor](#vi-editor)
       * [Input Output redirection](#input-output-redirection)
+      * [`xargs`](#xargs)
       * [File compression](#file-compression) 
       * [Shell Scripting](#shell-scripting)
       * [regex](#regex)
@@ -1223,6 +1224,28 @@ Trick: Storage is almost full (due to content or excessive logging after an erro
 >large_file.tar                      
 ```
 This will empty large_file.tar; this option is more handy than any type of cat, echo, or rm, and a less bulky operation.   
+
+----
+
+## xargs 
+
+`xargs` reads items from the standard input or output from other commands, delimited by blanks or newlines, and executes the command (default is echo).   
+
+```
+seq 1 10 | xargs  
+```
+
+xargs is often used with find.   
+
+```
+$ sudo find /var/log/ -type f -name "*.log" | xargs grep -l "Network"
+grep: /var/log/boot.log: Permission denied
+grep: /var/log/osquery/osqueryd.results.log: Permission denied
+/var/log/dist-upgrade/apt-term.log
+grep: /var/log/ntopng/ntopng.log: Permission denied
+/var/log/teamviewer15/TeamViewer15_Logfile.log
+/var/log/teamviewer15/TeamViewer15_Logfile_OLD.log
+```
 
 ----
 
