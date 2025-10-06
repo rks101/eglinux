@@ -1247,6 +1247,13 @@ grep: /var/log/ntopng/ntopng.log: Permission denied
 /var/log/teamviewer15/TeamViewer15_Logfile_OLD.log
 ```
 
+Repetition with seq   
+```
+seq 5 | xargs -I {} curl -s https://mywebsite.ac.in 
+
+seq 3 | xargs -I {} xdg-open https://mywebsite.ac.in
+```
+
 ----
 
 ## File compression     
