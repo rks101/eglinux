@@ -1253,6 +1253,7 @@ seq 5 | xargs -I {} curl -s https://mywebsite.ac.in
 
 seq 3 | xargs -I {} xdg-open https://mywebsite.ac.in
 ```
+[A few more ways to use seq](https://www.howtogeek.com/practical-ways-to-use-the-linux-seq-command/)    
 
 ----
 
