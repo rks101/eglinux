@@ -50,6 +50,8 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
       * [`hostnamectl`](#hostnamectl)
+      * [`networkctl`](#networkctl)
+      * [`perf`](#perf)
       * [Installed packages](#installed-packages)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
@@ -1577,6 +1579,122 @@ Firmware Version: 1.40.0
    Firmware Date: Tue 2024-09-09
     Firmware Age: 6month 3w
 ```
+----
+
+## `networkctl`    
+
+Use `networkctl` to query and print the status of network links/interfaces.    
+
+```
+$ networkctl status wlp0s20f1
+systemd-networkd is not running, output might be incomplete.
+Failed to query link bit rates: Unit dbus-org.freedesktop.network1.service not found.
+Failed to query link DHCP leases: Unit dbus-org.freedesktop.network1.service not found.
+● 3: wlp0s20f1
+                   Link File: /usr/lib/systemd/network/99-default.link
+                Network File: n/a
+                       State: n/a (unmanaged)
+                Online state: unknown
+                        Type: wlan
+                        Path: pci-0000:00:14.3
+                      Driver: iwlwifi
+                      Vendor: Intel Corporation
+                       Model: Wi-Fi 6 AX201
+            Hardware Address: 50:84:92:44:55:66 (Intel Corporate)
+                         MTU: 1500 (min: 256, max: 2304)
+                       QDisc: noqueue
+IPv6 Address Generation Mode: none
+          Wi-Fi access point: LMN_PQR (11:a1:aa:01:aa:01)
+    Number of Queues (Tx/Rx): 1/1
+                     Address: 172.16.8.254
+                              fe80::437c:dd6a:b7f2:7850
+                     Gateway: 172.18.0.1
+```
+
+----
+
+## `perf`   
+
+Use perf to see how much CPU every function is using.  
+```
+$ sudo perf top 
+```
+
+Use perf to gather statistics on CPU context switches, page faults, L1/TLB cache misses, etc.   
+
+```
+$ sudo perf stat -ddd ls -R /              <== May take some time to complete, you can ctrl+c to stop midway 
+...............
+ Performance counter stats for 'ls -R /':
+
+          3,807.22 msec task-clock                       #    0.740 CPUs utilized             
+            19,023      context-switches                 #    4.997 K/sec                     
+                37      cpu-migrations                   #    9.718 /sec                      
+             1,456      page-faults                      #  382.431 /sec                      
+    5,71,75,96,616      cycles                           #    1.502 GHz                         (33.56%)
+    9,86,70,16,940      instructions                     #    1.73  insn per cycle              (39.97%)
+    1,81,89,19,207      branches                         #  477.755 M/sec                       (46.54%)
+       1,91,59,643      branch-misses                    #    1.05% of all branches             (53.02%)
+                        TopdownL1                 #      1.1 %  tma_backend_bound      
+                                                  #     79.5 %  tma_bad_speculation    
+                                                  #      8.8 %  tma_frontend_bound     
+                                                  #     10.5 %  tma_retiring             (59.82%)
+    2,30,88,08,972      L1-dcache-loads                  #  606.429 M/sec                       (66.12%)
+       7,27,03,595      L1-dcache-load-misses            #    3.15% of all L1-dcache accesses   (66.21%)
+         65,14,803      LLC-loads                        #    1.711 M/sec                       (66.06%)
+         13,95,991      LLC-load-misses                  #   21.43% of all LL-cache accesses    (66.44%)
+   <not supported>      L1-icache-loads                                                       
+      18,78,34,314      L1-icache-load-misses                                                   (27.09%)
+    2,32,04,99,082      dTLB-loads                       #  609.500 M/sec                       (27.20%)
+          1,45,988      dTLB-load-misses                 #    0.01% of all dTLB cache accesses  (27.11%)
+   <not supported>      iTLB-loads                                                            
+         22,68,399      iTLB-load-misses                                                        (26.98%)
+   <not supported>      L1-dcache-prefetches                                                  
+   <not supported>      L1-dcache-prefetch-misses                                             
+
+       5.148173075 seconds time elapsed
+
+       1.242195000 seconds user
+       2.590174000 seconds sys
+```
+
+```
+$ sudo perf stat -ddd ls -R /home 
+/home:
+..........
+ Performance counter stats for 'ls -R /home':
+
+            806.22 msec task-clock                       #    0.993 CPUs utilized             
+                 4      context-switches                 #    4.961 /sec                      
+                 0      cpu-migrations                   #    0.000 /sec                      
+             1,451      page-faults                      #    1.800 K/sec                     
+    1,30,21,25,732      cycles                           #    1.615 GHz                         (32.98%)
+    2,35,44,93,820      instructions                     #    1.81  insn per cycle              (39.67%)
+      45,08,16,552      branches                         #  559.172 M/sec                       (46.36%)
+         52,40,721      branch-misses                    #    1.16% of all branches             (53.05%)
+                        TopdownL1                 #      6.1 %  tma_backend_bound      
+                                                  #     54.7 %  tma_bad_speculation    
+                                                  #     13.5 %  tma_frontend_bound     
+                                                  #     25.7 %  tma_retiring             (59.76%)
+      54,78,89,499      L1-dcache-loads                  #  679.577 M/sec                       (66.70%)
+       1,19,18,231      L1-dcache-load-misses            #    2.18% of all L1-dcache accesses   (66.82%)
+         18,32,683      LLC-loads                        #    2.273 M/sec                       (66.95%)
+          2,40,908      LLC-load-misses                  #   13.15% of all LL-cache accesses    (67.02%)
+   <not supported>      L1-icache-loads                                                       
+       3,26,98,168      L1-icache-load-misses                                                   (26.72%)
+      57,37,25,470      dTLB-loads                       #  711.623 M/sec                       (26.60%)
+            27,241      dTLB-load-misses                 #    0.00% of all dTLB cache accesses  (26.48%)
+   <not supported>      iTLB-loads                                                            
+          7,34,089      iTLB-load-misses                                                        (26.30%)
+   <not supported>      L1-dcache-prefetches                                                  
+   <not supported>      L1-dcache-prefetch-misses                                             
+
+       0.811706247 seconds time elapsed
+
+       0.340501000 seconds user
+       0.466687000 seconds sys
+```
+
 ----
 
 ## Installed packages
