@@ -60,6 +60,7 @@ Disclaimer: The output below for commands or utilities is compiled for illustrat
       * [Linux software](#linux-software)
       * [Linux toolchain](#linux-toolchain) 
   * Part-4
+      * [Monitoring Performance](#monitoring-performance)
       * [Linux for Networking](#linux-for-networking)
       * [Linux for Security](#linux-for-security)
       * [crt and key file](#crt-and-key-file) 
@@ -1944,6 +1945,41 @@ The choice of the toolchain can be based on the need, stability, toolchain maint
 ----
 
 PART-4     
+
+## Monitoring Performance   
+
+`nload`   
+
+
+`iptraf` - IP Network Statistics Utility   
+
+```
+$ sudo iptraf
+
+iptraf-ng 1.2.1
+
+                                    ┌─────────────────────────────────┐
+                                    │ IP traffic **m**onitor              │
+                                    │ General interface **s**tatistics    │
+                                    │ **D**etailed interface statistics   │
+                                    │ Statistical **b**reakdowns...       │
+                                    │ **L**AN station monitor             │
+                                    │─────────────────────────────────│
+                                    │ **F**ilters...                      │
+                                    │─────────────────────────────────│
+                                    │ C**o**nfigure...                    │
+                                    │─────────────────────────────────│
+                                    │ **A**bout...                        │
+                                    │─────────────────────────────────│
+                                    │ E**x**it                            │
+                                    └─────────────────────────────────┘
+
+ Displays current IP traffic information
+ Up/Down-Move selector  Enter-execute
+```
+
+
+----
 
 ## Linux for Networking 
 
