@@ -1959,19 +1959,19 @@ $ sudo iptraf
 iptraf-ng 1.2.1
 
                                     ┌─────────────────────────────────┐
-                                    │ IP traffic **m**onitor              │
-                                    │ General interface **s**tatistics    │
-                                    │ **D**etailed interface statistics   │
-                                    │ Statistical **b**reakdowns...       │
-                                    │ **L**AN station monitor             │
+                                    │ IP traffic monitor              │
+                                    │ General interface statistics    │
+                                    │ Detailed interface statistics   │
+                                    │ Statistical breakdowns...       │
+                                    │ LAN station monitor             │
                                     │─────────────────────────────────│
-                                    │ **F**ilters...                      │
+                                    │ Filters...                      │
                                     │─────────────────────────────────│
-                                    │ C**o**nfigure...                    │
+                                    │ Configure...                    │
                                     │─────────────────────────────────│
-                                    │ **A**bout...                        │
+                                    │ About...                        │
                                     │─────────────────────────────────│
-                                    │ E**x**it                            │
+                                    │ Exit                            │
                                     └─────────────────────────────────┘
 
  Displays current IP traffic information
