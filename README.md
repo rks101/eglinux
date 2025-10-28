@@ -244,6 +244,20 @@ Note: Why should you consider MemAvailable from 2014 onward? [Check this patch](
 
 Note:- It is good to learn about [types of RAM](https://www.techtarget.com/searchstorage/definition/DIMM), such as earlier SIMM, and DIMM, buffered memory, Load-Reduced or LR-DIMM (with iMB to isolate data and address), Small Outline or SO-DIMM (compact form factor for recent laptops/tablets), etc. A post on [which one to use](https://www.dasher.com/server-memory-rdimm-vs-lrdimm-and-when-to-use-them/) and [difference](https://www.faceofit.com/rdimm-vs-irdimm-vs-udimms/) can be helpful. To maintain the flow, continue reading.    
 
+[Advanced] Can we know the main memory (RAM) address ranges?   
+There you go with lsmem   
+```
+$ lsmem 
+RANGE                                  SIZE  STATE REMOVABLE  BLOCK
+0x0000000000000000-0x000000004fffffff  1.3G online       yes    0-9
+0x0000000060000000-0x0000000067ffffff  128M online       yes     12
+0x0000000100000000-0x000000048fffffff 14.3G online       yes 32-145
+
+Memory block size:       128M
+Total online memory:    15.6G
+Total offline memory:      0B
+```
+
 ----
 
 ## GB or GiB    
@@ -260,8 +274,10 @@ GiB - Gibibyte: is based on the binary system, 1 GiB = 2^30 bytes (1,073,741,824
 
 1 TiB is larger than 1 TB (9.9%)     
 
+A PiB (pebibyte) is approximately 12.6% larger than a PB (petabyte) (1 PiB ≈ 1.126 PB)    
+
 Note:-    
-1. International Electrotechnical Commission (IEC - https://iec.ch) standardized the use of prefixes like "kibi-", "mebi-", "gibi-", "tebi", etc., to represent binary multiples, reserving "kilo-", "mega-", "giga-", "tera-", etc., for decimal multiples.     
+1. International Electrotechnical Commission (IEC - https://iec.ch) standardized the use of prefixes like "kibi-", "mebi-", "gibi-", "tebi-", "pebi-", etc., to represent binary multiples, reserving "kilo-", "mega-", "giga-", "tera-", "peta-", etc., for decimal multiples.     
 2. Certain OS or software utilities may display storage values slightly different or less than vendor published values because of the GB/GiB unit used. For TeraBytes, PetaBytes (and higher), the difference becomes significant because of the growth of the power of 2 versus the power of 10.     
 
 ---- 
