@@ -1,8 +1,8 @@
 # eglinux 
 <!--[muscot](https://commons.wikimedia.org/wiki/File:Tux.png)-->
-eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux commands and pointers for beginners and intermediate users.   
+eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux commands and pointers for beginners and intermediate users. Efforts have been made to keep the commands and utilities as generic as possible.    
 
-Disclaimer: The output below for commands or utilities is compiled for illustration purposes only. You may not find all the exact details in your lab/office.    
+Disclaimer: The output shown below for commands or utilities is compiled for education and illustration purposes only. You may not find all the exact details in your lab, office, apartment, or campus.    
 
 * [eglinux](#eglinux)
   * Part-1
@@ -82,7 +82,7 @@ Every time you open a terminal or shell, the first command you should check out 
 ls -lrt
 ```
 
-To list hidden files: use `ls -alrt` 
+To list hidden files: use `ls -alrt`   
 
 ----
 
@@ -113,8 +113,8 @@ VERSION_CODENAME=focal
 UBUNTU_CODENAME=focal
 ```
 
-What is my system name, kernel, OS, kernel version, and date last updated?   
-Ask `uname` (Unix Name) for operating system name, hostname, kernel version, processor type (x86_64), hardware platform type (x86_64), etc.     
+Q. What is my system name, kernel, OS, kernel version, and date last updated?   
+A. Ask `uname` (Unix Name) for operating system name, hostname, kernel version, processor type (x86_64), hardware platform type (x86_64), etc.     
 ```
 $ uname -a  
 Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
@@ -127,20 +127,21 @@ A Computer System contains:
 - Memory
 - Network
 - (persistent) Storage
-- These days, all four components/sub-systems are virtualized or can be virtualized.   
+- These days, all four components or sub-systems are virtualized or can be virtualized.   
 
 ----
 
 ## Getting help on-system 
 
-What if I do not know commands or their options and arguments?   
+What do I do if I do not know commands or their options and arguments?   
 - Command has a name, options, and/or arguments.   
 - There are plain-text on-screen manuals about Linux built-ins and commands.   
-- There is a **man** I know who can help, and he tells us the most from reliable sources.   
+- There is a **man** I know who can help, and he tells us from the most reliable sources.   
 - (While I am not around,) Always ask **man**, using: 
 ```
-man man 
-man cd 
+man man
+man ls 
+man lsb_release 
 man uname 
 man touch 
 man timedatectl 
@@ -148,7 +149,7 @@ man execve
 man service 
 man find 
 man grep 
-man info
+man info 
 man 7 glob     <== using man page section  
 ```
 Also, you can explore **info** pages.  
@@ -157,7 +158,7 @@ Okay, try one of the coolest commands on bash script built-ins:
 ```
 man [ 
 ```
-[Advanced]: ls -lrt /usr/bin/[ output will confirm it is a binary executable file.    
+[Advanced]: ls -lrt /usr/bin/[ output will confirm that it is a binary executable file.    
 The source is in the coreutils package, src/lbracket.c and src/test.c    
 
 ----
@@ -170,6 +171,64 @@ cat /proc/cpuinfo
 cat /proc/cpuinfo | grep "processor"  
 ```
 Could you check the output? If you get eight entries with processors numbered from 0 to 7, this suggests eight logical cores.  
+
+[Advanced]: Tell me more about CPU architecture, please.    
+There you go with lscpu    
+```
+$ lscpu
+Architecture:             x86_64                              <== 64-bit 
+  CPU op-mode(s):         32-bit, 64-bit                      <== can work in 32-bit or 64-bit modes 
+  Address sizes:          39 bits physical, 48 bits virtual 
+  Byte Order:             Little Endian                       <== Intel in Little Endian 
+CPU(s):                   8                                   <== number of CPUs 
+  On-line CPU(s) list:    0-7
+Vendor ID:                GenuineIntel
+  Model name:             11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz    <== CPU model 
+    CPU family:           6
+    Model:                140
+    Thread(s) per core:   2
+    Core(s) per socket:   4
+    Socket(s):            1
+    Stepping:             1
+    CPU(s) scaling MHz:   26%
+    CPU max MHz:          4200.0000
+    CPU min MHz:          400.0000
+    BogoMIPS:             2764.80
+    Flags:                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscal
+                          l nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_f
+                          req pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_d
+                          eadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l2 cdp_l2 ssbd ibrs ibpb stibp ibrs_enha
+                          nced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdt_a avx512f avx512dq rdsee
+                          d adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves split_lock_det
+                          ect user_shstk dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req vnmi avx512vbmi umip pku ospke avx512
+                          _vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid movdiri movdir64b fsrm avx512_vp2intersect md_cle
+                          ar ibt flush_l1d arch_capabilities
+Virtualization features:  
+  Virtualization:         VT-x                             <== Virtualization flag 
+Caches (sum of all):      
+  L1d:                    192 KiB (4 instances)            <== L1 data cache 
+  L1i:                    128 KiB (4 instances)            <== L1 instruction cache 
+  L2:                     5 MiB (4 instances)              <== L2 cache present 
+  L3:                     8 MiB (1 instance)               <== L3 cache present 
+NUMA:                     
+  NUMA node(s):           1
+  NUMA node0 CPU(s):      0-7
+Vulnerabilities:                                           <== Vulnerabilities with Mitigation, as possible 
+  Gather data sampling:   Mitigation; Microcode
+  Itlb multihit:          Not affected
+  L1tf:                   Not affected
+  Mds:                    Not affected
+  Meltdown:               Not affected
+  Mmio stale data:        Not affected
+  Reg file data sampling: Not affected
+  Retbleed:               Not affected
+  Spec rstack overflow:   Not affected
+  Spec store bypass:      Mitigation; Speculative Store Bypass disabled via prctl
+  Spectre v1:             Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+  Spectre v2:             Mitigation; Enhanced / Automatic IBRS; IBPB conditional; RSB filling; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop
+  Srbds:                  Not affected
+  Tsx async abort:        Not affected
+```
 
 ----
 
