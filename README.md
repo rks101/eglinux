@@ -780,7 +780,8 @@ chmod 744 : grant rwx to the user, read to the group, and others
 
 Note:-    
 - Three most important files related to permissions: /etc/passwd, /etc/group, /etc/shadow
-- Three most important commands related to permissions: chmod (change permissions), chown (change ownership), chgrp (change group) 
+- Three most important commands related to permissions: chmod (change permissions), chown (change ownership), chgrp (change group)
+- File Permissions are one way to implement and visualize Discretionary Access Control (DAC) on Linux.   
 
 [A file management reading](https://computing.stat.berkeley.edu/tutorial-using-bash/file-management.html)    
 
