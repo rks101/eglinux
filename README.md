@@ -84,6 +84,12 @@ ls -lrt
 
 To list hidden files: use `ls -alrt`   
 
+Q. Do you notice colors in the output of ls? What are all these colors?   
+A. For now, try this out using dircolors.   
+```
+$ dircolors --print-ls-colors
+```
+
 ----
 
 ## lsb_release
@@ -309,6 +315,30 @@ To know about peripheral interconnects/ports:
 ```
 lspci -vvv 
 ```
+
+Tell me about all that is USB:   
+```
+$ lsusb -vt
+/:  Bus 001.Port 001: Dev 001, Class=root_hub, Driver=xhci_hcd/1p, 480M
+    ID 1d6b:0002 Linux Foundation 2.0 root hub
+/:  Bus 002.Port 001: Dev 001, Class=root_hub, Driver=xhci_hcd/4p, 10000M
+    ID 1d6b:0003 Linux Foundation 3.0 root hub
+/:  Bus 003.Port 001: Dev 001, Class=root_hub, Driver=xhci_hcd/12p, 480M
+    ID 1d6b:0002 Linux Foundation 2.0 root hub
+    |__ Port 006: Dev 002, If 0, Class=Video, Driver=uvcvideo, 480M
+        ID 1bcf:28cc Sunplus Innovation Technology Inc. 
+    |__ Port 006: Dev 002, If 1, Class=Video, Driver=uvcvideo, 480M
+        ID 1bcf:28cc Sunplus Innovation Technology Inc. 
+    |__ Port 008: Dev 003, If 0, Class=Application Specific Interface, Driver=[none], 480M
+        ID 0a5c:5843 Broadcom Corp. 
+    |__ Port 010: Dev 004, If 0, Class=Wireless, Driver=btusb, 12M
+        ID 8087:0026 Intel Corp. AX201 Bluetooth
+    |__ Port 010: Dev 004, If 1, Class=Wireless, Driver=btusb, 12M
+        ID 8087:0026 Intel Corp. AX201 Bluetooth
+/:  Bus 004.Port 001: Dev 001, Class=root_hub, Driver=xhci_hcd/4p, 10000M
+    ID 1d6b:0003 Linux Foundation 3.0 root hub
+```
+
 ----
 
 ## Environment variables    
@@ -1213,7 +1243,7 @@ Note: /etc/crontab is a global system-wide cron job scheduler. It contains a use
 Min Hr DoM Mon DoW user command     
 00 00 01 01 * root { cd / && echo "Happy New Year!" > greetings.txt }     
 
-Note: There is another option to schedule jobs using crontab -e, and that option is for per user, by default for logged-in users. There is no user option present when editing using crontab -e. It can be run for a user rps using -u flag =>  crontab -e -u rps     
+Note: There is another option to schedule jobs using `crontab -e`, and that option is for each user, by default for logged-in users. There is no user edit option present when editing using `crontab -e`. It can be run for a user rps using -u flag =>  crontab -e -u rps     
 
 Also refer: [Cron periodic config](https://docs.freebsd.org/en/books/handbook/config/#cron-periodic)     
 
