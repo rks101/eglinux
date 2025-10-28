@@ -858,6 +858,10 @@ See if there are other such directories like tmp using find / -perm /1000
 
 A Red Hat article on [Linux permissions: SUID, SGID and sticky bits](https://www.redhat.com/sysadmin/suid-sgid-sticky-bit).    
 
+Q. Is there a way to avoid accidental file overwrite?    
+A. There you go with chattr +a filename and check using lsattr. chattr +a sets the file attribute to append only, no write/overwrite.   
+Try protecting your system config files, which do not get auto-updated, using chattr.    
+
 ----
 
 ## su and sudo    
