@@ -61,6 +61,7 @@ Disclaimer: The output shown below for commands or utilities is compiled for edu
       * [Linux toolchain](#linux-toolchain) 
   * Part-4
       * [Monitoring Performance](#monitoring-performance)
+      * [Audit System Logs](#audit-system-logs) 
       * [Linux for Networking](#linux-for-networking)
       * [Linux for Security](#linux-for-security)
       * [crt and key file](#crt-and-key-file) 
@@ -2088,8 +2089,45 @@ iptraf-ng 1.2.1
  Up/Down-Move selector  Enter-execute
 ```
 
-
 ----
+
+## Audit System Logs 
+
+AuditD can be used to generate audit summary of system logs.   
+
+```
+$ sudo aureport 
+
+Summary Report
+======================
+Range of time in logs: 29/03/25 17:40:20.860 - 29/03/25 17:40:36.317
+Selected time for report: 29/03/25 17:40:20 - 29/03/25 17:40:36.317
+Number of changes in configuration: 3
+Number of changes to accounts, groups, or roles: 0
+Number of logins: 0
+Number of failed logins: 0
+Number of authentications: 0
+Number of failed authentications: 0
+Number of users: 2
+Number of terminals: 4
+Number of host names: 1
+Number of executables: 3
+Number of commands: 2
+Number of files: 0
+Number of AVC's: 0
+Number of MAC events: 0
+Number of failed syscalls: 0
+Number of anomaly events: 0
+Number of responses to anomaly events: 0
+Number of crypto events: 0
+Number of integrity events: 0
+Number of virt events: 0
+Number of keys: 0
+Number of process IDs: 5
+Number of events: 12
+```
+
+---- 
 
 ## Linux for Networking 
 
