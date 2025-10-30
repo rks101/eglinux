@@ -1315,7 +1315,8 @@ A. In command mode inside the vi/vim editor, :%s/^M//g          <== To type ^M t
 - < redirect input    
 - << used in "here document" by cat << END  (get anything till you type delimiter END)     
 
-There are three file streams: standard input (0), standard output (1), standard error (2)     
+There are three file descriptors or streams: standard input (0), standard output (1), standard error (2)     
+
 Generally, input comes from the keyboard, and both output and error are displayed on the console/terminal.    
 ```
 $ ls -lrt /dev/std* 
@@ -1326,12 +1327,14 @@ lrwxrwxrwx 1 root root 15 Aug  1 15:25 /dev/stderr -> /proc/self/fd/2
 
 When desired to suppress the noise of output, stdout and stderr can be merged:     
 ```
-locate canary > output.txt 2>&1          <== locate may generate a lot of permission errors, and this redirection makes it quiet. 
+locate canary > output.txt 2>&1          <== locate command may generate a lot of permission errors, and this redirection makes it quiet. 
 ```
 Scripts use an even quieter way:    
 ```
 command_goes_here > output.txt 2>&1 /dev/null       <== /dev/null eats everything, super cool and quiet, always test it once and then go quiet    
 ```
+
+Note:- Using input/output redirection 2>&1 informs bash to have standard error (file descriptor 2) redirected to the same place to which standard output (file descriptor 1) is being sent (that is, to the terminal or a file).   
 
 Trick: Storage is almost full (due to content or excessive logging after an error), even rm is not working, now, to empty a large file when rm is not working!    
 ```
