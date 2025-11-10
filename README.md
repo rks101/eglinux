@@ -2129,6 +2129,7 @@ Number of keys: 0
 Number of process IDs: 5
 Number of events: 12
 ```
+[Sample audit rules](https://github.com/Neo23x0/auditd/blob/master/audit.rules)    
 
 ---- 
 
