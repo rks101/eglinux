@@ -840,8 +840,35 @@ $ ls -lrt /usr/bin/passwd
 ```
 That's why a non-root user can change a password on Linux, even if passwd is owned by root.    
 
-Note: There are other such programs as well, check using find / -perm /4000    
+Note: There are other such programs as well, check using find / -perm /4000  or find /usr -perm -4000   
 
+```
+$ find /usr -perm -4000 
+/usr/bin/pkexec
+/usr/bin/chsh
+/usr/bin/passwd
+/usr/bin/umount
+/usr/bin/chfn
+/usr/bin/at
+/usr/bin/newgrp
+/usr/bin/su
+/usr/bin/sudo
+/usr/bin/fusermount3
+/usr/bin/gpasswd
+/usr/bin/mount
+/usr/share/code/chrome-sandbox
+/usr/lib/polkit-1/polkit-agent-helper-1
+/usr/lib/virtualbox/VBoxHeadless
+/usr/lib/virtualbox/VBoxSDL
+/usr/lib/virtualbox/VBoxNetDHCP
+/usr/lib/virtualbox/VBoxNetNAT
+/usr/lib/virtualbox/VBoxNetAdpCtl
+/usr/lib/virtualbox/VirtualBoxVM
+/usr/lib/xorg/Xorg.wrap
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/openssh/ssh-keysign
+/usr/sbin/pppd
+```
 
 Q2. Can a user see (read) or delete files created by other users under the /tmp directory?         Hint: sticky bit. 
 
@@ -856,6 +883,32 @@ drwxrwxrwt 4 root root 100 May 11 18:02 /run/lock
 If the sticky bit is set for a directory, all files inside this directory can be deleted or moved by the owner of the files or the guru (root).    
 
 See if there are other such directories like tmp using find / -perm /1000 
+
+```
+$ find / -perm /1000 2> /dev/null             <== 2> /dev/null keeps the output quiet and error message free 
+/dev/shm
+/dev/shm/snap.discord
+/dev/mqueue
+/var/metrics
+/var/crash
+/var/lib/BrlAPI
+/var/lib/samba/usershares
+/var/spool/cron/crontabs
+/var/spool/cron/atjobs
+/var/spool/cron/atspool
+/var/snap/cups/****/tmp
+/var/tmp
+/usr/share/ppd/custom
+/run/lock
+/snap/core**/****/run/lock
+/snap/core**/****/tmp
+/tmp
+/tmp/.ICE-unix
+/tmp/.font-unix
+/tmp/.XIM-unix
+/tmp/.X11-unix
+/sys/fs/bpf
+```
 
 A Red Hat article on [Linux permissions: SUID, SGID and sticky bits](https://www.redhat.com/sysadmin/suid-sgid-sticky-bit).    
 
