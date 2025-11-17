@@ -15,7 +15,8 @@ Disclaimer: The output shown below for commands or utilities is compiled for edu
       * [List hardware using `lshw`](#list-hardware)
       * [Environment variables](#environment-variables)
       * [PATH](#path)
-      * [Pathnames](#pathnames) 
+      * [Pathnames](#pathnames)
+      * [Navigating directories](#navigating-directories) 
       * [Locating binaries](#locating-binaries)
       * [Command completion](#command-completion)
       * [Command history](#command-history)
@@ -428,6 +429,42 @@ To know the basename of a file, or the filename without the directory prefix and
               -> "str1" followed by "str2"
 ```
 ---- 
+
+## Navigating directories   
+
+Once we understand PATH, let us discuss how to navigate file system directories using commands such as cd, cp, mkdir, rm, and others.    
+
+**cd**    
+`pwd` - show the present or current working directory as a fully qualified path.    
+`cd` - change directory to some directory; Successful cd will add or update OLDPWD environment variable.    
+`cd -` - takes you to the previous directory.   
+cd without any argument, or `cd ~` takes you to the user's home directory.    
+`cd ..` - takes you one level up in the directory tree or to the parent directory of the current directory.   
+cd ../../ - takes you two levels up and so on.   
+cd ~/../rps/Downloads/qtemp - takes you to the directory relative to the home directory.   
+
+Open a shell or new terminal and try these commands and see the output:   
+```
+printenv  
+pwd  
+cd abc  
+printenv  
+echo $OLDPWD  
+cd -  
+pwd  
+echo $OLDPWD
+cd /home/rps/lsav/qtemp
+pwd  
+cd ../  
+pwd
+cd ~/../rps/Downloads/qtemp
+pwd 
+cd
+pwd 
+```
+
+
+----
 
 ## Locating binaries    
 
