@@ -1330,13 +1330,13 @@ When asked, the man (man capabilities), got this reply :)
 
 Cron jobs come to the rescue when scheduling jobs, taking backups, or running scripts at a defined frequency.     
 
-Relevant file: /etc/crontab is a system-wide configuration file to schedule hourly, day of the month, monthly, and weekly jobs to be run by a user and scripts to invoke.    
+Relevant file: /etc/crontab is a system-wide configuration file used to schedule minute-ly, hourly, daily, monthly, and weekly jobs to be run by a user and scripts to execute.    
 
-To make an entry, you should know the columns in the crontab file. The first five columns define job frequency, followed by the user-name and the command-to-be-executed    
+To make an entry, you should be familiar with the columns in the crontab file. The first five columns define job frequency, followed by the user name and the command to be executed.    
 
 ```
 $ cat /etc/crontab 
-# /etc/crontab: system-wide crontab
+# /etc/crontab: system-wide crontab          <== This is for system-wide cron jobs 
 
 SHELL=/bin/sh
 # You can also override PATH, but by default, newer versions inherit it from the environment
@@ -1355,15 +1355,15 @@ SHELL=/bin/sh
 47 6	* * 7	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.weekly; }
 52 6	1 * *	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.monthly; }
 #
-0,10,20,30,40,50 *    * * *	rps	cd /home/rps/lsav && touch a.out            <== every 0,10,20,30,40,50th minute cd /home/rps/lsav and record timestamp or touch a.out   
-00 7,13,19    * * *	root	cd /home/eg/backup && ./run_backup.sh             <== every day 7:00 am, 1:00 pm, 7:00 pm, go to /home/eg/backup directory and execute script run_backup.sh          
+0,10,20,30,40,50 *    * * *	rps	cd /home/rps/lsav && touch a.out            <== every 0,10,20,30,40,50th minute, update timestamp of /home/rps/lsav/a.out, initially create it, if it does not exist.    
+00 7,13,19    * * *	root	cd /home/eg/backup && ./run_backup.sh             <== every day 7:00 am, 1:00 pm, 7:00 pm, execute script /home/eg/backup/run_backup.sh to take backup      
 ```
 
 Note: /etc/crontab is a global system-wide cron job scheduler. It contains a user option in the entry. Remember syntax as:    
-Min Hr DoM Mon DoW user command     
+Min Hr DoM Mth DoW user command     
 00 00 01 01 * root { cd / && echo "Happy New Year!" > greetings.txt }     
 
-Note: There is another option to schedule jobs using `crontab -e`, and that option is for each user, by default for logged-in users. There is no user edit option present when editing using `crontab -e`. It can be run for a user rps using -u flag =>  crontab -e -u rps     
+Note: There is another option to schedule jobs using `crontab -e`, which is available by default for logged-in users. There is no user edit option present when editing using `crontab -e`. It can be run for a user rps using the -u flag =>  crontab -e -u rps     
 
 Also refer: [Cron periodic config](https://docs.freebsd.org/en/books/handbook/config/#cron-periodic)     
 
@@ -1371,10 +1371,11 @@ Also refer: [Cron periodic config](https://docs.freebsd.org/en/books/handbook/co
 
 ## nohup   
 
-When running a command on the terminal, upon closing the terminal or disconnecting the remote session (ssh), the command stops.   
-Suppose the command was executed interactively; now the exit status may be unknown or incomplete.    
+When running a command in the terminal, it stops upon closing the terminal or disconnecting the remote session (SSH).   
 
-We can use nohup (no hang up) to tell the OS not to trap the SIGHUP signal to stop such interactive command execution.    
+Suppose the command was executed interactively (update, upgrade); now the exit status may be unknown or incomplete.    
+
+We can use nohup (no hang up) to instruct the OS not to trap the SIGHUP signal, thereby preventing it from stopping interactive command execution.    
 
 Run a bash script to back up resources:   
 ```
@@ -1389,7 +1390,7 @@ nohup sudo apt upgrade
 
 ## vi editor    
 
-vi editor has two modes: command mode (to navigate and issue commands) and insert mode (edit files in a buffer). Press i (to in-place insert) or a (to append) to enter insert mode. Use escape to switch from insert to command mode.      
+The vi editor has two modes: command mode (for navigating and issuing commands) and insert mode (for editing files in a buffer). Press i (to in-place insert) or a (to append) to enter insert mode. Use the Escape key to switch from Insert to Command mode.     
 
 In insert/edit mode:    
 - vi filename.txt, then use i to insert at any place in the buffer, and a to append next to the current place of the cursor    
