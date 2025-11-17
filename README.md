@@ -485,6 +485,11 @@ mkdir -p mydir - create a new directory if it does not exist, if it exists, keep
 
 Note: Develop a habit or best practice of never using rm -rf routinely or as a privileged user. Even as a non-root user, be absolutely certain what you are deleting recursively. Remember that the previously executed sudo command has a finite caching time in the current shell. There is no going back after you hit the Enter key. Remember that there is no recycle bin or trash bin for files/directories deleted from the command line.    
 
+**mv**   
+`mv source destination` - move source file or directory to destination file or directory.    
+`mv qtemp data` - rename qtemp to data.     
+`mv ~/Downloads/convertFile.py ~/.scripts/convertFiles.py` - move file from Downloads directory to .scripts directory.    
+
 ----
 
 ## Locating binaries    
