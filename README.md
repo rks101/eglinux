@@ -463,6 +463,25 @@ cd
 pwd 
 ```
 
+**cp**   
+`cp SOURCE TARGET` - copy source file or directory to target file or directory.    
+`cp -r` - recursive or deep copy a directory including all its sub-directories in it.    
+`cp -p` - copy and create a new file with the existing timestamp (last modified).    
+
+**touch**    
+touch myfile - create a file named myfile if it does not exist, and update the last modified timestamp if it already exists.    
+You can create files using Linux-native editors, such as vi, or other text editors.   
+
+**mkdir**    
+mkdir mydir - create a new directory mydir if it does not exist.    
+mkdir -p mydir - create a new directory if it does not exist, if it exists, keep quiet, show no error/warning. This is extensively used in scripts.    
+
+**rm**    
+`rm xfile` - remove xfile, a regular file, link, or an empty directory.   
+`rm -r qtemp` - recursively delete the qtemp directory with content, including sub-directories in it.    
+`rm -rf qtemp` - recursively delete the qtemp directory, including sub-directories in it, do not prompt yes/no/why, nothing, just do it.    
+
+Note: Develop a habit or best practice of never using rm -rf routinely or as a privileged user. Even as a non-root user, be absolutely certain what you are deleting recursively. Remember that the previously executed sudo command has a finite caching time in the current shell. There is no going back after you hit the Enter key. Remember that there is no recycle bin or trash bin for files/directories deleted from the command line.    
 
 ----
 
