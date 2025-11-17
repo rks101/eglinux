@@ -135,7 +135,8 @@ A Computer System contains:
 - Memory
 - Network
 - (persistent) Storage
-- These days, all four components or sub-systems are virtualized or can be virtualized.   
+- These days, all four components or sub-systems are virtualized or can be virtualized.
+Unless you are working with a physical laptop/desktop/server (which is mostly right in front of you), it is very likely that you are using virtual compute, memory, network interfaces, and persistent storage that are virtualized or allocated from a larger pool of resources.    
 
 ----
 
@@ -167,20 +168,20 @@ Okay, try one of the coolest commands on bash script built-ins:
 man [ 
 ```
 [Advanced]: ls -lrt /usr/bin/[ output will confirm that it is a binary executable file.    
-The source is in the coreutils package, src/lbracket.c and src/test.c    
+The source is located in the coreutils package, specifically in src/lbracket.c and src/test.c    
 
 ----
 
 ## Know processors
 
-How many processors do we have on the system? To know details and processor flags:   
+How many processors does the system have? To know details and processor flags:   
 ```
 cat /proc/cpuinfo  
 cat /proc/cpuinfo | grep "processor"  
 ```
 Could you check the output? If you get eight entries with processors numbered from 0 to 7, this suggests eight logical cores.  
 
-[Advanced]: Tell me more about CPU architecture, please.    
+[Advanced]: Could you tell me more about CPU architecture, please?    
 There you go with lscpu    
 ```
 $ lscpu
@@ -242,7 +243,7 @@ Vulnerabilities:                                           <== Vulnerabilities w
 
 ## Know memory
 
-How much memory (RAM / main memory / primary memory to run programs) do we have on the system? You can see installed, free, and other memory details:  
+How much memory (RAM / main memory / primary memory to run programs) does the system have? You can see installed, free, and other memory details:  
 ```
 cat /proc/meminfo  
 ```
@@ -287,6 +288,7 @@ A PiB (pebibyte) is approximately 12.6% larger than a PB (petabyte) (1 PiB ≈ 1
 Note:-    
 1. International Electrotechnical Commission (IEC - https://iec.ch) standardized the use of prefixes like "kibi-", "mebi-", "gibi-", "tebi-", "pebi-", etc., to represent binary multiples, reserving "kilo-", "mega-", "giga-", "tera-", "peta-", etc., for decimal multiples.     
 2. Certain OS or software utilities may display storage values slightly different or less than vendor published values because of the GB/GiB unit used. For TeraBytes, PetaBytes (and higher), the difference becomes significant because of the growth of the power of 2 versus the power of 10.     
+3. One can read man page of top command. There is no need to memorise the large numbers.   
 
 ---- 
 
