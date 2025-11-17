@@ -288,7 +288,7 @@ A PiB (pebibyte) is approximately 12.6% larger than a PB (petabyte) (1 PiB ≈ 1
 Note:-    
 1. International Electrotechnical Commission (IEC - https://iec.ch) standardized the use of prefixes like "kibi-", "mebi-", "gibi-", "tebi-", "pebi-", etc., to represent binary multiples, reserving "kilo-", "mega-", "giga-", "tera-", "peta-", etc., for decimal multiples.     
 2. Certain OS or software utilities may display storage values slightly different or less than vendor published values because of the GB/GiB unit used. For TeraBytes, PetaBytes (and higher), the difference becomes significant because of the growth of the power of 2 versus the power of 10.     
-3. One can read man page of top command. There is no need to memorise the large numbers.   
+3. One can read the man page of the top command. There is no need to memorise the large numbers.   
 
 ---- 
 
