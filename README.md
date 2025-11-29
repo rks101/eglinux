@@ -407,10 +407,19 @@ $ echo $PATH                            <== check after export
 
 Order of directories in the PATH variable matters! If any command or utility is present in more than one directory in the PATH, the first one in the PATH listing will be picked up.    
 
-If you want a newly added directory to be searched first in the path, add the new directory first and then append the existing contents of the path variable. Use the `which` command to locate the first binary or built-in utility being referenced.    
+To have a newly added directory searched first in the path, add the new directory first and then append the existing contents of the path variable. Use the `which` command to locate the first binary or built-in utility being referenced.    
+e.g. To have /home/rps/lsav searched first in the path, use 
+```
+export PATH=/home/rps/lsav:$PATH
+```
 
-For Java, the classpath to locate classes and for libraries, LD_LIBRARY_PATH are other famous path variables used by developers.   
+For Java, the CLASSPATH is used to locate classes, and LD_LIBRARY_PATH is another famous path variable used by developers for libraries.   
 
+Q. How can I list out all directories in the PATH variable on separate lines?    
+A. Okay, echo/print PATH and replace or translate ':' to a newline character.   
+```
+$ echo $PATH | tr ':' '\n' 
+```
 ----
 
 ## Pathnames 
