@@ -1126,7 +1126,7 @@ ps -aux | grep $USER
 ```
 
 Take a closer look at the ps output, notice the process ID (PID) and parent process ID (PPID).    
-PID 0 and 1 are not listed under the ps output. You see PPID 1 and 2 a lot more often.    
+PID 0 (swapper) is not listed under the ps output. You see PPID 1 (init/systemd) and 2 (kthreadd) a lot more often.    
 ```
 $ ps -aef 
 UID          PID    PPID  C STIME TTY          TIME CMD
@@ -1149,7 +1149,7 @@ avahi       1295       1  0 Oct30 ?        00:00:06 avahi-daemon: running [eg.lo
 root        1296       1  0 Oct30 ?        00:00:00 /usr/sbin/cron -f -P
 ```
 
-PID 0, is known as swapper (also has the nicknames of sched and idle). It is not a normal user-mode process; it is rather part of the kernel.    
+PID 0 is known as the swapper (also referred to by the nicknames sched and idle). It is not a normal user-mode process; it is rather part of the kernel.    
 
 [Advanced] Using bpftrace, we can see that swapper exists, in fact, one per logical CPU.    
 ```
