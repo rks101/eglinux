@@ -39,11 +39,11 @@ Disclaimer: The output shown below for commands or utilities is compiled for edu
       * [`nohup`](#nohup)
       * [vi editor](#vi-editor)
       * [Input Output redirection](#input-output-redirection)
+      * [View file content](#view-file-content) 
       * [`xargs`](#xargs)
       * [File compression](#file-compression) 
       * [Shell Scripting](#shell-scripting)
       * [regex](#regex)
-      * [View file content](#view-file-content) 
       * [`xdg-open`](#xdg-open)
       * [Debugging](#debugging)
       * [File conversion](#file-conversion) 
@@ -1512,6 +1512,18 @@ A. In command mode inside the vi/vim editor, :%s/^M//g          <== To type ^M t
 
 ## Input Output redirection     
 
+Gyan: There are three file descriptors or streams: standard input (0), standard output (1), standard error (2)     
+
+Generally, everything we type goes into stdin or input comes from the keyboard, and both the output and errors are displayed on the console/terminal.    
+```
+$ ls -lrt /dev/std* 
+lrwxrwxrwx 1 root root 15 Aug  1 15:25 /dev/stdout -> /proc/self/fd/1 
+lrwxrwxrwx 1 root root 15 Aug  1 15:25 /dev/stdin -> /proc/self/fd/0  
+lrwxrwxrwx 1 root root 15 Aug  1 15:25 /dev/stderr -> /proc/self/fd/2 
+```
+
+We can redirect output or input as below:    
+
 - ">"  redirect output     
 - ">>" : append to redirected output     
 
@@ -1521,15 +1533,6 @@ A. In command mode inside the vi/vim editor, :%s/^M//g          <== To type ^M t
 - < redirect input    
 - << used in "here document" by cat << END  (get anything till you type delimiter END)     
 
-There are three file descriptors or streams: standard input (0), standard output (1), standard error (2)     
-
-Generally, input comes from the keyboard, and both output and error are displayed on the console/terminal.    
-```
-$ ls -lrt /dev/std* 
-lrwxrwxrwx 1 root root 15 Aug  1 15:25 /dev/stdout -> /proc/self/fd/1 
-lrwxrwxrwx 1 root root 15 Aug  1 15:25 /dev/stdin -> /proc/self/fd/0  
-lrwxrwxrwx 1 root root 15 Aug  1 15:25 /dev/stderr -> /proc/self/fd/2 
-```
 
 When desired to suppress the noise of output, stdout and stderr can be merged:     
 ```
@@ -1547,6 +1550,48 @@ Trick: Storage is almost full (due to content or excessive logging after an erro
 >large_file.tar                      
 ```
 This will empty large_file.tar; this option is more handy than any type of cat, echo, or rm, and a less bulky operation.   
+
+----
+
+## View file content
+
+When dealing with large files or logs, it may be necessary to view specific portions of the files.    
+
+```
+cat - cacatenate or display file content    
+cat file1 file2 file3        <== view multiple files, content is appended one after the other    
+cat -n program.c             <== view file with all lines numbered    
+cat -ns program.c            <== view file with all lines numbered, remove multiple empty lines     
+cat -bn program.c            <== view file with all non-empty lines numbered     
+cat file1 file2 >> newfile   <== merge two files into a new file using output redirection    
+                             <== true for text or normal files, not for images, PDFs, audio, or video files    
+```
+
+`cat filename` outputs everything on the screen (which can be too much for large files).    
+
+`more`     <== show file contents on the terminal, can search and navigate forward (ctrl+f) and backward (ctrl+b)    
+`less`     <== show file contents, does not echo on terminal, faster to load for large files    
+```
+           <== use /pattern to search a pattern, Page Up/Down, or spacebar to move in the file,   
+           <== view multiple files, use :n to next file and :p to go to the previous file     
+           <== use v to open file in default editor nano/vim, exit from editor will take you back to the less session     
+           <== use q to come out of the less session.    
+```
+           
+`tail`     <== show last part/lines of a file, default 10 lines from the end    
+`tail -n +15 file`  <== show file content from line number 10 to the end.   
+`tail -f`  <== show last part/lines of a file that is getting updated, like logs, e.g., tail -f /var/log/syslog     
+`head`     <== show starting lines of a file, default 10 lines from the start     
+
+Q. How can one view (show on the terminal) lines 91 to 95? Hint: Use head and tail commands.    
+A. 
+```
+head -95 id_name.txt | tail +91 
+```
+or
+```
+tail +91 id_name.txt | head -5
+``` 
 
 ----
 
@@ -1651,48 +1696,6 @@ Regular expressions can be used with bash:
 
 [Regular Expressions](https://computing.stat.berkeley.edu/tutorial-using-bash/regex.html)    
 [regex with grep](https://www.cyberciti.biz/faq/grep-regular-expressions/)    
-
-----
-
-## View file content
-
-When dealing with large files or logs, it may be necessary to view specific portions of the files.    
-
-```
-cat - cacatenate or display file content    
-cat file1 file2 file3        <== view multiple files, content is appended one after the other    
-cat -n program.c             <== view file with all lines numbered    
-cat -ns program.c            <== view file with all lines numbered, remove multiple empty lines     
-cat -bn program.c            <== view file with all non-empty lines numbered     
-cat file1 file2 >> newfile   <== merge two files into a new file using output redirection    
-                             <== true for text or normal files, not for images, PDFs, audio, or video files    
-```
-
-`cat filename` outputs everything on the screen (which can be too much for large files).    
-
-`more`     <== show file contents on the terminal, can search and navigate forward (ctrl+f) and backward (ctrl+b)    
-`less`     <== show file contents, does not echo on terminal, faster to load for large files    
-```
-           <== use /pattern to search a pattern, Page Up/Down, or spacebar to move in the file,   
-           <== view multiple files, use :n to next file and :p to go to the previous file     
-           <== use v to open file in default editor nano/vim, exit from editor will take you back to the less session     
-           <== use q to come out of the less session.    
-```
-           
-`tail`     <== show last part/lines of a file, default 10 lines from the end    
-`tail -n +15 file`  <== show file content from line number 10 to the end.   
-`tail -f`  <== show last part/lines of a file that is getting updated, like logs, e.g., tail -f /var/log/syslog     
-`head`     <== show starting lines of a file, default 10 lines from the start     
-
-Q. How can one view (show on the terminal) lines 91 to 95? Hint: Use head and tail commands.    
-A. 
-```
-head -95 id_name.txt | tail +91 
-```
-or
-```
-tail +91 id_name.txt | head -5
-``` 
 
 ----
 
