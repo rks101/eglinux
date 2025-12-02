@@ -1522,17 +1522,18 @@ lrwxrwxrwx 1 root root 15 Aug  1 15:25 /dev/stdin -> /proc/self/fd/0
 lrwxrwxrwx 1 root root 15 Aug  1 15:25 /dev/stderr -> /proc/self/fd/2 
 ```
 
-We can redirect output or input as below:    
+We can redirect output or input as below (using double quotes because of markup side-effect):    
 
 - ">"  redirect output     
-- ">>" : append to redirected output     
+- ">>"  append to redirected output     
 
-- 2> redirect error     
-- 2>> append to redirected error    
+- "2>" redirect error     
+- "2>>" append to redirected error (not required)    
 
-- < redirect input    
-- << used in "here document" by cat << END  (get anything till you type delimiter END)     
+- "<" redirect input    <== Tip: for large files, use cat instead of <    
+- "<<" used in "here document" by cat command: `cat << END`  (get anything till you type the delimiter END)     
 
+- "2>&1" redirects both stdout and stderr    
 
 When desired to suppress the noise of output, stdout and stderr can be merged:     
 ```
@@ -1540,16 +1541,25 @@ locate canary > output.txt 2>&1          <== locate command may generate a lot o
 ```
 Scripts use an even quieter way:    
 ```
-command_goes_here > output.txt 2>&1 /dev/null       <== /dev/null eats everything, super cool and quiet, always test it once and then go quiet    
+command_goes_here > output.txt 2>&1 /dev/null       <== /dev/null eats everything; super cool and quiet. Always test it once and then go quiet.    
 ```
 
 Note:- Using input/output redirection 2>&1 informs bash to have standard error (file descriptor 2) redirected to the same place to which standard output (file descriptor 1) is being sent (that is, to the terminal or a file).   
 
-Trick: Storage is almost full (due to content or excessive logging after an error), even rm is not working, now, to empty a large file when rm is not working!    
+Caution: stdout and stderr can both be redirected or piped using 2>&1; however, there is a difference in usage.    
 ```
->large_file.tar                      
+command > file.txt 2>&1         <== works fine, you can use /dev/null in the end    
+command 2>&1 | another_command  <== works fine   
+command 2>&1 > file.txt         <== this does not work, hence take caution   
 ```
-This will empty large_file.tar; this option is more handy than any type of cat, echo, or rm, and a less bulky operation.   
+
+Caution: Output redirection can permanently delete content. Therefore, be cautious when using '>' to redirect output. Now, what about this command? cat file.txt > file.txt.  As a best practice, you should not attempt to read from and redirect to the same file, even if it is syntactically possible.   
+
+Tip: Storage is almost full (due to content or excessive logging after an error), and even rm is not working. Now, how to empty a large file when rm is not working?    
+```
+>large_file.tar    
+```
+This will empty large_file.tar; please note that you should know the path of the large file. This option is more handy than any type of cat, echo, or rm, and a less bulky operation.   
 
 ----
 
