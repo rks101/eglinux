@@ -301,9 +301,9 @@ lshw -short
 
 It is nice to know about system hardware such as hard disk, graphics card, audio, and network controllers (wired and wifi)  
 ```
-lshw | grep -A7 -i "disk"  <== Hard disk details  
-lshw -short <== for graphics card, look for display  
-lspci -v | grep -A7 -i "audio"  <== Audio device details  
+lshw | grep -A7 -i "disk"          <== Hard disk details  
+lshw -short                        <== for graphics card, look for display  
+lspci -v | grep -A7 -i "audio"     <== Audio device details  
 lspci -v | grep -A7 -i "ethernet"  <== Network Controller for Ethernet (LAN)  
 lspci -v | grep -A7 -i "wireless"  <== Network Controller for wireless (Wi-Fi)
 lspci -v | grep -A7 -i "graphics"  <== Graphics card or GPU 
@@ -1579,17 +1579,32 @@ Regular expressions can be used with bash:
 
 ## View file content
 
-When dealing with large files or logs, one may need to view portions of files. `cat filename` outputs everything (too much) on the screen.     
+When dealing with large files or logs, it may be necessary to view specific portions of the files.    
 
-`more`     <= show file contents on the terminal, can search and navigate forward (ctrl+f) and backward (ctrl+b)    
-`less`     <= show file contents, does not echo on terminal, faster to load for large files    
+cat - cacatenate or display file content    
+cat file1 file2 file3        <== view multiple files, content is appended one after the other    
+cat -n program.c             <== view file with all lines numbered    
+cat -ns program.c            <== view file with all lines numbered, remove multiple empty lines     
+cat -bn program.c            <== view file with all non-empty lines numbered     
+cat file1 file2 >> newfile   <== merge two files into a new file using output redirection    
+                             <== true for text or normal files, not for images, PDFs, audio, or video files    
 
-`tail`     <= show last part/lines of a file, default 10 lines from the end    
-`tail -f`  <= show last part/lines of a file that is getting updated, like logs, e.g., tail -f /var/log/syslog     
-`head`     <= show starting lines of a file, default 10 lines from the start     
+
+`cat filename` outputs everything on the screen (which can be too much for large files).    
+
+`more`     <== show file contents on the terminal, can search and navigate forward (ctrl+f) and backward (ctrl+b)    
+`less`     <== show file contents, does not echo on terminal, faster to load for large files    
+           <== use /pattern to search a pattern, Page Up/Down, or spacebar to move in the file,   
+           <== view multiple files, use :n to next file and :p to go to the previous file     
+           <== use v to open file in default editor nano/vim, exit from editor will take you back to the less session     
+           <== use q to come out of the less session.    
+           
+`tail`     <== show last part/lines of a file, default 10 lines from the end    
+`tail -f`  <== show last part/lines of a file that is getting updated, like logs, e.g., tail -f /var/log/syslog     
+`head`     <== show starting lines of a file, default 10 lines from the start     
 
 Q. How can one view (show on the terminal) lines 91 to 95? Hint: Use head and tail commands.    
-
+A. 
 ```
 head -95 id_name.txt | tail +91 
 ```
