@@ -143,10 +143,11 @@ Unless you are working with a physical laptop/desktop/server (which is mostly ri
 ## Getting help on-system 
 
 What do I do if I do not know commands or their options and arguments?   
-- Command has a name, options, and/or arguments.   
+- Remember: Command has got a name, options, and/or arguments.   
 - There are plain-text on-screen manuals about Linux built-ins and commands.   
 - There is a **man** I know who can help, and he tells us from the most reliable sources.   
-- (While I am not around,) Always ask **man**, using: 
+- These on-screen manuals or man pages are the closest to what one can get as cursor-sensitive help on the system!   
+- (While I am not around,) Always ask **man**, using man followed by command, built-in, or keyword:  
 ```
 man man
 man ls 
@@ -159,7 +160,7 @@ man service
 man find 
 man grep 
 man info 
-man 7 glob     <== using man page section  
+man 7 glob     <== using man page section, there are 8 of them   
 ```
 Also, you can explore **info** pages.  
 
@@ -169,6 +170,40 @@ man [
 ```
 [Advanced]: ls -lrt /usr/bin/[ output will confirm that it is a binary executable file.    
 The source is located in the coreutils package, specifically in src/lbracket.c and src/test.c    
+
+About man page sections, the text below is verbatim copied from the man page of man command:    
+```
+DESCRIPTION
+       man  is  the system's manual pager.  Each page argument given to man is
+       normally the name of a program, utility or function.  The  manual  page
+       associated with each of these arguments is then found and displayed.  A
+       section,  if  provided, will direct man to look only in that section of
+       the manual.  The default action is to search in all  of  the  available
+       sections following a pre-defined order (see DEFAULTS), and to show only
+       the first page found, even if page exists in several sections.
+
+       The table below shows the section numbers of the manual followed by the
+       types of pages they contain.
+
+       1   Executable programs or shell commands
+       2   System calls (functions provided by the kernel)
+       3   Library calls (functions within program libraries)
+       4   Special files (usually found in /dev)
+       5   File formats and conventions, e.g. /etc/passwd
+       6   Games
+       7   Miscellaneous  (including  macro  packages  and  conventions), e.g.
+           man(7), groff(7), man-pages(7)
+       8   System administration commands (usually only for root)
+       9   Kernel routines [Non standard]
+
+       A manual page consists of several sections.
+
+       Conventional section names include NAME, SYNOPSIS,  CONFIGURATION,  DE‐
+       SCRIPTION,  OPTIONS,  EXIT STATUS,  RETURN VALUE,  ERRORS, ENVIRONMENT,
+       FILES,  VERSIONS,  STANDARDS,  NOTES,  BUGS,  EXAMPLE,   AUTHORS,   and
+       SEE ALSO.
+```
+
 
 ----
 
