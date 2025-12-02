@@ -1125,6 +1125,48 @@ ps -aux
 ps -aux | grep $USER 
 ```
 
+Take a closer look at the ps output, notice the process ID (PID) and parent process ID (PPID).    
+PID 0 and 1 are not listed under the ps output. You see PPID 1 and 2 a lot more often.    
+```
+$ ps -aef 
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 Oct30 ?        00:00:40 /sbin/init splash
+root           2       0  0 Oct30 ?        00:00:00 [kthreadd]
+root           3       2  0 Oct30 ?        00:00:00 [pool_workqueue_release]
+systemd+    1054       1  0 Oct30 ?        00:00:56 /usr/lib/systemd/systemd-oomd
+root           4       2  0 Oct30 ?        00:00:00 [kworker/R-rcu_g]
+root           5       2  0 Oct30 ?        00:00:00 [kworker/R-rcu_p]
+root           6       2  0 Oct30 ?        00:00:00 [kworker/R-slub_]
+root           7       2  0 Oct30 ?        00:00:00 [kworker/R-netns]
+root           9       2  0 Oct30 ?        00:00:00 [kworker/0:0H-events_highpri]
+root          12       2  0 Oct30 ?        00:00:00 [kworker/R-mm_pe]
+..............
+systemd+    1055       1  0 Oct30 ?        00:00:28 /usr/lib/systemd/systemd-resolved
+root        1056       1  0 Oct30 ?        00:00:01 /sbin/auditd
+systemd+    1059       1  0 Oct30 ?        00:00:00 /usr/lib/systemd/systemd-timesyncd
+root        1283       1  0 Oct30 ?        00:00:05 /usr/libexec/accounts-daemon
+avahi       1295       1  0 Oct30 ?        00:00:06 avahi-daemon: running [eg.local]
+root        1296       1  0 Oct30 ?        00:00:00 /usr/sbin/cron -f -P
+```
+
+PID 0, is known as swapper (also has the nicknames of sched and idle). It is not a normal user-mode process; it is rather part of the kernel.    
+
+[Advanced] Using bpftrace, we can see that swapper exists, in fact, one per logical CPU.    
+```
+$ sudo bpftrace -e 'kfunc:hrtimer_wakeup { printf("%s:%d\n",curtask->comm,curtask->pid); }'
+[sudo] password for rps: 
+Attaching 1 probe...
+swapper/2:0
+swapper/0:0
+swapper/7:0
+swapper/6:0
+swapper/5:0
+swapper/3:0
+swapper/2:0
+swapper/6:0
+```
+See the [referenced post](https://medium.com/@boutnaru/the-linux-process-journey-pid-0-swapper-7868d1131316).    
+
 The `top` command:    
 - For a real-time view of a running Linux system, use the `top` command. It is interactive, and the output gets updated dynamically.   
 - To get this view from the top at any instant, using `top -bn1`, and this is helpful in quiet scripts.    
