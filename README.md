@@ -1793,6 +1793,20 @@ Regular expressions can be used with bash:
 [Regular Expressions](https://computing.stat.berkeley.edu/tutorial-using-bash/regex.html)    
 [regex with grep](https://www.cyberciti.biz/faq/grep-regular-expressions/)    
 
+Do not miss:    
+man regex    
+info 8.5 Regular Expressions   
+```
+* Menu:
+
+* findutils-default regular expression syntax::
+* gnu-awk regular expression syntax::
+* grep regular expression syntax::
+* awk regular expression syntax::
+* egrep regular expression syntax::
+* posix-extended regular expression syntax::
+```
+
 ----
 
 ## xdg-open 
