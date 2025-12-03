@@ -1665,6 +1665,8 @@ cat file1 file2 >> newfile   <== merge two files into a new file using output re
 
 `cat filename` outputs everything on the screen (which can be too much for large files).    
 
+Tip: What about `tac filename` ?   
+
 `more`     <== show file contents on the terminal, can search and navigate forward (ctrl+f) and backward (ctrl+b)    
 `less`     <== show file contents, does not echo on terminal, faster to load for large files    
 ```
