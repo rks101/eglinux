@@ -162,7 +162,6 @@ man grep
 man info 
 man 7 glob     <== using man page section, there are 8 of them   
 ```
-Also, you can explore **info** pages.  
 
 Okay, try one of the coolest commands on bash script built-ins:   
 ```
@@ -204,6 +203,29 @@ DESCRIPTION
        SEE ALSO.
 ```
 
+Also, you should explore **info** pages. Info pages are another trove of information about the Linux system. An example of permissions is given in the "The One with File Permissions" section.    
+```
+$ info
+```
+Next, locate a section. A chapter-wise menu will open; read through it. After a few pages, you will surely remember how to locate pages and help.   
+
+Very handy key strokes:   
+H - Help (it's a toggle; to close the pop-up menu as well)    
+TAB - next hyperlink    
+RET (Enter) - go to a node/page    
+u - one level up    
+t - top of the current menu    
+d - main menu for info    
+p - previous node/page in navigation    
+n - next node/page in navigation   
+Up/Down keys, Pg Up/Down keys, Pg Scroll work.    
+
+Try these:   
+```
+info coreutils 
+info find 
+info date 
+```
 
 ----
 
@@ -869,7 +891,7 @@ Using r - regular file can be opened in read-only mode, and directory content ca
 Using w - regular file can be edited, deleted, renamed, modified and saved, directory can be created inside a directory, deleted, renamed, access can be modifed as well.   
 Using x - regular file can be executed if it is a script, the directory can be accessed, cd to the directory is allowed by x   
 
-Some examples of file permissions are listed below.   
+The following are some examples of file permissions.   
 
 ```
 -rwx------ : regular file, (700), only the owner can read, write, and execute this file.   
@@ -893,6 +915,70 @@ Note:-
 - Three most important files related to permissions: /etc/passwd, /etc/group, /etc/shadow
 - Three most important commands related to permissions: chmod (change permissions), chown (change ownership), chgrp (change group)
 - File Permissions are one way to implement and visualize Discretionary Access Control (DAC) on Linux.   
+
+**An unsolicited advice**: Read `info` pages on permissions (chapter 27). You will love them :)   
+
+$ info   ==> Next, go to *File Permissions and press Enter. You will see Chapter 27 with a Menu. Go to each text link and hit Enter to read further.    
+```
+* Menu:
+
+* Mode Structure::              Structure of file mode bits.
+* Symbolic Modes::              Mnemonic representation of file mode bits.
+* Numeric Modes::               File mode bits as octal numbers.
+* Operator Numeric Modes::      ANDing, ORing, and setting modes octally.
+* Directory Setuid and Setgid:: Set-user-ID and set-group-ID on directories.
+```
+From Mode Structure   
+```
+The “set-user-ID bit” (“setuid bit”).
+     On execution, set the process’s effective user ID to that of the
+     file.  For directories on a few systems, give files created in the
+     directory the same owner as the directory, no matter who creates
+     them, and set the set-user-ID bit of newly-created subdirectories.
+
+The “set-group-ID bit” (“setgid bit”).
+     On execution, set the process’s effective group ID to that of the
+     file.  For directories on most systems, give files created in the
+     directory the same group as the directory, no matter what group the
+     user who creates them is in, and set the set-group-ID bit of
+     newly-created subdirectories.
+
+The “restricted deletion flag” or “sticky bit”.
+     Prevent unprivileged users from removing or renaming a file in a
+     directory unless they own the file or the directory; this is
+     commonly found on world-writable directories like ‘/tmp’.  For
+     regular files on some older systems, save the program’s text image
+     on the swap device so it will load more quickly when run, so that
+     the image is “sticky”.
+```
+From Numeric Modes:    
+```
+Here is how the bits are arranged, starting with the
+highest valued bit:
+
+     Value in  Corresponding
+     Mode      Mode Bit
+
+               Special mode bits:
+     4000      Set user ID
+     2000      Set group ID
+     1000      Restricted deletion flag or sticky bit
+
+               The file's owner:
+      400      Read
+      200      Write
+      100      Execute/search
+
+               Other users in the file's group:
+       40      Read
+       20      Write
+       10      Execute/search
+
+               Other users not in the file's group:
+        4      Read
+        2      Write
+        1      Execute/search
+```
 
 [A file management reading](https://computing.stat.berkeley.edu/tutorial-using-bash/file-management.html)    
 
