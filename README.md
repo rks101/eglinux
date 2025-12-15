@@ -2415,7 +2415,7 @@ Cool compilers/interpreters:
  <tr><td>g++</td><td>Front end for GCC, for C++ on Linux</td></tr>
  <tr><td>java</td><td>Java interpreter from Sun/Oracle/IBM</td></tr>
  <tr><td>python3</td><td>Python for quick prototypes and Data Science/ML libraries</td></tr>
- <tr><td>Haskell</td> <td>[GHC](https://www.haskell.org/ghc/), [GHCi](https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html)</td></tr>
+ <tr><td>Haskell</td> <td>[GHC](#https://www.haskell.org/ghc/), [GHCi](#https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html)</td></tr>
 </table>
 
 To check if Java runtime environment (JRE) is installed: $ java --version   
