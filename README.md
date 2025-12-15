@@ -1,4 +1,4 @@
-# eglinux 
+mac os# eglinux 
 <!--[muscot](https://commons.wikimedia.org/wiki/File:Tux.png)-->
 eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux commands and pointers for beginners and intermediate users. Efforts have been made to keep the commands and utilities as generic as possible.    
 
@@ -2563,19 +2563,19 @@ One can say, in a very broad way:
 - A closed-source OS is someone's proprietary binary source files, and the user cannot modify the source. Usually, this comes with a license cost or a cost is added with the accompanying device being sold.   
 
 Some closed-source early UNIX favours:   
-BSD UNIX: Berkeley Software Distribution had three flavours or variants, such as [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD), OpenBSD, and NetBSD.    
+[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) UNIX: Berkeley Software Distribution had three flavours or variants, including [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD), OpenBSD, and NetBSD.    
 SCO UNIX: was based on FreeBSD, managed by Santa Cruz Operations, and later sold to the OpenServer maintainer.    
 Solaris: Unix from Sun Microsystems.    
 AIX: IBM Unix    
 HP-UX: HP Unix    
-[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution)    
-Mac OS:   
+Macintosh/Darwin: Inherited code base from FreeBSD    
 
 Some open-source UNIX/Linux favours/variants:   
 Linux:    
-Debian:   
-Ubuntu:   
-Fedora:    
+Debian:    
+Ubuntu: Debian-based   
+Red Hat: Red Hat Enterprise Linux (RHEL)     
+Fedora: Red Hat supported    
 Open SUSE:   
 CentOS:    
 
