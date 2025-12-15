@@ -809,7 +809,7 @@ Note the file system types we have on the system.
 `du` - estimated file system used    
 ```
 $ du -hs ~/Downloads/
-63G	/home/rps/Downloads/
+64G	/home/rps/Downloads/
 ```
 
 ```
@@ -846,7 +846,6 @@ ncdu 1.19 ~ Use the arrow keys to navigate, press ? for help
 --- /home/rps/Downloads ----------------------------------------------------
                                     /..
    55.3 GiB [#####################] /kali-linux-2023.1-virtualbox-amd64
-    1.7 GiB [                     ] /flutter
   854.1 MiB [                     ] /research
   831.9 MiB [                     ] /Xampp3
   282.3 MiB [                     ] /service
