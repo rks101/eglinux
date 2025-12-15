@@ -2594,7 +2594,7 @@ I have been using Linux as a primary desktop/laptop OS for over 20 years, well b
 
 ## The One with Linus
 
-[The talk with not so visionary, not so people-person, a simple, happy engineer](https://www.youtube.com/watch?v=o8NPllzkFhE) Linus Torvalds, who changed the world at least twice with Linux and Git. He started both projects as a hobby and to solve the problems he was facing. On mailing lists, he speaks his mind.    
+[The talk with not so visionary, not so people-person, a simple, happy engineer](https://www.youtube.com/watch?v=o8NPllzkFhE) Linus Torvalds, who changed the world at least twice with Linux and Git. He started both projects as a hobby and to solve the problems he was facing.     
 
 ---- 
 
