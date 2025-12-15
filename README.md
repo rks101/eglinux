@@ -2410,17 +2410,18 @@ Relevant posts on this authentication type conundrum:
 Cool compilers/interpreters:  
 
 <table>
- <tr><td>clang</td></tr>
- <tr><td>gcc</td></tr>
- <tr><td>g++</td></tr>
- <tr><td>java</td></tr>
- <tr><td>python</td></tr>
+ <tr><td>clang</td><td>Front end for LLVM, for C/C++/Objective C/C++</td></tr>
+ <tr><td>gcc</td><td>Front end for GCC, for C/C++ on Linux</td></tr>
+ <tr><td>g++</td><td>Front end for GCC, for C++ on Linux</td></tr>
+ <tr><td>java</td><td>Java interpreter from Sun/Oracle/IBM</td></tr>
+ <tr><td>python3</td><td>Python for quick prototypes and Data Science/ML libraries</td></tr>
+ <tr><td>Haskell</td> <td>[GHC](https://www.haskell.org/ghc/), [GHCi](https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html)</td></tr>
 </table>
 
 To check if Java runtime environment (JRE) is installed: $ java --version   
 To see if Java SDK is installed: $ javac   
 
-For functional programming, check Scheme first and then Haskell (GHC).    
+For functional programming, start with Scheme and then consider Haskell.    
 
 For web development: check the LAMP (Linux, Apache, MySQL, PHP) stack with HTML5 and Tailwind or MEAN/MERN/MEVN with Node.js or TypeScript.    
 TODO: add bootcamp link.    
