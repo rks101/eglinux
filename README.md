@@ -819,6 +819,41 @@ du -ahkc ~/Downloads/tmp
 7220	total
 ```
 
+**ncdu** (NCurses Disk Usage) is a curses-based version of the well-known 'du' command, and provides a fast and colorful way to see what directories are using your disk space. You can issue ncdu in any directory. Use <Enter> on a directory to see further details and <back arrow key> to return.    
+
+In the example below, /home/rps has a Downloads directory taking up a huge amount of space in GBs, and further, the Downloads directory has some stuff.    
+```
+ncdu 1.19 ~ Use the arrow keys to navigate, press ? for help
+--- /home/rps --------------------------------------------------------------
+   64.3 GiB [#####################] /Downloads
+   14.0 GiB [####                 ] /VirtualBox VMs
+    3.7 GiB [#                    ] /Android
+    3.2 GiB [#                    ] /.local
+    3.0 GiB [                     ] /snap
+    2.8 GiB [                     ] /.android
+    2.4 GiB [                     ] /.cache
+    2.0 GiB [                     ] /.gradle
+    1.6 GiB [                     ] /.config
+  594.9 MiB [                     ] /.pub-cache
+  494.6 MiB [                     ] /.vscode
+  405.4 MiB [                     ] /StudioProjects
+  346.9 MiB [                     ] /.jdks
+  155.7 MiB [                     ] /.zoom
+  106.9 MiB [                     ] /my_project_env
+```
+
+```
+--- /home/rps/Downloads ----------------------------------------------------
+                                    /..
+   55.3 GiB [#####################] /kali-linux-2023.1-virtualbox-amd64
+    1.7 GiB [                     ] /flutter
+  854.1 MiB [                     ] /research
+  831.9 MiB [                     ] /Xampp3
+  282.3 MiB [                     ] /service
+  241.4 MiB [                     ] /sw
+   88.4 MiB [                     ] /github
+```
+
 ----
 
 ## The One with File Permissions   
