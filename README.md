@@ -1,4 +1,4 @@
-mac os# eglinux 
+# eglinux 
 <!--[muscot](https://commons.wikimedia.org/wiki/File:Tux.png)-->
 eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux commands and pointers for beginners and intermediate users. Efforts have been made to keep the commands and utilities as generic as possible.    
 
