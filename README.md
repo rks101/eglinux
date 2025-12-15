@@ -69,7 +69,7 @@ Disclaimer: The output shown below for commands or utilities is compiled for edu
       * [Linux Kernel](#linux-kernel)
       * [Virtualization](#virtualization)
   * Part-5
-      * [The One with UNIX/Linux History](#the-one-with-unix/linux-history)
+      * [The One with UNIX or Linux History](#the-one-with-unix-or-linux-history)
       * [Advantage Linux](#advantage-linux)
       * [The One with Linus](#the-one-with-linus)
       * [LWN](#lwn)
@@ -2556,7 +2556,7 @@ Examples for logging [printk](https://www.kernel.org/doc/html/latest/core-api/pr
 
 PART-5
 
-## The One with UNIX/Linux History 
+## The One with UNIX or Linux History   
 
 One can say, in a very broad way:    
 - An open-source OS is free to download from an online repo, free to use, or modify (no license cost). Free refers to freedom of choice! There may be a packaging or shipping cost or a support cost.    
