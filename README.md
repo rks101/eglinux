@@ -93,8 +93,9 @@ $ dircolors --print-ls-colors
 ```
 Q. Why do you recommend `ls -lrt` over `ls`?    
 A. Remember what we discussed about the Linux command.    
-> Command has got a name, options, and arguments!    
-ls -lrt <dir> explains that, and for output difference, type the following in bash and see for yourself.    
+> Command has got a name, options, and arguments!
+
+ls -lrt <dir> explains that about the command, and for the output difference, type the following in bash and see for yourself.    
 ```
 $ diff <(ls) <(ls -lrt)
 ```
