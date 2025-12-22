@@ -633,17 +633,27 @@ Hint: complete, bash_completion
 
 ## Command history    
 
-To list existing history:    
+One of the simplest ways to view the immediately executed commands is by using the **Up and Down arrow keys**.    
+
+To list the existing history of commands, type history:    
 ```
 history
 ```
-To search history recursively:     
-Use Ctrl+r and type a few characters to search history, and then use tab to get that command:      
+Now, to execute any command from this listing, type ! followed by the line number you see in the output of the history command :)   
 ```
-(reverse-i-search)`ssh': ssh -i rps.pem ubuntu@10.10.120.120      <== ctrl+r and then typed ssh   
+$ !8430         <== mine has 8430  man chfn 
+man chfn
+$ !8400         <== mine has 8400  man dircolors 
+man dircolors
+```
+
+To search history recursively:     
+Press Ctrl+r and type a few characters to search history, and then use tab to get that command:      
+```
+(reverse-i-search)`ssh': ssh -i rps.pem ubuntu@10.10.120.120      <== press ctrl+r and then typed ssh   
 ```
 To see a few previous commands:      
-Use arrow keys => Up for previous command and down to next in the history list.     
+Use the arrow keys: Up for the previous command and Down for the next in the history list.     
 
 To repeat the immediately previous command
 ```
@@ -661,7 +671,7 @@ history -c
 Q. How do you hide a command from the bash shell history? Suppose you did not want to reveal something :)    
 A. Try prefixing the command with one or more spaces
 ```
-  compgen -abckA function > compgen_help.txt       <== command with one or more spaces as prefix won't appear in history. Check using the up arrow key    
+  compgen -abckA function > compgen_help.txt       <== command with one or more spaces as prefix won't appear in history. Check using the Up arrow key    
 ```
 
 ----
@@ -821,11 +831,11 @@ du -ahkc ~/Downloads/tmp
 
 **ncdu** (NCurses Disk Usage) is a curses-based version of the well-known 'du' command, and provides a fast and colorful way to see what directories are using your disk space. You can issue ncdu in any directory. Use <Enter> on a directory to see further details and <back arrow key> to return.    
 
-In the example below, /home/rps has a Downloads directory taking up a huge amount of space in GBs, and further, the Downloads directory has some stuff.    
+In the example below, /home/rps has a Downloads directory that occupies a significant amount of space in GBs. Furthermore, the Downloads directory contains some files.    
 ```
 ncdu 1.19 ~ Use the arrow keys to navigate, press ? for help
 --- /home/rps --------------------------------------------------------------
-   64.3 GiB [#####################] /Downloads
+   64.3 GiB [#####################] /Downloads                      <== put cursor here and press <Enter> key 
    14.0 GiB [####                 ] /VirtualBox VMs
     3.7 GiB [#                    ] /Android
     3.2 GiB [#                    ] /.local
