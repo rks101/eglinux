@@ -1492,9 +1492,17 @@ Q. What are the signals that cannot be caught, blocked, or ignored in user space
 A. SIGKILL and SIGSTOP. Because the kernel is configured to do it.    
 [Related post](https://stackoverflow.com/questions/35569659/the-signals-sigkill-and-sigstop-cannot-be-caught-blocked-or-ignored-why)    
 
-Q. [Interesting]Is Divide-by-Zero (DBZ or DIV0) a hardware or software interrupt?     
-A. This question is interesting, and you may find different answers. First, mathematics does not define division by zero. We cannot have zero partitions and then create a whole from these zero partitions. Programming languages like C do not explicitly define such arithmetic. In C++ specification, it is left as Undefined/Unknown behaviour.     
-A few opinions on DBZ: [1](https://stackoverflow.com/questions/21852270/number-divide-by-zero-is-hardware-exception) , [2](https://www.sysnet.ucsd.edu/~voelker/class/cse120/signals.html) , [3](https://stackoverflow.com/questions/23878400/how-processor-handles-case-of-division-by-zero) , [4](https://ee.usc.edu/stochastic-nets/docs/divide-by-zero.pdf). Also, check this answer on gen AI tools and repeat on different days.     
+Q. [Interesting] Is Divide-by-Zero (DBZ or DIV0) a hardware or software interrupt?     
+A. This question is interesting, and you may find different answers. First, mathematics does not define division by zero. Think about zero partitions of a 12.4-meter pipe. Can you have zero partitions and then create a whole from these zero partitions?    
+
+Programming languages like C do not explicitly define the outcome of such arithmetic. In the C++ specification, it is left as Undefined/Unknown behaviour.    
+In the Linux kernel for the x86 architecture, there is a trap handler function to send the SIGFPE signal for such a division.    
+
+A few opinions on DBZ: [1](https://stackoverflow.com/questions/21852270/number-divide-by-zero-is-hardware-exception) , [2](https://www.sysnet.ucsd.edu/~voelker/class/cse120/signals.html) , [3](https://stackoverflow.com/questions/23878400/how-processor-handles-case-of-division-by-zero) , [4](https://stackoverflow.com/questions/13563688/divide-by-zero-exception-handling-in-linux) , [5](https://ee.usc.edu/stochastic-nets/docs/divide-by-zero.pdf). 
+
+Results or penalties of a DBZ scenario can be catastrophic, as seen in the Ariane V launcher failure. Therefore, verification researchers emphasize the verification of DBZ properties, overflows, and the like.    
+
+Also, check this answer on gen AI tools and repeat on different days.     
 
 ---- 
 
