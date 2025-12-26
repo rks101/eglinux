@@ -1492,8 +1492,9 @@ Q. What are the signals that cannot be caught, blocked, or ignored in user space
 A. SIGKILL and SIGSTOP. Because the kernel is configured to do it.    
 [Related post](https://stackoverflow.com/questions/35569659/the-signals-sigkill-and-sigstop-cannot-be-caught-blocked-or-ignored-why)    
 
-Q. [Interesting]Is Divide-by-Zero a hardware or software interrupt?     
-A. This question is interesting, and you may find different answers. [1](https://stackoverflow.com/questions/21852270/number-divide-by-zero-is-hardware-exception) [2](https://www.sysnet.ucsd.edu/~voelker/class/cse120/signals.html). Also, check this answer on gen AI tools and repeat on different days.     
+Q. [Interesting]Is Divide-by-Zero (DBZ or DIV0) a hardware or software interrupt?     
+A. This question is interesting, and you may find different answers. First, mathematics does not define division by zero. We cannot have zero partitions and then create a whole from these zero partitions. Programming languages like C do not explicitly define such arithmetic. In C++ specification, it is left as Undefined/Unknown behaviour.     
+A few opinions on DBZ: [1](https://stackoverflow.com/questions/21852270/number-divide-by-zero-is-hardware-exception) , [2](https://www.sysnet.ucsd.edu/~voelker/class/cse120/signals.html) , [3](https://stackoverflow.com/questions/23878400/how-processor-handles-case-of-division-by-zero) , [4](https://ee.usc.edu/stochastic-nets/docs/divide-by-zero.pdf). Also, check this answer on gen AI tools and repeat on different days.     
 
 ---- 
 
