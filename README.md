@@ -55,6 +55,7 @@ Disclaimer: The output shown below for commands or utilities is compiled for edu
       * [`perf`](#perf)
       * [Installed packages](#installed-packages)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
+      * [Managing server logs](#managing-server-logs)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
       * [User account management](#user-account-management) 
       * [The One with mysql admin password](#the-one-with-mysql-admin-password)
@@ -2313,6 +2314,105 @@ Purging configuration files for linux-image-5.3.0-26-generic (5.3.0-26.28~18.04.
 Purging configuration files for linux-image-5.3.0-28-generic (5.3.0-28.30~18.04.1) ...
 Purging configuration files for linux-image-5.3.0-40-generic (5.3.0-40.32~18.04.1) ...
 ```
+----
+
+## Managing server logs 
+
+Over time, just like software caches, server logs may increase and occupy a significant amount of disk space.    
+
+`logrotate` can be used with a scheduled cron job to rotate, compress, and archive large log files.    
+
+man says:   
+
+```
+logrotate is designed to ease the administration of systems that generate large 
+numbers  of log files. It allows automatic rotation, compression, removal, and 
+mailing of log files. Each log file may be handled daily, weekly, monthly, or 
+when it grows too large.
+```
+
+logrotate config files are:   
+```
+/etc/logrotate.conf
+/etc/logrotate.d/*
+```
+
+Sample logrotate configuration   
+```
+# logrotate file for apt
+/var/log/apt/term.log {
+  rotate 12
+  monthly
+  compress
+  missingok
+  notifempty
+}
+
+/var/log/apt/history.log {
+  rotate 12
+  monthly
+  compress
+  missingok
+  notifempty
+}
+
+# logrotate file for dpkg
+/var/log/dpkg.log {
+        monthly
+        rotate 12
+        compress
+        delaycompress
+        missingok
+        notifempty
+        create 644 root root
+}
+
+# logrotate file for rsyslog (/var/log) 
+/var/log/syslog
+/var/log/mail.log
+/var/log/kern.log
+/var/log/auth.log
+/var/log/user.log
+/var/log/cron.log
+{
+        rotate 4
+        weekly
+        missingok
+        notifempty
+        compress
+        delaycompress
+        sharedscripts
+        postrotate
+                /usr/lib/rsyslog/rsyslog-rotate
+        endscript
+}
+
+# logrotate file for cups-daemon
+/var/log/cups/*log {
+        daily
+        missingok
+        rotate 7
+        sharedscripts
+        postrotate
+                invoke-rc.d --quiet cups restart > /dev/null
+        endscript
+        compress
+        delaycompress
+        notifempty
+        create
+}
+
+# logrotate file for iptraf-ng
+/var/log/iptraf/*.log {
+        compress
+        delaycompress
+        missingok
+        notifempty
+        rotate 4
+        create 0600 root root
+}
+```
+
 ----
 
 ## Free space on Ubuntu system
