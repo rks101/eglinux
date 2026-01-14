@@ -1959,7 +1959,7 @@ In /var/log/ directory, see the most recent logs, like dmesg, syslog, dpkg log, 
 ### File format conversion   
 Image file format conversion can be done using convert (ImageMagick).    
 
-### Resizing image files:   
+#### Resizing image files:   
 Identify and resize an image file by pixel resolution or % reduction using convert    
 
 ```
@@ -1972,7 +1972,7 @@ $ identify T1_sig_25p.jpeg
 T1_sig_25p.jpeg JPEG 400x144 400x144+0+0 8-bit sRGB 3737B 0.000u 0:00.000
 ```
 
-### Resizing PDF files    
+#### Resizing PDF files    
 Use pdfinfo to know the PDF file attributes.    
 
 For PDFs, Ghost Script provides one of the best compression outputs using the ebook (150 dpi) setting    
@@ -2032,6 +2032,11 @@ File size:       1524977 bytes                     <== 1.5 MB
 Optimized:       no
 PDF version:     1.4
 ```
+
+### File metadata 
+
+[`exiftool` can be used to read and write file metadata](https://metaremover.com/image-exif/exiftool-remove-all-metadata). [Another link to manage file metadata](https://renamer.io/blog/exiftool-how-to-remove-all-metadata-from-files-safely-completely/)    
+
 
 ----
 
