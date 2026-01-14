@@ -1,8 +1,10 @@
 # eglinux 
 <!--[muscot](https://commons.wikimedia.org/wiki/File:Tux.png)-->
-eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux commands and pointers for beginners and intermediate users. Efforts have been made to keep the commands and utilities as generic as possible.    
+eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux commands and pointers for beginners and intermediate users. Efforts have been made to keep the commands and utilities as generic as possible, making them suitable for most Linux distributions or flavors.    
 
-Disclaimer: The output shown below for commands or utilities is compiled for education and illustration purposes only. You may not find all the exact details in your lab, office, apartment, or campus.    
+Disclaimer: The output shown below for commands or utilities is compiled for educational and illustrative purposes only. You may not find all the exact details in your lab, office, or campus (loc).    
+
+Feedback: If this page helps you understand and gain hands-on Linux experience, please cite or reference this page. Additionally, please let me know how I can improve this page in terms of coverage and utility.    
 
 * [eglinux](#eglinux)
   * Part-1
@@ -80,7 +82,7 @@ PART-1
 
 ## ls -lrt
 
-Every time you open a terminal or shell, the first command you should check out is to list all files and directories (ls) in a long (l) and reverse (r) order of time (t) updated. Do compare this output with various other outputs from the `ls` options. Also, this command helps to see permissions and who touched what files recently.    
+Every time you open a terminal, shell, or command line interpreter (CLI) in Linux, the first command you should check out is to list all files and directories (ls) in a long (l) and reverse (r) order of time (t) updated. Do compare this output with various other outputs from the `ls` options. Also, this command helps to see permissions and who touched what files recently.    
 ```
 ls -lrt
 ```
