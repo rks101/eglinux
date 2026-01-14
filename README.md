@@ -1289,6 +1289,27 @@ Note:- In case you are struggling to connect to this web server to access files 
 
 ----
 
+## Package Manager  
+
+A package manager or software installer helps to install packages or utilities (with binaries or source). Some popular package managers are listed below:     
+
+Ubuntu/Debian/Linux Mint: apt, dpkg    
+e.g. 
+```
+sudo apt install locate
+```
+```
+sudo dpkg -i package.deb   <== Debian package archive file    
+```
+
+Redhat / Fedora / CentOS / AlmaLinux: dnf    
+
+Arch Linux / Manjaro: pacman     
+
+GUI-based package managers: Synaptic Package Manager, Ubuntu App Center     
+
+----
+
 PART-2    
 
 ## Processes   
