@@ -574,7 +574,7 @@ Note: Develop a habit or best practice of never using rm -rf routinely or as a p
 
 ## Locating binaries    
 
-No challenge in admitting, at some point in time, we struggle to locate stuff.    
+No challenge in admitting that, at some point in time, we struggle to locate things.    
 There are multiple ways to locate commands and binaries and determine a short description or which one is in use.    
 
 `which`             <== which can be used to locate a command or all binaries with -a 
@@ -613,6 +613,13 @@ whatis [
 
 Q. which compgen, whatis compgen, whereis compgen - none of them help. Why?    
 A. Recall what compgen is.    
+
+Q. `locate` is not installed on my system. Command not found.   
+A. Okay. Some commands or utilities may not be installed by default in the distribution. You can install locate using: sudo apt install locate    
+There are other versions of locate, such as plocate and mlocate.   
+
+Q. Other than these commands?    
+A. You should try TAB key, find, and grep.    
 
 ----
 
