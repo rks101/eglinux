@@ -1488,11 +1488,17 @@ A. One of the best ways to understand virtual memory and process memory layout: 
 
 [procmap](https://github.com/kaiwan/procmap)     
 
+[Kernel docs on VM map with 5-level page table](https://www.kernel.org/doc/Documentation/x86/x86_64/mm.txt)     
+
+Q. What is the maximum memory (RAM) supported on a 64-bit system?    
+A. The answer lies in the OS, architecture (32-bit vs 64-bit), and paging levels.    
+Helpful readings: [1](https://www.compuram.de/blog/en/how-much-ram-can-be-addressed-under-the-current-32-bit-and-64-bit-operating-systems/)    
+
 ---- 
 
 ## Process Termination 
 
-The command `kill` can be used to send a signal, including terminating a process (TERM).     
+The command `kill` can be used to send a signal, including the termination signal (TERM).     
 
 ```
 $ kill -9 pid     <== kill will send a signal SIGKILL (9) to pid     
