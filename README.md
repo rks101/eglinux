@@ -48,7 +48,8 @@ Feedback: If this page helps you understand and gain hands-on Linux experience, 
       * [regex](#regex)
       * [`xdg-open`](#xdg-open)
       * [Debugging](#debugging)
-      * [File conversion](#file-conversion) 
+      * [File conversion](#file-conversion)
+      * [Online Resources](#online-resources) 
   * Part-3
       * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
@@ -2066,6 +2067,15 @@ PDF version:     1.4
 ### File metadata 
 
 [`exiftool` can be used to read and write file metadata](https://metaremover.com/image-exif/exiftool-remove-all-metadata). [Another link to manage file metadata](https://renamer.io/blog/exiftool-how-to-remove-all-metadata-from-files-safely-completely/)    
+
+----
+
+## Online Resources  
+
+Now, you can view and refer to some online resources (Remember man, info, and command-specific help):    
+[Baeldung](https://www.baeldung.com/linux/)     
+[It's FOSS](https://itsfoss.com/)     
+[Linuxconfig](https://linuxconfig.org/)    
 
 
 ----
