@@ -1494,6 +1494,9 @@ Q. What is the maximum memory (RAM) supported on a 64-bit system?
 A. The answer lies in the OS, architecture (32-bit vs 64-bit), and paging levels.    
 Helpful readings: [1](https://www.compuram.de/blog/en/how-much-ram-can-be-addressed-under-the-current-32-bit-and-64-bit-operating-systems/)    
 
+Q. Why is kcore file so large on my system? even larger than disk space?    
+A. /proc/kcore is a virtual map and nothing physical about it. This is infact true for many things in /proc. [See also](https://stackoverflow.com/questions/21170795/proc-kcore-file-is-huge)    
+
 ---- 
 
 ## Process Termination 
