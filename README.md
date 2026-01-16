@@ -627,6 +627,9 @@ There are other versions of locate, such as plocate and mlocate.
 Q. Other than these commands?    
 A. You should try TAB key, find, and grep.    
 
+Q. What makes locate/mlocate faster than find?    
+A. Find searches the actual file system in real-time, while locate/mlocate scans a database of files on the system.    
+
 ----
 
 ## Command completion
