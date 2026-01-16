@@ -105,6 +105,11 @@ $ diff <(ls) <(ls -lrt)
 ```
 Note:- <() is process substitution, more on this under Bash.   
 
+Q. How can we list out only directories inside the ~/Downloads directory, one on each line?    
+A. Use -d for directories and -1 for listing one per line.   
+```
+ls -d -1 ~/Downloads/*/ 
+```
 ----
 
 ## lsb_release
