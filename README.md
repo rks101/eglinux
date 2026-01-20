@@ -1114,6 +1114,14 @@ $ ls -lrt /usr/bin/passwd
 ```
 That's why a non-root user can change a password on Linux, even if passwd is owned by root.    
 
+man says from chmod
+```
+       For  directories  chmod  preserves set-user-ID and set-group-ID bits unless you
+       explicitly specify otherwise.  You can set or  clear  the  bits  with  symbolic
+       modes  like  u+s  and  g-s.  To clear these bits for directories with a numeric
+       mode requires an additional leading zero like 00755, leading minus like  -6000,
+       or leading equals like =755.
+```
 Note: There are other such programs as well, check using find / -perm /4000  or find /usr -perm -4000   
 
 ```
