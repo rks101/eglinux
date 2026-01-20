@@ -1074,10 +1074,13 @@ Using buffer overflow, if a remote user can get a shell /bin/sh executing some [
 * Similarly, umask 002 will grant files 664 (-rw-rw-r--) and to directories 775 (drwxrwxr-x) permissions.
 * Type `umask` on bash prompt to get current umask value, ignore leading zeros except rightmost 3 digits
 * With umask in four digits, leading digits 4, 2, 1 have special meaning. 4xxx SUID bit set, 2xxx SGID bit set, 1xxx sticky bit set (they are different)
-* umask can be set in /etc/profile for all users or in ~/.bashrc for a user by adding one line
+* umask can be set in /etc/profile for all users or in ~/.bashrc for a user by adding one line umask value. After this, open a new terminal or run the bashrc script to apply the changes in the current shell environment.    
 ```
 umask 022
 ```
+
+Q. Venky wishes to create all new files and directories having all permissions for user vikings and no permissions for users in the same group or others. What umask should he set? The new files should show as -rwx------, and directories as drwx------     
+A. Venky should add `umask ....` in ~/.bashrc file, where .... is replaced by the umask value.    
 
 ----
 
