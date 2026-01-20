@@ -91,13 +91,14 @@ ls -lrt
 To list hidden files: use `ls -alrt`   
 
 Q. Do you notice colors in the output of ls? What are all these colors?   
-A. For now, try this out using dircolors.   
+A. For now, try this out using dircolors and check the colors used for the conventions and extensions of files.   
 ```
 $ dircolors --print-ls-colors
 ```
 Q. Why do you recommend `ls -lrt` over `ls`?    
-A. Remember what we discussed about the Linux command.    
+A. This command can explain a lot over the course of time. Remember what we discussed about the Linux command.     
 > Command has got a name, options, and arguments!
+We can get a list of recent most recently modified files or directories without much effort.    
 
 `ls -lrt <dir>` explains that about the command, and for the output difference, type the following in bash and see for yourself.    
 ```
