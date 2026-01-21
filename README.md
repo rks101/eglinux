@@ -1231,8 +1231,10 @@ After su or "su -", you can check `pwd` or `ls -lrt ~/`  and exit after any such
 
 **Tip**:     
 On Ubuntu, you can live without a root password and manage most things using sudo. Instead of sharing the root password with every user (in the lab or office) for admin tasks such as installations and running privileged utilities, sudo is a better alternative.      
+
 ** Always ask man => man passwd, man shadow, man sudo, man sudoers, man su, man crypt before making changes**    
-Double-check as a root for any recursive operation.     
+
+As a root user, double-check for any recursive operation.     
 This behavior can vary across Linux distributions and versions over the years.    
 
 Related posts:    
@@ -1246,6 +1248,7 @@ Related posts:
 Often, we type the password for commands that require sudo. And then, the same or similar command does not require the password. This suggests that there is some caching of the sudo password or a time limit before the password for sudo is asked again.    
 
 There is one timeout period per user. The start timestamp of the timeout is stored in /var/lib/sudo/ts or /var/run/sudo/ts directory.    
+
 In Ubuntu, it may be 15 minutes. [Referenced discussion](https://unix.stackexchange.com/questions/457995/when-does-it-start-to-count-the-time-limit-set-for-password-caching-in-sudo) and [here is how you can change it](https://www.maketecheasier.com/change-the-sudo-password-timeout-in-ubuntu/).    
 
 One way to check if a sudo password is required is to use sudo -nv, and no output suggests you do not need to enter the password for sudo:   
@@ -1292,7 +1295,7 @@ scp  path-of-local-file-or-dir  user@remote-system:/path-to-remote-file-or-dir
 scp  user@remote-system:/path-of-remote-file-dir  path-of-local-file-or-dir    
 ```
 
-While writing to the target location, make sure you do not have a file with the same name. It may get overwritten.   
+While writing to the target location, make sure there is no file with the same name. It may get overwritten.   
 
 ----
 
