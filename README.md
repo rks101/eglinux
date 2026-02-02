@@ -2826,3 +2826,9 @@ I have been using Linux as a primary desktop/laptop OS for over 20 years, well b
 [Linux Journey](https://labex.io/linuxjourney)    
 
 ----
+
+## Linux support with other OSes
+
+[WSL]()   
+
+[State of Developing iOS apps in Linux](https://linuxvox.com/blog/what-s-the-state-of-developing-ios-apps-in-linux/)     
