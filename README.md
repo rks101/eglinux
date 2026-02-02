@@ -28,9 +28,10 @@ Feedback: If this page helps you understand and gain hands-on Linux experience, 
       * [The One with File Permissions](#the-one-with-file-permissions) 
       * [`su` and `sudo`](#su-and-sudo)
       * [Password caching in `sudo`](#password-caching-in-sudo)
+      * [Package Manager](#package-manager) 
+      * [Simple web server](#simple-web-server)
       * [Remote login using `ssh`](#remote-login-using-ssh)
       * [Transfer files using Secure Copy `scp`](#transfer-files-using-secure-copy-scp)
-      * [Simple web server](#simple-web-server)
   * Part-2
       * [Processes](#processes)
       * [Process Memory Layout using `proc`](#process-memory-layout)
@@ -1259,6 +1260,48 @@ sudo: a password is required
 
 ----
 
+## Package Manager  
+
+A package manager or software installer helps to install packages or utilities (with binaries or source). Some popular package managers are listed below:     
+
+Ubuntu/Debian/Linux Mint: apt, dpkg    
+e.g. 
+```
+sudo apt install locate
+```
+```
+sudo dpkg -i package.deb   <== Debian package archive file    
+```
+
+Redhat / Fedora / CentOS / AlmaLinux: dnf    
+
+Arch Linux / Manjaro: pacman     
+
+GUI-based package managers: Synaptic Package Manager, Ubuntu App Center     
+
+----
+
+## Simple web server 
+
+One-line web server => the simplest way to show files from a directory   
+
+```
+$ python3 -m http.server 
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+127.0.0.1 - - [03/Feb/2021 23:33:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Feb/2021 23:33:31] "GET /myvideos/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Feb/2021 23:33:36] "GET /Downloads/ HTTP/1.1" 200 -
+^C 
+Keyboard interrupt received, exiting.
+
+```
+The web server started above can be opened in a web browser: http://0.0.0.0:8000/  
+This page can be opened before you close the server using Ctrl+C.  
+
+Note:- In case you are struggling to connect to this web server to access files from another system, check your wired/wireless network or the VLAN you are on.   
+
+----
+
 ## Remote login using ssh    
 
 One can log in to a Linux system using   
@@ -1299,47 +1342,6 @@ While writing to the target location, make sure there is no file with the same n
 
 ----
 
-## Simple web server 
-
-One-line web server => the simplest way to show files from a directory   
-
-```
-$ python3 -m http.server 
-Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
-127.0.0.1 - - [03/Feb/2021 23:33:21] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [03/Feb/2021 23:33:31] "GET /myvideos/ HTTP/1.1" 200 -
-127.0.0.1 - - [03/Feb/2021 23:33:36] "GET /Downloads/ HTTP/1.1" 200 -
-^C 
-Keyboard interrupt received, exiting.
-
-```
-The web server started above can be opened in a web browser: http://0.0.0.0:8000/  
-This page can be opened before you close the server using Ctrl+C.  
-
-Note:- In case you are struggling to connect to this web server to access files from another system, check your wired/wireless network or the VLAN you are on.   
-
-----
-
-## Package Manager  
-
-A package manager or software installer helps to install packages or utilities (with binaries or source). Some popular package managers are listed below:     
-
-Ubuntu/Debian/Linux Mint: apt, dpkg    
-e.g. 
-```
-sudo apt install locate
-```
-```
-sudo dpkg -i package.deb   <== Debian package archive file    
-```
-
-Redhat / Fedora / CentOS / AlmaLinux: dnf    
-
-Arch Linux / Manjaro: pacman     
-
-GUI-based package managers: Synaptic Package Manager, Ubuntu App Center     
-
-----
 
 PART-2    
 
