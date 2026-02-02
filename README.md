@@ -6,6 +6,8 @@ Disclaimer: The output shown below for commands or utilities is compiled for edu
 
 Feedback: If this page helps you understand and gain hands-on Linux experience, please cite or reference this page. Additionally, please let me know how I can improve this page in terms of coverage and utility.    
 
+Linux powers most servers and large application deployments worldwide. Knowing how to navigate, search, and get help within it is a must for any application developer, sysadmin, or defender. Come, let's make penguins happy :)     
+
 * [eglinux](#eglinux)
   * Part-1
       * [`ls -lrt`](#ls--lrt)
