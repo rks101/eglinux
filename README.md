@@ -1711,29 +1711,43 @@ The vi editor has two modes:
 4. Use the ESC (Escape) key to switch between Insert and Command mode anytime.     
 
 In insert/edit mode:    
-- vi filename.txt, then use i to insert at any place in the buffer, and a to append next to the current place of the cursor    
-- Navigation: in comand mode 
+- vi filename.txt, then use i to insert at any place in the buffer, and a to append next to the current place of the cursor. 
+- In insert mode, type anything to add content to the buffer and liberally use ESC key to toggle between insert and command mode. 
+- Syntax highlighting is available for many programming languages. 
+
+Navigation in command mode:    
 -  w → jump forward by a word or punctuation 
 -  b → jump backward by a word or punctuation 
 -  0 → jump to start of the line 
--  $ → jump to end of the line
--  :1 → jump to beginning/top of the file
--  G → jump to the bottom of the file
--  :n → jump to nth line in the file 
+-  $ → jump to the end of the line
+-  Left or Right arrow key takes you left or right by one character
+-  Up or Down arrow key takes you up or down by one line   
+-  :1 → go to the first line or beginning/top of the file (1,1 position)  
+-  G (shift+ **g**) → go to the last line or to the bottom of the file, be careful for very large files 
+-  :n → go to the nth line in the file/buffer  
+-  ctrl+f → Page up 
+-  ctrl+b → Page down 
+-  dw → delete a word
+-  d$ → delete from the cursor to the end of the line
+-  d0 → delete from the cursor to the beginning of the line
+-  Note:- changes done to the buffer in the command mode are not yet saved. You need to explicitly save or discard the buffer. 
 
 
-In command mode:     
-- :w to save, :wq to save and exit, :q! to exit without save    
-- search using **/** followed by searchstring, then use ctrl+f to go forward (page down) and ctrl+b to go backward (like page up).     
-- :1 go to first line, G (shift+ **g**) go to the last line, :n to go to nth line in the buffer.    
+Save, Search, or Replace text in command mode:          
+- :w to save, :wq to save and exit, :q! to exit without saving the file (discard the changes to the buffer)    
+- search using **/** followed by a search string, then use ctrl+f to go forward (page down) and ctrl+b to go backward (like page up).     
 - :%s/SRC/TGT/g to search SRC and replace all occurrences with TGT    
 - :%s/SRC/TGT/gc to search SRC and confirm to replace an occurrence of SRC with TGT    
+
+Copy, Paste, or Delete lines in command mode:    
 - nYY - copy/yank n lines from the current line    
 - p - paste after the current line    
 - P (shift + p) to paste above the current line     
 - nDD - delete n lines from the current line   
+
+Interesting:    
 - . (dot) to repeat the immediate previous command     
-- cw to change a word, this takes you into insert mode   
+- cw in command mode to change a word, note that this takes you into insert mode   
 
 Q. How to copy a block of text and paste it elsewhere? Refer to the block copy in the vi editor.     
 
