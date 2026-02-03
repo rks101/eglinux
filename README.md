@@ -1702,10 +1702,25 @@ nohup sudo apt upgrade
 
 ## vi editor    
 
-The vi editor has two modes: command mode (for navigating and issuing commands) and insert mode (for editing files in a buffer). Press i (to in-place insert) or a (to append) to enter insert mode. Use the Escape key to switch from Insert to Command mode.     
+On your system/distribution, vi or vim (vi improved) may be installed. You can invoke this powerful editor either by vi or vim.   
+
+The vi editor has two modes:    
+1. Command mode (for navigating and issuing commands) and 
+2. Insert mode (for editing files in a buffer). 
+3. Press **i** (to in-place insert) or **a** (to append) to enter into insert mode. 
+4. Use the ESC (Escape) key to switch between Insert and Command mode anytime.     
 
 In insert/edit mode:    
 - vi filename.txt, then use i to insert at any place in the buffer, and a to append next to the current place of the cursor    
+- Navigation: in comand mode 
+-  w → jump forward by a word or punctuation 
+-  b → jump backward by a word or punctuation 
+-  0 → jump to start of the line 
+-  $ → jump to end of the line
+-  :1 → jump to beginning/top of the file
+-  G → jump to the bottom of the file
+-  :n → jump to nth line in the file 
+
 
 In command mode:     
 - :w to save, :wq to save and exit, :q! to exit without save    
