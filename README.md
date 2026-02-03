@@ -1750,6 +1750,7 @@ Interesting:
 - cw in command mode to change a word, note that this takes you into insert mode   
 
 Q. How to copy a block of text and paste it elsewhere? Refer to the block copy in the vi editor.     
+A. This is actually an assignment.    
 
 Q. How to remove ^M (a single control character) in a file at the end of each line? When files are transmitted across operating systems, this may happen.    
 A. In command mode inside the vi/vim editor, :%s/^M//g          <== To type ^M there, ctrl+v followed by ctrl+m or any other such character. This is cool.   
