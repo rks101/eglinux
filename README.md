@@ -1746,7 +1746,9 @@ Copy, Paste, or Delete lines in command mode:
 - nDD - delete n lines from the current line   
 
 Interesting:    
-- . (dot) to repeat the immediate previous command     
+- . (dot) to repeat the immediate previous command
+- u - undo the previous task    
+- Ctrl + r → redo    
 - cw in command mode to change a word, note that this takes you into insert mode   
 
 Q. How to copy a block of text and paste it elsewhere? Refer to the block copy in the vi editor.     
