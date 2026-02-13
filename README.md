@@ -38,8 +38,6 @@ Linux powers most servers and large application deployments worldwide. Knowing h
       * [Processes](#processes)
       * [Process Memory Layout using `proc`](#process-memory-layout)
       * [Process termination](#process-termination)
-      * [Kernel parameters](#kernel-parameters)
-      * [Linux capabilities](#linux-capabilities)
       * [Scheduling jobs](#scheduling-jobs)
       * [`nohup`](#nohup)
       * [vi editor](#vi-editor)
@@ -75,11 +73,15 @@ Linux powers most servers and large application deployments worldwide. Knowing h
       * [crt and key file](#crt-and-key-file) 
       * [Linux Kernel](#linux-kernel)
       * [Virtualization](#virtualization)
-  * Part-5
+  * Part-5 Misc
       * [The One with UNIX or Linux History](#the-one-with-unix-or-linux-history)
       * [Advantage Linux](#advantage-linux)
       * [The One with Linus](#the-one-with-linus)
       * [LWN](#lwn)
+      * [Kernel parameters](#kernel-parameters)
+      * [Linux capabilities](#linux-capabilities)
+
+
 
 
 PART-1
@@ -1576,68 +1578,6 @@ Also, check this answer on gen AI tools and repeat on different days.
 
 ---- 
 
-## Kernel Parameters    
-
-Like printenv for the current session, we can set or display kernel parameters for the currently booted kernel. You would like to know what values you set before you set them :)    
-
-```
-$ cat /proc/cmdline 
-BOOT_IMAGE=/boot/vmlinuz-6.2.0-39-generic root=UUID=d56a27d6-0a3c-40a1-b85f-b4fa53bff998 ro quiet splash vt.handoff=7
-```
-
-```
-$ sysctl -a
-abi.vsyscall32 = 1
-debug.exception-trace = 1
-debug.kprobes-optimization = 1
-...
-dev.scsi.logging_level = 0
-...
-...
-user.max_net_namespaces = 61251
-user.max_pid_namespaces = 61251
-...
-vm.overcommit_memory = 0
-vm.overcommit_ratio = 50
-...
-vm.swappiness = 60
-vm.unprivileged_userfaultfd = 0
-vm.user_reserve_kbytes = 131072
-vm.vfs_cache_pressure = 100
-vm.watermark_boost_factor = 15000
-vm.watermark_scale_factor = 10
-vm.zone_reclaim_mode = 0
-```
-
-**Overcommit memory**    
-
-Know more about vm.overcommit_memory and vm.overcommit_ratio at [serverfault](https://serverfault.com/questions/606185/how-does-vm-overcommit-memory-work)     
-
-----
-
-## Linux Capabilities   
-
-Unprivileged or non-root processes can be enabled or disabled for certain tasks or to access some resources. They are pretty much permissions for a process.    
-
-You can check the capabilities for a process using    
-```
-$ getpcaps PID   
-```
-
-When asked, the man (man capabilities), got this reply :)     
-```
-  For  the purpose of performing permission checks, traditional UNIX implementations distinguish two categories of processes:   
-  privileged processes (whose effective user ID is 0, referred to as superuser or root), and unprivileged processes (whose
-  effective UID is nonzero).  Privileged processes bypass all kernel permission checks,  while  unprivileged processes are
-  subject to full permission checking based on the process's credentials (usually: effective UID, effective GID, and
-  supplementary group list).   
-   
-  Starting  with  Linux  2.2, Linux divides the privileges traditionally associated with superusers into distinct units,
-  known as capabilities, which can be independently enabled and disabled.  Capabilities are a per-thread attribute.   
-```
-
-----
-
 ## Scheduling jobs 
 
 Cron jobs come to the rescue when scheduling jobs, taking backups, or running scripts at a defined frequency.     
@@ -2868,3 +2808,67 @@ I have been using Linux as a primary desktop/laptop OS for over 20 years, well b
 [WSL]()   
 
 [State of Developing iOS apps in Linux](https://linuxvox.com/blog/what-s-the-state-of-developing-ios-apps-in-linux/)     
+
+----
+
+## Kernel Parameters    
+
+Like printenv for the current session, we can set or display kernel parameters for the currently booted kernel. You would like to know what values you set before you set them :)    
+
+```
+$ cat /proc/cmdline 
+BOOT_IMAGE=/boot/vmlinuz-6.2.0-39-generic root=UUID=d56a27d6-0a3c-40a1-b85f-b4fa53bff998 ro quiet splash vt.handoff=7
+```
+
+```
+$ sysctl -a
+abi.vsyscall32 = 1
+debug.exception-trace = 1
+debug.kprobes-optimization = 1
+...
+dev.scsi.logging_level = 0
+...
+...
+user.max_net_namespaces = 61251
+user.max_pid_namespaces = 61251
+...
+vm.overcommit_memory = 0
+vm.overcommit_ratio = 50
+...
+vm.swappiness = 60
+vm.unprivileged_userfaultfd = 0
+vm.user_reserve_kbytes = 131072
+vm.vfs_cache_pressure = 100
+vm.watermark_boost_factor = 15000
+vm.watermark_scale_factor = 10
+vm.zone_reclaim_mode = 0
+```
+
+**Overcommit memory**    
+
+Know more about vm.overcommit_memory and vm.overcommit_ratio at [serverfault](https://serverfault.com/questions/606185/how-does-vm-overcommit-memory-work)     
+
+----
+
+## Linux Capabilities   
+
+Unprivileged or non-root processes can be enabled or disabled for certain tasks or to access some resources. They are pretty much permissions for a process.    
+
+You can check the capabilities for a process using    
+```
+$ getpcaps PID   
+```
+
+When asked, the man (man capabilities), got this reply :)     
+```
+  For  the purpose of performing permission checks, traditional UNIX implementations distinguish two categories of processes:   
+  privileged processes (whose effective user ID is 0, referred to as superuser or root), and unprivileged processes (whose
+  effective UID is nonzero).  Privileged processes bypass all kernel permission checks,  while  unprivileged processes are
+  subject to full permission checking based on the process's credentials (usually: effective UID, effective GID, and
+  supplementary group list).   
+   
+  Starting  with  Linux  2.2, Linux divides the privileges traditionally associated with superusers into distinct units,
+  known as capabilities, which can be independently enabled and disabled.  Capabilities are a per-thread attribute.   
+```
+
+----
