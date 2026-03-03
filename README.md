@@ -2720,6 +2720,21 @@ Yet even with those advantages, Linux is just like everything else that has been
 For SSL/TLS certificate setup on an HTTP server, it requires a certificate and a private key.   
 [Public key certificate and private key file](https://www.baeldung.com/linux/crt-key-files)   
 
+## Software archives and signing key   
+
+Software archives (aka tarballs or packages) include a **signing key** to verify the origin and authenticity of the publisher. It's a **trust-building measure** between the publisher (software repository maintainer) and the end user that is like: "Hey folks, look, this is a genuine archive, and we take ownership of this archive shipped from us."    
+
+The signing key may be a GPG file.    
+
+For the first time, we see [Kali lose access to the signing key and republish it](https://www.kali.org/blog/new-kali-archive-signing-key/); they did so, and with a genuine apology. Transparency, at its best! That's the spirit and trust of an open-sourced community with great maintainers.    
+
+All you need is: replace the existing GPG key with the new one, update the repo info, and upgrade.    
+```
+sudo wget https://archive.kali.org/archive-keyring.gpg -O /usr/share/keyrings/kali-archive-keyring.gpg
+sudo apt-get update --fix-missing
+sudo apt-get upgrade 
+```
+
 ---- 
 
 ## Linux Kernel   
