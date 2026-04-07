@@ -90,9 +90,9 @@ PART-1
 ## Why Linux    
 
 Okay, finally, for completeness, here is why one should learn and study Linux:    
-1. Linux is free as in "no license cost" and "freedom to get the source and modify". 
+1. Linux is an open-source software and free as in "no license cost" and "freedom to get the source code and modify". 
 2. Linux helps to understand concepts, barebones, and actually build something. 
-3. Linux is not controlled by a central corporate greed tied with profits. 
+3. Linux is not controlled by a central corporate greed tied to profits. 
 4. [Linux distributions/flavors power most of the TOP500 Supercomputers, officially](https://en.wikipedia.org/wiki/TOP500)    
 
 ---- 
