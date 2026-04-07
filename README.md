@@ -10,6 +10,7 @@ Linux powers most servers and large application deployments worldwide. Knowing h
 
 * [eglinux](#eglinux)
   * Part-1
+      * [Why Linux](#why-linux)
       * [`ls -lrt`](#ls--lrt)
       * [`lsb_release`](#lsb_release)
       * [Getting help on-system](#getting-help-on-system)
@@ -85,6 +86,16 @@ Linux powers most servers and large application deployments worldwide. Knowing h
 
 
 PART-1
+
+## Why Linux    
+
+Okay, for completeness, here is a take on why one should learn and study Linux:    
+1. Linux is free as in license cost and freedom to download and modify. 
+2. Linux helps to understand concepts and actually build something. 
+3. Linux is not controlled by a central corporate greed tied with profits. 
+4. [Linux distributions/flavors power most of the TOP500 Supercomputers, officially](https://en.wikipedia.org/wiki/TOP500)    
+
+---- 
 
 ## ls -lrt
 
