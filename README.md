@@ -2898,3 +2898,6 @@ When asked, the man (man capabilities), got this reply :)
 ```
 
 ----
+
+
+![Tux, the Linux mascot](/docs/tux.png)
