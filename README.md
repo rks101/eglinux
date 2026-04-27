@@ -81,6 +81,7 @@ Linux powers most servers and large application deployments worldwide. Knowing h
       * [LWN](#lwn)
       * [Kernel parameters](#kernel-parameters)
       * [Linux capabilities](#linux-capabilities)
+      * [D-Windows](#d-windows)
 
 
 
@@ -2899,5 +2900,16 @@ When asked, the man (man capabilities), got this reply :)
 
 ----
 
+## D-Windows 
 
+[Govt around the world are switching to Linux](https://lowtechlinux.com/2025/07/07/governments-around-the-world-are-switching-to-linux/). This switch to Linux includes the OS, LibreOffice, the Thunderbird email client, and other open-source tools. The switch is aimed at reducing licensing costs due to budgetary constraints, advancing digital sovereignty, and ruling out backdoors and zero-day cybersecurity threats.      
+
+India (Defense and some Ministries) - 2025     
+Denmark - 2025   
+Germany - 2024    
+France - 2008    
+China, Russia, South Korea, Brazil     
+
+<!--
 ![Tux, the Linux mascot](/docs/tux.png)
+-->
