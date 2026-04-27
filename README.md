@@ -2902,9 +2902,9 @@ When asked, the man (man capabilities), got this reply :)
 
 ## D-Windows 
 
-[Govt around the world are switching to Linux](https://lowtechlinux.com/2025/07/07/governments-around-the-world-are-switching-to-linux/). This switch to Linux includes the OS, LibreOffice, the Thunderbird email client, and other open-source tools. The switch is aimed at reducing licensing costs due to budgetary constraints, advancing digital sovereignty, and ruling out backdoors and zero-day cybersecurity threats.      
-
-India (Defense and some Ministries) - 2025     
+[Govt around the world are switching to Linux](https://lowtechlinux.com/2025/07/07/governments-around-the-world-are-switching-to-linux/). This switch to Linux includes the OS, LibreOffice suite, email solutions, the Thunderbird email client, and other open-source tools. The switch is aimed at reducing licensing costs due to budgetary constraints, advancing digital sovereignty, and ruling out backdoors and zero-day cybersecurity threats.      
+France - [2026 update](https://www.zdnet.com/article/france-leaves-windows-for-linux-desktop/) and [link2](https://www.techradar.com/computing/windows/france-has-ditched-windows-11-for-linux-on-2-5-million-government-pcs-heres-why-microsoft-should-worry-that-millions-more-could-follow-by-the-end-of-2026) France has started switching to Linux on government PCs.   
+India (Defense and some Ministries) - 2025    
 Denmark - 2025   
 Germany - 2024    
 France - 2008    
