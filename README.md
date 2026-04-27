@@ -2776,84 +2776,7 @@ Examples for logging [printk](https://www.kernel.org/doc/html/latest/core-api/pr
 
 [Kernel release cycle]()    
 
-----
-
-## Virtualization    
-
-[Virtualization and QEMU](https://docs.saferwall.com/blog/virtualization-internals-part-4-qemu/)    
-
-----
-
-## BPF BCC links   
-
-BPF = Berkeley Packet Filter   
-eBPF = Extended Berkeley Packet Filter   
-BCC = BPF Compiler Collection    
-[BPF BCC blogs](https://github.com/iovisor/bcc/blob/master/LINKS.md)    
-
-Tcpdump, Wireshark, and Dtrace use eBPF.    
-
-----
-
-PART-5
-
-## The One with UNIX or Linux History   
-
-One can say, in a very broad way:    
-- An open-source OS is free to download from an online repo, free to use, or modify (no license cost). Free refers to freedom of choice! There may be a packaging or shipping cost or a support cost.    
-- A closed-source OS is someone's proprietary binary source files, and the user cannot modify the source. Usually, this comes with a license cost or a cost is added with the accompanying device being sold.   
-
-Some closed-source early UNIX favours:   
-[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) UNIX: Berkeley Software Distribution had three flavours or variants, including [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD), OpenBSD, and NetBSD.    
-SCO UNIX: was based on FreeBSD, managed by Santa Cruz Operations, and later sold to the OpenServer maintainer.    
-Solaris: Unix from Sun Microsystems.    
-AIX: IBM Unix    
-HP-UX: HP Unix    
-Macintosh/Darwin: Inherited code base from FreeBSD    
-
-Some open-source UNIX/Linux favours/variants:   
-Linux:    
-Debian:    
-Ubuntu: Debian-based   
-Red Hat: Red Hat Enterprise Linux (RHEL)     
-Fedora: Red Hat supported    
-Open SUSE:   
-CentOS:    
-
-Q. Does a mainframe or AS400 run Unix/Linux?   
-A. Unix that runs on a Mainframe is called AIX (POSIX-compliant). AS400 - specifically IBM iSeries or System i or IBM i runs Linux with ease.   
-
-Some reading material: [1](http://www.linfo.org/flavors.html) and [2](https://www.lifewire.com/unix-flavors-list-4094248)   
-
 ---- 
-
-## Advantage Linux 
-
-I have been using Linux as a primary desktop/laptop OS for over 20 years, well before getting my first desktop. One can always count on community support, forums, and there are so many instances where you can get help on online forums and web pages. Ever wondered what gets them going? Who pays their bills? What could you do to get this going?   
-
-----
-
-## The One with Linus
-
-[The talk with not so visionary, not so people-person, a simple, happy engineer](https://www.youtube.com/watch?v=o8NPllzkFhE) Linus Torvalds, who changed the world at least twice with Linux and Git. He started both projects as a hobby and to solve the problems he was facing.     
-
----- 
-
-## LWN 
-
-[Linux Weekly News](https://lwn.net/)    
-
-[Linux Journey](https://labex.io/linuxjourney)    
-
-----
-
-## Linux support with other OSes
-
-[WSL]()   
-
-[State of Developing iOS apps in Linux](https://linuxvox.com/blog/what-s-the-state-of-developing-ios-apps-in-linux/)     
-
-----
 
 ## Kernel Parameters    
 
@@ -2896,7 +2819,7 @@ Know more about vm.overcommit_memory and vm.overcommit_ratio at [serverfault](ht
 
 ## Linux Capabilities   
 
-Unprivileged or non-root processes can be enabled or disabled for certain tasks or to access some resources. They are pretty much permissions for a process.    
+Unprivileged or non-root processes can be enabled or disabled for specific tasks or for access to certain resources. They are pretty much permissions for a process.    
 
 You can check the capabilities for a process using    
 ```
@@ -2914,6 +2837,87 @@ When asked, the man (man capabilities), got this reply :)
   Starting  with  Linux  2.2, Linux divides the privileges traditionally associated with superusers into distinct units,
   known as capabilities, which can be independently enabled and disabled.  Capabilities are a per-thread attribute.   
 ```
+----
+
+## Virtualization    
+
+[Virtualization and QEMU](https://docs.saferwall.com/blog/virtualization-internals-part-4-qemu/)    
+
+----
+
+## BPF BCC links   
+
+BPF = Berkeley Packet Filter   
+eBPF = Extended Berkeley Packet Filter   
+BCC = BPF Compiler Collection    
+[BPF BCC blogs](https://github.com/iovisor/bcc/blob/master/LINKS.md)    
+
+Tcpdump, Wireshark, and Dtrace use eBPF.    
+
+----
+
+PART-5
+
+## The One with UNIX or Linux History   
+
+One can say, in a very broad way:    
+- An open-source OS is free to download from an online repo, free to use, or modify (no license cost). Free refers to freedom of choice! There may be packaging, shipping, or support costs.    
+- A closed-source OS is someone's proprietary binary source files, and the user cannot modify the source. Usually, this comes with a license fee, or the cost is added to the price of the accompanying device.   
+
+Some closed-source early UNIX flavors:   
+[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) UNIX: Berkeley Software Distribution had three flavours or variants, including [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD), OpenBSD, and NetBSD.    
+SCO UNIX was based on FreeBSD, managed by Santa Cruz Operations, and later sold to the OpenServer maintainer.    
+Solaris: Unix from Sun Microsystems.    
+AIX: IBM Unix    
+HP-UX: HP Unix    
+Macintosh/Darwin: Inherited code base from FreeBSD    
+
+Some open-source Linux distributions/distros/flavors/variants:   
+Debian:    
+Ubuntu: shipped by Canonical, Ubuntu is Debian-based   
+Red Hat: Red Hat Enterprise Linux (RHEL)     
+Fedora: Red Hat supported    
+Open SUSE:   
+CentOS:    
+Tails: anti-surveillance Linux OS, Debian-based, uses Tor to route traffic     
+
+Q. Does a mainframe or AS400 run Unix/Linux?   
+A. Unix that runs on a Mainframe is called AIX (POSIX-compliant). AS400 - specifically IBM iSeries or System i or IBM i runs Linux with ease.   
+
+Some reading material: [1](http://www.linfo.org/flavors.html) and [2](https://www.lifewire.com/unix-flavors-list-4094248)   
+
+---- 
+
+## Advantage Linux 
+
+I have been using Linux as a primary desktop/laptop OS for over 20 years, well before getting my first desktop. One can always count on community support and forums; there are so many instances where you can get help on online forums and web pages. Ever wondered what gets them going? Who pays their bills? What could you do to get this going?   
+
+Pick up an open source project from the maintainer's website, join the mailing list, and start contributing one change at a time. You can be anonymous.    
+
+----
+
+## The One with Linus
+
+[The talk with not so visionary, not so people-person, a simple, happy engineer](https://www.youtube.com/watch?v=o8NPllzkFhE) Linus Torvalds, who changed the world at least twice with Linux and Git. He started both projects as a hobby and to solve the problems he was facing.     
+
+Linus did not monetize Linux, gave the Linux kernel (heart) to the community to develop, and kept it out of corporate greed. This is also a reason why Linux flourished among enthusiasts and hobbyist developers.     
+
+---- 
+
+## LWN 
+
+[Linux Weekly News](https://lwn.net/)    
+
+[Linux Journey](https://labex.io/linuxjourney)    
+
+----
+
+## Linux support with other OSes
+
+[WSL]()   
+Wine   
+
+[State of Developing iOS apps in Linux](https://linuxvox.com/blog/what-s-the-state-of-developing-ios-apps-in-linux/)     
 
 ----
 
@@ -2921,7 +2925,7 @@ When asked, the man (man capabilities), got this reply :)
 
 [Govt around the world are switching to Linux](https://lowtechlinux.com/2025/07/07/governments-around-the-world-are-switching-to-linux/). This switch to Linux includes the OS, LibreOffice suite, email solutions, the Thunderbird email client, and other open-source tools. The switch is aimed at reducing licensing costs due to budgetary constraints, advancing digital sovereignty, and ruling out backdoors and zero-day cybersecurity threats.      
 
-France - [2026 update](https://www.zdnet.com/article/france-leaves-windows-for-linux-desktop/) and [link2](https://www.techradar.com/computing/windows/france-has-ditched-windows-11-for-linux-on-2-5-million-government-pcs-heres-why-microsoft-should-worry-that-millions-more-could-follow-by-the-end-of-2026) France has started switching to Linux on government PCs.   
+France - [2026 update](https://www.zdnet.com/article/france-leaves-windows-for-linux-desktop/), [link2](https://www.techradar.com/computing/windows/france-has-ditched-windows-11-for-linux-on-2-5-million-government-pcs-heres-why-microsoft-should-worry-that-millions-more-could-follow-by-the-end-of-2026) and [link3](https://newsgroup.site/france-government-linux-migration-windows-2026/). France began switching government PCs to Linux.   
 
 India (Defense and some Ministries) - 2025    
 
