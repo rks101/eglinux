@@ -2088,6 +2088,22 @@ PDF version:     1.4
 
 [`exiftool` can be used to read and write file metadata](https://metaremover.com/image-exif/exiftool-remove-all-metadata). [Another link to manage file metadata](https://renamer.io/blog/exiftool-how-to-remove-all-metadata-from-files-safely-completely/)    
 
+```
+exiftool
+
+```
+
+Also, do not forget to ask your good old `man` about these commands, options, and arguments when you are using them for the first time.   
+
+### Learning from documents    
+
+Ever wondered about learning and extracting data from PDF files, scanned documents (with or without OCR), word processors, spreadsheets, or presentations!    
+Here is an update for you.   
+
+```
+TODO: add URL of the live application, source code page, and the sample output.   
+```
+
 ----
 
 ## Online Resources  
