@@ -58,17 +58,17 @@ Linux powers most servers and large application deployments worldwide. Knowing h
       * [`hostnamectl`](#hostnamectl)
       * [`networkctl`](#networkctl)
       * [`perf`](#perf)
+      * [Monitoring Performance](#monitoring-performance)
+      * [Audit System Logs](#audit-system-logs) 
       * [Installed packages](#installed-packages)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
       * [Managing server logs](#managing-server-logs)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
       * [User account management](#user-account-management) 
       * [The One with mysql admin password](#the-one-with-mysql-admin-password)
+  * Part-4
       * [Linux software](#linux-software)
       * [Linux toolchain](#linux-toolchain) 
-  * Part-4
-      * [Monitoring Performance](#monitoring-performance)
-      * [Audit System Logs](#audit-system-logs) 
       * [Linux for Networking](#linux-for-networking)
       * [Linux for Security](#linux-for-security)
       * [crt and key file](#crt-and-key-file) 
@@ -2302,6 +2302,79 @@ $ sudo perf stat -ddd ls -R /home
 
 ----
 
+## Monitoring Performance   
+
+`nload`   
+
+
+`iptraf` - IP Network Statistics Utility   
+
+```
+$ sudo iptraf
+
+iptraf-ng 1.2.1
+
+                                    ┌─────────────────────────────────┐
+                                    │ IP traffic monitor              │
+                                    │ General interface statistics    │
+                                    │ Detailed interface statistics   │
+                                    │ Statistical breakdowns...       │
+                                    │ LAN station monitor             │
+                                    │─────────────────────────────────│
+                                    │ Filters...                      │
+                                    │─────────────────────────────────│
+                                    │ Configure...                    │
+                                    │─────────────────────────────────│
+                                    │ About...                        │
+                                    │─────────────────────────────────│
+                                    │ Exit                            │
+                                    └─────────────────────────────────┘
+
+ Displays current IP traffic information
+ Up/Down-Move selector  Enter-execute
+```
+
+----
+
+## Audit System Logs 
+
+AuditD can be used to generate audit summary of system logs.   
+
+```
+$ sudo aureport 
+
+Summary Report
+======================
+Range of time in logs: 29/03/25 17:40:20.860 - 29/03/25 17:40:36.317
+Selected time for report: 29/03/25 17:40:20 - 29/03/25 17:40:36.317
+Number of changes in configuration: 3
+Number of changes to accounts, groups, or roles: 0
+Number of logins: 0
+Number of failed logins: 0
+Number of authentications: 0
+Number of failed authentications: 0
+Number of users: 2
+Number of terminals: 4
+Number of host names: 1
+Number of executables: 3
+Number of commands: 2
+Number of files: 0
+Number of AVC's: 0
+Number of MAC events: 0
+Number of failed syscalls: 0
+Number of anomaly events: 0
+Number of responses to anomaly events: 0
+Number of crypto events: 0
+Number of integrity events: 0
+Number of virt events: 0
+Number of keys: 0
+Number of process IDs: 5
+Number of events: 12
+```
+[Sample audit rules](https://github.com/Neo23x0/auditd/blob/master/audit.rules)    
+
+----
+
 ## Installed packages
 
 How do I find out installed software packages? 
@@ -2612,6 +2685,8 @@ Relevant posts on this authentication type conundrum:
 
 ---- 
 
+PART-4     
+
 ## Linux software
 
 [Linux Software](https://github.com/luong-komorebi/Awesome-Linux-Software)    
@@ -2622,7 +2697,7 @@ Relevant posts on this authentication type conundrum:
 
 ## Linux toolchain   
 
-Cool compilers/interpreters:  
+Cool compilers/interpreters for development:  
 
 <table>
  <tr><td>clang</td><td>Front end for LLVM, for C/C++/Objective C/C++</td></tr>
@@ -2642,86 +2717,11 @@ For web development: check the LAMP (Linux, Apache, MySQL, PHP) stack with HTML5
 TODO: add bootcamp link.    
 
 For GUI: check GTK (fully FOSS) and QT (not fully FOSS).    
-TODO: add prototype link, LDAPViewer.    
+TODO: add prototype link, project Srijan, LDAPViewer.    
 
 The choice of the toolchain can be based on the need, stability, toolchain maintainers, and availability of manpower.    
 
 ----
-
-PART-4     
-
-## Monitoring Performance   
-
-`nload`   
-
-
-`iptraf` - IP Network Statistics Utility   
-
-```
-$ sudo iptraf
-
-iptraf-ng 1.2.1
-
-                                    ┌─────────────────────────────────┐
-                                    │ IP traffic monitor              │
-                                    │ General interface statistics    │
-                                    │ Detailed interface statistics   │
-                                    │ Statistical breakdowns...       │
-                                    │ LAN station monitor             │
-                                    │─────────────────────────────────│
-                                    │ Filters...                      │
-                                    │─────────────────────────────────│
-                                    │ Configure...                    │
-                                    │─────────────────────────────────│
-                                    │ About...                        │
-                                    │─────────────────────────────────│
-                                    │ Exit                            │
-                                    └─────────────────────────────────┘
-
- Displays current IP traffic information
- Up/Down-Move selector  Enter-execute
-```
-
-----
-
-## Audit System Logs 
-
-AuditD can be used to generate audit summary of system logs.   
-
-```
-$ sudo aureport 
-
-Summary Report
-======================
-Range of time in logs: 29/03/25 17:40:20.860 - 29/03/25 17:40:36.317
-Selected time for report: 29/03/25 17:40:20 - 29/03/25 17:40:36.317
-Number of changes in configuration: 3
-Number of changes to accounts, groups, or roles: 0
-Number of logins: 0
-Number of failed logins: 0
-Number of authentications: 0
-Number of failed authentications: 0
-Number of users: 2
-Number of terminals: 4
-Number of host names: 1
-Number of executables: 3
-Number of commands: 2
-Number of files: 0
-Number of AVC's: 0
-Number of MAC events: 0
-Number of failed syscalls: 0
-Number of anomaly events: 0
-Number of responses to anomaly events: 0
-Number of crypto events: 0
-Number of integrity events: 0
-Number of virt events: 0
-Number of keys: 0
-Number of process IDs: 5
-Number of events: 12
-```
-[Sample audit rules](https://github.com/Neo23x0/auditd/blob/master/audit.rules)    
-
----- 
 
 ## Linux for Networking 
 
