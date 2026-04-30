@@ -958,7 +958,23 @@ lp:x:7:
 mail:x:8:
 ```
 
-Recall the first command we learnt, ls -lrt, now type this in any directory for files and see the output. For a directory, use: ls -ld    
+Recall the first command we learned, ls -lrt    
+Now type this command in any directory to see the output.    
+e.g. To see the content of the logged-in user's home directory:   
+```
+ls -lrt ~/
+ls -lrt $HOME 
+```
+Remember that `ls -lrt` is the same as `ls -lrt . ` or `ls -lrt ./ `    
+```
+ls -lrt
+ls -lrt .
+ls -lrt ./
+```
+For a directory, use `ls -ld `   
+```
+ls -ld ~/Downloads/
+```
 
 The first column shows file permission mode, and columns 3 and 4 show owner and group names, respectively.   
 
@@ -2614,9 +2630,28 @@ Just in case you run out of space, check dmesg and try to clean up the last acti
 
 To add a new user: `useradd`   
 
-To delete an existing user: `userdel`   
+To delete/remove an existing user: `userdel`   
 
-To modify an existing user: `usermod`   
+To modify settings for an existing user: `usermod`   
+
+To add/create a new group: `groupadd`   
+
+To delete/remove an existing group: `groupdel`   
+
+To modify settings for an existing user: `groupmod`   
+
+To add a user to a group,  `usermod`  or  `groupmod`   
+```
+usermod -g root rps     <== add group root for user rps 
+groupmod -a rps root    <== add user rps to group root 
+```
+
+To view groups a user is in or added to: `groups` 
+```
+groups 
+groups | tr ' ' '\n'      <== to see each group on a new line   
+```
+
 
 To disable login for a user:  set user login shell to nologin :)    
 ```
