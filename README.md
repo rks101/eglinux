@@ -1868,6 +1868,8 @@ tar - a generic compression utility for multiple compression formats (.tar, .tar
 zip -r archive.zip archive         <== compress and create a package   
 unzip archive.zip                  <== list (-lv) and extract the compressed file created by zip  
 
+zipinfo  json.zip                  <== compressed, uncompressed size, compression ratio, files inside zip
+
 gzip                               <== compress files using LZ compression  
 gunzip                             <== list (-lv) and extract the compressed file created by zip, gzip 
 
