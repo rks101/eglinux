@@ -82,7 +82,8 @@ Linux powers most servers and large application deployments worldwide. Knowing h
       * [Kernel parameters](#kernel-parameters)
       * [Linux capabilities](#linux-capabilities)
       * [D-Windows](#d-windows)
-
+  * Part-6 Projects
+      * [Course and Projects](#course-and-projects)
 
 
 
@@ -2977,3 +2978,23 @@ China, Russia, South Korea, Brazil
 <!--
 ![Tux, the Linux mascot](/docs/tux.png)
 -->
+
+
+---- 
+
+PART-6     
+
+## Course and Projects
+
+A large part of the content above has been covered in the three instances of an undergraduate course, "Linux System and Virtualization".    
+
+Learning:   
+- Students find a 2-hour session of topics-along-with-hands-on exhausting in the evening from 6 to 8 pm. The timetable does not leave much of a choice in this case.   
+- 50% of the students show great enthusiasm towards projects, posters, and building something new on their own! 
+- [Professional and personal ethics are important at every level](https://www.youtube.com/watch?v=nyYQniTYwrA). Succinct articulation, connect, relate, extracting maximum out of opprtunities - these are more important than the technical acumen itself. Time management, taking notes online or offline, respecting deadlines, commitment, ownership, care for the other end, integrity especially when no one is watching, humility, hard work, uncomproming attitude toward no-shortcuts-approach, learning to say no and when, giving your time and advice, spending wisely, courtesy, these are worth emulating. 
+- [Link to sample answers to quizzes, mid and endsem examination]() 
+- [Link to projects by students]() 
+- [Meaningfully contributing to open source]() 
+
+---- 
+
