@@ -2989,10 +2989,10 @@ PART-6
 A large part of the content above has been covered in the three instances of an undergraduate course, "Linux System and Virtualization".    
 
 Learning:   
-- Students find a 2-hour session of topics-along-with-hands-on exhausting in the evening from 6 to 8 pm. The timetable does not leave much of a choice in this case.   
-- 50% of the students show great enthusiasm towards projects, posters, and building something new on their own! 
-- [Professional and personal ethics are important at every level](https://www.youtube.com/watch?v=nyYQniTYwrA). Succinct articulation, connect, relate, extracting maximum out of opprtunities - these are more important than the technical acumen itself. Time management, taking notes online or offline, respecting deadlines, commitment, ownership, care for the other end, integrity especially when no one is watching, humility, hard work, uncomproming attitude toward no-shortcuts-approach, learning to say no and when, giving your time and advice, spending wisely, courtesy, these are worth emulating. 
-- [Link to sample answers to quizzes, mid and endsem examination]() 
+- Students find a 2-hour session of topics-along-with-hands-on exhausting in the evening from 6 to 8 pm. The timetable does not leave much of a choice in this case. Frequent late-night outs do not help either.   
+- 50% of the students show great enthusiasm towards projects, posters, and building something new on their own! This does reflect in their above-average grades. 
+- [Professional and personal ethics are important at every level](https://www.youtube.com/watch?v=nyYQniTYwrA). Succinct articulation, connecting, relating, extracting maximum out of opportunities - these are more important than the technical acumen itself. Time management, taking notes online or offline, respecting deadlines, commitment, ownership, care for the other end, integrity, especially when no one is watching, humility, hard work, uncompromising attitude toward no-shortcuts-approach, learning to say no and when, giving your time and advice, reading paper books, spending wisely, courtesy, these are worth emulating. 
+- [Link to sample answers to quizzes, mid and end-of-semester examination]() 
 - [Link to projects by students]() 
 - [Meaningfully contributing to open source]() 
 
