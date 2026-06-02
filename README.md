@@ -2784,7 +2784,7 @@ Yet even with those advantages, Linux is just like everything else that has been
 
 ## crt and key file   
 
-For SSL/TLS certificate setup on an HTTP server, it requires a certificate and a private key.   
+For SSL/TLS certificate setup on an HTTP server, it requires a certificate and a private key. Certificate file extension may be .crt, .cer, .pem, etc.   
 
 [Public key certificate and private key file](https://www.baeldung.com/linux/crt-key-files)    
 
@@ -2794,6 +2794,10 @@ For SSL/TLS certificate setup on an HTTP server, it requires a certificate and a
 [Controller of Certifying Authority (CCA) in India](https://cca.gov.in/root_ca_india.html) - Root CA of India uses a self-signed certificate in the signing hierarchy.     
 
 [Online demo of PKI and digital certificate](https://learn.pkiindia.in/)     
+
+[OCSP, Certificate Revocation List](https://knowledge.digicert.com/general-information/ocsp-crl-revoked-ssl-certificates)      
+
+[Original RFC 5280 on Internet X.509 PKI Certificate and CRL Profile](https://www.rfc-editor.org/info/rfc5280/)    
 
 ----
 
