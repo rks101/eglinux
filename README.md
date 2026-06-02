@@ -2799,6 +2799,8 @@ For SSL/TLS certificate setup on an HTTP server, it requires a certificate and a
 
 [Original RFC 5280 on Internet X.509 PKI Certificate and CRL Profile](https://www.rfc-editor.org/info/rfc5280/)    
 
+Note: The [FIPS](https://en.wikipedia.org/wiki/FIPS_140) 140 series, issued by the National Institute of Standards and Technology (NIST), defines standards for both hardware and software cryptographic modules. This is relevant for country-specific CCA and DSC vendors to comply with global trust.   
+
 ----
 
 ## Software archives and signing key   
