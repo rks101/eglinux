@@ -2802,6 +2802,10 @@ Yet even with those advantages, Linux is just like everything else that has been
 
 [Linux privilege escalation and exploration](https://sushant747.gitbooks.io/total-oscp-guide/content/privilege_escalation_-_linux.html)    
 
+Try **OWASP Juice-Shop** - it's a vulnerable portal to learn the tricks of the trade. TryHackMe has a nice room for [Juice Shop](https://tryhackme.com/room/owaspjuiceshop).    
+[github.com/juice-shop](https://github.com/juice-shop/juice-shop/releases/tag/v20.0.0)    
+[bkimminich/juice-shop](https://hub.docker.com/r/bkimminich/juice-shop) - see Docker Container    
+
 ----
 
 ## crt and key file   
