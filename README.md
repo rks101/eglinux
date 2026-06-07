@@ -443,6 +443,23 @@ $ lsusb -vt
     ID 1d6b:0003 Linux Foundation 3.0 root hub
 ```
 
+Q. I am not able to locate WiFi options or manage wifi?    
+A. First check: rfkill list and see if something is disabled at hardware or software level.    
+
+rfkill is used to enabling and disabling wireless devices    
+```
+$ rfkill list 
+1: dell-wifi: Wireless LAN
+	Soft blocked: no
+	Hard blocked: no
+2: dell-bluetooth: Bluetooth
+	Soft blocked: yes
+	Hard blocked: no
+3: phy0: Wireless LAN
+	Soft blocked: no
+	Hard blocked: no
+```
+
 ----
 
 ## Environment variables    
