@@ -913,6 +913,11 @@ ncdu 1.19 ~ Use the arrow keys to navigate, press ? for help
    88.4 MiB [                     ] /github
 ```
 
+Q. Using ncdu, can you trace files deleted and visible under Trash folder?    
+A. Yes, using ncdu check ~/.local/share/Trash/files    
+
+ncdu can help to trace large and unused files on the system.   
+
 ----
 
 ## The One with File Permissions   
