@@ -2,9 +2,11 @@
 <!--[muscot](https://commons.wikimedia.org/wiki/File:Tux.png)-->
 eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux commands and pointers for beginners and intermediate users. Efforts have been made to keep the commands and utilities as generic as possible, making them suitable for most Linux distributions or flavors.    
 
-Disclaimer: The output shown below for commands or utilities is compiled for educational and illustrative purposes only. You may not find all the exact details in your lab, office, or campus (loc).    
+Disclaimer: The output shown below for commands or utilities is compiled for educational and illustrative purposes only. You may not find all the exact details in your lab, office, or campus (loc). And do not worry about difference in the output.    
 
 Feedback: If this page helps you understand and gain hands-on Linux experience, please cite or reference this page. Additionally, please let me know how I can improve this page in terms of coverage and utility.    
+
+LS Course: is recommended for the first or second year undergraduates. A pass grade shall be awarded only when the student demonstrates the prescribed course abilities through validated problem-solving or solution-building tasks, preferably involving (non-CSE) industry or real-world stakeholders.     
 
 Linux powers most servers and large application deployments worldwide. Knowing how to navigate, search, and get help within it is a must for any application developer, sysadmin, or defender. Come, let's make penguins happy :)     
 
@@ -41,6 +43,7 @@ Linux powers most servers and large application deployments worldwide. Knowing h
       * [Process termination](#process-termination)
       * [Scheduling jobs](#scheduling-jobs)
       * [`nohup`](#nohup)
+      * [`getent`](#getent)
       * [vi editor](#vi-editor)
       * [Input Output redirection](#input-output-redirection)
       * [View file content](#view-file-content) 
@@ -91,12 +94,15 @@ PART-1
 
 ## Why Linux    
 
-Okay, finally, for completeness, here is why one should learn and study Linux:    
+Okay, finally, for completeness (in 2026), here is why one should learn and study Linux:    
 1. Linux is an open-source operating system software and free as in "no license cost" and comes with freedom as in "to get the source code and modify". The Linux kernel has been freely available since August 1991. 
 2. Linux helps to understand concepts, barebones, and actually build something. 
 3. Linux development as an OS or Kernel is not controlled by corporate greed tied to quarterly or annual profits. 
 4. Linux distributions/flavors power most of the TOP500 Supercomputers, [officially](https://en.wikipedia.org/wiki/TOP500)
 5. Governments are switching to Linux to cut costs on Licenses, maintain digital sovereignty, and contain cyber threats.   
+
+Cons:    
+1. Linux almost killed OS research.    
 
 ---- 
 
@@ -1688,6 +1694,22 @@ nohup bash backup.sh
 Run a system update that can run longer, uninterrupted, and may remain unattended   
 ```
 nohup sudo apt upgrade   
+```
+
+----
+
+## getent    
+
+Using `getent`, user can get entries for users (/etc/passwd file), groups (/etc/group file), hosts, networks, protocols, rpc, services, etc.    
+
+```
+getent passwd 
+getent group 
+getent ahosts 
+getent networks
+getent protocols
+getent rpc
+getent services
 ```
 
 ----
