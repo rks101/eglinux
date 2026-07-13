@@ -3195,6 +3195,23 @@ When asked, the man (man capabilities), got this reply :)
 
 [Virtualization and QEMU](https://docs.saferwall.com/blog/virtualization-internals-part-4-qemu/)    
 
+Note :- About virtualized environments for Cuda (NVIDIA) and Python3.     
+
+At times, non-Debian Python packages may require a virtual environment. If you wish to install a non-Debian-packaged Python package (e.g. streamlit),    
+1. Create a virtual environment using 
+```
+python3 -m venv /home/qtemp/myenv
+```
+2. Activate virtual environment using 
+```
+source /home/qtemp/myenv/bin/activate
+```
+3. Install packages using 
+```
+/home/qtemp/myenv/bin/pip install that-package
+```
+
+
 ----
 
 ## BPF BCC links   
@@ -3266,8 +3283,9 @@ Linus did not monetize Linux, gave the Linux kernel (heart) to the community to 
 
 ## Linux support with other OSes
 
-[WSL]()   
-Wine   
+[WSL]() allows a minimal shell like support of linux commands within Windows OS.    
+Wine used to support execution of lightweight .exe executables in linux without porting.    
+Mingcw compiler allowed gcc support in Windows.    
 
 [State of Developing iOS apps in Linux](https://linuxvox.com/blog/what-s-the-state-of-developing-ios-apps-in-linux/)     
 
@@ -3287,8 +3305,9 @@ Germany - 2024
 
 France - 2008    
 
-China, Russia, South Korea, Brazil     
+<!--China, Russia, South Korea, Brazil -->    
 
+Disclaimer: This section has listed some facts, with zero interest to defame any organization or product. It is what it is.    
 <!--
 ![Tux, the Linux mascot](/docs/tux.png)
 -->
