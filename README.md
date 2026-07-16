@@ -3195,7 +3195,7 @@ When asked, the man (man capabilities), got this reply :)
 
 [Virtualization and QEMU](https://docs.saferwall.com/blog/virtualization-internals-part-4-qemu/)    
 
-Note :- About virtualized environments for Cuda (NVIDIA) and Python3.     
+Notes :- About virtualized environments for Cuda (NVIDIA) and Python3.     
 
 At times, non-Debian Python packages may require a virtual environment. If you wish to install a non-Debian-packaged Python package (e.g. streamlit),    
 1. Create a virtual environment using 
@@ -3210,7 +3210,7 @@ source /home/qtemp/myenv/bin/activate
 ```
 /home/qtemp/myenv/bin/pip install that-package
 ```
-
+[Reference documentation on Python venv](https://docs.python.org/3/tutorial/venv.html)     
 
 ----
 
