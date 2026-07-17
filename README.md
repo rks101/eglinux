@@ -606,6 +606,11 @@ You can create files using Linux-native editors, such as vi, or other text edito
 **mkdir**    
 mkdir mydir - create a new directory mydir if it does not exist.    
 mkdir -p mydir - create a new directory if it does not exist, if it exists, keep quiet, show no error/warning. This is extensively used in scripts.    
+```
+mkdir -p qtemp/{cmd,logs,reports}             <== this command creates qtemp in current dir and three directories namely cmd, logs, and reports inside qtemp directory
+
+for d in {1..10}; do mkdir -p qt/$d ; done    <== this one creates directories using a loop and a variable dir name     
+```
 
 **rm**    
 `rm xfile` - remove xfile, a regular file, link, or an empty directory.   
