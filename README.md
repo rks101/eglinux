@@ -203,6 +203,17 @@ So, when you use a terminal, a simplified view of command-line interaction is:
 
 The kernel works largely behind the scenes, while the shell provides convenient means for users to request operations from the OS.    
 
+With or without virtualization, the following conceptual chain is interesting:    
+**Physical resources → OS → Abstractions → Applications/Users**      
+
+And then virtualization gives you another layer:    
+
+**Physical resources → Virtualization layer → Virtual resources → OS → Applications/Users**    
+
+That distinction is quite powerful pedagogically because we can then understand why an OS can present a **process, virtual memory, file, socket, and virtual CPU** even though none of these necessarily corresponds directly to one physical hardware object.    
+
+More on these topics in next sections. Continue reading to maintain the flow.   
+
 ----
 
 ## Getting help on-system 
