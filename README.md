@@ -176,13 +176,32 @@ Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 
 
 Check out [Ubuntu releases](https://www.releases.ubuntu.com/) and [Ubuntu Version History](https://en.wikipedia.org/wiki/Ubuntu_version_history)    
 
-A Computer System contains:      
-- Compute
-- Memory
-- Network
-- (persistent) Storage
-- These days, all four components or sub-systems are virtualized or can be virtualized.
-Unless you are working with a physical laptop/desktop/server (which is mostly right in front of you), it is very likely that you are using virtual compute, memory, network interfaces, and persistent storage that are virtualized or allocated from a larger pool of resources.    
+A **computer system** provides four fundamental resources:    
+
+- **Compute** — processors/CPU cores for executing instructions 
+- **Memory** — working memory (RAM) for storing programs and data while they are being used 
+- **Network** — connectivity and network interfaces for communication 
+- **Persistent storage** — non-volatile storage for storing programs and data retention     
+
+In modern computing environments, these resources can be abstracted, shared, allocated, and virtualized. Instead of being directly associated with a particular physical machine, compute, memory, network interfaces, and persistent storage may be provided as virtual resources allocated from a larger pool of physical resources.    
+
+When you use a physical laptop, desktop, or server, much of the underlying hardware is directly present in the machine. In contrast, when you use a virtual machine (VM), cloud server, containerized environment (LXC, Docker), or many modern online services, the compute, memory, networking, and storage available to you may be virtualized or dynamically allocated from resources shared by multiple users or systems.    
+
+A computer system needs an **Operating System (OS)** — a large and complex piece of system software that manages interactions between users, applications, and the underlying hardware. The OS acts as an intermediary between the user and the system hardware, whether it is a laptop, desktop, server, mobile phone, tablet, e-reader, music player, or digital assistant. 
+
+Major operating systems include:     
+- Desktop/laptop: Linux, Mac OS, Windows   
+- Server: Linux, Unix systems (AIX, HP-UX, Solaris), Windows Server   
+- Mobile phone/tablet: Android, iOS 
+- Other devices (TV, digital assistants): ChromeOS, webOS, embedded/real-time operating systems
+
+An Operating System can be viewed from two important perspectives: the **kernel**, which forms the core of the OS and manages system resources and hardware, and the **shell**, which provides an interface through which users can interact with the OS. A shell may provide a Command-Line Interface (CLI), allowing users to enter commands as text input. On a laptop or desktop with a Graphical User Interface (GUI), a terminal emulator provides the environment in which a shell such as Bash, Zsh, or PowerShell can run.    
+
+So, when you use a terminal, a simplified view of command-line interaction is:    
+
+**User → Terminal → Shell → System Calls → Kernel → Hardware**    
+
+The kernel works largely behind the scenes, while the shell provides convenient means for users to request operations from the OS.    
 
 ----
 
