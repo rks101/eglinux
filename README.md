@@ -94,15 +94,16 @@ PART-1
 
 ## Why Linux    
 
-Okay, finally, for completeness (in 2026), here is why one should learn and study Linux:    
-1. Linux is an open-source operating system software and free as in "no license cost" and comes with freedom as in "to get the source code and modify". The Linux kernel has been freely available since August 1991. 
-2. Linux helps to understand concepts, barebones, and actually build something. 
-3. Linux development as an OS or Kernel is not controlled by corporate greed tied to quarterly or annual profits. 
-4. Linux distributions/flavors power most of the TOP500 Supercomputers, [officially](https://en.wikipedia.org/wiki/TOP500)
-5. Governments are switching to Linux to cut costs on Licenses, maintain digital sovereignty, and contain cyber threats.   
+For completeness, and especially in the context of computing in 2026, let us consider why Linux is worth learning and studying.    
 
-Cons:    
-1. Linux almost killed OS research.    
+1. **Linux is open source and freely available.** Linux is an open-source operating-system ecosystem built around the Linux kernel. The kernel source code is publicly available, and users have the freedom to study it, modify it, and redistribute modified versions under its license. The Linux kernel was first released in August 1991 by Linus Torvalds. Hobbyists, enthusiasts, community developers adopted it widely.    
+2. **Linux makes the underlying concepts visible.** Linux provides an excellent environment for understanding operating-system concepts at multiple levels—from processes, memory management, filesystems, and networking to system calls, device drivers, and the kernel itself. It allows you not only to learn these concepts, but also to examine how they are implemented and, when appropriate, build and modify working systems.
+3. **Linux provides an unusually open environment for OS development.** Development of the Linux kernel is not controlled by a single vendor whose primary objective is to maximize the profits of a proprietary operating-system product. Its development involves individuals, communities, universities, and companies, with the source code and development process publicly accessible.
+4. **Linux dominates high-performance computing.** Linux distributions power the overwhelming majority of systems listed in the [TOP500]((https://en.wikipedia.org/wiki/TOP500)
+) ranking of the world's most powerful supercomputers. This makes Linux particularly relevant for understanding modern high-performance and scientific computing.
+5. **Linux is important for digital sovereignty and infrastructure.** Governments and public-sector organizations in various countries have adopted or explored Linux and other open-source technologies to reduce dependence on proprietary vendors, control costs, increase technological autonomy, and strengthen their ability to inspect and manage critical software infrastructure. The motivations and outcomes, however, vary from one country and deployment to another. 
+ 
+If you want to understand operating systems deeply, why would you not study one of the most important open operating-system kernels in use today?   
 
 ---- 
 
