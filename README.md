@@ -4,11 +4,9 @@ eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux command
 
 Disclaimer: The output shown below for commands or utilities is compiled for educational and illustrative purposes only. You may not find all the exact details in your lab, office, or campus (loc). And do not worry about difference in the output.    
 
-Feedback: If this page helps you understand and gain hands-on Linux experience, please cite or reference this page. Additionally, please let me know how I can improve this page in terms of coverage and utility.    
+Feedback: If this page helps you understand and gain hands-on Linux experience, please cite or reference this page. Additionally, let me know how I can improve this page in terms of coverage and utility.    
 
-LS Course: is recommended for the first or second year undergraduates. A pass grade shall be awarded only when the student demonstrates the prescribed course abilities through validated problem-solving or solution-building tasks, preferably involving (non-CSE) industry or real-world stakeholders.     
-
-Linux powers most servers and large application deployments worldwide. Knowing how to navigate, search, and get help within it is a must for any application developer, sysadmin, or defender. Come, let's make penguins happy :)     
+Linux powers many servers and large application deployments worldwide. Knowing how to navigate, search, and get help within it is a must for any application developer, sysadmin, or defender. Come, let's make penguins happy :)     
 
 * [eglinux](#eglinux)
   * Part-1
@@ -96,14 +94,13 @@ PART-1
 
 For completeness, and especially in the context of computing in 2026, let us consider why Linux is worth learning and studying.    
 
-1. **Linux is open source and freely available.** Linux is an open-source operating-system ecosystem built around the Linux kernel. The kernel source code is publicly available, and users have the freedom to study it, modify it, and redistribute modified versions under its license. The Linux kernel was first released in August 1991 by Linus Torvalds. Hobbyists, enthusiasts, community developers adopted it widely.    
-2. **Linux makes the underlying concepts visible.** Linux provides an excellent environment for understanding operating-system concepts at multiple levels—from processes, memory management, filesystems, and networking to system calls, device drivers, and the kernel itself. It allows you not only to learn these concepts, but also to examine how they are implemented and, when appropriate, build and modify working systems.
-3. **Linux provides an unusually open environment for OS development.** Development of the Linux kernel is not controlled by a single vendor whose primary objective is to maximize the profits of a proprietary operating-system product. Its development involves individuals, communities, universities, and companies, with the source code and development process publicly accessible.
-4. **Linux dominates high-performance computing.** Linux distributions power the overwhelming majority of systems listed in the [TOP500]((https://en.wikipedia.org/wiki/TOP500)
-) ranking of the world's most powerful supercomputers. This makes Linux particularly relevant for understanding modern high-performance and scientific computing.
-5. **Linux is important for digital sovereignty and infrastructure.** Governments and public-sector organizations in various countries have adopted or explored Linux and other open-source technologies to reduce dependence on proprietary vendors, control costs, increase technological autonomy, and strengthen their ability to inspect and manage critical software infrastructure. The motivations and outcomes, however, vary from one country and deployment to another. 
+1. **Linux is open source and freely available.** Linux is an open-source operating-system ecosystem built around the Linux kernel. The kernel source code is publicly available at [kernel.org](https://kernel.org/), and users have the freedom to study it, modify it, and redistribute modified versions under its license. The Linux kernel was first released in August 1991 by Linus Torvalds. Hobbyists, enthusiasts, community developers have adopted it widely.    
+2. **Linux makes the underlying concepts visible.** Linux provides an excellent environment for understanding operating-system concepts at multiple levels—from processes, memory management, filesystems, and networking to system calls, device drivers, and the kernel itself. It allows you not only to learn these concepts, but also to examine how they are implemented and, when appropriate, build and modify working systems. 
+3. **Linux provides an unusually open environment for OS development.** Development of the Linux kernel is not controlled by a single vendor whose primary objective is to maximize the profits of a proprietary operating-system product. Its development involves individuals, communities, universities, and companies, with the source code and development process publicly accessible. 
+4. **Linux dominates high-performance computing.** Linux distributions power the overwhelming majority of systems listed in the [TOP500](https://en.wikipedia.org/wiki/TOP500) ranking of the world's most powerful supercomputers. This makes Linux particularly relevant for understanding modern high-performance and scientific computing. 
+5. **Linux is important for digital sovereignty and infrastructure.** Governments and public-sector organizations in various countries have adopted or explored Linux and other open-source technologies to reduce dependence on proprietary vendors, control licensing costs, increase technological autonomy, and strengthen their ability to manage critical software infrastructure.  
  
-If you want to understand operating systems deeply, why would you not study one of the most important open operating-system kernels in use today?   
+If you want to understand operating systems deeply, why would you not study one of the most important open operating-system kernels in use today?    
 
 ---- 
 
@@ -695,6 +692,14 @@ whatis which
 whatis whereis
 whatis [
 ```
+
+Note: whatis may return two or more entries if a command or utility has been maintained at more than one manual pages.   
+```
+$ whatis chmod 
+chmod (1)            - Change the mode of each FILE to MODE. With --reference, change the mode of each FILE t...
+chmod (2)            - change permissions of a file
+```
+To refer the first one, use `man 1 chmod` and `man 2 chmod` for the second man page.   
 
 Q. which compgen, whatis compgen, whereis compgen - none of them help. Why?    
 A. Recall what compgen is.    
