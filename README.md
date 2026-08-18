@@ -1,12 +1,12 @@
 # eglinux 
 <!--[muscot](https://commons.wikimedia.org/wiki/File:Tux.png)-->
-eglinux => pronounced as "easy Linux" => compiles easy and helpful Linux commands and pointers for beginners and intermediate users. Efforts have been made to keep the commands and utilities as generic as possible, making them suitable for most Linux distributions or flavors.    
+eglinux pronounced as "easy Linux" compiles and presents helpful Linux commands and pointers for beginners and intermediate users. Efforts have been made to keep the commands and utilities as generic as possible, making them suitable for most Linux distributions or flavors.    
 
-Disclaimer: The output shown below for commands or utilities is compiled for educational and illustrative purposes only. You may not find all the exact details in your lab, office, or campus (loc). And do not worry about difference in the output.    
+Disclaimer: The output shown below for commands or utilities is compiled for educational and illustrative purposes only. You may not find all the exact details in your lab, office, or campus (loc). So, minor differences are expected.    
 
-Feedback: If this page helps you understand and gain hands-on Linux experience, please cite or reference this page. Additionally, let me know how I can improve this page in terms of coverage and utility.    
+Feedback: If this page helps you understand and gain hands-on Linux experience, please cite or reference this page. Additionally, please share your suggestions on how I can improve this page in terms of coverage and utility.    
 
-Linux powers many servers and large application deployments worldwide. Knowing how to navigate, search, and get help within it is a must for any application developer, sysadmin, or defender. Come, let's make penguins happy :)     
+Linux powers many servers and large application deployments worldwide. Knowing how to navigate, search, and get help within a Linux system is essential for any application developer, sysadmin, or defender. Come, let's make penguins happy :)     
 
 * [eglinux](#eglinux)
   * Part-1
