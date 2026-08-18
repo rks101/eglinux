@@ -253,6 +253,7 @@ So, when you use a terminal, a simplified view of command-line interaction is:
 The kernel works largely behind the scenes, while the shell provides convenient means for users to request operations from the OS.    
 
 With or without virtualization, the following conceptual chain is interesting:    
+
 **Physical resources → OS → Abstractions → Applications/Users**      
 
 And then virtualization gives you another layer:    
@@ -285,7 +286,7 @@ man service
 man find 
 man grep 
 man info 
-man 7 glob     <== using man page section, there are 8 of them   
+man 7 glob     <== using man page section, there are 9 of them   
 ```
 
 Okay, try one of the coolest commands on bash script built-ins:   
