@@ -1,12 +1,14 @@
 # eglinux 
 <!--[muscot](https://commons.wikimedia.org/wiki/File:Tux.png)-->
-eglinux pronounced as "easy Linux" compiles and presents helpful Linux commands and pointers for beginners and intermediate users. Efforts have been made to keep the commands and utilities as generic as possible, making them suitable for most Linux distributions or flavors.    
+eglinux, pronounced as “easy Linux”, compiles and presents helpful Linux commands and pointers for beginners and intermediate users. Efforts have been made to keep the commands and utilities as generic as possible, making them suitable for most Linux distributions or flavours.   
 
-Disclaimer: The output shown below for commands or utilities is compiled for educational and illustrative purposes only. You may not find all the exact details in your lab, office, or campus (loc). So, minor differences are expected.    
+*Disclaimer*: The output shown below for commands or utilities is provided for educational and illustrative purposes only. You may not find exactly the same details or output in your lab, office, or campus (loc). Minor differences are therefore expected.   
 
-Feedback: If this page helps you understand and gain hands-on Linux experience, please cite or reference this page. Additionally, please share your suggestions on how I can improve this page in terms of coverage and utility.    
+*Feedback*: If this page helps you understand Linux and gain hands-on experience, please cite or reference this page. Additionally, please share your suggestions on how I can improve the page in terms of coverage, clarity, and utility.   
 
-Linux powers many servers and large application deployments worldwide. Knowing how to navigate, search, and get help within a Linux system is essential for any application developer, sysadmin, or defender. Come, let's make penguins happy :)     
+Linux powers many servers and large application deployments worldwide. Knowing how to navigate, search, get help, and troubleshoot on Linux is essential for any application developer, sysadmin, or defender.    
+
+**Come, let's make penguins happy! 🐧 :)** 
 
 * [eglinux](#eglinux)
   * Part-1
