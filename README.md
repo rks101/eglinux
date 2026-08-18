@@ -1501,7 +1501,7 @@ GUI-based package managers: Synaptic Package Manager, Ubuntu App Center
 
 ## Simple web server 
 
-One-line web server => the simplest way to show files from a directory   
+Python provides a one-line web server and this is one simple way to show files from a directory   
 
 ```
 $ python3 -m http.server 
@@ -1511,12 +1511,12 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 127.0.0.1 - - [03/Feb/2021 23:33:36] "GET /Downloads/ HTTP/1.1" 200 -
 ^C 
 Keyboard interrupt received, exiting.
-
 ```
-The web server started above can be opened in a web browser: http://0.0.0.0:8000/  
-This page can be opened before you close the server using Ctrl+C.  
 
-Note:- In case you are struggling to connect to this web server to access files from another system, check your wired/wireless network or the VLAN you are on.   
+The web server started above can be opened in a web browser: http://0.0.0.0:8000/ (on the same system) or ip_address:8000 on other systems as well.    
+This page can be opened before you close the server using Ctrl+C.   
+
+Note:- In case you are struggling to connect to this web server to access files from another system, check your wired/wireless network or the VLAN you are on. It is likely that in a segmented network, users may not access the resources shared by this http web server.   
 
 ----
 
@@ -1525,14 +1525,15 @@ Note:- In case you are struggling to connect to this web server to access files 
 One can log in to a Linux system using   
 - local login on a desktop/laptop/server using a username and password. Most convenient :) 
 - local login using a bootable USB drive for install/repair.
-- remote login using a GUI on VM/server using a username and password. This is rare. 
-- remote login using a console/terminal on VM/server. Most preferred.
+- remote login using a GUI on VM/server using a username and password. This is slow and rare. 
+- remote login using a console/terminal on VM/server. Most preferred. 
 
 To log in to a server or virtual machine remotely from your own Linux system, you can use ssh:    
 ```
 ssh remote_username@remote_server_ip_or_name
 ```
-SSH using pem file:    
+
+SSH using a pem file:    
 ```
 ssh -i filename.pem remote_username@remote_server_ip_or_name   
 ```
@@ -1553,7 +1554,11 @@ scp SOURCE DESTINATION
 
 scp  path-of-local-file-or-dir  user@remote-system:/path-to-remote-file-or-dir    
 
-scp  user@remote-system:/path-of-remote-file-dir  path-of-local-file-or-dir    
+scp  user@remote-system:/path-of-remote-file-dir  path-of-local-file-or-dir
+
+scp -i filename.pem path-of-local-file-or-dir  user@remote-system:/path-to-remote-file-or-dir
+
+scp -i filename.pem user@remote-system:/path-of-remote-file-dir  path-of-local-file-or-dir
 ```
 
 While writing to the target location, make sure there is no file with the same name. It may get overwritten.   
