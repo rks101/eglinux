@@ -138,7 +138,9 @@ ls -d -1 ~/Downloads/*/
 
 ## lsb_release
 
-What are the OS major and minor release numbers? And any code name associated with the release?   
+Q. What are the OS major and minor release numbers? And any code name associated with the release?   
+A. Check using `lsb_release -a`, `cat /etc/os-release`, and `distro-info -af`   
+
 ```
 $ lsb_release -a  
 Distributor ID:	Ubuntu
@@ -146,22 +148,73 @@ Description:	Ubuntu 20.04.1 LTS
 Release:	20.04
 Codename:	focal
 ```
-Note:- LSB is Linux Standard Base. If you are more interested, after this article, you can refer to [what is LSB](https://wiki.linuxfoundation.org/lsb/start) and [LSB Specs](https://refspecs.linuxfoundation.org/lsb.shtml). To maintain the flow, continue reading.  
+Note:- LSB is Linux Standard Base. For more interested ones, you can refer to [what is LSB](https://wiki.linuxfoundation.org/lsb/start) and [LSB Specs](https://refspecs.linuxfoundation.org/lsb.shtml). To maintain the flow, continue reading.   
 
 TIMTOWTDI (There Is More Than One Way To Do It): You can use /etc/os-release 
 ```
 $ cat /etc/os-release 
+PRETTY_NAME="Ubuntu 26.04 LTS"
 NAME="Ubuntu"
-VERSION="20.04.2 LTS (Focal Fossa)"
-ID=ubuntu
-ID_LIKE=debian
-PRETTY_NAME="Ubuntu 20.04.2 LTS"
-VERSION_ID="20.04"
-HOME_URL="https://www.ubuntu.com/"
-......
-VERSION_CODENAME=focal
-UBUNTU_CODENAME=focal
+VERSION_ID="26.04"
+VERSION="26.04 LTS (Resolute Raccoon)"
+VERSION_CODENAME=resolute
+...
+UBUNTU_CODENAME=resolute
+LOGO=ubuntu-logo
 ```
+
+Previous Ubuntu distributions' information:   
+```
+$ distro-info -af
+Ubuntu 4.10 "Warty Warthog"
+Ubuntu 5.04 "Hoary Hedgehog"
+Ubuntu 5.10 "Breezy Badger"
+Ubuntu 6.06 LTS "Dapper Drake"
+Ubuntu 6.10 "Edgy Eft"
+Ubuntu 7.04 "Feisty Fawn"
+Ubuntu 7.10 "Gutsy Gibbon"
+Ubuntu 8.04 LTS "Hardy Heron"      <== 
+Ubuntu 8.10 "Intrepid Ibex"
+Ubuntu 9.04 "Jaunty Jackalope"
+Ubuntu 9.10 "Karmic Koala"
+Ubuntu 10.04 LTS "Lucid Lynx"       <== 
+Ubuntu 10.10 "Maverick Meerkat"
+Ubuntu 11.04 "Natty Narwhal"
+Ubuntu 11.10 "Oneiric Ocelot"
+Ubuntu 12.04 LTS "Precise Pangolin"  <== 
+Ubuntu 12.10 "Quantal Quetzal"
+Ubuntu 13.04 "Raring Ringtail"
+Ubuntu 13.10 "Saucy Salamander"
+Ubuntu 14.04 LTS "Trusty Tahr"       <== 
+Ubuntu 14.10 "Utopic Unicorn"
+Ubuntu 15.04 "Vivid Vervet"
+Ubuntu 15.10 "Wily Werewolf"
+Ubuntu 16.04 LTS "Xenial Xerus"      <== 
+Ubuntu 16.10 "Yakkety Yak"
+Ubuntu 17.04 "Zesty Zapus"
+Ubuntu 17.10 "Artful Aardvark"
+Ubuntu 18.04 LTS "Bionic Beaver"     <== 
+Ubuntu 18.10 "Cosmic Cuttlefish"
+Ubuntu 19.04 "Disco Dingo"
+Ubuntu 19.10 "Eoan Ermine"
+Ubuntu 20.04 LTS "Focal Fossa"       <==
+Ubuntu 20.10 "Groovy Gorilla"
+Ubuntu 21.04 "Hirsute Hippo"
+Ubuntu 21.10 "Impish Indri"
+Ubuntu 22.04 LTS "Jammy Jellyfish"   <== 
+Ubuntu 22.10 "Kinetic Kudu"
+Ubuntu 23.04 "Lunar Lobster"
+Ubuntu 23.10 "Mantic Minotaur"
+Ubuntu 24.04 LTS "Noble Numbat"      <== 
+Ubuntu 24.10 "Oracular Oriole"
+Ubuntu 25.04 "Plucky Puffin"
+Ubuntu 25.10 "Questing Quokka"
+Ubuntu 26.04 LTS "Resolute Raccoon"  <== 
+```
+
+[Ubuntu release cycle](https://ubuntu.com/about/release-cycle) - Each April release in even years is LTS (e.g., 18.04, 20.04, 24.04), and supported for 5 to 10 years or more. Production-grade applications should be hosted on LTS releases.     
+
+Check out [Ubuntu releases](https://www.releases.ubuntu.com/) and [Ubuntu Version History](https://en.wikipedia.org/wiki/Ubuntu_version_history)    
 
 Q. What is my system name, kernel, OS, kernel version, and date last updated?   
 A. Ask `uname` (Unix Name) for operating system name, hostname, kernel version, processor type (x86_64), hardware platform type (x86_64), etc.     
@@ -169,10 +222,6 @@ A. Ask `uname` (Unix Name) for operating system name, hostname, kernel version, 
 $ uname -a  
 Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 ```
-
-[Ubuntu release cycle](https://ubuntu.com/about/release-cycle) - Each April release in even years is LTS (e.g., 18.04, 20.04, 24.04), and supported for 5 to 10 years or more. Production-grade applications should be hosted on LTS releases.     
-
-Check out [Ubuntu releases](https://www.releases.ubuntu.com/) and [Ubuntu Version History](https://en.wikipedia.org/wiki/Ubuntu_version_history)    
 
 A **computer system** provides four fundamental resources:    
 
@@ -277,6 +326,12 @@ DESCRIPTION
        SEE ALSO.
 ```
 
+Now, check these two commands about man and apropos, to see, what do you (want to)* notice :)    
+```
+man -k man     <== 770+ entries   
+apropos man 
+```
+
 Also, you should explore **info** pages. Info pages are another trove of information about the Linux system. An example of permissions is given in the "The One with File Permissions" section.    
 ```
 $ info
@@ -294,11 +349,21 @@ p - previous node/page in navigation
 n - next node/page in navigation   
 Up/Down keys, Pg Up/Down keys, Pg Scroll work.    
 
-Try these:   
+You just and must try these:    
 ```
 info coreutils 
 info find 
-info date 
+info date
+info numfmt 
+info         <== Locate page * File Permissions: 	
+```
+
+Apart from, man and info pages, you can see command specific help using -h or --help with several commands. At times, typing a command without any options or arguments, gives usage or help of command. Option -v is associated with verbosity (more details) of the output for several commands. Try the bellow commands.    
+
+```
+apt
+dpkg --help 
+bash --help 
 ```
 
 ----
@@ -419,7 +484,8 @@ A PiB (pebibyte) is approximately 12.6% larger than a PB (petabyte) (1 PiB ≈ 1
 Note:-    
 1. International Electrotechnical Commission (IEC - https://iec.ch) standardized the use of prefixes like "kibi-", "mebi-", "gibi-", "tebi-", "pebi-", etc., to represent binary multiples, reserving "kilo-", "mega-", "giga-", "tera-", "peta-", etc., for decimal multiples.     
 2. Certain OS or software utilities may display storage values slightly different or less than vendor published values because of the GB/GiB unit used. For TeraBytes, PetaBytes (and higher), the difference becomes significant because of the growth of the power of 2 versus the power of 10.     
-3. One can read the man page of the top command. There is no need to memorise the large numbers.   
+3. One can read the man page of the top command. There is no need to memorize the large numbers. Check `info numfmt` as well.    
+
 
 ---- 
 
@@ -634,6 +700,8 @@ You can create files using Linux-native editors, such as vi, or other text edito
 **mkdir**    
 mkdir mydir - create a new directory mydir if it does not exist.    
 mkdir -p mydir - create a new directory if it does not exist, if it exists, keep quiet, show no error/warning. This is extensively used in scripts.    
+
+Creating multiple directories:    
 ```
 mkdir -p qtemp/{cmd,logs,reports}             <== this command creates qtemp in current dir and three directories namely cmd, logs, and reports inside qtemp directory
 
@@ -693,7 +761,7 @@ whatis whereis
 whatis [
 ```
 
-Note: whatis may return two or more entries if a command or utility has been maintained at more than one manual pages.   
+Note: whatis may return two or more entries if a command or utility has been maintained at more than one manual pages. Check this with chmod and info.   
 ```
 $ whatis chmod 
 chmod (1)            - Change the mode of each FILE to MODE. With --reference, change the mode of each FILE t...
@@ -762,7 +830,8 @@ man dircolors
 ```
 
 To search history recursively:     
-Press Ctrl+r and type a few characters to search history, and then use tab to get that command:      
+Press Ctrl+r and type a few characters to search history, and then use tab to get that command. If there are multiple matches using Ctrl+r, they are in a circular list, so keep typing Ctrl+r to go to the previous entries.    
+
 ```
 (reverse-i-search)`ssh': ssh -i rps.pem ubuntu@10.10.120.120      <== press ctrl+r and then typed ssh   
 ```
@@ -783,9 +852,10 @@ history -c
 ```
 
 Q. How do you hide a command from the bash shell history? Suppose you did not want to reveal something :)    
-A. Try prefixing the command with one or more spaces
+A. Try prefixing the command with one or more spaces 
+
 ```
-  compgen -abckA function > compgen_help.txt       <== command with one or more spaces as prefix won't appear in history. Check using the Up arrow key    
+  compgen -abckA function > compgen_help.txt       <== command with one or more spaces as prefix won't appear in history. Check using the Up arrow key or history    
 ```
 
 ----
@@ -1365,12 +1435,54 @@ sudo: a password is required
 
 ## Package Manager  
 
-Q. How do I install software on Linux/Ubuntu/Debian system?    
+Q. How do I install software on a Linux/Ubuntu/Debian system?    
 A. You need a package manager and sufficient privileges to install software. e.g. apt, dpkg, Synaptic, rpm, yum, etc.    
 
 A package manager or software installer helps to install packages or utilities (with binaries or source). Some popular package managers are listed below:     
 
 Ubuntu/Debian/Linux Mint: apt, dpkg    
+
+```
+$ apt
+apt 3.2.0 (amd64)
+Usage: apt [options] command
+
+apt is a commandline package manager and provides commands for
+searching and managing as well as querying information about packages.
+It provides the same functionality as the specialized APT tools,
+like apt-get and apt-cache, but enables options more suitable for
+interactive use by default.
+
+Most used commands:
+  list - list packages based on package names            <== 
+  search - search in package descriptions
+  show - show package details                            <== 
+  install - install packages                             <== 
+  reinstall - reinstall packages
+  remove - remove packages                               <== 
+  autoremove - automatically remove all unused packages  <== 
+  update - update list of available packages             <== 
+  upgrade - upgrade the system by installing/upgrading packages    <==
+  full-upgrade - upgrade the system by removing/installing/upgrading packages
+  history-list - show list of history
+  history-info - show info on specific transactions
+  history-redo - redo transactions
+  history-undo - undo transactions
+  history-rollback - rollback transactions
+  edit-sources - edit the source information file
+  modernize-sources - modernize .list files to .sources files
+  satisfy - satisfy dependency strings
+  why - produce a reason trace for the current state of the package
+  why-not - produce a reason trace for the current state of the package
+
+See apt(8) for more information about the available commands.
+Configuration options and syntax is detailed in apt.conf(5).
+Information about how to configure sources can be found in sources.list(5).
+Package and version choices can be expressed via apt_preferences(5).
+Security details are available in apt-secure(8).
+                                        This APT has Super Cow Powers.
+
+```
 e.g. 
 ```
 sudo apt install locate
