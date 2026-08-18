@@ -1365,6 +1365,9 @@ sudo: a password is required
 
 ## Package Manager  
 
+Q. How do I install software on Linux/Ubuntu/Debian system?    
+A. You need a package manager and sufficient privileges to install software. e.g. apt, dpkg, Synaptic, rpm, yum, etc.    
+
 A package manager or software installer helps to install packages or utilities (with binaries or source). Some popular package managers are listed below:     
 
 Ubuntu/Debian/Linux Mint: apt, dpkg    
