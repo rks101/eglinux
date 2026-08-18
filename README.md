@@ -122,8 +122,8 @@ $ dircolors --print-ls-colors
 ```
 Q. Why do you recommend `ls -lrt` over `ls`?    
 A. This command can explain a lot over the course of time. Remember what we discussed about the Linux command.     
-> Command has got a name, options, and arguments!
-We can get a list of recent most recently modified files or directories without much effort.    
+> Command has got a name, options, and arguments!    
+We can get a list of the most recently modified files or directories without much effort.    
 
 `ls -lrt <dir>` explains that about the command, and for the output difference, type the following in bash and see for yourself.    
 ```
