@@ -3287,7 +3287,11 @@ sudo apt-get upgrade
 
 Examples for logging [printk](https://www.kernel.org/doc/html/latest/core-api/printk-basics.html)    
 
-[Kernel release cycle]()    
+[Linux Kernel Scheduler's journey from CFS to EEVDF](https://docs.kernel.org/scheduler/sched-eevdf.html) starting kernel 6.6     
+
+[Linux Kernel releases](https://www.kernel.org/category/releases.html): The mainline Linux kernel releases every 9 to 10 weeks, with a 2-week merge window followed by 7 weeks of bug-fixing and stabilization phase. The Linux kernel source crossed 40 million lines in 2025 that is more than double its 2015 size of approximately 19 million lines. Mainline kernels are released by Linus Torvalds, while long-term support (LTS) kernels receive extended updates based on industry demand,  release maintainers (GKH and SL) and ~1800 developers.    
+
+[The Life Cycle of a Linux Kernel Update](https://www.thelinuxvault.net/linux-kernel-basics/the-life-cycle-of-a-linux-kernel-update/)    
 
 ---- 
 
