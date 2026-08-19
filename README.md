@@ -3441,6 +3441,23 @@ Pick up an open source project from the maintainer's website, join the mailing l
 
 Linus did not monetize Linux, gave the Linux kernel (heart) to the community to develop, and kept it out of corporate greed. This is also a reason why Linux flourished among enthusiasts and hobbyist developers.     
 
+Linus Torvalds built Linux Kernel at 21, without any generative AI tool or much-hyped Claude, or any of the tools available now, in 2026.     
+
+No co-founder.    
+No VC backing.    
+No fancy office.    
+No team.    
+
+Just a personal project he was curious enough to build. On August 25, 1991, he posted this on Usenet:     
+
+|“I’m doing a (free) operating system (just a hobby, won’t be big and professional like gnu) for 386(486) AT clones.”    
+
+He had no idea how far that “just a hobby” would go. Linux now runs over 95% of the world’s servers, powers Android for mobile devices, underpins much of the public cloud, and runs on everything from supercomputers to systems in space.     
+
+Just a small project on one person’s computer became foundational infrastructure for modern computing. And he called it “just a hobby.”    
+
+Then, again, with another project Git, Linus changed how we version and maintain source code releases.    
+
 ---- 
 
 ## LWN 
