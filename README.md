@@ -1541,10 +1541,12 @@ SSH using a pem file:
 ssh -i filename.pem remote_username@remote_server_ip_or_name   
 ```
 
-SSH ignores a private key file (.pem file) if it is accessible to others. You should change the permissions of the pem file to remove access for other users (600 or 400) to remove the error: Permissions 0664 for 'filename.pem' are too open.   
+SSH ignores a private key file (.pem file) if it is accessible to others. You may need to change the permissions of the pem file (600 or 400) to remove access for other users and to remove the error: "Permissions 0664 for 'filename.pem' are too open."    
 ```
 chmod 400 filename.pem  
 ```
+
+The default port number to use SSH is 22; this port number can be changed in /etc/ssh/ssh_config for Port config.   
 
 ----
 
