@@ -15,7 +15,7 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Why Linux](#why-linux)
       * [`ls -lrt`](#ls--lrt)
       * [`lsb_release`](#lsb_release)
-      * [Getting help on-system](#getting-help-on-system)
+      * [Getting help on-the-system](#getting-help-on-the-system)
       * [Know processors](#know-processors)
       * [Know memory](#know-memory)
       * [GB or GiB](#gb-or-gib)
@@ -266,7 +266,7 @@ More on these topics in next sections. Continue reading to maintain the flow.
 
 ----
 
-## Getting help on-system 
+## Getting help on-the-system 
 
 What do I do if I do not know commands or their options and arguments?   
 - Remember: Command has got a name, options, and/or arguments.   
