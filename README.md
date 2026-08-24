@@ -331,7 +331,7 @@ DESCRIPTION
 
 Now, check these two commands about man and apropos, to see, what do you (want to)* notice :)    
 ```
-man -k man     <== 770+ entries   
+man -k man     <== 700+ entries, It's man ki baat :)    
 apropos man 
 ```
 
