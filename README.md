@@ -14,7 +14,7 @@ Linux powers many servers and large application deployments worldwide. Knowing h
   * Part-1
       * [Why Linux](#why-linux)
       * [`ls -lrt`](#ls--lrt)
-      * [`lsb_release`](#lsb_release)
+      * [OS_releases](#os-releases)
       * [Getting help on-the-system](#getting-help-on-the-system)
       * [Know processors](#know-processors)
       * [Know memory](#know-memory)
@@ -138,7 +138,7 @@ ls -d -1 ~/Downloads/*/
 ```
 ----
 
-## lsb_release
+## OS releases
 
 Q. What are the OS major and minor release numbers? And any code name associated with the release?   
 A. Check using `lsb_release -a`, `cat /etc/os-release`, and `distro-info -af`   
@@ -437,6 +437,8 @@ Vulnerabilities:                                           <== Vulnerabilities w
   Srbds:                  Not affected
   Tsx async abort:        Not affected
 ```
+
+Note:- For GPU information, you can check gpu-manager, nvidia-smi, nvidia-settings utilities.   
 
 ----
 
