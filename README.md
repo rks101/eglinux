@@ -1381,6 +1381,7 @@ Try protecting your system config files, which do not get auto-updated, using ch
 
 su = substitute user, su <user> starts another shell with permissions of <user> specified.      
 sudo = superuser do, sudo verifies the password of the user who executed sudo for any privileged command.     
+sudo is for the same user to obtain higher privileges while su is to assume identity of another user.    
 
 Q. Do I really need to have a root password set on Linux? And then, how do I manage things without sharing it with others?     
 A. On Ubuntu (and Debian-based systems), you can live without a root password and manage most things using sudo. Instead of sharing the root password with every user (in the lab or office) for admin tasks such as installations and running privileged utilities, sudo is a better alternative. This may not apply to Red-Hat-like systems.      
@@ -1398,6 +1399,9 @@ logout
 
 ```
 Try `passwd -l root` to lock the password or `passwd -d root` to delete the password. Check entries in /etc/passwd and /etc/shadow around this.    
+
+Q. On a new debian/Linux installation, I am not able to execute a sudo?    
+A. Check if the current user is a member of the sudo group. File /etc/group    
 
 
 Q. Should I use "su" or "su -" as administrator?     
