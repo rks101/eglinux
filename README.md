@@ -58,6 +58,7 @@ Linux powers many servers and large application deployments worldwide. Knowing h
   * Part-3
       * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
+      * [`timedatectl`](#timedatectl)
       * [`hostnamectl`](#hostnamectl)
       * [`networkctl`](#networkctl)
       * [`perf`](#perf)
@@ -2647,6 +2648,80 @@ systemd 255 (255.4-1ubuntu8.5)
 ```
 
 Check systemctl start <cmd>.target and systemctl isolate <cmd>.target under man systemctl :)     
+
+----
+
+## `timedatectl` 
+
+As Legal Metrology IST Rules 2026, make IST a legally enforceable reference for official and commercial use, it is important to [maintain Real-Time Clock (RTC) in Local Time](https://www.baeldung.com/linux/real-time-clock-rtc-local-time). The core idea is Real Time Clock should be coming from a traceable IST, maintained by CSIR-NPL and ISRO's NavIC, so that there is no lag and no dependency on external timezone UTC, NTP (internet) or GPS.    
+
+```
+$ timedatectl status 
+               Local time: Thu 2026-09-03 15:00:02 IST
+           Universal time: Thu 2026-09-03 09:30:02 UTC
+                 RTC time: Thu 2026-09-03 09:30:02          <== comes from UTC by default 
+                Time zone: Asia/Kolkata (IST, +0530)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no								<== set this no to yes
+
+$ sudo timedatectl set-local-rtc 1
+[sudo: authenticate] Password:        
+Warning: The system is now being configured to read the RTC time in the local time zone
+         This mode cannot be fully supported. It will create various problems
+         with time zone changes and daylight saving time adjustments. The RTC
+         time is never updated, it relies on external facilities to maintain it.
+         If at all possible, use RTC in UTC
+
+$ timedatectl status
+               Local time: Thu 2026-09-03 15:02:29 IST
+           Universal time: Thu 2026-09-03 09:32:29 UTC
+                 RTC time: Thu 2026-09-03 15:02:30          <== comes from IST now 
+                Time zone: Asia/Kolkata (IST, +0530)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: yes								<== RTC set to local timezone 
+ 
+Warning: The system is configured to read the RTC time in the local time zone.
+         This mode cannot be fully supported. It will create various problems
+         with time zone changes and daylight saving time adjustments. The RTC
+         time is never updated, it relies on external facilities to maintain it.
+         If at all possible, use RTC in UTC by calling
+         'timedatectl set-local-rtc 0'.
+```
+
+Check systemd-timedated.service and start it. 
+```
+$ sudo systemctl status systemd-timedated.service 
+○ systemd-timedated.service - Time & Date Service
+     Loaded: loaded (/usr/lib/systemd/system/systemd-timedated.service; static)
+     Active: inactive (dead)
+       Docs: man:systemd-timedated.service(8)
+             man:localtime(5)
+             man:org.freedesktop.timedate1(5)
+...
+
+$ sudo systemctl start systemd-timedated.service 
+
+$ sudo systemctl status systemd-timedated.service 
+● systemd-timedated.service - Time & Date Service
+     Loaded: loaded (/usr/lib/systemd/system/systemd-timedated.service; static)
+     Active: active (running) since Thu 2026-09-03 15:05:00 IST; 2s ago
+ Invocation: 4266e4fdfc6c4099abf1f4761e41886c
+       Docs: man:systemd-timedated.service(8)
+             man:localtime(5)
+             man:org.freedesktop.timedate1(5)
+   Main PID: 166563 (systemd-timedat)
+     Status: "Processing requests..."
+      Tasks: 1 (limit: 17490)
+     Memory: 1.3M (peak: 2.4M)
+        CPU: 49ms
+     CGroup: /system.slice/systemd-timedated.service
+             └─166563 /usr/lib/systemd/systemd-timedated
+
+Sep 03 15:05:00 eg systemd[1]: Starting systemd-timedated.service - Time & Date Service...
+Sep 03 15:05:00 eg systemd[1]: Started systemd-timedated.service - Time & Date Service.
+```
 
 ----
 
