@@ -52,9 +52,8 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Shell Scripting](#shell-scripting)
       * [regex](#regex)
       * [`xdg-open`](#xdg-open)
-      * [Debugging](#debugging)
       * [File conversion](#file-conversion)
-      * [Online Resources](#online-resources) 
+      * [Debugging](#debugging)
   * Part-3
       * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
@@ -71,6 +70,7 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [User account management](#user-account-management) 
       * [The One with mysql admin password](#the-one-with-mysql-admin-password)
   * Part-4
+      * [Online Resources](#online-resources)
       * [Linux software](#linux-software)
       * [Linux toolchain](#linux-toolchain) 
       * [Linux for Networking](#linux-for-networking)
@@ -2185,64 +2185,6 @@ TODO: add image of browser pop-up showing xdg-open message
 
 ----
 
-## Debugging
-
-For debugging issues, the following can help with processes and system resources.  
-
-Use the **top** command to display Linux processes with PID, CPU, and memory usage in real-time. Avoid using this for a long time on servers with active users.   
-```
-$ top
-
-top - 10:34:56 up 6 days, 21:06,  1 user,  load average: 0.80, 0.51, 0.55  
-Tasks: 333 total,   1 running, 323 sleeping,   8 stopped,   1 zombie  
-%Cpu(s):  0.7 us,  0.4 sy,  0.0 ni, 98.2 id,  0.6 wa,  0.0 hi,  0.0 si,  0.0 st  
-MiB Mem :  15908.0 total,   3389.9 free,   5168.0 used,   7350.0 buff/cache  
-MiB Swap:  30518.0 total,  30518.0 free,      0.0 used.   9270.3 avail Mem  
-
-    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND  
-   7648 msg       20   0 7303440 507100 143564 S   6.0   3.1 166:37.55 zoom  
-   2142 msg       20   0 5153328 399196 130928 S   1.3   2.5 141:03.20 gnome-shell  
-   3241 msg       20   0 1551784 368148 186284 S   1.0   2.3  55:48.93 chrome  
-   3286 msg       20   0  390048 111048  68588 S   0.7   0.7  15:12.61 chrome  
- 100726 mysql     20   0 2265400 399708  35948 S   0.7   2.5   1:17.47 mysqld  
- 129414 msg       20   0   12336   4372   3408 R   0.7   0.0   0:00.05 top  
-    883 root      20   0  484176  21492  17276 S   0.3   0.1   1:08.84 NetworkManager  
-```
-Interesting: Try pressing any arrow key while the top is on.   
-
-Use **dstat** - a tool for generating system resource statistics such as cpu usage, disk read/write, network data received/sent, etc. To exit, type Ctrl+C.    
-```
-$ dstat
-You did not select any stats, using -cdngy by default.
---total-cpu-usage-- -dsk/total- -net/total- ---paging-- ---system--
-usr sys idl wai stl| read  writ| recv  send|  in   out | int   csw 
- 27   8  64   0   0|5502B   24k|   0     0 |   0     0 | 649  1159 
-  2   1  96   1   0|   0    60k| 226B  234B|   0     0 |2176  3796 
-  3   1  96   0   0|   0     0 | 303B  405B|   0     0 |2150  3753 
-  3   1  95   0   0|   0     0 |1266B 1246B|   0     0 |2272  3889 
-  3   1  96   0   0|   0     0 | 984B  786B|   0     0 |2378  3952 ^C
-```
-
-----
-How can I find out whether a service or daemon is running or not? 
-```
-service <service_or_daemon_name> status 
-service mysql status 
-service apache2 status 
-```
-See the output; if the Active field shows "active (running)", it is running, good to go. 
-If the Active field shows failed, there was a problem running the service, and it needs to be fixed. 
-
-
-Where do I see the logs and errors? 
-```
-dmesg 
-ls -lrt /var/log/ 
-```
-In /var/log/ directory, see the most recent logs, like dmesg, syslog, dpkg log, etc., to debug the problem.  
-
-----
-
 ## File conversion 
 
 ### File format conversion   
@@ -2344,16 +2286,63 @@ TODO: add URL of the live application, source code page, and the sample output.
 
 ----
 
-## Online Resources  
+## Debugging
 
-Now, you can view and refer to some online resources (Remember man, info, and command-specific help):    
-[Baeldung](https://www.baeldung.com/linux/)     
-[It's FOSS](https://itsfoss.com/)     
-[Linuxconfig](https://linuxconfig.org/)    
+For debugging issues, the following can help with processes and system resources.  
 
+Use the **top** command to display Linux processes with PID, CPU, and memory usage in real-time. Avoid using this for a long time on servers with active users.   
+```
+$ top
+
+top - 10:34:56 up 6 days, 21:06,  1 user,  load average: 0.80, 0.51, 0.55  
+Tasks: 333 total,   1 running, 323 sleeping,   8 stopped,   1 zombie  
+%Cpu(s):  0.7 us,  0.4 sy,  0.0 ni, 98.2 id,  0.6 wa,  0.0 hi,  0.0 si,  0.0 st  
+MiB Mem :  15908.0 total,   3389.9 free,   5168.0 used,   7350.0 buff/cache  
+MiB Swap:  30518.0 total,  30518.0 free,      0.0 used.   9270.3 avail Mem  
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND  
+   7648 msg       20   0 7303440 507100 143564 S   6.0   3.1 166:37.55 zoom  
+   2142 msg       20   0 5153328 399196 130928 S   1.3   2.5 141:03.20 gnome-shell  
+   3241 msg       20   0 1551784 368148 186284 S   1.0   2.3  55:48.93 chrome  
+   3286 msg       20   0  390048 111048  68588 S   0.7   0.7  15:12.61 chrome  
+ 100726 mysql     20   0 2265400 399708  35948 S   0.7   2.5   1:17.47 mysqld  
+ 129414 msg       20   0   12336   4372   3408 R   0.7   0.0   0:00.05 top  
+    883 root      20   0  484176  21492  17276 S   0.3   0.1   1:08.84 NetworkManager  
+```
+Interesting: Try pressing any arrow key while the top is on.   
+
+Use **dstat** - a tool for generating system resource statistics such as cpu usage, disk read/write, network data received/sent, etc. To exit, type Ctrl+C.    
+```
+$ dstat
+You did not select any stats, using -cdngy by default.
+--total-cpu-usage-- -dsk/total- -net/total- ---paging-- ---system--
+usr sys idl wai stl| read  writ| recv  send|  in   out | int   csw 
+ 27   8  64   0   0|5502B   24k|   0     0 |   0     0 | 649  1159 
+  2   1  96   1   0|   0    60k| 226B  234B|   0     0 |2176  3796 
+  3   1  96   0   0|   0     0 | 303B  405B|   0     0 |2150  3753 
+  3   1  95   0   0|   0     0 |1266B 1246B|   0     0 |2272  3889 
+  3   1  96   0   0|   0     0 | 984B  786B|   0     0 |2378  3952 ^C
+```
 
 ----
+How can I find out whether a service or daemon is running or not? 
+```
+service <service_or_daemon_name> status 
+service mysql status 
+service apache2 status 
+```
+See the output; if the Active field shows "active (running)", it is running, good to go. 
+If the Active field shows failed, there was a problem running the service, and it needs to be fixed. 
 
+
+Where do I see the logs and errors? 
+```
+dmesg 
+ls -lrt /var/log/ 
+```
+In /var/log/ directory, see the most recent logs, like dmesg, syslog, dpkg log, etc., to debug the problem.  
+
+----
 
 PART-3
 
@@ -3266,6 +3255,15 @@ Relevant posts on this authentication type conundrum:
 ---- 
 
 PART-4     
+
+## Online Resources  
+
+Now, you can view and refer to some online resources (Remember man, info, and command-specific help):    
+[Baeldung](https://www.baeldung.com/linux/)     
+[It's FOSS](https://itsfoss.com/)     
+[Linuxconfig](https://linuxconfig.org/)    
+
+----
 
 ## Linux software
 
