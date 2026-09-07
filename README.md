@@ -1953,9 +1953,12 @@ A. In command mode inside the vi/vim editor, :%s/^M//g          <== To type ^M t
 
 ## Input Output redirection     
 
-Gyan: There are three file descriptors or streams: standard input (0), standard output (1), standard error (2)     
+**Gyan**: There are three standard file descriptors (or streams): standard input (stdin, 0), standard output (stdout, 1), and standard error (stderr, 2).   
 
-Generally, everything we type goes into stdin or input comes from the keyboard, and both the output and errors are displayed on the console/terminal.    
+Generally, everything we type is read from standard input (stdin), typically from the keyboard. Input can also be generated through other input devices, such as a mouse or trackpad. Both standard output (stdout) and standard error (stderr) are generally displayed on the console/terminal.    
+
+In Linux, these standard file descriptors can be accessed through /dev/std*, which are symbolic links to the corresponding file descriptors under /proc/self/fd/.   
+
 ```
 $ ls -lrt /dev/std* 
 lrwxrwxrwx 1 root root 15 Aug  1 15:25 /dev/stdin -> /proc/self/fd/0  
@@ -1963,7 +1966,7 @@ lrwxrwxrwx 1 root root 15 Aug  1 15:25 /dev/stdout -> /proc/self/fd/1
 lrwxrwxrwx 1 root root 15 Aug  1 15:25 /dev/stderr -> /proc/self/fd/2 
 ```
 
-We can redirect output or input as below (using double quotes because of markup side-effect):    
+We can redirect output or input as below (using double quotes because of markup syntax side-effect) :    
 
 - ">"  redirect output     
 - ">>"  append to redirected output     
@@ -1976,7 +1979,7 @@ We can redirect output or input as below (using double quotes because of markup 
 
 - "2>&1" redirects both stderr and stdout     
 
-When desired to suppress the noise of output, stdout and stderr can be merged:     
+When desired to suppress the noise of command output, stdout and stderr can be merged:     
 ```
 locate canary > output.txt 2>&1          <== locate command may generate many permission errors, and this redirection makes it quiet. 
 ```
