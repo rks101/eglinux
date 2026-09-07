@@ -238,6 +238,9 @@ In modern computing environments, these resources can be abstracted, shared, all
 
 When you use a physical laptop, desktop, or server, much of the underlying hardware is directly present in the machine. In contrast, when you use a virtual machine (VM), cloud server, containerized environment (LXC, Docker), or many modern online services, the compute, memory, networking, and storage available to you may be virtualized or dynamically allocated from resources shared by multiple users or systems.    
 
+**Hypervisor**: Hypervisor is a software that creates and runs Virtual Machines (VMs) on a physical computer or server. Using hypervisor, multiple guest operating systems can run simultaneously on a single host machine by pooling hardware resources such as compute, memory, network interfaces, and persistent storage. There are two types of hypervisors - bare-metal and hosted hypervisor. A bare-metal hypervisor runs directly on a host machine, like VMware's ESXi, Microsoft HyperV, or Xen. A hosted hypervisor runs inside an operating system as an application, like  VMware's workstation, Oracle Virtual Box.     
+
+
 A computer system needs an **Operating System (OS)** — a large and complex piece of system software that manages interactions between users, applications, and the underlying hardware. The OS acts as an intermediary between the user and the system hardware, whether it is a laptop, desktop, server, mobile phone, tablet, e-reader, music player, or digital assistant. 
 
 Major operating systems include:     
