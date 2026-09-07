@@ -238,9 +238,6 @@ In modern computing environments, these resources can be abstracted, shared, all
 
 When you use a physical laptop, desktop, or server, much of the underlying hardware is directly present in the machine. In contrast, when you use a virtual machine (VM), cloud server, containerized environment (LXC, Docker), or many modern online services, the compute, memory, networking, and storage available to you may be virtualized or dynamically allocated from resources shared by multiple users or systems.    
 
-**Hypervisor**: Hypervisor is a software that creates and runs Virtual Machines (VMs) on a physical computer or server. Using hypervisor, multiple guest operating systems can run simultaneously on a single host machine by pooling hardware resources such as compute, memory, network interfaces, and persistent storage. There are two types of hypervisors - bare-metal and hosted hypervisor. A bare-metal hypervisor runs directly on a host machine, like VMware's ESXi, Microsoft HyperV, or Xen. A hosted hypervisor runs inside an operating system as an application, like  VMware's workstation, Oracle Virtual Box.     
-
-
 A computer system needs an **Operating System (OS)** — a large and complex piece of system software that manages interactions between users, applications, and the underlying hardware. The OS acts as an intermediary between the user and the system hardware, whether it is a laptop, desktop, server, mobile phone, tablet, e-reader, music player, or digital assistant. 
 
 Major operating systems include:     
@@ -266,6 +263,10 @@ And then virtualization gives you another layer:
 **Physical resources → Virtualization layer → Virtual resources → OS → Applications/Users**    
 
 That distinction is quite powerful pedagogically because we can then understand why an OS can present a **process, virtual memory, file, socket, and virtual CPU** even though none of these necessarily corresponds directly to one physical hardware object.    
+
+**Hypervisor**: A hypervisor is software that creates and runs Virtual Machines (VMs) on a physical computer or server. It enables multiple guest operating systems to run simultaneously on a single host machine by allocating and managing hardware resources such as compute, memory, network interfaces, and persistent storage. There are two main types of hypervisors: bare-metal and hosted hypervisors. A bare-metal hypervisor runs directly on the host machine, such as VMware ESXi, Microsoft Hyper-V, and Xen. A hosted hypervisor runs as an application within a host operating system, such as VMware Workstation and Oracle VirtualBox.    
+
+Note on ESXi: ESXi uses its own VMKernel. The development environment of the VMkernel and ESXi software is Linux - in other words, a Linux system and the GNU C Compiler/GCC is used to compile the VMkernel. It also makes use of some of the Linux kernel include files to implement the Linux compatible driver interface. However, [ESXi is not a Linux system](https://www.v-front.de/2013/08/a-myth-busted-and-faq-esxi-is-not-based.html).     
 
 More on these topics in next sections. Continue reading to maintain the flow.   
 
