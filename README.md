@@ -1957,6 +1957,12 @@ A. In command mode inside the vi/vim editor, :%s/^M//g          <== To type ^M t
 
 ## Input Output redirection     
 
+Let us get some clarity over:    
+a) what is difference in usage of echo and cat?    
+
+b) what is difference between pipe and input/output redirection?    
+
+
 **Gyan**: There are three standard file descriptors (or streams): standard input (stdin, 0), standard output (stdout, 1), and standard error (stderr, 2).   
 
 Generally, everything we type is read from standard input (stdin), typically from the keyboard. Input can also be generated through other input devices, such as a mouse or trackpad. Both standard output (stdout) and standard error (stderr) are generally displayed on the console/terminal.    
