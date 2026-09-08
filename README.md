@@ -2017,9 +2017,11 @@ This will empty large_file.tar; please note that you should know the path of the
 
 ----
 
-## View file content
+## View file content 
 
-When dealing with large files or logs, it may be necessary to view specific portions of the files.    
+Try: Open a terminal and type `cat some_large_filename` , make sure file size in MBs/GBs. Now see top output in another terminal. What do you see under %CPU, %MEM columns? It appears a bulky operation.     
+
+When dealing with large files (logs, backups, datasets, language models), it may be necessary to view specific portions of the files.    
 
 ```
 cat - cacatenate or display file content    
@@ -2033,24 +2035,26 @@ cat file1 file2 >> newfile   <== merge two files into a new file using output re
 
 `cat filename` outputs everything on the screen (which can be too much for large files).    
 
-Tip: What about `tac filename` ?   
+Q. What about `tac filename` ?    
+A. Accidentally, stumbled upon this tac command, and surprising it is a valid command. It does print contents of a file from the last line, one line at a time. So, it is a kind of reverse cat :)    
 
 `more`     <== show file contents on the terminal, can search and navigate forward (ctrl+f) and backward (ctrl+b)    
-`less`     <== show file contents, does not echo on terminal, faster to load for large files    
+`less`     <== file contents, does not echo on terminal, faster to load for large files    
 ```
            <== use /pattern to search a pattern, Page Up/Down, or spacebar to move in the file,   
            <== view multiple files, use :n to next file and :p to go to the previous file     
            <== use v to open file in default editor nano/vim, exit from editor will take you back to the less session     
            <== use q to come out of the less session.    
 ```
-           
+Actually, less is more (powerful), with options available.    
+
 `tail`     <== show last part/lines of a file, default 10 lines from the end    
 `tail -n +15 file`  <== show file content from line number 10 to the end.   
 `tail -f`  <== show last part/lines of a file that is getting updated, like logs, e.g., tail -f /var/log/syslog     
 `head`     <== show starting lines of a file, default 10 lines from the start     
 
-Q. How can one view (show on the terminal) lines 91 to 95? Hint: Use head and tail commands.    
-A. 
+Q. A file has n lines. How can one view (show on the terminal) lines from n1 to n2, while n1 < n2 <= n ? Hint: Use head and tail commands.    
+A. Remember head prints from the top while tail from the bottom and the direction of tail can be reversed.    
 ```
 head -95 id_name.txt | tail +91 
 ```
