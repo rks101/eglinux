@@ -2035,6 +2035,15 @@ cat file1 file2 >> newfile   <== merge two files into a new file using output re
 
 `cat filename` outputs everything on the screen (which can be too much for large files).    
 
+Q. `history` command prints the command history saved. Why `cat history` does not work? It errors out with file not found!    
+A. Okay, `cat` works with files. So, `cat history` looks for a file called history in the current directory. This is true for any other commands as well. Remember cat works with files.     
+Instead try these:    
+```
+history > ab_tak_history.txt    <== dump or redirect `history` output into a file    
+cat ~/.bash_history             <== show output of saved history inside file ~/.bash_history    
+cat -n ~/.bash_history          <== show output with lines numbered, similar to `history` command 
+```
+
 Q. What about `tac filename` ?    
 A. Accidentally, stumbled upon this tac command, and surprising it is a valid command. It does print contents of a file from the last line, one line at a time. So, it is a kind of reverse cat :)    
 
