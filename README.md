@@ -40,7 +40,9 @@ Linux powers many servers and large application deployments worldwide. Knowing h
   * Part-2
       * [Processes](#processes)
       * [Process Memory Layout using `proc`](#process-memory-layout)
+      * [Process creation](#process-creation)
       * [Process termination](#process-termination)
+      * [Operators on commands](#operators-on-commands)
       * [Scheduling jobs](#scheduling-jobs)
       * [`nohup`](#nohup)
       * [`getent`](#getent)
@@ -1764,6 +1766,14 @@ A. /proc/kcore is a virtual map and nothing physical about it. This is infact tr
 
 ---- 
 
+## Process Creation  
+
+Introduce fork(), vfork() for process creation.    
+
+Introduce orphan and zombies.   
+
+---- 
+
 ## Process Termination 
 
 The command `kill` can be used to send a signal, including the termination signal (TERM).     
@@ -1811,6 +1821,20 @@ A few opinions on DBZ: [1](https://stackoverflow.com/questions/21852270/number-d
 Results or penalties of a DBZ scenario can be catastrophic, as seen in the Ariane V launcher failure. Therefore, verification researchers emphasize the verification of DBZ properties, overflows, and the like.    
 
 Also, check this answer on gen AI tools and repeat on different days.     
+
+---- 
+
+## Operators on processes 
+
+&   <== run a process in background, do not wait for it to finish     
+&&  <== run both command 1 AND command 2    
+||  <== run command 1 or command 2, used in cron jobs, usually test and scripts    
+bg  <== run a process in background    
+fg  <== bring the process in foreground that was    
+
+e.g. 
+code &   <== run code IDE in the background, and continue the bash, do not wait for it    
+sudo apt update && apt upgrade    <== run both apt update and apt upgrade, if apt update succeeds    
 
 ---- 
 
