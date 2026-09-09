@@ -1824,7 +1824,7 @@ Also, check this answer on gen AI tools and repeat on different days.
 
 ---- 
 
-## Operators on processes 
+## Operators on commands 
 
 &   <== run a process in background, do not wait for it to finish     
 &&  <== run both command 1 AND command 2    
