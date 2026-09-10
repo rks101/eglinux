@@ -2385,11 +2385,8 @@ Also, do not forget to ask your good old `man` about these commands, options, an
 ### Learning from documents    
 
 Ever wondered about learning and extracting data from PDF files, scanned documents (with or without OCR), word processors, spreadsheets, or presentations!    
-Here is an update for you.   
 
-```
-TODO: add URL of the live application, source code page, and the sample output.   
-```
+TODO: application for data extraction from PDF documents, e.g. newspaper, books.    
 
 ----
 
