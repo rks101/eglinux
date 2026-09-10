@@ -2749,8 +2749,9 @@ Check systemctl start <cmd>.target and systemctl isolate <cmd>.target under man 
 
 ## `timedatectl` 
 
-As Legal Metrology IST Rules 2026, make IST a legally enforceable reference for official and commercial use, it is important to [maintain Real-Time Clock (RTC) in Local Time](https://www.baeldung.com/linux/real-time-clock-rtc-local-time). The core idea is Real Time Clock should be coming from a traceable IST, maintained by CSIR-NPL and ISRO's NavIC, so that there is no lag and no dependency on external timezone UTC, NTP (internet) or GPS.    
+Since Legal Metrology IST Rules 2026, made IST a legally enforceable reference for official and commercial use, it is important to [maintain Real-Time Clock (RTC) in Local Time](https://www.baeldung.com/linux/real-time-clock-rtc-local-time). The core idea is Real Time Clock should be coming from a traceable IST, maintained by CSIR-NPL and ISRO's NavIC, so that there is no lag and no dependency on external timezone UTC, NTP (internet) or GPS.    
 
+Check timedatectl and set RTC to use the local timezone    
 ```
 $ timedatectl status 
                Local time: Thu 2026-09-03 15:00:02 IST
@@ -2759,9 +2760,9 @@ $ timedatectl status
                 Time zone: Asia/Kolkata (IST, +0530)
 System clock synchronized: yes
               NTP service: active
-          RTC in local TZ: no								<== set this no to yes
+          RTC in local TZ: no								<== set this to yes (1), with adjust system clock 
 
-$ sudo timedatectl set-local-rtc 1
+$ sudo timedatectl set-local-rtc 1 --adjust-system-clock 
 [sudo: authenticate] Password:        
 Warning: The system is now being configured to read the RTC time in the local time zone
          This mode cannot be fully supported. It will create various problems
@@ -2786,23 +2787,22 @@ Warning: The system is configured to read the RTC time in the local time zone.
          'timedatectl set-local-rtc 0'.
 ```
 
-Check systemd-timedated.service and start it. 
+Check systemd-timedated.service and start/restart it, if needed.   
 ```
 $ sudo systemctl status systemd-timedated.service 
 ○ systemd-timedated.service - Time & Date Service
      Loaded: loaded (/usr/lib/systemd/system/systemd-timedated.service; static)
-     Active: inactive (dead)
+     Active: inactive (dead)                         <== let's start this 
        Docs: man:systemd-timedated.service(8)
              man:localtime(5)
              man:org.freedesktop.timedate1(5)
-...
 
 $ sudo systemctl start systemd-timedated.service 
 
 $ sudo systemctl status systemd-timedated.service 
 ● systemd-timedated.service - Time & Date Service
      Loaded: loaded (/usr/lib/systemd/system/systemd-timedated.service; static)
-     Active: active (running) since Thu 2026-09-03 15:05:00 IST; 2s ago
+     Active: active (running) since Thu 2026-09-03 15:05:00 IST; 2s ago   <== started 
  Invocation: 4266e4fdfc6c4099abf1f4761e41886c
        Docs: man:systemd-timedated.service(8)
              man:localtime(5)
