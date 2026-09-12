@@ -50,7 +50,7 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Input Output redirection](#input-output-redirection)
       * [View file content](#view-file-content) 
       * [`xargs`](#xargs)
-      * [File compression](#file-compression) 
+      * [File archival and compression](#file-archival-and-compression) 
       * [Shell Scripting](#shell-scripting)
       * [regex](#regex)
       * [`xdg-open`](#xdg-open)
@@ -1710,16 +1710,17 @@ MiB Swap:  31250.0 total,  31168.0 free,     82.0 used.   8402.3 avail Mem
 
 ----
 
-## Process Memory Layout 
+## Process Memory Layout using `proc`
+
 This one is my favorite topic in the OS lab. Because a) it helps to visualize virtual memory, process layout, proc interface, and shared libs/objects, b) it gets interesting every time you learn something new.     
 
-Can I see the memory layout and the stack of a process? See [presentation]() for more details.   
+Can I see the memory layout and the stack of a process?   
 To see all files related to a process with PID = $$  
 ``` 
 ls -lrt /proc/$$
 ```
 Now, check process memory layout (TODO: add link from OS course file having exercises on proc):   
-```
+```    
 cat /proc/$$/maps 
 ```
 
@@ -1727,7 +1728,7 @@ And the stack associated with process $$:
 ```
 cat /proc/$$/stack
 ```
-Using the output of the above commands, convince yourself that you can visualise the stack, heap, and text segment of a process using virtual addresses and the output. Also, see /lib/x84_64-linux-gnu/lib\*  files and other shared libraries.  
+Using the output of the above commands, convince yourself that you can visualise the stack, heap, and text segment of a process using virtual addresses and the output. Also, see /lib/x84_64-linux-gnu/lib*  files and other shared libraries.  
 In the above example, replace $$ with a process ID you are interested in.  
 
 Ok, next you should try out:   
@@ -2155,10 +2156,11 @@ seq 3 | xargs -I {} xdg-open https://mywebsite.ac.in
 
 ----
 
-## File compression     
+## File archival and compression     
 
-zip, unzip, gzip, gunzip - create and extract zip archives   
-tar - a generic compression utility for multiple compression formats (.tar, .tar.gz or .tgz, .tar.bz2, etc.)   
+zip, unzip, gzip, gunzip - are used to create and extract zip archives.   
+
+tar - can be used create an archive and then invoke compression such as gzip, bzip2, or xz.   
 
 ```
 zip -r archive.zip archive         <== compress and create a package   
@@ -2166,7 +2168,7 @@ unzip archive.zip                  <== list (-lv) and extract the compressed fil
 
 zipinfo  json.zip                  <== compressed, uncompressed size, compression ratio, files inside zip
 
-gzip                               <== compress files using LZ compression  
+gzip                               <== gzip uses DEFLATE, which combines LZ77-style compression with Huffman coding.  
 gunzip                             <== list (-lv) and extract the compressed file created by zip, gzip 
 
 zcat -l compressed_file.tar        <== shows compressed, uncompressed size, and compression ratio 
@@ -2192,10 +2194,10 @@ xz -l logs.xz                    <== list contents of .xz file
 xz -dk logs.xz                   <== decompress .xz file 
 ```
 v - verbose output    
-f - force command    
+f - archive file    
 The options above may change, though it gets easier to remember them this way.    
 
-Note:- Linux kernel (kernel.org) uses .tar.xz format   
+Note:- Linux kernel (kernel.org) uses .tar.xz format to archive kernel releases.    
 
 ----
 
