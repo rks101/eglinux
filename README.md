@@ -19,7 +19,7 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Know processors](#know-processors)
       * [Know memory](#know-memory)
       * [GB or GiB](#gb-or-gib)
-      * [List hardware using `lshw`](#list-hardware)
+      * [List hardware](#list-hardware)
       * [Environment variables](#environment-variables)
       * [PATH](#path)
       * [Navigating directories](#navigating-directories) 
@@ -29,13 +29,13 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Know File System](#know-file-system)
       * [Mount points](#mount-points)
       * [Disk Usage](#disk-usage)
+      * [User account management](#user-account-management) 
       * [The One with File Permissions](#the-one-with-file-permissions) 
       * [`su` and `sudo`](#su-and-sudo) 
       * [Package Manager](#package-manager) 
       * [Simple web server](#simple-web-server)
       * [Remote login using `ssh`](#remote-login-using-ssh)
       * [Transfer files using Secure Copy `scp`](#transfer-files-using-secure-copy-scp)
-      * [User account management](#user-account-management) 
   * Part-2
       * [Processes](#processes)
       * [Process Memory Layout using `proc`](#process-memory-layout)
@@ -1058,6 +1058,74 @@ ncdu can help to trace large and unused files on the system.
 
 ----
 
+## User account management 
+
+To add a new user: `useradd`   
+
+To delete/remove an existing user: `userdel`   
+
+To modify settings for an existing user: `usermod`   
+
+To add/create a new group: `groupadd`   
+
+To delete/remove an existing group: `groupdel`   
+
+To modify settings for an existing user: `groupmod`   
+
+To add a user to a group,  `usermod`  or  `groupmod`   
+```
+usermod -g root rps     <== add group root for user rps 
+groupmod -a rps root    <== add user rps to group root 
+```
+
+To view groups a user is in or added to: `groups` 
+```
+groups 
+groups | tr ' ' '\n'      <== to see each group on a new line   
+```
+
+
+To disable login for a user:  set user login shell to nologin :)    
+```
+usermod user_name -s /sbin/nologin           <== message to user "This account is currently not available."
+                                             <== check: man nologin   
+```   
+To lock or unlock a user account:    
+```
+usermod -L username                          <== check /etc/shadow, the second column will show a ! sign 
+usermod -U username 
+```
+
+To view the user account password settings:   
+```
+$ sudo chage --list user_name
+[sudo] password for user_name: 
+Last password change					: Dec 01, 2022
+Password expires					: never
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 99999
+Number of days of warning before password expires	: 7
+```
+
+To set a user's password to expire on a date:    
+```
+sudo chage -E 2025-12-31 user_name
+```
+
+### User and group IDs 
+
+Use the following to find about user and group IDs:    
+```
+id
+```
+
+For a user: UID, RUID, EUID    
+For a group: GID, RGID, EGID    
+
+----
+
 ## The One with File Permissions   
 
 A Linux user is a regular user, a system user (without login), or a superuser, aka root.   
@@ -1570,74 +1638,6 @@ scp -i filename.pem user@remote-system:/path-of-remote-file-dir  path-of-local-f
 ```
 
 While writing to the target location, make sure there is no file with the same name. It may get overwritten.   
-
-----
-
-## User account management 
-
-To add a new user: `useradd`   
-
-To delete/remove an existing user: `userdel`   
-
-To modify settings for an existing user: `usermod`   
-
-To add/create a new group: `groupadd`   
-
-To delete/remove an existing group: `groupdel`   
-
-To modify settings for an existing user: `groupmod`   
-
-To add a user to a group,  `usermod`  or  `groupmod`   
-```
-usermod -g root rps     <== add group root for user rps 
-groupmod -a rps root    <== add user rps to group root 
-```
-
-To view groups a user is in or added to: `groups` 
-```
-groups 
-groups | tr ' ' '\n'      <== to see each group on a new line   
-```
-
-
-To disable login for a user:  set user login shell to nologin :)    
-```
-usermod user_name -s /sbin/nologin           <== message to user "This account is currently not available."
-                                             <== check: man nologin   
-```   
-To lock or unlock a user account:    
-```
-usermod -L username                          <== check /etc/shadow, the second column will show a ! sign 
-usermod -U username 
-```
-
-To view the user account password settings:   
-```
-$ sudo chage --list user_name
-[sudo] password for user_name: 
-Last password change					: Dec 01, 2022
-Password expires					: never
-Password inactive					: never
-Account expires						: never
-Minimum number of days between password change		: 0
-Maximum number of days between password change		: 99999
-Number of days of warning before password expires	: 7
-```
-
-To set a user's password to expire on a date:    
-```
-sudo chage -E 2025-12-31 user_name
-```
-
-### User and group IDs 
-
-Use the following to find about user and group IDs:    
-```
-id
-```
-
-For a user: UID, RUID, EUID    
-For a group: GID, RGID, EGID    
 
 ----
 
