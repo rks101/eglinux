@@ -45,7 +45,6 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Process termination](#process-termination)
       * [Operators on commands](#operators-on-commands)
       * [Scheduling jobs](#scheduling-jobs)
-      * [`nohup`](#nohup)
       * [`getent`](#getent)
       * [vi editor](#vi-editor)
       * [Input Output redirection](#input-output-redirection)
@@ -1655,6 +1654,8 @@ PART-2
 
 ## Processes   
 
+### `ps`
+
 Use the `ps` command with options -aef or -aux and grep for user or other strings.    
 
 ps -aux shows the USER running the process, the PID of the process, the %CPU used, the %MEM used, the status of the process, the timestamp of starting the process, and the command used to start the process.    
@@ -1708,10 +1709,13 @@ swapper/6:0
 ```
 See the [referenced post](https://medium.com/@boutnaru/the-linux-process-journey-pid-0-swapper-7868d1131316).    
 
+### `top`
+
 The `top` command:    
-- For a real-time view of a running Linux system, use the `top` command. It is interactive, and the output gets updated dynamically.   
-- To get this view from the top at any instant, using `top -bn1`, and this is helpful in quiet scripts.    
-- To sort output from the top (by %MEM, %CPU, TIME+) using -o and the required sort option.     
+- For a real-time view of a running Linux system, use the `top` command to display Linux processes with PID, CPU, and memory usage, time elapsed since starting the processes, etc. It is interactive, and the output gets updated dynamically.
+- Avoid using top for a long time on servers with active users.   
+- To get a point-in-time view from the top at any instant, use `top -bn1`, and this is helpful in quiet scripts.    
+- To sort output from the top (by %MEM, %CPU, TIME+) using -o and the required sort option. 
 
 ```
 $ top -bn1 -o %MEM | head -n 15                       <== Find memory hungry processes 
@@ -1773,6 +1777,8 @@ MiB Swap:  31250.0 total,  31168.0 free,     82.0 used.   8402.3 avail Mem
   38118 rps       20   0 1408.4g 182600 125344 S  10.0   1.2  15:28.51 chrome
     330 root     -51   0       0      0      0 S   0.0   0.0  15:21.82 irq/182+
 ```
+
+Interesting: Try pressing any arrow key while the top is on.   
 
 ----
 
@@ -1959,9 +1965,7 @@ crontab -e -u rps
 
 Also refer: [Cron periodic config](https://docs.freebsd.org/en/books/handbook/config/#cron-periodic)     
 
-----
-
-## nohup   
+### nohup for unattended or uninterrupted execution  
 
 When running a command in the terminal, it stops upon closing the terminal or disconnecting the remote session (SSH). Suppose the command was executed interactively (sudo apt update, sudo apt upgrade); now the exit status may be unknown.    
 
@@ -2485,7 +2489,6 @@ PDF version:     1.4
 
 ```
 exiftool
-
 ```
 
 Also, do not forget to ask your good old `man` about these commands, options, and arguments when you are using them for the first time.   
@@ -2500,30 +2503,10 @@ TODO: Data extraction from PDF documents, e.g. newspaper, books.
 
 ## Debugging and Troubleshooting 
 
-All topics discussed above help in building debugging and troubleshooting skills while getting help on the system itself.    
+Topics discussed above help in building debugging and troubleshooting skills while getting help on the system itself. Starting from getting to know about system details, compute, memory, network, and storage details, permissions, sharing and transferring files, leading to running processes, proc interface, viewing file content, scripting and regex to simplify automation and other utilities.     
 
-For debugging issues, the following can help with processes and system resources.  
+For debugging issues, the following can help with processes and system resources.    
 
-Use the **top** command to display Linux processes with PID, CPU, and memory usage in real-time. Avoid using this for a long time on servers with active users.   
-```
-$ top
-
-top - 10:34:56 up 6 days, 21:06,  1 user,  load average: 0.80, 0.51, 0.55  
-Tasks: 333 total,   1 running, 323 sleeping,   8 stopped,   1 zombie  
-%Cpu(s):  0.7 us,  0.4 sy,  0.0 ni, 98.2 id,  0.6 wa,  0.0 hi,  0.0 si,  0.0 st  
-MiB Mem :  15908.0 total,   3389.9 free,   5168.0 used,   7350.0 buff/cache  
-MiB Swap:  30518.0 total,  30518.0 free,      0.0 used.   9270.3 avail Mem  
-
-    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND  
-   7648 msg       20   0 7303440 507100 143564 S   6.0   3.1 166:37.55 zoom  
-   2142 msg       20   0 5153328 399196 130928 S   1.3   2.5 141:03.20 gnome-shell  
-   3241 msg       20   0 1551784 368148 186284 S   1.0   2.3  55:48.93 chrome  
-   3286 msg       20   0  390048 111048  68588 S   0.7   0.7  15:12.61 chrome  
- 100726 mysql     20   0 2265400 399708  35948 S   0.7   2.5   1:17.47 mysqld  
- 129414 msg       20   0   12336   4372   3408 R   0.7   0.0   0:00.05 top  
-    883 root      20   0  484176  21492  17276 S   0.3   0.1   1:08.84 NetworkManager  
-```
-Interesting: Try pressing any arrow key while the top is on.   
 
 Use **dstat** - a tool for generating system resource statistics such as cpu usage, disk read/write, network data received/sent, etc. To exit, type Ctrl+C.    
 ```
