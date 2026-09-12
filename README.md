@@ -1126,16 +1126,6 @@ Use the following to find about user and group IDs:
 id
 ```
 
-Each user has the following numeric identifiers:    
-UID - User ID,   
-RUID - Real UID,   
-EUID - Effective UID    
-
-Each group has the following numeric identifiers:    
-GID - Group ID,   
-RGID - Real GID,   
-EGID - Effective GID    
-
 ----
 
 ## The One with File Permissions   
@@ -1221,8 +1211,10 @@ r-- : 100 or 4
 ```
 
 Using r - regular file can be opened in read-only mode, and directory content can be listed (cd to the directory is not allowed by r)   
-Using w - regular file can be edited, deleted, renamed, modified and saved, directory can be created inside a directory, deleted, renamed, access can be modifed as well.   
+Using w - regular file can be modified and saved, directory can be created inside a directory, deleted, renamed, access can be modifed as well.   
 Using x - regular file can be executed if it is a script, the directory can be accessed, cd to the directory is allowed by x   
+
+Note:- Deletion and renaming of a file are controlled primarily by permissions on its parent directory, not by the file's own write permission.    
 
 The following are some examples of file permissions.   
 
@@ -1238,7 +1230,7 @@ Grant r or w or x permission using +r or +w or +x
 Revoke r or w or x permission using -r or -w or -x    
 Before + or -, specify groups without a space.    
 
-chmod +x : grant execute permission to all    
+chmod a+x : grant execute permission to all    
 chmod g+w : grant write permission to the same group of users   
 chmod go+r : grant read permission to group and other users, NOTE: Do not use numeric perms as we do not know other perms    
 chmod 777 : grant rwx to owner, group, and non-group users. NOTE: Be very careful about why such a permission mode is being set    
@@ -1330,15 +1322,14 @@ Using buffer overflow, if a remote user can get a shell /bin/sh executing some [
 * Maximum permissions for a file are 666 and for a directory 777.
 * Now using a umask of 022, default permissions for a file are 644 (-rw-r--r--) and for a directory 755 (drwxr-xr-x).
 * Similarly, umask 002 will grant files 664 (-rw-rw-r--) and to directories 775 (drwxrwxr-x) permissions.
-* Type `umask` on bash prompt to get current umask value, ignore leading zeros except rightmost 3 digits
-* With umask in four digits, leading digits 4, 2, 1 have special meaning. 4xxx SUID bit set, 2xxx SGID bit set, 1xxx sticky bit set (they are different)
+* Type `umask` on bash prompt to get current umask value, ignore leading zeros except rightmost 3 digits   
 * umask can be set in /etc/profile for all users or in ~/.bashrc for a user by adding one line umask value. After this, open a new terminal or run the bashrc script to apply the changes in the current shell environment.    
 ```
 umask 022
 ```
 
 Q. Venky wishes to create all new files and directories having all permissions for user vikings and no permissions for users in the same group or others. What umask should he set? The new files should show as -rwx------, and directories as drwx------     
-A. Venky should add `umask ....` in ~/.bashrc file, where .... is replaced by the umask value.    
+A. Venky should add `umask ....` in ~/.bashrc file, where .... is replaced by the umask value. Explore if umask can grant execute permission for newly created files or any additional steps required.   
 
 ----
 
@@ -1362,7 +1353,7 @@ $ ls -lrt /usr/bin/fusermount3                                 <== ask ls for pe
 -rwsr-xr-x 1 root root 35200 Dec 23  2020 /usr/bin/fusermount3    <== notice  s  after -rw, this is SUID bit.   
 
 ```
-If the SUID bit is set for a program/executable while running the program, the effective user ID gets updated to the user ID of the owner of the program while it was run by a real user.   
+If the SUID bit is set for a program/executable, while running the program, the effective user ID gets updated to the user ID of the owner of the program.   
 
 Now, check the SUID bit for passwd :)    
 
@@ -1422,7 +1413,7 @@ drwxrwxrwt 4 root root 100 May 11 18:02 /run/lock
 ```
 If the sticky bit is set for a directory, all files inside this directory can be deleted or moved by the owner of the files, directory owner, or root.    
 
-See if there are other such directories like tmp using find / -perm /1000 
+See if there are other such files or directories like tmp using find / -perm /1000 
 
 ```
 $ find / -perm /1000 2> /dev/null             <== 2> /dev/null keeps the output quiet and error message free 
@@ -1482,7 +1473,7 @@ man capabilities gets this :)
 ## su and sudo    
 
 su = substitute user, su <user> starts another shell with permissions of <user> specified.      
-sudo = superuser do, sudo verifies the password of the user who executed sudo for any privileged command.     
+sudo = superuser do, sudo permits executing command as another user who invoked sudo for any privileged command.     
 sudo is for the same user to obtain higher privileges while su is to assume identity of another user.    
 
 Q. Do I really need to have a root password set on Linux? And then, how do I manage things without sharing it with others?     
@@ -1494,8 +1485,8 @@ A. `sudo -i` can be used to acquire the root environment (privileged administrat
 To check if the root password is set:    
 ```
 rps@eg:~$ sudo -i                 <== get me root environment, if user rps is allowed/configured to do so      
-root@eg:~# passwd -S              <== know password status: **P** = usable Password is set, **NP** = No Password is set, **L** = password is Locked (cannot login).     
-root NP 2022-12-08 0 99999 7 -1   <== No Password is set for root; better keep it this way on a standalone/personal system     
+root@eg:~# passwd -S              <== know password status: **P** = usable Password is set, **NP** = Password field is empty, **L** = password is Locked (cannot login).     
+root NP 2022-12-08 0 99999 7 -1   <== Password field is empty for root; This is dangerous because an empty password can permit password-less authentication in some contexts.     
 root@eg:~# exit
 logout
 
@@ -1508,7 +1499,7 @@ A. Check if the current user is a member of the sudo group. File /etc/group
 
 Q. Should I use "su" or "su -" as administrator?     
 A. Always use "su -" for a clean substitution to the intended user identity.    
-"su -" substitutes the root/target user and creates a clean shell without environment variables set by the previous user. It's a complete user substitution.    
+"su -" substitutes the root/target user and creates a login shell and resets much of the environment. It's a complete user substitution.    
 "su" existing shell environment is more or less retained and substitutes the user. It's like mimicking a new user environment.    
 After su or "su -", you can check `pwd` or `ls -lrt ~/`  and exit after any such operations.    
 
@@ -1735,8 +1726,7 @@ See the [referenced post](https://medium.com/@boutnaru/the-linux-process-journey
 ### `top`
 
 The `top` command:    
-- For a real-time view of a running Linux system, use the `top` command to display Linux processes with PID, CPU, and memory usage, time elapsed since starting the processes, etc. It is interactive, and the output gets updated dynamically.
-- Avoid using top for a long time on servers with active users.   
+- For a real-time view of a running Linux system, use the `top` command to display Linux processes with PID, CPU, and memory usage, accumulated CPU time since starting the processes, etc. It is interactive, and the output gets updated dynamically.
 - To get a point-in-time view from the top at any instant, use `top -bn1`, and this is helpful in quiet scripts.    
 - To sort output from the top (by %MEM, %CPU, TIME+) using -o and the required sort option. 
 
@@ -1897,9 +1887,9 @@ $ kill -9 pid     <== kill will send a signal SIGKILL (9) to pid
 -9, -SIGKILL, -KILL serve the same purpose.    
 
 ```
-$ kill -9 -1      <== This will kill the init process, if it can,
-                  <== and thereby terminate your session as well. 
+$ kill -9 -1
 ```
+Note:- In Linux, a negative PID has special process-group semantics, while -1 means sending the signal to processes the caller is permitted to signal, with kernel exclusions.     
 
 To list all signals that kill can send:   
 ```
@@ -1926,12 +1916,13 @@ A. SIGKILL and SIGSTOP. Because the kernel is configured to do it.
 Q. [Interesting] Is Divide-by-Zero (DBZ or DIV0) a hardware or software interrupt?     
 A. This question is interesting, and you may find different answers. First, mathematics does not define division by zero. Think about zero partitions of a 12.4-meter pipe. Can you have zero partitions and then create a whole from these zero partitions?    
 
-Programming languages like C do not explicitly define the outcome of such arithmetic. In the C++ specification, it is left as Undefined/Unknown behaviour.    
+Programming languages like C/C++ do not explicitly define the outcome of such arithmetic. In the C++ specification, it is left as Undefined behaviour.   
+
 In the Linux kernel for the x86 architecture, there is a trap handler function to send the SIGFPE signal for such a division.    
 
 A few opinions on DBZ: [1](https://stackoverflow.com/questions/21852270/number-divide-by-zero-is-hardware-exception) , [2](https://www.sysnet.ucsd.edu/~voelker/class/cse120/signals.html) , [3](https://stackoverflow.com/questions/23878400/how-processor-handles-case-of-division-by-zero) , [4](https://stackoverflow.com/questions/13563688/divide-by-zero-exception-handling-in-linux) , [5](https://ee.usc.edu/stochastic-nets/docs/divide-by-zero.pdf). 
 
-Results or penalties of a DBZ scenario can be catastrophic, as seen in the Ariane V launcher failure. Therefore, verification researchers emphasize the verification of DBZ properties, overflows, and the like.    
+Results or penalties of a DBZ scenario can be catastrophic. Therefore, researchers emphasize the verification of DBZ properties, arithmetic overflows, and like.    
 
 Also, check this answer on gen AI tools and repeat on different days.     
 
