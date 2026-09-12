@@ -2035,13 +2035,11 @@ On your system/distribution, vi or vim (vi improved) may be installed. You can i
 
 The vi editor has two modes:    
 1. Command mode (for navigating and issuing commands) and 
-2. Insert mode (for editing files in a buffer). 
-3. Press **i** (to in-place insert) or **a** (to append) to enter into insert mode. 
-4. Use the ESC (Escape) key to switch between Insert and Command mode anytime.     
+2. Insert mode (for editing files in a buffer).
 
 In insert/edit mode:    
-- vi filename.txt, then use i to insert at any place in the buffer, and a to append next to the current place of the cursor. 
-- In insert mode, type anything to add content to the buffer and liberally use ESC key to toggle between insert and command mode. 
+- vi filename.txt, then use **i** to insert at any place in the buffer, and **a** to append next to the current place of the cursor. 
+- In insert mode, type anything to add content to the buffer and liberally use **Escape** key to toggle between insert and command mode. 
 - Syntax highlighting is available for many programming languages. 
 
 Navigation in command mode:    
@@ -2123,11 +2121,11 @@ We can redirect output or input as below (using double quotes because of markup 
 - "2>" redirect error     
 - "2>>" append to redirected error (not required)    
 
-- "<" redirect input    <== Tip: for large text, use cat instead of <    
+- "<" redirect input    
 - "<<" used as a "here-document" in shell syntax and consumed by cat command     
 e.g., `cat << END`  (read the following text till you type the delimiter END)     
 
-- "2>&1" redirects both stderr and stdout     
+- "2>&1" redirects stderr and stdout to the same destination     
 
 When desired to suppress the noise of command output, stdout and stderr can be merged:     
 ```
@@ -2220,7 +2218,7 @@ Actually, less is more (powerful), with options available.
 `head`     <== show starting lines of a file, default 10 lines from the start     
 `tail`     <== show last part/lines of a file, default 10 lines from the end    
 
-`tail -n +15 file`  <== show file content from line number 15 to the end, plus reverses the direction for tail.    
+`tail -n +15 file`  <== show file content from line number 15 to the end    
 
 `tail -f`  <== show last part/lines of a file that is getting updated, like logs, e.g.,   
 ```
@@ -2228,7 +2226,7 @@ tail -f /var/log/syslog
 ```
 
 Q. A file has n lines. How can one view (show on the terminal) lines from n1 to n2, while n1 < n2 <= n ? Hint: Use head and tail commands.    
-A. Remember head prints from the top while tail from the bottom and the direction of tail can be reversed.    
+A. Remember head prints from the top while tail from the bottom and tail has a option to output from a specific line.    
 ```
 head -95 id_name.txt | tail +91      <== without counting the line difference :) 
 ```
@@ -2258,6 +2256,7 @@ grep: /var/log/ntopng/ntopng.log: Permission denied
 /var/log/teamviewer15/TeamViewer15_Logfile.log
 /var/log/teamviewer15/TeamViewer15_Logfile_OLD.log
 ```
+Note: In the above example, `sudo` applies to `find`, not automatically to the `grep` process launched by `xargs`    
 
 Repetition with seq   
 ```
@@ -2284,7 +2283,7 @@ zipinfo  json.zip                  <== compressed, uncompressed size, compressio
 gzip                               <== gzip uses DEFLATE, which combines LZ77-style compression with Huffman coding.  
 gunzip                             <== list (-lv) and extract the compressed file created by zip, gzip 
 
-zcat -l compressed_file.tar        <== shows compressed, uncompressed size, and compression ratio 
+zcat -l compressed_file.zip        <== shows compressed, uncompressed size, and compression ratio 
 
 tar -cvf logs.tar logs             <== create tar ball (file) 
 tar -tvf logs.tar                  <== list (-tv) contents of tar ball (file) 
@@ -2302,9 +2301,9 @@ tar -Jcvf logs.tar.xz logs        <== create tar ball in .tar.xz format (LZMA co
 tar -Jtvf logs.tar.xz             <== list (-tv) contents of tar ball in .tar.xz format
 tar -Jxvf logs.tar.xz             <== extract tar ball in .tar.xz format
 
-xz -z logs.xz logs               <== xz is a general utility to compress, list, and decompress archives
-xz -l logs.xz                    <== list contents of .xz file 
-xz -dk logs.xz                   <== decompress .xz file 
+xz -k logs                       <== xz is a general utility to compress, list, and decompress archives
+xz -lv logs.xz                   <== list contents of .xz file 
+xz -dk logs.xz                   <== decompress .xz file, and keep opriginal 
 ```
 v - verbose output    
 f - archive file    
