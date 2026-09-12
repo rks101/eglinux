@@ -3515,9 +3515,9 @@ Some reading material: [1](http://www.linfo.org/flavors.html) and [2](https://ww
 
 [The talk with not so visionary, not so people-person, a simple, happy engineer](https://www.youtube.com/watch?v=o8NPllzkFhE) Linus Torvalds, who changed the world at least twice with Linux and Git. He started both projects as a hobby and to solve the problems he was facing.     
 
-Linus did not monetize Linux, instead shared the Linux kernel (heart) to the community to develop, and kept it out of corporate greed using GPL. This Linux philosophy is also a reason why Linux flourished among enthusiasts and hobbyist developers.     
+Linus Torvalds did not monetize Linux, instead shared the Linux kernel (heart of the OS) to the community to develop, and kept it out of corporate greed using GPL/GPLv3. This Linux philosophy is also a reason why Linux flourished among enthusiasts and hobbyist developers.    
 
-Linus Torvalds built Linux Kernel at 21, without any of the assistance or tools available now, in 2026.    
+Linus Torvalds began developing the Linux kernel at age 21.    
 
 No co-founder.    
 No VC backing.    
