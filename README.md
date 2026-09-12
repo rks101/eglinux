@@ -2834,6 +2834,56 @@ systemd 255 (255.4-1ubuntu8.5)
 
 Check systemctl start <cmd>.target and systemctl isolate <cmd>.target under man systemctl :)     
 
+Other examples on systemd-based services are:    
+
+### `hostnamectl` - display and change hostname   
+
+```
+$ hostnamectl 
+ Static hostname: eg
+       Icon name: computer-laptop
+         Chassis: laptop 💻
+      Machine ID: a1bf123456789ba8ba123456b1bc12f1qwerty
+         Boot ID: d12c1edcc12e1ee1bba1daa123ba1d1cqwerty
+Operating System: Ubuntu 24.04.1 LTS              
+          Kernel: Linux 6.8.0-40-generic
+    Architecture: x86-64
+ Hardware Vendor: Dell Inc.
+  Hardware Model: Latitude 54321
+Firmware Version: 1.40.0
+   Firmware Date: Tue 2024-09-09
+    Firmware Age: 6month 3w
+```
+To change hostname to saral: `hostnamectl hostname saral`    
+
+### `networkctl` - query and print the status of network interfaces  
+
+```
+$ networkctl status wlp0s20f1
+systemd-networkd is not running, output might be incomplete.
+Failed to query link bit rates: Unit dbus-org.freedesktop.network1.service not found.
+Failed to query link DHCP leases: Unit dbus-org.freedesktop.network1.service not found.
+● 3: wlp0s20f1
+                   Link File: /usr/lib/systemd/network/99-default.link
+                Network File: n/a
+                       State: n/a (unmanaged)
+                Online state: unknown
+                        Type: wlan
+                        Path: pci-0000:00:14.3
+                      Driver: iwlwifi
+                      Vendor: Intel Corporation
+                       Model: Wi-Fi 6 AX201
+            Hardware Address: 50:84:92:44:55:66 (Intel Corporate)
+                         MTU: 1500 (min: 256, max: 2304)
+                       QDisc: noqueue
+IPv6 Address Generation Mode: none
+          Wi-Fi access point: LMN_PQR (11:a1:aa:01:aa:01)
+    Number of Queues (Tx/Rx): 1/1
+                     Address: 172.16.8.254
+                              fe80::437c:dd6a:b7f2:7850
+                     Gateway: 172.18.0.1
+```
+
 ----
 
 ## `timedatectl` 
@@ -2910,61 +2960,9 @@ Sep 03 15:05:00 eg systemd[1]: Started systemd-timedated.service - Time & Date S
 
 ----
 
-## `hostnamectl`
+## Monitoring Performance   
 
-Display and change hostname (hostnamectl hostname mylaptop):   
-
-```
-$ hostnamectl 
- Static hostname: eg
-       Icon name: computer-laptop
-         Chassis: laptop 💻
-      Machine ID: a1bf123456789ba8ba123456b1bc12f1qwerty
-         Boot ID: d12c1edcc12e1ee1bba1daa123ba1d1cqwerty
-Operating System: Ubuntu 24.04.1 LTS              
-          Kernel: Linux 6.8.0-40-generic
-    Architecture: x86-64
- Hardware Vendor: Dell Inc.
-  Hardware Model: Latitude 54321
-Firmware Version: 1.40.0
-   Firmware Date: Tue 2024-09-09
-    Firmware Age: 6month 3w
-```
-----
-
-## `networkctl`    
-
-Use `networkctl` to query and print the status of network links/interfaces.    
-
-```
-$ networkctl status wlp0s20f1
-systemd-networkd is not running, output might be incomplete.
-Failed to query link bit rates: Unit dbus-org.freedesktop.network1.service not found.
-Failed to query link DHCP leases: Unit dbus-org.freedesktop.network1.service not found.
-● 3: wlp0s20f1
-                   Link File: /usr/lib/systemd/network/99-default.link
-                Network File: n/a
-                       State: n/a (unmanaged)
-                Online state: unknown
-                        Type: wlan
-                        Path: pci-0000:00:14.3
-                      Driver: iwlwifi
-                      Vendor: Intel Corporation
-                       Model: Wi-Fi 6 AX201
-            Hardware Address: 50:84:92:44:55:66 (Intel Corporate)
-                         MTU: 1500 (min: 256, max: 2304)
-                       QDisc: noqueue
-IPv6 Address Generation Mode: none
-          Wi-Fi access point: LMN_PQR (11:a1:aa:01:aa:01)
-    Number of Queues (Tx/Rx): 1/1
-                     Address: 172.16.8.254
-                              fe80::437c:dd6a:b7f2:7850
-                     Gateway: 172.18.0.1
-```
-
-----
-
-## `perf`   
+### `perf`   
 
 Use perf to see how much CPU every function is using.  
 ```
@@ -3046,14 +3044,10 @@ $ sudo perf stat -ddd ls -R /home
        0.466687000 seconds sys
 ```
 
-----
-
-## Monitoring Performance   
-
-`nload`   
+### `nload`   
 
 
-`iptraf` - IP Network Statistics Utility   
+### `iptraf` - IP Network Statistics Utility   
 
 ```
 $ sudo iptraf
@@ -3079,6 +3073,9 @@ iptraf-ng 1.2.1
  Displays current IP traffic information
  Up/Down-Move selector  Enter-execute
 ```
+
+### `wavemon` - Wireless network monitor 
+
 
 ----
 
@@ -3123,8 +3120,12 @@ Number of events: 12
 
 ## Installed packages
 
-How do I find out installed software packages? 
+Q. How do I find out installed software packages with version installed?    
+A. Use apt list or dpkg query.    
+
 ```
+sudo apt list 
+sudo dpkg-query --list 
 sudo dpkg --get-selections
 ```
 This is equivalent to rpm -qa in case of RHEL/Fedora/CentOS. 
