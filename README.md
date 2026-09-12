@@ -1710,16 +1710,18 @@ MiB Swap:  31250.0 total,  31168.0 free,     82.0 used.   8402.3 avail Mem
 
 ----
 
-## Process Memory Layout using `proc`
+## Process Memory Layout 
 
 This one is my favorite topic in the OS lab. Because a) it helps to visualize virtual memory, process layout, proc interface, and shared libs/objects, b) it gets interesting every time you learn something new.     
 
-Can I see the memory layout and the stack of a process?   
+/proc can be used to see memory mappings and the stack of a process.    
+
 To see all files related to a process with PID = $$  
 ``` 
 ls -lrt /proc/$$
 ```
-Now, check process memory layout (TODO: add link from OS course file having exercises on proc):   
+
+Now, check process virtual memory mappings:   
 ```    
 cat /proc/$$/maps 
 ```
@@ -1728,10 +1730,11 @@ And the stack associated with process $$:
 ```
 cat /proc/$$/stack
 ```
+
 Using the output of the above commands, convince yourself that you can visualise the stack, heap, and text segment of a process using virtual addresses and the output. Also, see /lib/x84_64-linux-gnu/lib*  files and other shared libraries.  
 In the above example, replace $$ with a process ID you are interested in.  
 
-Ok, next you should try out:   
+Next you should try out:   
 ```
 cat /proc/self/maps
 ```
