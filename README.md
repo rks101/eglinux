@@ -3507,17 +3507,6 @@ source /home/qtemp/myenv/bin/activate
 
 ----
 
-## BPF BCC links   
-
-BPF = Berkeley Packet Filter   
-eBPF = Extended Berkeley Packet Filter   
-BCC = BPF Compiler Collection    
-[BPF BCC blogs](https://github.com/iovisor/bcc/blob/master/LINKS.md)    
-
-Tcpdump, Wireshark, and Dtrace use eBPF.    
-
-----
-
 PART-5
 
 ## The One with UNIX or Linux History   
@@ -3556,7 +3545,7 @@ Some reading material: [1](http://www.linfo.org/flavors.html) and [2](https://ww
 
 [The talk with not so visionary, not so people-person, a simple, happy engineer](https://www.youtube.com/watch?v=o8NPllzkFhE) Linus Torvalds, who changed the world at least twice with Linux and Git. He started both projects as a hobby and to solve the problems he was facing.     
 
-Linus Torvalds did not monetize Linux, instead shared the Linux kernel (heart of the OS) to the community to develop, and kept it out of corporate capitalism (greed) with GPL/GPLv3. This Linux philosophy is also a reason why Linux flourished among enthusiasts and hobbyist developers.    
+Linus Torvalds did not monetize Linux, instead shared the Linux kernel (heart of the OS) to the community to develop, and kept it out of corporate capitalism with GPL. This Linux philosophy is also a reason why Linux flourished initially among enthusiasts and hobbyist developers.    
 
 Linus Torvalds began developing the Linux kernel at age 21. During the origin of his personal project:    
 
@@ -3585,7 +3574,7 @@ Pick up an open source project from the maintainer's website, join the mailing l
 
 ## D-Windows 
 
-[Govt around the world are switching to Linux](https://lowtechlinux.com/2025/07/07/governments-around-the-world-are-switching-to-linux/). This switch to Linux includes the OS, LibreOffice suite, email solutions, the Thunderbird email client, and other open-source tools. The switch is aimed at reducing licensing costs due to budgetary constraints, advancing digital sovereignty, and ruling out backdoors and zero-day cybersecurity threats.      
+[Govt around the world are switching to Linux](https://lowtechlinux.com/2025/07/07/governments-around-the-world-are-switching-to-linux/). This switch to Linux includes the OS, LibreOffice suite, email solutions, the Thunderbird email client, and other open-source tools. The switch is aimed at reducing licensing costs due to budgetary constraints, and promoting digital sovereignty.     
 
 France - [2026 update](https://www.zdnet.com/article/france-leaves-windows-for-linux-desktop/), [link2](https://www.techradar.com/computing/windows/france-has-ditched-windows-11-for-linux-on-2-5-million-government-pcs-heres-why-microsoft-should-worry-that-millions-more-could-follow-by-the-end-of-2026) and [link3](https://newsgroup.site/france-government-linux-migration-windows-2026/). France began switching government PCs to Linux.   
 
