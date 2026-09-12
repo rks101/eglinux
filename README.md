@@ -1712,13 +1712,18 @@ MiB Swap:  31250.0 total,  31168.0 free,     82.0 used.   8402.3 avail Mem
 
 ## Process Memory Layout 
 
-This one is my favorite topic in the OS lab. Because a) it helps to visualize virtual memory, process layout, proc interface, and shared libs/objects, b) it gets interesting every time you learn something new.     
+Process Memory and Virtual Memory are very interesting topics in the OS lab. They help to visualize virtual memory, process layout, shared libraries, and other objects.    
 
-/proc can be used to see memory mappings and the stack of a process.    
+In Linux, /proc pseudo-filesystem can be used as an interface to kernel data structures to see process address space, memory mappings, the stack of a process, etc. Do spend some time with `man proc` to read about proc interface.    
+
+Regarding pseudo-filesystem, try to check the storage space consumed by /proc using du -hs command.    
+```
+du -hs /proc  2> /dev/null    
+```
 
 To see all files related to a process with PID = $$  
 ``` 
-ls -lrt /proc/$$
+ls -lrt /proc/$$ 
 ```
 
 Now, check process virtual memory mappings:   
@@ -1730,6 +1735,8 @@ And the stack associated with process $$:
 ```
 cat /proc/$$/stack
 ```
+
+You can check cmdline, status, limits files for a process using proc.    
 
 Using the output of the above commands, convince yourself that you can visualise the stack, heap, and text segment of a process using virtual addresses and the output. Also, see /lib/x84_64-linux-gnu/lib*  files and other shared libraries.  
 In the above example, replace $$ with a process ID you are interested in.  
