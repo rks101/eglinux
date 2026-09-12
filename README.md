@@ -1060,14 +1060,16 @@ ncdu can help to trace large and unused files on the system.
 
 ## User account management 
 
-### User management
+### User management 
+
 To add a new user: `useradd`   
 
 To delete/remove an existing user: `userdel`   
 
 To modify settings for an existing user: `usermod`   
 
-### Group management
+### Group management 
+
 To add/create a new group: `groupadd`   
 
 To delete/remove an existing group: `groupdel`   
@@ -1087,14 +1089,18 @@ groups | tr ' ' '\n'      <== to see each group on a new line
 ```
 
 ### User login and password 
+
 To disable login for a user:  set user login shell to nologin :)    
 ```
-usermod user_name -s /sbin/nologin           <== message to user "This account is currently not available."
-                                             <== check: man nologin   
-```   
+man nologin 
+usermod user_name -s /sbin/nologin 
+```
+Setting nologin, sends a message to the user upon trying to login: 
+"This account is currently not available." 
+
 To lock or unlock a user account:    
 ```
-usermod -L username                          <== check /etc/shadow, the second column will show a ! sign 
+usermod -L username     <== check /etc/shadow, the second column will show a ! sign 
 usermod -U username 
 ```
 
@@ -1113,7 +1119,7 @@ Number of days of warning before password expires	: 7
 
 To set a user's password to expire on a date:    
 ```
-sudo chage -E 2025-12-31 user_name
+sudo chage -E 2025-12-31 user_name 
 ```
 
 ### User and group IDs 
@@ -1123,12 +1129,12 @@ Use the following to find about user and group IDs:
 id
 ```
 
-Each user has the following IDs:    
+Each user has the following numeric identifiers:    
 UID - User ID,   
 RUID - Real UID,   
 EUID - Effective UID    
 
-Each group has the following IDs:    
+Each group has the following numeric identifiers:    
 GID - Group ID,   
 RGID - Real GID,   
 EGID - Effective GID    
