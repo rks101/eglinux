@@ -71,7 +71,7 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Linux toolchain](#linux-toolchain) 
       * [Linux for Networking](#linux-for-networking)
       * [Linux for Security](#linux-for-security)
-      * [crt and key file](#crt-and-key-file) 
+      * [HTTPS and Certificates](#https-and-certificates) 
       * [Linux Kernel](#linux-kernel)
       * [Virtualization](#virtualization)
   * Part-5 Misc
@@ -3352,12 +3352,13 @@ Try **OWASP Juice-Shop** - it's a vulnerable portal to learn the tricks of the t
 
 ----
 
-## crt and key file   
+## HTTPS and Certificates 
 
-For SSL/TLS certificate setup on an HTTP server, it requires a certificate and a private key. Certificate file extension may be .crt, .cer, .pem, etc.   
+Both HTTP (Hypertext Transfer Protocol) and HTTPS (Hypertext Transfer Protocol Secure) protocols are used for transferring data over the internet. The key difference between them lies in the security features provided by HTTPS. HTTP (port 80) sends data in plaintext, making it vulnerable to interception, while HTTPS (port 443) encrypts data using TLS/SSL to protect it during transfer.    
+
+For HTTPS (HTTP over TLS), a server generally uses a certificate and a corresponding private key with file extension such as .crt, .cer, .pem, etc. The main difference between .crt, .cer, and .pem files lies in their file extensions and encoding formats. While all three can contain the same X.509 certificate data, .crt and .cer are often used interchangeably, with .crt being more common on Linux systems and .cer in Windows, whereas .pem files are typically Base64 encoded text files that can include certificates, private keys, or both.   
 
 [Public key certificate and private key file](https://www.baeldung.com/linux/crt-key-files)    
-
 
 [Licensed Certifying Authority (CA) in India](https://cca.gov.in/licensed_ca.html)    
 
