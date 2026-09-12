@@ -3348,17 +3348,17 @@ Cool compilers/interpreters for development:
  </tr>
  <tr>
 	 <td>gcc</td>
-	 <td>GNU Compiler Collection or driver, for C/C++ programs on Linux</td>
+	 <td>GNU Compiler Collection compiler driver, for C/C++ programs on Linux</td>
 	 <td>&check;</td>
  </tr>
  <tr>
 	 <td>g++</td>
-	 <td>GCC for C++ programs on Linux</td>
+	 <td>GCC compiler driver for C++ programs on Linux</td>
 	 <td>&check;</td>
  </tr>
  <tr>
 	 <td>java</td>
-	 <td>Java interpreter from Sun/Oracle/IBM</td>
+	 <td>Java application launcher/JVM launcher from Sun/Oracle/IBM</td>
 	 <td>&check;</td>
  </tr>
  <tr>
@@ -3381,7 +3381,7 @@ For functional programming, start with Scheme and then consider Haskell.
 For web development: check the LAMP (Linux, Apache, MySQL, PHP) stack with HTML5 and Tailwind or MEAN/MERN/MEVN with Node.js or TypeScript.    
 TODO: add bootcamp link.    
 
-For GUI: check GTK (fully FOSS) and QT (not fully FOSS).    
+For GUI: check GTK (fully FOSS) and Qt (not fully FOSS).    
 TODO: add prototype link, project Srijan, LDAPViewer.    
 
 The choice of the toolchain can be based on the need, stability, toolchain maintainers, and availability of manpower.    
@@ -3470,9 +3470,31 @@ Examples for logging [printk](https://www.kernel.org/doc/html/latest/core-api/pr
 
 ## Virtualization    
 
+### Compute, Memory, and Storage virtualization 
+
+
+
+### Virtual Machine 
+
+
+
+### QEMU 
 [Virtualization and QEMU](https://docs.saferwall.com/blog/virtualization-internals-part-4-qemu/)    
 
-Notes :- About virtualized environments for Cuda (NVIDIA) and Python3.     
+
+### Linux Containers 
+
+
+
+### Docker 
+
+
+
+### Java Virtual Machine (JVM)  
+
+
+
+### Python virtual environment 
 
 At times, non-Debian Python packages may require a virtual environment. If you wish to install a non-Debian-packaged Python package (e.g. streamlit),    
 1. Create a virtual environment using 
@@ -3511,26 +3533,27 @@ A. Free refers to freedom to choose.
 - An open-source OS is free to download from an online repo, free to use, or modify (no license cost). Free refers to freedom of choice! There may be packaging, shipping, or support costs.    
 - A closed-source OS is someone's proprietary binary source files, and the user cannot modify the source. Usually, this comes with a license fee, or the cost is added to the price of the accompanying device.   
 
-Some closed-source early UNIX flavors:   
-[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) UNIX: Berkeley Software Distribution had three flavours or variants, including [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD), OpenBSD, and NetBSD.    
-SCO UNIX was based on FreeBSD, managed by Santa Cruz Operations, and later sold to the OpenServer maintainer.    
-Solaris: Unix from Sun Microsystems.    
-AIX: IBM Unix    
-HP-UX: HP Unix    
-Macintosh/Darwin: Inherited code base from FreeBSD    
+Some early UNIX flavors:   
+[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) UNIX: Berkeley Software Distribution had three flavors or variants, including [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD), OpenBSD, and NetBSD. These are open-source BSD operating systems.     
+SCO UNIX was based on FreeBSD, managed by Santa Cruz Operations, and was later sold to the OpenServer maintainer.    
+Solaris: UNIX from Sun Microsystems.    
+AIX: IBM's UNIX operating system    
+HP-UX: HP's UNIX operating system     
+Macintosh/Darwin: Inherited early code base from FreeBSD    
 
 Some open-source Linux distributions/distros/flavors/variants:   
 Debian:    
-Ubuntu: shipped by Canonical, Ubuntu is Debian-based   
+Ubuntu: shipped by Canonical, Ubuntu is Debian-based Linux distribution.   
 Red Hat: Red Hat Enterprise Linux (RHEL)     
 Fedora: Red Hat supported    
 Open SUSE:   
 CentOS:    
 Tails: anti-surveillance Linux OS, Debian-based, uses Tor to route traffic     
 
-Q. Does a mainframe or AS400 run Unix/Linux?   
-A. Unix that runs on a Mainframe is called AIX (POSIX-compliant). AS400 - specifically IBM iSeries or System i or IBM i runs Linux with ease.   
-
+Q. Does a mainframe or AS400 run UNIX/Linux?   
+A. AIX is IBM's UNIX operating system primarily associated with IBM Power systems.   
+AS400 - specifically IBM iSeries or System i or IBM i hardware can run Linux in a LPAR.   
+	
 Some reading material: [1](http://www.linfo.org/flavors.html) and [2](https://www.lifewire.com/unix-flavors-list-4094248)   
 
 ---- 
