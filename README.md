@@ -2348,17 +2348,46 @@ See 'git help git' for an overview of the system.
 ----
 
 ## Shell Scripting    
-[bash page](bash/README.md)    
 
-Executing a bash script:    
+To find valid shells:    
+```
+cat /etc/shells 
+# /etc/shells: valid login shells
+/bin/sh
+/usr/bin/sh     <== shell interpreter 
+/bin/bash
+/usr/bin/bash   <== shell interpreter in the bash script 
+/bin/rbash
+/usr/bin/rbash
+/usr/bin/dash
+/usr/bin/screen
+```
+
+Create a simple script:   
+```
+$ cat << EOF  > hello.sh
+#!/usr/bin/bash
+echo -e "Hello! \nFirst script to output Hello...\n"
+EOF
+```
+
+Grant executable permissions to a script:   
+```
+chmod +x hello.sh    <== or, chmod 755 hello.sh 
+```
+
+Execute a bash script:    
 ```
 ./checkDate.sh        <== execute a script in a child process or sub-shell 
 . ./checkDate.sh      <== execute a script in the current shell itself, affects variables set
 . ~/.bashrc.sh        <== same as above, gets variable set in the current shell from the script 
-source checkDate.sh   <== same as above 
-bash -v checkDate.sh  <== creates a child process/sub-shell, displays commands before running it, then executes and outputs 
-bash -x checkDate.sh  <== creates a child process/sub-shell, displays commands after processing, and expands variables 
+source checkDate.sh   <== same as above
+
+bash -v checkDate.sh  <== creates a child process/sub-shell, displays commands before running it, then executes and send output 
+bash -x checkDate.sh  <== creates a child process/sub-shell, displays commands after processing it, and expands variables 
 ```
+
+[bash page](bash/README.md)     
 
 Here are some good scripts:     
 /usr/share/bash-completion/bash_completion     
