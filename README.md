@@ -1942,8 +1942,8 @@ Navigation in command mode:
 -  :1 → go to the first line or beginning/top of the file (1,1 position)  
 -  G (shift+ **g**) → go to the last line or to the bottom of the file, be careful for very large files 
 -  :n → go to the nth line in the file/buffer  
--  ctrl+f → Page up 
--  ctrl+b → Page down 
+-  ctrl+f → Forward one screen 
+-  ctrl+b → Backward one screen 
 -  dw → delete a word
 -  d$ → delete from the cursor to the end of the line
 -  d0 → delete from the cursor to the beginning of the line
@@ -2009,8 +2009,9 @@ We can redirect output or input as below (using double quotes because of markup 
 - "2>" redirect error     
 - "2>>" append to redirected error (not required)    
 
-- "<" redirect input    <== Tip: for large files, use cat instead of <    
-- "<<" used in "here document" by cat command: `cat << END`  (get anything till you type the delimiter END)     
+- "<" redirect input    <== Tip: for large text, use cat instead of <    
+- "<<" used as a "here-document" in shell syntax and consumed by cat command     
+e.g., `cat << END`  (read the following text till you type the delimiter END)     
 
 - "2>&1" redirects both stderr and stdout     
 
@@ -2018,9 +2019,10 @@ When desired to suppress the noise of command output, stdout and stderr can be m
 ```
 locate canary > output.txt 2>&1          <== locate command may generate many permission errors, and this redirection makes it quiet. 
 ```
-Scripts use an even quieter way:    
+
+Shell scripts use an even quieter way to discard stdout and stderr:    
 ```
-command_goes_here > output.txt 2>&1 /dev/null       <== /dev/null eats everything; super cool and quiet. Always test it once and then go quiet.    
+command_goes_here > /dev/null 2>&1        <== /dev/null eats everything; super cool and quiet. Always test it once and then go quiet.    
 ```
 
 Note:- Using error and output redirection 2>&1 informs bash to have standard output (file descriptor 1, that is, to the terminal or a file) redirected to the same place to which standard error (file descriptor 2) is being sent.   
@@ -2044,21 +2046,21 @@ This will empty large_file.tar; please note that you should know the path of the
 
 ## View file content 
 
+**`cat`**  
 Try: Open a terminal and type `cat some_large_filename` , make sure file size in MBs/GBs. Now see top output in another terminal. What do you see under %CPU, %MEM columns? It appears a bulky operation.     
 
 When dealing with large files (logs, backups, datasets, language models), it may be necessary to view specific portions of the files.    
 
+`cat` command is used to concatenate or display file content.    
 ```
-cat - cacatenate or display file content    
 cat file1 file2 file3        <== view multiple files, content is appended one after the other    
 cat -n program.c             <== view file with all lines numbered    
 cat -ns program.c            <== view file with all lines numbered, remove multiple empty lines     
 cat -bn program.c            <== view file with all non-empty lines numbered     
 cat file1 file2 >> newfile   <== merge two files into a new file using output redirection    
-                             <== true for text or normal files, not for images, PDFs, audio, or video files    
 ```
 
-`cat filename` outputs everything on the screen (which can be too much for large files).    
+Tip: `cat filename` outputs everything on the screen (which can be too much for large files). Take care while using cat command output in scripts for processing large files.     
 
 Q. `history` command prints the command history saved. Why `cat history` does not work? It errors out with file not found!    
 A. Okay, `cat` works with files. So, `cat history` looks for a file called history in the current directory. This is true for any other commands as well. Remember cat works with files.     
@@ -2072,6 +2074,9 @@ cat -n ~/.bash_history          <== show output with lines numbered, similar to 
 Q. What about `tac filename` ?    
 A. Accidentally, stumbled upon this tac command, and surprising it is a valid command. It does print contents of a file from the last line, one line at a time. So, it is a kind of reverse cat :)    
 
+
+**`more`** and **`less`**  
+
 `more`     <== show file contents on the terminal, can search and navigate forward (ctrl+f) and backward (ctrl+b)    
 `less`     <== file contents, does not echo on terminal, faster to load for large files    
 ```
@@ -2082,19 +2087,27 @@ A. Accidentally, stumbled upon this tac command, and surprising it is a valid co
 ```
 Actually, less is more (powerful), with options available.    
 
-`tail`     <== show last part/lines of a file, default 10 lines from the end    
-`tail -n +15 file`  <== show file content from line number 10 to the end.   
-`tail -f`  <== show last part/lines of a file that is getting updated, like logs, e.g., tail -f /var/log/syslog     
+
+**`head`** and **`tail`**  
+
 `head`     <== show starting lines of a file, default 10 lines from the start     
+`tail`     <== show last part/lines of a file, default 10 lines from the end    
+
+`tail -n +15 file`  <== show file content from line number 15 to the end, plus reverses the direction for tail.    
+
+`tail -f`  <== show last part/lines of a file that is getting updated, like logs, e.g.,   
+```
+tail -f /var/log/syslog     
+```
 
 Q. A file has n lines. How can one view (show on the terminal) lines from n1 to n2, while n1 < n2 <= n ? Hint: Use head and tail commands.    
 A. Remember head prints from the top while tail from the bottom and the direction of tail can be reversed.    
 ```
-head -95 id_name.txt | tail +91 
+head -95 id_name.txt | tail +91      <== without counting the line difference :) 
 ```
 or
 ```
-tail +91 id_name.txt | head -5
+tail +91 id_name.txt | head -5       <== by counting the line difference :( 
 ``` 
 
 ----
