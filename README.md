@@ -22,7 +22,6 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [List hardware using `lshw`](#list-hardware)
       * [Environment variables](#environment-variables)
       * [PATH](#path)
-      * [Pathnames](#pathnames)
       * [Navigating directories](#navigating-directories) 
       * [Locating binaries](#locating-binaries)
       * [Command completion](#command-completion)
@@ -31,8 +30,7 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Mount points](#mount-points)
       * [Disk Usage](#disk-usage)
       * [The One with File Permissions](#the-one-with-file-permissions) 
-      * [`su` and `sudo`](#su-and-sudo)
-      * [Password caching in `sudo`](#password-caching-in-sudo)
+      * [`su` and `sudo`](#su-and-sudo) 
       * [Package Manager](#package-manager) 
       * [Simple web server](#simple-web-server)
       * [Remote login using `ssh`](#remote-login-using-ssh)
@@ -645,15 +643,10 @@ A. Okay, echo/print PATH and replace or translate ':' to a newline character.
 ```
 $ echo $PATH | tr ':' '\n' 
 ```
-----
 
-## Pathnames 
+### Pathnames 
 
-Read globbing pathnames using `man 7 glob`    
-
-Familiarize with wildcard matching, character classes, ranges, and complement for exclusion and ranges. With regex, this will be a lot clearer.   
-
-To know the basename of a file, or the filename without the directory prefix and extension suffix:    
+`basename` can be used to know the basename of a file, or the filename without the directory prefix and extension suffix:    
 ```
        basename /usr/bin/sort
               -> "sort"
@@ -664,6 +657,9 @@ To know the basename of a file, or the filename without the directory prefix and
        basename -a any/str1 any/str2
               -> "str1" followed by "str2"
 ```
+
+Nice reading: globbing pathnames using `man 7 glob`    
+
 ---- 
 
 ## Navigating directories   
@@ -1430,9 +1426,7 @@ Related posts:
 [su or sudo](https://askubuntu.com/questions/70534/what-are-the-differences-between-su-sudo-s-sudo-i-sudo-su)    
 [su or su -](https://unix.stackexchange.com/questions/7013/why-do-we-use-su-and-not-just-su)    
 
-----
-
-## Password caching in sudo   
+### Password caching in sudo   
 
 Often, we type the password for commands that require sudo. And then, the same or similar command does not require the password. This suggests that there is some caching of the sudo password or a time limit before the password for sudo is asked again.    
 
@@ -2366,7 +2360,8 @@ Regular expressions can be used with bash:
 - inside a bash script using conditional expressions [[ ]] and =~ for match
 - grep inside if conditions using: if grep -E "regex_pattern" "variable_value" ; then _____ fi 
 - using sed '/pattern/action' 
-- using awk    
+- using awk
+- inside vi editor in command mode, e.g.  :%s/SRC/TGT/g   
 
 [Regular Expressions](https://computing.stat.berkeley.edu/tutorial-using-bash/regex.html)    
 [regex with grep](https://www.cyberciti.biz/faq/grep-regular-expressions/)    
@@ -2384,6 +2379,10 @@ info 8.5 Regular Expressions
 * egrep regular expression syntax::
 * posix-extended regular expression syntax::
 ```
+
+There is a nice reading on: globbing pathnames using `man 7 glob`    
+
+Familiarize with wildcard matching, character classes, ranges, and complement for exclusion and ranges. With regex, this gets a lot clearer.   
 
 ----
 
