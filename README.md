@@ -2048,10 +2048,6 @@ This will empty large_file.tar; please note that you should know the path of the
 
 ### `cat` 
 
-Try: Open a terminal and type `cat some_large_filename` , make sure file size in MBs/GBs. Now see top output in another terminal. What do you see under %CPU, %MEM columns? It appears a bulky operation.     
-
-When dealing with large files (logs, backups, datasets, language models), it may be necessary to view specific portions of the files.    
-
 `cat` command is used to concatenate or display file content.    
 ```
 cat file1 file2 file3        <== view multiple files, content is appended one after the other    
@@ -2061,10 +2057,9 @@ cat -bn program.c            <== view file with all non-empty lines numbered
 cat file1 file2 >> newfile   <== merge two files into a new file using output redirection    
 ```
 
-Tip: `cat filename` outputs everything on the screen (which can be too much for large files). Take care while using cat command output in scripts for processing large files.     
-
 Q. `history` command prints the command history saved. Why `cat history` does not work? It errors out with file not found!    
 A. Okay, `cat` works with files. So, `cat history` looks for a file called history in the current directory. This is true for any other commands as well. Remember cat works with files.     
+
 Instead try these:    
 ```
 history > ab_tak_history.txt    <== dump or redirect `history` output into a file    
@@ -2075,17 +2070,34 @@ cat -n ~/.bash_history          <== show output with lines numbered, similar to 
 Q. What about `tac filename` ?    
 A. Accidentally, stumbled upon this tac command, and surprising it is a valid command. It does print contents of a file from the last line, one line at a time. So, it is a kind of reverse cat :)    
 
+**About large files**    
+Try: Open a terminal and type `cat some_large_filename` , make sure file size in tens of MBs or more. Now see top output in another terminal. What do you see under %CPU, %MEM columns? With cat, it appears a bulky operation.     
+
+Tip: `cat filename` outputs everything on the screen (which can be too much for large files). Take care while using cat command output in scripts for processing large files.     
+
+When dealing with large files (logs, backups, datasets, language models), it may be necessary to view specific portions of the files.    
+
 
 ### `more` and `less`  
 
+`more` and `less` can be used to view portions of file content. They are often used with pipe (|).    
+
+```
 `more`     <== show file contents on the terminal, can search and navigate forward (ctrl+f) and backward (ctrl+b)    
 `less`     <== file contents, does not echo on terminal, faster to load for large files    
-```
            <== use /pattern to search a pattern, Page Up/Down, or spacebar to move in the file,   
            <== view multiple files, use :n to next file and :p to go to the previous file     
            <== use v to open file in default editor nano/vim, exit from editor will take you back to the less session     
            <== use q to come out of the less session.    
 ```
+
+e.g. 
+```
+ls -lR ~/ | more
+ls -lR ~/ | less
+cat data.csv | less 
+```
+
 Actually, less is more (powerful), with options available.    
 
 
