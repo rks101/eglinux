@@ -59,9 +59,6 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
       * [`timedatectl`](#timedatectl)
-      * [`hostnamectl`](#hostnamectl)
-      * [`networkctl`](#networkctl)
-      * [`perf`](#perf)
       * [Monitoring Performance](#monitoring-performance)
       * [Audit System Logs](#audit-system-logs) 
       * [Installed packages](#installed-packages)
@@ -3402,8 +3399,6 @@ Now, you can view and refer to some online resources (Remember man, info, and co
 [It's FOSS](https://itsfoss.com/)     
 [Linuxconfig](https://linuxconfig.org/)    
 
-### Linux software
-
 [Linux Software](https://github.com/luong-komorebi/Awesome-Linux-Software)    
 
 [Writing mathematical equations in Libre Office Writer](https://www.ubuntubuzz.com/2016/09/libreoffice-writer-equation-editor-writing-mathematical-formulas.html)     
@@ -3618,7 +3613,8 @@ PART-5
 
 ## The One with UNIX or Linux History   
 
-One can say, in a very broad way:    
+Q. What is the meaning of free in open source software?     
+A. Free refers to freedom to choose.   
 - An open-source OS is free to download from an online repo, free to use, or modify (no license cost). Free refers to freedom of choice! There may be packaging, shipping, or support costs.    
 - A closed-source OS is someone's proprietary binary source files, and the user cannot modify the source. Usually, this comes with a license fee, or the cost is added to the price of the accompanying device.   
 
