@@ -239,9 +239,9 @@ Major operating systems include:
 - Mobile phone/tablet: Android, iOS 
 - Other devices (TV, digital assistants): ChromeOS, webOS, embedded/real-time operating systems
 
-An Operating System can be viewed from two important perspectives: the **kernel**, which forms the core of the OS and manages system resources and hardware, and the **shell**, which provides an interface through which users can interact with the OS. A shell may provide a Command-Line Interface (CLI), allowing users to enter commands as text input. On a laptop or desktop with a Graphical User Interface (GUI), a terminal emulator provides the environment in which a shell such as Bash, Zsh, or PowerShell can run.    
+An Operating System can be viewed from two important perspectives: the **kernel**, which forms the core of the OS and manages system resources and hardware, and the **shell**, which provides an interface through which users can interact with the OS. The shell is a program interpreting commands continuously. A Command-Line Interface (CLI) or a Graphical User Interface (GUI) are interface paradigms. On a laptop or desktop with GUI, a terminal emulator provides the environment in which a shell such as Bash, Zsh, or PowerShell can run.    
 
-So, when you use a terminal, a simplified view of command-line interaction is:    
+So, when you use a terminal application, a simplified view of command-line interaction is:    
 
 **User → Terminal → Shell → System Calls → Kernel → Hardware**    
 
@@ -3551,8 +3551,8 @@ Tails: anti-surveillance Linux OS, Debian-based, uses Tor to route traffic
 
 Q. Does a mainframe or AS400 run UNIX/Linux?   
 A. AIX is IBM's UNIX operating system primarily associated with IBM Power systems.   
-AS400 - specifically IBM iSeries or System i or IBM i hardware can run Linux in a LPAR.   
-	
+IBM AS/400 and its successors run IBM i. Linux can also run on supported IBM Power systems, including in an LPAR.   
+
 Some reading material: [1](http://www.linfo.org/flavors.html) and [2](https://www.lifewire.com/unix-flavors-list-4094248)   
 
 ---- 
@@ -3561,9 +3561,9 @@ Some reading material: [1](http://www.linfo.org/flavors.html) and [2](https://ww
 
 [The talk with not so visionary, not so people-person, a simple, happy engineer](https://www.youtube.com/watch?v=o8NPllzkFhE) Linus Torvalds, who changed the world at least twice with Linux and Git. He started both projects as a hobby and to solve the problems he was facing.     
 
-Linus Torvalds did not monetize Linux, instead shared the Linux kernel (heart of the OS) to the community to develop, and kept it out of corporate greed using GPL/GPLv3. This Linux philosophy is also a reason why Linux flourished among enthusiasts and hobbyist developers.    
+Linus Torvalds did not monetize Linux, instead shared the Linux kernel (heart of the OS) to the community to develop, and kept it out of corporate capitalism (greed) with GPL/GPLv3. This Linux philosophy is also a reason why Linux flourished among enthusiasts and hobbyist developers.    
 
-Linus Torvalds began developing the Linux kernel at age 21.    
+Linus Torvalds began developing the Linux kernel at age 21. During the origin of his personal project:    
 
 No co-founder.    
 No VC backing.    
