@@ -2046,7 +2046,8 @@ This will empty large_file.tar; please note that you should know the path of the
 
 ## View file content 
 
-**`cat`**  
+### `cat` 
+
 Try: Open a terminal and type `cat some_large_filename` , make sure file size in MBs/GBs. Now see top output in another terminal. What do you see under %CPU, %MEM columns? It appears a bulky operation.     
 
 When dealing with large files (logs, backups, datasets, language models), it may be necessary to view specific portions of the files.    
@@ -2075,7 +2076,7 @@ Q. What about `tac filename` ?
 A. Accidentally, stumbled upon this tac command, and surprising it is a valid command. It does print contents of a file from the last line, one line at a time. So, it is a kind of reverse cat :)    
 
 
-**`more`** and **`less`**  
+### `more` and `less`  
 
 `more`     <== show file contents on the terminal, can search and navigate forward (ctrl+f) and backward (ctrl+b)    
 `less`     <== file contents, does not echo on terminal, faster to load for large files    
@@ -2088,7 +2089,7 @@ A. Accidentally, stumbled upon this tac command, and surprising it is a valid co
 Actually, less is more (powerful), with options available.    
 
 
-**`head`** and **`tail`**  
+### `head` and `tail`   
 
 `head`     <== show starting lines of a file, default 10 lines from the start     
 `tail`     <== show last part/lines of a file, default 10 lines from the end    
