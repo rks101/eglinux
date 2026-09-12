@@ -141,9 +141,9 @@ A. Check using `lsb_release -a`, `cat /etc/os-release`, and `distro-info -af`
 ```
 $ lsb_release -a  
 Distributor ID:	Ubuntu
-Description:	Ubuntu 20.04.1 LTS
-Release:	20.04
-Codename:	focal
+Description:	Ubuntu 26.04.01 LTS
+Release:	26.04
+Codename:	resolute
 ```
 Note:- LSB is Linux Standard Base. For those interested in more detail, you can refer to [what is LSB](https://wiki.linuxfoundation.org/lsb/start) and [LSB Specs](https://refspecs.linuxfoundation.org/lsb.shtml). To maintain the flow, continue reading.   
 
@@ -1816,14 +1816,14 @@ Now, check process virtual memory mappings:
 cat /proc/$$/maps 
 ```
 
-And the stack associated with process $$:  
+And the symbolic trace of the process's kernel stack for process $$:  
 ```
 cat /proc/$$/stack
 ```
 
 You can check cmdline, status, limits files for a process using proc.    
 
-Using the output of the above commands, convince yourself that you can visualise the stack, heap, and text segment of a process using virtual addresses and the output. Also, see /lib/x84_64-linux-gnu/lib*  files and other shared libraries.  
+Using the output of the above commands, convince yourself that you can visualise the kernel stack, heap, and text segment of a process using virtual addresses and the output. Also, see /lib/x86_64-linux-gnu/lib*  files and other shared libraries.  
 In the above example, replace $$ with a process ID you are interested in.  
 
 Next you should try out:   
@@ -2218,11 +2218,11 @@ tail -f /var/log/syslog
 Q. A file has n lines. How can one view (show on the terminal) lines from n1 to n2, while n1 < n2 <= n ? Hint: Use head and tail commands.    
 A. Remember head prints from the top while tail from the bottom and tail has a option to output from a specific line.    
 ```
-head -95 id_name.txt | tail +91      <== without counting the line difference :) 
+head -95 id_name.txt | tail -n +91      <== without counting the line difference :) 
 ```
 or
 ```
-tail +91 id_name.txt | head -5       <== by counting the line difference :( 
+tail -n +91 id_name.txt | head -5       <== by counting the line difference :( 
 ``` 
 
 ----
@@ -2247,6 +2247,11 @@ grep: /var/log/ntopng/ntopng.log: Permission denied
 /var/log/teamviewer15/TeamViewer15_Logfile_OLD.log
 ```
 Note: In the above example, `sudo` applies to `find`, not automatically to the `grep` process launched by `xargs`    
+
+Note on filenames with xargs: If a filename contains spaces, newlines, quotes, or backslashes, the default xargs parsing can split it incorrectly. Modern robust practice is:    
+```
+find ... -print0 | xargs -0 ...
+```
 
 Repetition with seq   
 ```
@@ -2792,9 +2797,9 @@ IPv6 Address Generation Mode: none
 
 ## `timedatectl` 
 
-Since Legal Metrology IST Rules 2026, made IST a legally enforceable reference for official and commercial use, it is important to [maintain Real-Time Clock (RTC) in Local Time](https://www.baeldung.com/linux/real-time-clock-rtc-local-time). The core idea is Real Time Clock should be coming from a traceable IST, maintained by CSIR-NPL and ISRO's NavIC, so that there is no lag and no dependency on external timezone UTC, NTP (internet) or GPS.    
+Since Legal Metrology IST Rules 2026 made IST an enforceable reference for official and commercial use, users may [maintain Real-Time Clock (RTC) in Local Time](https://www.baeldung.com/linux/real-time-clock-rtc-local-time). The core idea is Real Time Clock should be coming from a traceable IST, maintained by CSIR-NPL and ISRO's NavIC, so that there is no lag and no dependency on external timescale, internet or GPS.    
 
-Check timedatectl and set RTC to use the local timezone    
+Check timedatectl and set RTC to use the local time    
 ```
 $ timedatectl status 
                Local time: Thu 2026-09-03 15:00:02 IST
@@ -2807,7 +2812,7 @@ System clock synchronized: yes
 
 $ sudo timedatectl set-local-rtc 1 --adjust-system-clock 
 [sudo: authenticate] Password:        
-Warning: The system is now being configured to read the RTC time in the local time zone
+Warning: The system is now being configured to read the RTC time in the local time zone  <== yes, there is a warning 
          This mode cannot be fully supported. It will create various problems
          with time zone changes and daylight saving time adjustments. The RTC
          time is never updated, it relies on external facilities to maintain it.
@@ -2822,7 +2827,7 @@ System clock synchronized: yes
               NTP service: active
           RTC in local TZ: yes								<== RTC set to local timezone 
  
-Warning: The system is configured to read the RTC time in the local time zone.
+Warning: The system is configured to read the RTC time in the local time zone.  <== yes, there is a warning 
          This mode cannot be fully supported. It will create various problems
          with time zone changes and daylight saving time adjustments. The RTC
          time is never updated, it relies on external facilities to maintain it.
