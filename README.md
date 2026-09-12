@@ -71,7 +71,8 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Linux toolchain](#linux-toolchain) 
       * [Linux for Networking](#linux-for-networking)
       * [Linux for Security](#linux-for-security)
-      * [HTTPS and Certificates](#https-and-certificates) 
+      * [HTTPS and Certificates](#https-and-certificates)
+      * [Software archives and signing](#software-archives-and-signing)
       * [Linux Kernel](#linux-kernel)
       * [Virtualization](#virtualization)
   * Part-5 Misc
@@ -3410,9 +3411,9 @@ Note: The [FIPS](https://en.wikipedia.org/wiki/FIPS_140) 140 series, issued by t
 
 ----
 
-## Software archives and signing key   
+## Software archives and signing  
 
-Software archives (aka tarballs or packages) include a **signing key** to verify the origin and authenticity of the publisher. It's a **trust-building measure** between the publisher (software repository maintainer) and the end user that is like: "Hey folks, look, this is a genuine archive, and we take ownership of this archive shipped from us."    
+Software archives or packages may be **signed** to verify the origin and authenticity of the publisher, while the public signing key is distributed separately through a trusted mechanism such as a keyring or repository configuration. Signing software is a **trust-building measure** between the software repository maintainer and the end user, that is like saying: "Hey folks, this is a genuine archive, and we take ownership of this archive shipped from us."    
 
 The signing key may be a GPG file.    
 
