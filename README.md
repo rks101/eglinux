@@ -1076,10 +1076,9 @@ To delete/remove an existing group: `groupdel`
 
 To modify settings for an existing group: `groupmod`   
 
-To add a user to a group,  `usermod`  or  `groupmod`   
+To add a user to groups, separate by comma,  `usermod -aG`  
 ```
-usermod -g root rps     <== add group root for user rps 
-groupmod -a rps root    <== add user rps to group root 
+usermod -aG group_names user_name 
 ```
 
 To view groups a user is in or added to: `groups` 
