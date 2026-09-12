@@ -99,10 +99,10 @@ PART-1
 
 For completeness, and especially in the context of computing in 2026, let us consider why Linux is worth learning and studying.    
 
-1. **Linux is open source and freely available.** Linux is an open-source operating-system ecosystem built around the Linux kernel. The kernel source code is publicly available at [kernel.org](https://kernel.org/), and users have the freedom to study it, modify it, and redistribute modified versions under its license. The Linux kernel was first released in August 1991 by Linus Torvalds. Hobbyists, enthusiasts, community developers have adopted it widely. 
+1. **Linux is open source and freely available.** Linux is an open-source operating-system ecosystem built around the Linux kernel. The kernel source code is publicly available at [kernel.org](https://kernel.org/), and users have the freedom to study it, modify it, and redistribute modified versions under its license. The Linux kernel was first released in August 1991 by Linus Torvalds. Hobbyists, enthusiasts, and community developers have adopted it widely. 
 2. **Linux makes the underlying concepts visible.** Linux provides an excellent environment for understanding operating-system concepts at multiple levels—from processes, memory management, filesystems, and networking to system calls, device drivers, and the kernel itself. It allows you not only to learn these concepts, but also to examine how they are implemented and, when appropriate, build and modify working systems. 
 3. **Linux provides an unusually open environment for OS development.** Development of the Linux kernel is not controlled by a single vendor whose primary objective is to maximize the profits of a proprietary operating-system product. Its development involves individuals, communities, universities, and companies, with the source code and development process publicly accessible. A regularly maintained kernel is released after every 9-10 weeks. 
-4. **Linux helps develop systematic troubleshooting skills**. Working with Linux teaches you to approach problems methodically: observe the symptoms (on screen messages, behaviour), understand the system, identify possible causes, gather evidence, compare multiple scenarios, test hypotheses, isolate the source of the problem, and verify the solution. These skills go far beyond Linux; they are useful in research, experimentation, software development, engineering, and virtually any technical environment where complex systems must be made to work reliably.  
+4. **Linux helps develop systematic troubleshooting skills**. Working with Linux teaches you to approach problems methodically: observe the symptoms (on-screen messages, behaviour), understand the system, identify possible causes, gather evidence, compare multiple scenarios, test hypotheses, isolate the source of the problem, and verify the solution. These skills go far beyond Linux; they are useful in research, experimentation, software development, engineering, and virtually any technical environment where complex systems must be made to work reliably.  
 5. **Linux dominates high-performance computing.** Linux distributions power the overwhelming majority of systems listed in the [TOP500](https://en.wikipedia.org/wiki/TOP500) ranking of the world's most powerful supercomputers. This makes Linux particularly relevant for understanding modern high-performance and scientific computing. 
 6. **Linux is important for digital sovereignty and infrastructure.** Governments and public-sector organizations in various countries have adopted or explored Linux and other open-source technologies to reduce dependence on proprietary vendors, control licensing costs, increase technological autonomy, and strengthen their ability to manage critical software infrastructure.  
  
@@ -112,7 +112,7 @@ If you want to understand operating systems deeply, why would you not study one 
 
 ## ls -lrt
 
-Every time you open a terminal, shell, or command line interpreter (CLI) in Linux, the first command you should check out is to list all files and directories (ls) in a long (l) and reverse (r) order of time (t) updated. Do compare this output with various other outputs from the `ls` options. Also, this command helps to see permissions and who touched what files recently.    
+Every time you open a terminal and use a shell through a command line interpreter (CLI) in Linux, one of the first commands to try is `ls` to list files and directories in a long format (-l), in reverse order (-r), sorted by modification time (-t). Do compare this output with various other outputs from the `ls` options. Also, this command helps to see permissions and while files were modified recently.    
 ```
 ls -lrt
 ```
@@ -125,7 +125,7 @@ A. For now, try this out using dircolors and check the colors used for the conve
 $ dircolors --print-ls-colors
 ```
 Q. Why do you recommend `ls -lrt` over `ls`?    
-A. This command can explain a lot over the course of time. Remember what we discussed about the Linux command.     
+A. This command can reveal a lot about recently modified files. Remember what we discussed about the Linux command.     
 > Command has got a name, options, and arguments!    
 We can get a list of the most recently modified files or directories without much effort.    
 
@@ -144,7 +144,7 @@ ls -d -1 ~/Downloads/*/
 
 ## OS releases
 
-Q. What are the OS major and minor release numbers? And any code name associated with the release?   
+Q. What are the major and minor release numbers of the OS, and is there a codename associated with the release?   
 A. Check using `lsb_release -a`, `cat /etc/os-release`, and `distro-info -af`   
 
 ```
@@ -154,7 +154,7 @@ Description:	Ubuntu 20.04.1 LTS
 Release:	20.04
 Codename:	focal
 ```
-Note:- LSB is Linux Standard Base. For more interested ones, you can refer to [what is LSB](https://wiki.linuxfoundation.org/lsb/start) and [LSB Specs](https://refspecs.linuxfoundation.org/lsb.shtml). To maintain the flow, continue reading.   
+Note:- LSB is Linux Standard Base. For those interested in more detail, you can refer to [what is LSB](https://wiki.linuxfoundation.org/lsb/start) and [LSB Specs](https://refspecs.linuxfoundation.org/lsb.shtml). To maintain the flow, continue reading.   
 
 TIMTOWTDI (There Is More Than One Way To Do It): You can use /etc/os-release 
 ```
@@ -280,7 +280,7 @@ What do I do if I do not know commands or their options and arguments?
 - Remember: Command has got a name, options, and/or arguments.   
 - There are plain-text on-screen manuals about Linux built-ins and commands.   
 - There is a **man** I know who can help, and he tells us from the most reliable sources.   
-- These on-screen manuals or man pages are the closest to what one can get as cursor-sensitive help on the system!   
+- These on-screen manuals or man pages are one of the closest forms of context-sensitive help available on the system.   
 - (While I am not around,) Always ask **man**, using man followed by command, built-in, or keyword:  
 ```
 man man
@@ -337,7 +337,7 @@ DESCRIPTION
        SEE ALSO.
 ```
 
-Now, check these two commands about man and apropos, to see, what do you (want to)* notice :)    
+Now, check these two commands about man and apropos, to see what you notice :)    
 ```
 man -k man     <== 700+ entries, It's man ki baat :)    
 apropos man 
@@ -349,7 +349,7 @@ $ info
 ```
 Next, locate a section. A chapter-wise menu will open; read through it. After a few pages, you will surely remember how to locate pages and help.   
 
-Very handy key strokes:   
+Very handy keystrokes:   
 H - Help (it's a toggle; to close the pop-up menu as well)    
 TAB - next hyperlink    
 RET (Enter) - go to a node/page    
@@ -395,7 +395,7 @@ $ lscpu
 Architecture:             x86_64                              <== 64-bit 
   CPU op-mode(s):         32-bit, 64-bit                      <== can work in 32-bit or 64-bit modes 
   Address sizes:          39 bits physical, 48 bits virtual 
-  Byte Order:             Little Endian                       <== Intel in Little Endian 
+  Byte Order:             Little Endian                       <== Intel systems use little-endian byte order 
 CPU(s):                   8                                   <== number of CPUs 
   On-line CPU(s) list:    0-7
 Vendor ID:                GenuineIntel
@@ -774,7 +774,7 @@ whatis whereis
 whatis [
 ```
 
-Note: whatis may return two or more entries if a command or utility has been maintained at more than one manual pages. Check this with chmod and info.   
+Note: whatis may return two or more entries if a command or utility has been maintained at more than one manual page. Check this with chmod and info.   
 ```
 $ whatis chmod 
 chmod (1)            - Change the mode of each FILE to MODE. With --reference, change the mode of each FILE t...
@@ -817,7 +817,7 @@ compgen -c ls                   <== list all commands starting with ls
 compgen -k                      <== list all keywords 
 compgen -A function             <== lists all functions 
 compgen -abckA function > compgen_help.txt        <== list most of what compgen can complete
-compgen -abckA function | grep -i --color ^ls     <== color, list most of compgen begining with ls
+compgen -abckA function | grep -i --color ^ls     <== color, list most of compgen beginning with ls
 compgen -abckA function | grep -i --color ls$     <== color, list most of compgen ending with ls
 ```
 
@@ -1842,7 +1842,7 @@ sudo apt update && apt upgrade    <== run both apt update and apt upgrade, if ap
 
 Cron jobs come to the rescue when scheduling jobs, taking backups, or running scripts at a defined frequency.     
 
-Relevant file: /etc/crontab is a system-wide configuration file used to schedule minute-ly, hourly, daily, monthly, and weekly jobs to be run by a user and scripts to execute.    
+Relevant file: /etc/crontab is a system-wide configuration file used to schedule every minute, hourly, daily, monthly, and weekly jobs to be run by a user and scripts to execute.    
 
 To make an entry, you should be familiar with the columns in the crontab file. The first five columns define job frequency, followed by the user name and the command to be executed.    
 
@@ -2242,7 +2242,7 @@ bash -v checkDate.sh  <== creates a child process/sub-shell, displays commands b
 bash -x checkDate.sh  <== creates a child process/sub-shell, displays commands after processing, and expands variables 
 ```
 
-b/w  here are some good scripts to learn from:     
+Here are some good scripts:     
 /usr/share/bash-completion/bash_completion     
 
 ----
@@ -2468,7 +2468,7 @@ $ sudo vi /etc/gdm3/custom.conf    <== edit gdm custom.conf using editor
 Now, after this workaround, Zoom will show Desktop sharing alongside Whiteboard sharing.    
 
 Update: Ubuntu 26.04 - June 2026    
-0. You may struggle to share screen in Zoom on Ubuntu 26.04 with Wayland as Windoing system unless zoom or wayland fixes it.   
+0. You may struggle to share screen in Zoom on Ubuntu 26.04 with Wayland as windowing system unless zoom or wayland fixes it.   
 See this port from CMU on zoom and wayland love story: https://www.math.cmu.edu/~gautam/sj/blog/20220326-zoom-wayland.html    
 
 1. Install [Zoom Desktop Client](https://zoom.us/download?os=linux) using GDebi package manager
@@ -2479,14 +2479,14 @@ sudo gdebi zoom_amd64.deb
 ```
 sudo apt update && sudo apt install libopengl0 -y 
 ```
-5. Now use the comamnd below to launch Zoom
+5. Now use the command below to launch Zoom
 ```
  QT_QPA_PLATFORM=xcb zoom
 ...
 ZoomLauncher started.
 Zoom path is: /opt/zoom
 cmd line: 
-Start subprocess: /opt/zoom/zoom sucessfully,  process pid: 70860 
+Start subprocess: /opt/zoom/zoom successfully,  process pid: 70860 
 Can't load/home/rks/.config/zoomus.conf
 no pactl and  pacmd found at this system.                             Class      App      Lib Possible Culprit Flags
                 resip::Connection      696      696 
@@ -2504,7 +2504,7 @@ zoom started.
 ...
 loadZoomWebviewHostProcess newPath is /opt/zoom/ZoomWebviewHost
 loadZoomWebviewHostProcess libpath is /opt/zoom/Qt/lib:/opt/zoom/cef:/opt/zoom,webview channelname is webview:{a01d434d-86b6-4f3b-8f7d-bff236ff2e80}
-Start subprocess: /opt/zoom/ZoomWebviewHost sucessfully,  process pid: 70921 
+Start subprocess: /opt/zoom/ZoomWebviewHost successfully,  process pid: 70921 
 Interface wlp0s20f3 is a wireless interface
 Interface: ipv4 wlp0s20f3, IP Address: 192.168.1.5
 [08:02:13.831][70921:70921]ZoomCollabHost started,isSupportCef=1
@@ -2546,7 +2546,7 @@ XDG_CURRENT_DESKTOP = ubuntu:GNOME;  DESKTOP_SESSION = ubuntu; XDG_SESSION_TYPE 
    Linked with libpipewire 1.6.2
 
 Graphics Card Info:: 0000:00:02.0 VGA compatible controller: Intel Corporation TigerLake-LP GT2 [Iris Xe Graphics] (rev 01)
-Zoom package arch is 64bit, runing OS arch is x86_64, snap package 0
+Zoom package arch is 64bit, running OS arch is x86_64, snap package 0
 platformName: xcb isNativeWayland: 0
 AppIconMgr::systemDesktopName log Desktop Name: ubuntu 
 isScreenReaderEnabled,flag is 0.
@@ -2729,7 +2729,7 @@ Links for further reading [x.org](https://x.org/wiki/), compiz, unity, GNOME, wa
 
 [Systemd-free Linux Distributions](https://itsfoss.com/systemd-free-distros/)     
 
-Systemd brought parallelization of processes in the booting process and configuration files-driven service management.    
+Systemd brought parallelization of processes in the booting process and configuration-file-driven service management.    
 
 ```
 rps@eg:~$ systemctl get-default                 <== default target to boot into 
