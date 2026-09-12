@@ -3335,12 +3335,12 @@ The choice of the toolchain can be based on the need, stability, toolchain maint
 
 ## Linux for Security    
 
-* Unlike Windows, Linux was designed from the ground up as a multiuser operating system. Therefore, user-level security provisions tend to be a bit better on a Linux system.   
-* Linux offers a better separation between administrative users and unprivileged users. This makes it a bit harder for intruders, and it also makes it a bit harder for a user to accidentally infect a Linux machine with something nasty.
-* Linux is much more resistant to viruses and malware infections than Windows is. Certain Linux distributions come with built-in mechanisms, such as SELinux in Red Hat and its free-of-charge clones, and AppArmor in Ubuntu and SUSE, that help prevent intruders from taking control of a system.
-* Linux is free and open source software. This allows anyone who has the skill to audit Linux code to hunt for bugs or backdoors.
+* Linux was designed as a multi-user operating system. Reasonable user-level isolation and security provisions exist on Linux.   
+* Linux offers a better separation between privileged admin users and unprivileged users. This makes it a bit harder for intruders, and it also makes it a bit harder for a normal user to accidentally or intentionally infect a Linux machine with something nasty. 
+* Linux distributions come with built-in mechanisms, such as SELinux, and AppArmor, that help prevent intruders from taking control of a system.
+* Linux source code is available for inspection and audit.  
 
-Yet even with those advantages, Linux is just like everything else that has been created by mankind. That is, it is not perfect.   
+Linux is just like everything else that has been created by mankind. That is, it is not perfect.    
 
 [LinEnum - Linux Enumeration and Privilege Escalation/Exploration Script](https://github.com/rebootuser/LinEnum)    
 
