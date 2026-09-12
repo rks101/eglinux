@@ -112,7 +112,7 @@ If you want to understand operating systems deeply, why would you not study one 
 
 ## ls -lrt
 
-Every time you open a terminal and use a shell through a command line interpreter (CLI) in Linux, one of the first commands to try is `ls` to list files and directories in a long format (-l), in reverse order (-r), sorted by modification time (-t). Do compare this output with various other outputs from the `ls` options. Also, this command helps to see permissions and while files were modified recently.    
+Every time you open a terminal and use a shell through a command line interpreter (CLI) in Linux, one of the first commands to try is `ls` to list files and directories in long format (-l), in reverse order (-r), sorted by (-t) modification time. Do compare this output with various other outputs from the `ls` options. Also, this command helps to see permissions and while files were modified recently.    
 ```
 ls -lrt
 ```
@@ -222,8 +222,8 @@ Ubuntu 26.04 LTS "Resolute Raccoon"  <==
 
 Check out [Ubuntu releases](https://www.releases.ubuntu.com/) and [Ubuntu Version History](https://en.wikipedia.org/wiki/Ubuntu_version_history)    
 
-Q. What is my system name, kernel, OS, kernel version, and date last updated?   
-A. Ask `uname` (Unix Name) for operating system name, hostname, kernel version, processor type (x86_64), hardware platform type (x86_64), etc.     
+Q. What is my system kernel, nodename, kernel version, and date last updated?   
+A. Ask `uname` (Unix Name) for kernel name, nodename, kernel version, processor type (x86_64), hardware platform type (x86_64), etc. It does not give Linux distribution name.    
 ```
 $ uname -a  
 Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
