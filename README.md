@@ -1060,17 +1060,19 @@ ncdu can help to trace large and unused files on the system.
 
 ## User account management 
 
+### User management
 To add a new user: `useradd`   
 
 To delete/remove an existing user: `userdel`   
 
 To modify settings for an existing user: `usermod`   
 
+### Group management
 To add/create a new group: `groupadd`   
 
 To delete/remove an existing group: `groupdel`   
 
-To modify settings for an existing user: `groupmod`   
+To modify settings for an existing group: `groupmod`   
 
 To add a user to a group,  `usermod`  or  `groupmod`   
 ```
@@ -1084,7 +1086,7 @@ groups
 groups | tr ' ' '\n'      <== to see each group on a new line   
 ```
 
-
+### User login and password 
 To disable login for a user:  set user login shell to nologin :)    
 ```
 usermod user_name -s /sbin/nologin           <== message to user "This account is currently not available."
@@ -1121,8 +1123,15 @@ Use the following to find about user and group IDs:
 id
 ```
 
-For a user: UID, RUID, EUID    
-For a group: GID, RGID, EGID    
+Each user has the following IDs:    
+UID - User ID,   
+RUID - Real UID,   
+EUID - Effective UID    
+
+Each group has the following IDs:    
+GID - Group ID,   
+RGID - Real GID,   
+EGID - Effective GID    
 
 ----
 
@@ -2541,7 +2550,7 @@ PART-3
 
 ## Windowing System for GUI   
 
-X11 or X is a Window System for Unix/Linux distributions. While Linux came essentially as a kernel in 1991, it remained a terminal-based OS for time, for graphics or GUI on servers/desktops, X developed at MIT in the 80s remains the default choice. The last updated protocol version 11 of X gives it the name X11. Due to missing encryption between client and X server, [Wayland](https://wayland.freedesktop.org/architecture.html) has appeared as an alternative window system (default on Ubuntu 22.04 LTS). Here is a [nice reading on X11](https://www.baeldung.com/linux/x11) and [GUI in linux](https://www.baeldung.com/linux/gui).    
+X11 or X is a Windowing System for Unix/Linux distributions. While Linux came essentially as a kernel in August 1991, it remained a terminal-based OS for time, for graphics or GUI on servers/desktops, X developed at MIT in the 80s has dominated. The last updated protocol version 11 of X gives it the name X11. In X11, there is no encryption between client and X server. [Wayland](https://wayland.freedesktop.org/architecture.html) has emerged as an alternative windowing system. Here is a [nice reading on X11](https://www.baeldung.com/linux/x11) and [GUI in Linux](https://www.baeldung.com/linux/gui).    
 
 **Switching between X11 and Wayland**   
 The Zoom app has an interesting bug for screen sharing in Linux systems (desktop/laptop) using the default Wayland windowing system. Only Whiteboard sharing is enabled, and there is no option to share desktop/laptop screens. It appears Zoom may have decided not to fix this bug.    
@@ -2576,7 +2585,7 @@ ZoomLauncher started.
 Zoom path is: /opt/zoom
 cmd line: 
 Start subprocess: /opt/zoom/zoom successfully,  process pid: 70860 
-Can't load/home/rks/.config/zoomus.conf
+Can't load/home/rps/.config/zoomus.conf
 no pactl and  pacmd found at this system.                             Class      App      Lib Possible Culprit Flags
                 resip::Connection      696      696 
                       resip::Data       36       36 
@@ -2633,158 +2642,7 @@ XDG_CURRENT_DESKTOP = ubuntu:GNOME;  DESKTOP_SESSION = ubuntu; XDG_SESSION_TYPE 
    pipewire
    Compiled with libpipewire 1.6.2
    Linked with libpipewire 1.6.2
-
-Graphics Card Info:: 0000:00:02.0 VGA compatible controller: Intel Corporation TigerLake-LP GT2 [Iris Xe Graphics] (rev 01)
-Zoom package arch is 64bit, running OS arch is x86_64, snap package 0
-platformName: xcb isNativeWayland: 0
-AppIconMgr::systemDesktopName log Desktop Name: ubuntu 
-isScreenReaderEnabled,flag is 0.
-read value form zoomusconf,IsNeedUseOsrMode = 1
-isScreenReaderEnabled,flag is 0.
-isScreenReaderEnabled,flag is 0.
-qt.scenegraph.general: Using sg animation driver
-qt.scenegraph.general: Animation Driver: using vsync: 16.67 ms
-qt.scenegraph.general: Creating QRhi with backend OpenGL for window 0x76f2cdcb3800 (wflags 0x40C00)
-  Graphics API debug/validation layers: 0
-  Debug markers: 0
-  Timestamps: 0
-  Prefer software device: 0
-  Shader/pipeline cache collection: 1
-qt.rhi.general: Created OpenGL context QSurfaceFormat(version 4.6, options QFlags<QSurfaceFormat::FormatOption>(DeprecatedFunctions), depthBufferSize 24, redBufferSize 8, greenBufferSize 8, blueBufferSize 8, alphaBufferSize 8, stencilBufferSize 8, samples -1, swapBehavior QSurfaceFormat::DoubleBuffer, swapInterval 1, colorSpace QColorSpace(), profile  QSurfaceFormat::CompatibilityProfile)
-qt.rhi.general: OpenGL VENDOR: Intel RENDERER: Mesa Intel(R) Iris(R) Xe Graphics (TGL GT2) VERSION: 4.6 (Compatibility Profile) Mesa 26.0.3-1ubuntu1
-qt.scenegraph.general: Created QRhi 0x76f2b821b008 for window 0x76f2cdcb3800
-qt.scenegraph.general: MSAA sample count for the swapchain is 1. Alpha channel requested = yes.
-qt.scenegraph.general: rhi texture atlas dimensions: 1024x512
-qt.scenegraph.general: Using sg animation driver
-qt.scenegraph.general: Animation Driver: using vsync: 16.67 ms
-qt.scenegraph.general: Creating QRhi with backend OpenGL for window 0x76f2cdd5f500 (wflags 0x40C00)
-  Graphics API debug/validation layers: 0
-  Debug markers: 0
-  Timestamps: 0
-  Prefer software device: 0
-  Shader/pipeline cache collection: 1
-qt.rhi.general: Created OpenGL context QSurfaceFormat(version 4.6, options QFlags<QSurfaceFormat::FormatOption>(DeprecatedFunctions), depthBufferSize 24, redBufferSize 8, greenBufferSize 8, blueBufferSize 8, alphaBufferSize 8, stencilBufferSize 8, samples -1, swapBehavior QSurfaceFormat::DoubleBuffer, swapInterval 1, colorSpace QColorSpace(), profile  QSurfaceFormat::CompatibilityProfile)
-qt.rhi.general: OpenGL VENDOR: Intel RENDERER: Mesa Intel(R) Iris(R) Xe Graphics (TGL GT2) VERSION: 4.6 (Compatibility Profile) Mesa 26.0.3-1ubuntu1
-qt.scenegraph.general: Created QRhi 0x76f2b6817328 for window 0x76f2cdd5f500
-qt.scenegraph.general: MSAA sample count for the swapchain is 1. Alpha channel requested = yes.
-qt.scenegraph.general: rhi texture atlas dimensions: 1024x512
-qt.scenegraph.general: Using sg animation driver
-qt.scenegraph.general: Animation Driver: using vsync: 16.67 ms
-qt.scenegraph.general: Creating QRhi with backend OpenGL for window 0x76f2cdd22800 (wflags 0x40C00)
-  Graphics API debug/validation layers: 0
-  Debug markers: 0
-  Timestamps: 0
-  Prefer software device: 0
-  Shader/pipeline cache collection: 1
-qt.rhi.general: Created OpenGL context QSurfaceFormat(version 4.6, options QFlags<QSurfaceFormat::FormatOption>(DeprecatedFunctions), depthBufferSize 24, redBufferSize 8, greenBufferSize 8, blueBufferSize 8, alphaBufferSize 8, stencilBufferSize 8, samples -1, swapBehavior QSurfaceFormat::DoubleBuffer, swapInterval 1, colorSpace QColorSpace(), profile  QSurfaceFormat::CompatibilityProfile)
-qt.rhi.general: OpenGL VENDOR: Intel RENDERER: Mesa Intel(R) Iris(R) Xe Graphics (TGL GT2) VERSION: 4.6 (Compatibility Profile) Mesa 26.0.3-1ubuntu1
-qt.scenegraph.general: Created QRhi 0x76f2b641b008 for window 0x76f2cdd22800
-qt.scenegraph.general: MSAA sample count for the swapchain is 1. Alpha channel requested = yes.
-qt.scenegraph.general: rhi texture atlas dimensions: 512x512
-qt.scenegraph.general: Using sg animation driver
-qt.scenegraph.general: Animation Driver: using vsync: 16.67 ms
-qt.scenegraph.general: Creating QRhi with backend OpenGL for window 0x76f2ce144900 (wflags 0x800C801)
-  Graphics API debug/validation layers: 0
-  Debug markers: 0
-  Timestamps: 0
-  Prefer software device: 0
-  Shader/pipeline cache collection: 1
-qt.rhi.general: Created OpenGL context QSurfaceFormat(version 4.6, options QFlags<QSurfaceFormat::FormatOption>(DeprecatedFunctions), depthBufferSize 24, redBufferSize 8, greenBufferSize 8, blueBufferSize 8, alphaBufferSize 8, stencilBufferSize 8, samples -1, swapBehavior QSurfaceFormat::DoubleBuffer, swapInterval 1, colorSpace QColorSpace(), profile  QSurfaceFormat::CompatibilityProfile)
-qt.rhi.general: OpenGL VENDOR: Intel RENDERER: Mesa Intel(R) Iris(R) Xe Graphics (TGL GT2) VERSION: 4.6 (Compatibility Profile) Mesa 26.0.3-1ubuntu1
-qt.scenegraph.general: Created QRhi 0x76f2b4a03328 for window 0x76f2ce144900
-qt.scenegraph.general: MSAA sample count for the swapchain is 1. Alpha channel requested = yes.
-qt.scenegraph.general: rhi texture atlas dimensions: 4096x2048
-ZoomWebviewHost finally lanuch state is true
-Error: Send error, 22 Invalid argument
-Error: Send error, 22 Invalid argument
-Error: Send error, 22 Invalid argument
-
-isScreenReaderEnabled,flag is 0.
-read value form zoomusconf,IsNeedUseOsrMode = 1
-isScreenReaderEnabled,flag is 0.
-isScreenReaderEnabled,flag is 0.
-update.go:85: cannot change mount namespace according to change mount (/var/lib/snapd/hostfs/usr/local/share/doc /usr/local/share/doc none bind,ro 0 0): cannot write to "/var/lib/snapd/hostfs/usr/local/share/doc" because it would affect the host in "/var/lib/snapd"
-update.go:85: cannot change mount namespace according to change mount (/var/lib/snapd/hostfs/usr/share/gimp/2.0/help /usr/share/gimp/2.0/help none bind,ro 0 0): cannot write to "/var/lib/snapd/hostfs/usr/share/gimp/2.0/help" because it would affect the host in "/var/lib/snapd"
-update.go:85: cannot change mount namespace according to change mount (/var/lib/snapd/hostfs/usr/share/gtk-doc /usr/share/gtk-doc none bind,ro 0 0): cannot write to "/var/lib/snapd/hostfs/usr/share/gtk-doc" because it would affect the host in "/var/lib/snapd"
-update.go:85: cannot change mount namespace according to change mount (/var/lib/snapd/hostfs/usr/share/xubuntu-docs /usr/share/xubuntu-docs none bind,ro 0 0): cannot write to "/var/lib/snapd/hostfs/usr/share/xubuntu-docs" because it would affect the host in "/var/lib/snapd"
-Gtk-Message: 08:03:38.738: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
-Warning: maxDynamicUniformBuffersPerPipelineLayout artificially reduced from 500000 to 16 to fit dynamic offset allocation limit.
-Warning: maxDynamicStorageBuffersPerPipelineLayout artificially reduced from 500000 to 16 to fit dynamic offset allocation limit.
-QQmlVMEMetaObject: Internal error - attempted to evaluate a function in an invalid context
-qrc:/qml/SignInMFACode.qml:138: TypeError: Property 'updateAuthCodeStatus' of object SignInMFACode_QMLTYPE_780(0x76f2ce0fab00) is not a function
-isScreenReaderEnabled,flag is 0.
-read value form zoomusconf,IsNeedUseOsrMode = 1
-isScreenReaderEnabled,flag is 0.
-isScreenReaderEnabled,flag is 0.
-isScreenReaderEnabled,flag is 0.
-read value form zoomusconf,IsNeedUseOsrMode = 1
-isScreenReaderEnabled,flag is 0.
-isScreenReaderEnabled,flag is 0.
-qt.scenegraph.general: animation driver switched to timer mode
-qt.scenegraph.general: Using sg animation driver
-qt.scenegraph.general: animation driver switched to vsync mode
-isScreenReaderEnabled,flag is 0.
-read value form zoomusconf,IsNeedUseOsrMode = 1
-isScreenReaderEnabled,flag is 0.
-isScreenReaderEnabled,flag is 0.
-qt.scenegraph.general: Using sg animation driver
-qt.scenegraph.general: Animation Driver: using vsync: 16.67 ms
-qt.scenegraph.general: Creating QRhi with backend OpenGL for window 0x76f2bfeef900 (wflags 0x40800)
-  Graphics API debug/validation layers: 0
-  Debug markers: 0
-  Timestamps: 0
-  Prefer software device: 0
-  Shader/pipeline cache collection: 1
-qt.rhi.general: Created OpenGL context QSurfaceFormat(version 4.6, options QFlags<QSurfaceFormat::FormatOption>(DeprecatedFunctions), depthBufferSize 24, redBufferSize 8, greenBufferSize 8, blueBufferSize 8, alphaBufferSize 8, stencilBufferSize 8, samples -1, swapBehavior QSurfaceFormat::DoubleBuffer, swapInterval 1, colorSpace QColorSpace(), profile  QSurfaceFormat::CompatibilityProfile)
-qt.rhi.general: OpenGL VENDOR: Intel RENDERER: Mesa Intel(R) Iris(R) Xe Graphics (TGL GT2) VERSION: 4.6 (Compatibility Profile) Mesa 26.0.3-1ubuntu1
-qt.scenegraph.general: Created QRhi 0x76f2ad40f320 for window 0x76f2bfeef900
-qt.scenegraph.general: MSAA sample count for the swapchain is 1. Alpha channel requested = yes.
-qt.scenegraph.general: rhi texture atlas dimensions: 2048x2048
-qt.scenegraph.general: animation driver switched to timer mode
-qt.scenegraph.general: Using sg animation driver
-qt.scenegraph.general: animation driver switched to vsync mode
-qt.scenegraph.general: Using sg animation driver
-qt.scenegraph.general: Animation Driver: using vsync: 16.67 ms
-qt.scenegraph.general: Creating QRhi with backend OpenGL for window 0x76f2be40c900 (wflags 0x4080B)
-  Graphics API debug/validation layers: 0
-  Debug markers: 0
-  Timestamps: 0
-  Prefer software device: 0
-  Shader/pipeline cache collection: 0
-qt.rhi.general: Created OpenGL context QSurfaceFormat(version 4.6, options QFlags<QSurfaceFormat::FormatOption>(DeprecatedFunctions), depthBufferSize 24, redBufferSize 8, greenBufferSize 8, blueBufferSize 8, alphaBufferSize 8, stencilBufferSize 8, samples -1, swapBehavior QSurfaceFormat::DoubleBuffer, swapInterval 1, colorSpace QColorSpace(), profile  QSurfaceFormat::CompatibilityProfile)
-qt.rhi.general: OpenGL VENDOR: Intel RENDERER: Mesa Intel(R) Iris(R) Xe Graphics (TGL GT2) VERSION: 4.6 (Compatibility Profile) Mesa 26.0.3-1ubuntu1
-qt.scenegraph.general: Created QRhi 0x76f2ad01b328 for window 0x76f2be40c900
-qt.scenegraph.general: MSAA sample count for the swapchain is 1. Alpha channel requested = yes.
-qt.scenegraph.general: rhi texture atlas dimensions: 1024x512
-isScreenReaderEnabled,flag is 0.
-read value form zoomusconf,IsNeedUseOsrMode = 1
-isScreenReaderEnabled,flag is 0.
-isScreenReaderEnabled,flag is 0.
-qt.scenegraph.general: Using sg animation driver
-qt.scenegraph.general: Animation Driver: using vsync: 16.67 ms
-qt.scenegraph.general: Creating QRhi with backend OpenGL for window 0x76f292ab9800 (wflags 0x40C00)
-  Graphics API debug/validation layers: 0
-  Debug markers: 0
-  Timestamps: 0
-  Prefer software device: 0
-  Shader/pipeline cache collection: 1
-qt.rhi.general: Created OpenGL context QSurfaceFormat(version 4.6, options QFlags<QSurfaceFormat::FormatOption>(DeprecatedFunctions), depthBufferSize 24, redBufferSize 8, greenBufferSize 8, blueBufferSize 8, alphaBufferSize 8, stencilBufferSize 8, samples -1, swapBehavior QSurfaceFormat::DoubleBuffer, swapInterval 1, colorSpace QColorSpace(), profile  QSurfaceFormat::CompatibilityProfile)
-qt.rhi.general: OpenGL VENDOR: Intel RENDERER: Mesa Intel(R) Iris(R) Xe Graphics (TGL GT2) VERSION: 4.6 (Compatibility Profile) Mesa 26.0.3-1ubuntu1
-qt.scenegraph.general: Created QRhi 0x76f2aac03328 for window 0x76f292ab9800
-qt.scenegraph.general: MSAA sample count for the swapchain is 1. Alpha channel requested = yes.
-qt.scenegraph.general: rhi texture atlas dimensions: 1024x512
-QObject::disconnect: wildcard call disconnects from destroyed signal of ScheduleMeetingWeb_QMLTYPE_821::unnamed
-qt.scenegraph.general: Total time spent on pipeline creation during the lifetime of the QRhi 0x76f2ad40f320 was 6 ms
-qt.scenegraph.general: Writing pipeline cache contents (36616 bytes) for QRhi 0x76f2ad40f320 to '/home/rks/.cache/zoom/qtpipelinecache-x86_64-little_endian-lp64/qqpc_opengl'
-qt.scenegraph.general: Total time spent on pipeline creation during the lifetime of the QRhi 0x76f2ad01b328 was 9 ms
-qt.scenegraph.general: Using sg animation driver
-qt.scenegraph.general: Animation Driver: using vsync: 16.67 ms
-qt.scenegraph.general: Creating QRhi with backend OpenGL for window 0x76f28478ac00 (wflags 0x8042000)
-  Graphics API debug/validation layers: 0
-  Debug markers: 0
-  Timestamps: 0
-  Prefer software device: 0
-  Shader/pipeline cache collection: 1
+...
 qt.rhi.general: Created OpenGL context QSurfaceFormat(version 4.6, options QFlags<QSurfaceFormat::FormatOption>(DeprecatedFunctions), depthBufferSize 24, redBufferSize 8, greenBufferSize 8, blueBufferSize 8, alphaBufferSize 8, stencilBufferSize 8, samples -1, swapBehavior QSurfaceFormat::DoubleBuffer, swapInterval 1, colorSpace QColorSpace(), profile  QSurfaceFormat::CompatibilityProfile)
 qt.rhi.general: OpenGL VENDOR: Intel RENDERER: Mesa Intel(R) Iris(R) Xe Graphics (TGL GT2) VERSION: 4.6 (Compatibility Profile) Mesa 26.0.3-1ubuntu1
 qt.scenegraph.general: Created QRhi 0x76f2ad40f320 for window 0x76f28478ac00
