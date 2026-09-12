@@ -76,10 +76,7 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Virtualization](#virtualization)
   * Part-5 Misc
       * [The One with UNIX or Linux History](#the-one-with-unix-or-linux-history)
-      * [Advantage Linux](#advantage-linux)
       * [The One with Linus](#the-one-with-linus)
-      * [LWN](#lwn)
-      * [Kernel parameters](#kernel-parameters)
       * [D-Windows](#d-windows)
   * Part-6 Projects
       * [Course and Projects](#course-and-projects)
@@ -1458,6 +1455,27 @@ Q. Is there a way to avoid accidental file overwrite?
 A. There you go with chattr +a filename and check using lsattr. chattr +a sets the file attribute to append only, no write/overwrite.   
 Try protecting your system config files, which do not get auto-updated, using chattr.    
 
+### Linux Capabilities   
+
+Unprivileged or non-root processes can be enabled or disabled for specific tasks or for access to certain resources. They are pretty much permissions for a process.    
+
+You can check the capabilities for a process using    
+```
+$ getpcaps PID   
+```
+
+man capabilities gets this :)     
+```
+  For  the purpose of performing permission checks, traditional UNIX implementations distinguish two categories of processes:   
+  privileged processes (whose effective user ID is 0, referred to as superuser or root), and unprivileged processes (whose
+  effective UID is nonzero).  Privileged processes bypass all kernel permission checks,  while  unprivileged processes are
+  subject to full permission checking based on the process's credentials (usually: effective UID, effective GID, and
+  supplementary group list).   
+   
+  Starting  with  Linux  2.2, Linux divides the privileges traditionally associated with superusers into distinct units,
+  known as capabilities, which can be independently enabled and disabled.  Capabilities are a per-thread attribute.   
+```
+
 ----
 
 ## su and sudo    
@@ -1851,6 +1869,13 @@ Helpful readings: [1](https://www.compuram.de/blog/en/how-much-ram-can-be-addres
 
 Q. Why is kcore file so large on my system? even larger than disk space?    
 A. /proc/kcore is a virtual map and nothing physical about it. This is infact true for many things in /proc. [See also](https://stackoverflow.com/questions/21170795/proc-kcore-file-is-huge)    
+
+One can set or display kernel parameters for the currently booted kernel. You would like to know what values you set before you set them :)    
+
+```
+$ cat /proc/cmdline 
+BOOT_IMAGE=/boot/vmlinuz-6.2.0-39-generic root=UUID=d56a27d6-0a3c-40a1-b85f-b4fa53bff998 ro quiet splash vt.handoff=7
+```
 
 ---- 
 
@@ -3297,6 +3322,17 @@ Now, you can view and refer to some online resources (Remember man, info, and co
 
 TODO: Add link to LaTeX page.    
 
+[Linux Weekly News](https://lwn.net/)    
+
+[Linux Journey](https://labex.io/linuxjourney)    
+
+@Blindos    
+Windows Subsystem for Linux (WSL) allows a minimal shell like support of Linux commands within Windows OS.    
+Wine used to support execution of lightweight .exe executables in Linux without porting.    
+Mingcw compiler allowed gcc support in Windows OS.    
+
+[State of Developing iOS apps in Linux](https://linuxvox.com/blog/what-s-the-state-of-developing-ios-apps-in-linux/)     
+
 ---- 
 
 ## Linux toolchain   
@@ -3401,72 +3437,11 @@ Examples for logging [printk](https://www.kernel.org/doc/html/latest/core-api/pr
 
 [Linux Kernel Scheduler's journey from CFS to EEVDF](https://docs.kernel.org/scheduler/sched-eevdf.html) starting kernel 6.6     
 
-[Linux Kernel releases](https://www.kernel.org/category/releases.html): The mainline Linux kernel releases every 9 to 10 weeks, with a 2-week merge window followed by 7 weeks of bug-fixing and stabilization phase. The Linux kernel source crossed 40 million lines in 2025 that is more than double its 2015 size of approximately 19 million lines. Mainline kernels are released by Linus Torvalds, while long-term support (LTS) kernels receive extended updates based on industry demand,  release maintainers (GKH and SL) and ~1800 developers.    
+[Linux Kernel releases](https://www.kernel.org/category/releases.html): The mainline Linux kernel releases every 9 to 10 weeks, with a 2-week merge window followed by 7 weeks of bug-fixing and stabilization phase. The Linux kernel source crossed 40 million lines in 2025 that is more than double its 2015 size of approximately 19 million lines. Mainline kernels are released by Linus Torvalds, while long-term support (LTS) kernels receive extended updates based on industry demand, release maintainers (GKH and SL) and ~1800 developers.    
 
 [The Life Cycle of a Linux Kernel Update](https://www.thelinuxvault.net/linux-kernel-basics/the-life-cycle-of-a-linux-kernel-update/)    
 
 ---- 
-
-## Kernel Parameters    
-
-Like printenv for the current session, we can set or display kernel parameters for the currently booted kernel. You would like to know what values you set before you set them :)    
-
-```
-$ cat /proc/cmdline 
-BOOT_IMAGE=/boot/vmlinuz-6.2.0-39-generic root=UUID=d56a27d6-0a3c-40a1-b85f-b4fa53bff998 ro quiet splash vt.handoff=7
-```
-
-```
-$ sysctl -a
-abi.vsyscall32 = 1
-debug.exception-trace = 1
-debug.kprobes-optimization = 1
-...
-dev.scsi.logging_level = 0
-...
-...
-user.max_net_namespaces = 61251
-user.max_pid_namespaces = 61251
-...
-vm.overcommit_memory = 0
-vm.overcommit_ratio = 50
-...
-vm.swappiness = 60
-vm.unprivileged_userfaultfd = 0
-vm.user_reserve_kbytes = 131072
-vm.vfs_cache_pressure = 100
-vm.watermark_boost_factor = 15000
-vm.watermark_scale_factor = 10
-vm.zone_reclaim_mode = 0
-```
-
-**Overcommit memory**    
-
-Know more about vm.overcommit_memory and vm.overcommit_ratio at [serverfault](https://serverfault.com/questions/606185/how-does-vm-overcommit-memory-work)     
-
-----
-
-## Linux Capabilities   
-
-Unprivileged or non-root processes can be enabled or disabled for specific tasks or for access to certain resources. They are pretty much permissions for a process.    
-
-You can check the capabilities for a process using    
-```
-$ getpcaps PID   
-```
-
-When asked, the man (man capabilities), got this reply :)     
-```
-  For  the purpose of performing permission checks, traditional UNIX implementations distinguish two categories of processes:   
-  privileged processes (whose effective user ID is 0, referred to as superuser or root), and unprivileged processes (whose
-  effective UID is nonzero).  Privileged processes bypass all kernel permission checks,  while  unprivileged processes are
-  subject to full permission checking based on the process's credentials (usually: effective UID, effective GID, and
-  supplementary group list).   
-   
-  Starting  with  Linux  2.2, Linux divides the privileges traditionally associated with superusers into distinct units,
-  known as capabilities, which can be independently enabled and disabled.  Capabilities are a per-thread attribute.   
-```
-----
 
 ## Virtualization    
 
@@ -3535,26 +3510,20 @@ Some reading material: [1](http://www.linfo.org/flavors.html) and [2](https://ww
 
 ---- 
 
-## Advantage Linux 
-
-I have been using Linux as a primary desktop/laptop OS for over 20 years, well before getting my first desktop. One can always count on community support and forums; there are so many instances where you can get help on online forums and web pages. Ever wondered what gets them going? Who pays their bills? What could you do to get this going?   
-
-Pick up an open source project from the maintainer's website, join the mailing list, and start contributing one change at a time. You can be anonymous.    
-
-----
-
 ## The One with Linus
 
 [The talk with not so visionary, not so people-person, a simple, happy engineer](https://www.youtube.com/watch?v=o8NPllzkFhE) Linus Torvalds, who changed the world at least twice with Linux and Git. He started both projects as a hobby and to solve the problems he was facing.     
 
-Linus did not monetize Linux, gave the Linux kernel (heart) to the community to develop, and kept it out of corporate greed. This is also a reason why Linux flourished among enthusiasts and hobbyist developers.     
+Linus did not monetize Linux, instead shared the Linux kernel (heart) to the community to develop, and kept it out of corporate greed using GPL. This Linux philosophy is also a reason why Linux flourished among enthusiasts and hobbyist developers.     
 
-Linus Torvalds built Linux Kernel at 21, without any generative AI tool or much-hyped Claude, or any of the tools available now, in 2026.     
+Linus Torvalds built Linux Kernel at 21, without any of the assistance or tools available now, in 2026.    
 
 No co-founder.    
 No VC backing.    
 No fancy office.    
 No team.    
+No Gen AI.   
+No Claude.    
 
 Just a personal project he was curious enough to build. On August 25, 1991, he posted this on Usenet:     
 
@@ -3562,29 +3531,15 @@ Just a personal project he was curious enough to build. On August 25, 1991, he p
 
 He had no idea how far that “just a hobby” would go. Linux now runs over 95% of the world’s servers, powers Android for mobile devices, underpins much of the public cloud, and runs on everything from supercomputers to systems in space.     
 
-Just a small project on one person’s computer became foundational infrastructure for modern computing. And he called it “just a hobby.”    
+Just a small project on one person’s computer became foundational infrastructure for modern computing. And he called it “just a hobby” that is alive and thriving after 35 years. Linus also developed a culture of text-book style Linux kernel releases every 9 to 10 weeks.    
 
 Then, again, with another project Git, Linus changed how we version and maintain source code releases.    
 
+|I have been using Linux as a primary desktop/laptop OS for over 23 years, well before getting my first desktop/laptop. One can always count on community support and forums; there are so many instances where you can get help on online forums and mailing lists. Ever wondered what gets them going?    
+
+Pick up an open source project from the maintainer's website, join the mailing list, and start contributing one change at a time. You can be anonymous.    
+
 ---- 
-
-## LWN 
-
-[Linux Weekly News](https://lwn.net/)    
-
-[Linux Journey](https://labex.io/linuxjourney)    
-
-----
-
-## Linux support with other OSes
-
-[WSL]() allows a minimal shell like support of linux commands within Windows OS.    
-Wine used to support execution of lightweight .exe executables in linux without porting.    
-Mingcw compiler allowed gcc support in Windows.    
-
-[State of Developing iOS apps in Linux](https://linuxvox.com/blog/what-s-the-state-of-developing-ios-apps-in-linux/)     
-
-----
 
 ## D-Windows 
 
