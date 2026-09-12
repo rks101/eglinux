@@ -37,6 +37,7 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Simple web server](#simple-web-server)
       * [Remote login using `ssh`](#remote-login-using-ssh)
       * [Transfer files using Secure Copy `scp`](#transfer-files-using-secure-copy-scp)
+      * [User account management](#user-account-management) 
   * Part-2
       * [Processes](#processes)
       * [Process Memory Layout using `proc`](#process-memory-layout)
@@ -50,12 +51,13 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Input Output redirection](#input-output-redirection)
       * [View file content](#view-file-content) 
       * [`xargs`](#xargs)
-      * [File archival and compression](#file-archival-and-compression) 
+      * [File archival and compression](#file-archival-and-compression)
+      * [Git](#git) 
       * [Shell Scripting](#shell-scripting)
       * [regex](#regex)
       * [`xdg-open`](#xdg-open)
       * [File conversion](#file-conversion)
-      * [Debugging](#debugging)
+      * [Debugging and Troubleshooting](#debugging-and-troubleshooting)
   * Part-3
       * [Windowing System for GUI](#windowing-system-for-gui) 
       * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
@@ -69,11 +71,9 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
       * [Managing server logs](#managing-server-logs)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
-      * [User account management](#user-account-management) 
       * [The One with mysql admin password](#the-one-with-mysql-admin-password)
   * Part-4
       * [Online Resources](#online-resources)
-      * [Linux software](#linux-software)
       * [Linux toolchain](#linux-toolchain) 
       * [Linux for Networking](#linux-for-networking)
       * [Linux for Security](#linux-for-security)
@@ -86,7 +86,6 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [The One with Linus](#the-one-with-linus)
       * [LWN](#lwn)
       * [Kernel parameters](#kernel-parameters)
-      * [Linux capabilities](#linux-capabilities)
       * [D-Windows](#d-windows)
   * Part-6 Projects
       * [Course and Projects](#course-and-projects)
@@ -1584,6 +1583,73 @@ While writing to the target location, make sure there is no file with the same n
 
 ----
 
+## User account management 
+
+To add a new user: `useradd`   
+
+To delete/remove an existing user: `userdel`   
+
+To modify settings for an existing user: `usermod`   
+
+To add/create a new group: `groupadd`   
+
+To delete/remove an existing group: `groupdel`   
+
+To modify settings for an existing user: `groupmod`   
+
+To add a user to a group,  `usermod`  or  `groupmod`   
+```
+usermod -g root rps     <== add group root for user rps 
+groupmod -a rps root    <== add user rps to group root 
+```
+
+To view groups a user is in or added to: `groups` 
+```
+groups 
+groups | tr ' ' '\n'      <== to see each group on a new line   
+```
+
+
+To disable login for a user:  set user login shell to nologin :)    
+```
+usermod user_name -s /sbin/nologin           <== message to user "This account is currently not available."
+                                             <== check: man nologin   
+```   
+To lock or unlock a user account:    
+```
+usermod -L username                          <== check /etc/shadow, the second column will show a ! sign 
+usermod -U username 
+```
+
+To view the user account password settings:   
+```
+$ sudo chage --list user_name
+[sudo] password for user_name: 
+Last password change					: Dec 01, 2022
+Password expires					: never
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 99999
+Number of days of warning before password expires	: 7
+```
+
+To set a user's password to expire on a date:    
+```
+sudo chage -E 2025-12-31 user_name
+```
+
+### User and group IDs 
+
+Use the following to find about user and group IDs:    
+```
+id
+```
+
+For a user: UID, RUID, EUID    
+For a group: GID, RGID, EGID    
+
+----
 
 PART-2    
 
@@ -1779,9 +1845,9 @@ A. /proc/kcore is a virtual map and nothing physical about it. This is infact tr
 
 ## Process Creation  
 
-Introduce fork(), vfork() for process creation.    
+TODO: Introduce fork(), vfork() for process creation.    
 
-Introduce orphan and zombies.   
+TODO: Introduce orphan and zombies processes.    
 
 ---- 
 
@@ -1988,6 +2054,8 @@ A. In command mode inside the vi/vim editor, :%s/^M//g          <== To type ^M t
 [vim adventures game](https://vim-adventures.com/)     
 
 [Little history and an opinion on vi](https://medium.com/@eddiec76/i-have-opinions-3a2c0af1e1ad)     
+
+Emacs is another great editor of choice and involves some learning curve.    
 
 ----
 
@@ -2205,9 +2273,10 @@ xz -dk logs.xz                   <== decompress .xz file
 ```
 v - verbose output    
 f - archive file    
+z/j/J - to define compression     
 The options above may change, though it gets easier to remember them this way.    
 
-Note:- Linux kernel (kernel.org) uses .tar.xz format to archive kernel releases.    
+Note:- Linux kernel (kernel.org) uses .tar.xz format to archive kernel releases and compress using XZ.    
 
 ----
 
@@ -2425,11 +2494,13 @@ Also, do not forget to ask your good old `man` about these commands, options, an
 
 Ever wondered about learning and extracting data from PDF files, scanned documents (with or without OCR), word processors, spreadsheets, or presentations!    
 
-TODO: application for data extraction from PDF documents, e.g. newspaper, books.    
+TODO: Data extraction from PDF documents, e.g. newspaper, books.    
 
 ----
 
-## Debugging
+## Debugging and Troubleshooting 
+
+All topics discussed above help in building debugging and troubleshooting skills while getting help on the system itself.    
 
 For debugging issues, the following can help with processes and system resources.  
 
@@ -3303,64 +3374,6 @@ Just in case you run out of space, check dmesg and try to clean up the last acti
 
 ----
 
-## User account management 
-
-To add a new user: `useradd`   
-
-To delete/remove an existing user: `userdel`   
-
-To modify settings for an existing user: `usermod`   
-
-To add/create a new group: `groupadd`   
-
-To delete/remove an existing group: `groupdel`   
-
-To modify settings for an existing user: `groupmod`   
-
-To add a user to a group,  `usermod`  or  `groupmod`   
-```
-usermod -g root rps     <== add group root for user rps 
-groupmod -a rps root    <== add user rps to group root 
-```
-
-To view groups a user is in or added to: `groups` 
-```
-groups 
-groups | tr ' ' '\n'      <== to see each group on a new line   
-```
-
-
-To disable login for a user:  set user login shell to nologin :)    
-```
-usermod user_name -s /sbin/nologin           <== message to user "This account is currently not available."
-                                             <== check: man nologin   
-```   
-To lock or unlock a user account:    
-```
-usermod -L username                          <== check /etc/shadow, the second column will show a ! sign 
-usermod -U username 
-```
-
-To view the user account password settings:   
-```
-$ sudo chage --list user_name
-[sudo] password for user_name: 
-Last password change					: Dec 01, 2022
-Password expires					: never
-Password inactive					: never
-Account expires						: never
-Minimum number of days between password change		: 0
-Maximum number of days between password change		: 99999
-Number of days of warning before password expires	: 7
-```
-
-To set a user's password to expire on a date:    
-```
-sudo chage -E 2025-12-31 user_name
-```
-
-----
-
 ## The One with mysql admin password
 
 Sometimes, you may forget your MySQL admin password, and you want to reset it.  
@@ -3406,13 +3419,13 @@ Now, you can view and refer to some online resources (Remember man, info, and co
 [It's FOSS](https://itsfoss.com/)     
 [Linuxconfig](https://linuxconfig.org/)    
 
-----
-
-## Linux software
+### Linux software
 
 [Linux Software](https://github.com/luong-komorebi/Awesome-Linux-Software)    
 
 [Writing mathematical equations in Libre Office Writer](https://www.ubuntubuzz.com/2016/09/libreoffice-writer-equation-editor-writing-mathematical-formulas.html)     
+
+TODO: Add link to LaTeX page.    
 
 ---- 
 
