@@ -213,8 +213,8 @@ Ubuntu 26.04 LTS "Resolute Raccoon"  <==
 
 Check out [Ubuntu releases](https://www.releases.ubuntu.com/) and [Ubuntu Version History](https://en.wikipedia.org/wiki/Ubuntu_version_history)    
 
-Q. What is my system kernel, nodename, kernel version, and date last updated?   
-A. Ask `uname` (Unix Name) for kernel name, nodename, kernel version, processor type (x86_64), hardware platform type (x86_64), etc. It does not give Linux distribution name.    
+Q. What is my system kernel name, nodename, kernel release, version?   
+A. Ask `uname` (Unix Name) for kernel name, nodename, kernel version, target machine processor type (x86_64), hardware platform type (x86_64), etc. It does not give Linux distribution name.    
 ```
 $ uname -a  
 Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
@@ -1650,7 +1650,7 @@ SSH ignores a private key file (.pem file) if it is accessible to others. You ma
 chmod 400 filename.pem  
 ```
 
-The default port number to use SSH is 22; this port number can be changed in /etc/ssh/ssh_config for Port config.   
+The default port number to use SSH is 22; this port number can be changed at server side in /etc/ssh/sshd_config for Port config.   
 
 ----
 
@@ -1682,13 +1682,12 @@ PART-2
 
 Use the `ps` command with options -aef or -aux and grep for user or other strings.    
 
-ps -aux shows the USER running the process, the PID of the process, the %CPU used, the %MEM used, the status of the process, the timestamp of starting the process, and the command used to start the process.    
+ps -aef shows the USER running the process, the PID of the process, the parent process ID, the timestamp of starting the process, and the command used to start the process.    
 
 ```
 ps
 ps -aef 
-ps -aux
-ps -aux | grep $USER 
+ps -aef | grep $USER 
 ```
 
 Take a closer look at the ps output, notice the process ID (PID) and parent process ID (PPID).    
