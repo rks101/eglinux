@@ -3338,15 +3338,39 @@ Mingcw compiler allowed gcc support in Windows OS.
 
 ## Linux toolchain   
 
-Cool compilers/interpreters for development:  
+Cool compilers/interpreters for development:   
 
 <table>
- <tr><td>clang</td><td>Front end for LLVM, for C/C++/Objective C/C++</td></tr>
- <tr><td>gcc</td><td>Front end for GCC, for C/C++ on Linux</td></tr>
- <tr><td>g++</td><td>Front end for GCC, for C++ on Linux</td></tr>
- <tr><td>java</td><td>Java interpreter from Sun/Oracle/IBM</td></tr>
- <tr><td>python3</td><td>Python for quick prototypes and Data Science/ML libraries</td></tr>
- <tr><td>Haskell</td> <td><a href="https://www.haskell.org/ghc/">GHC</a>, <a href="https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html">GHCi</a></td></tr>
+ <tr>
+	 <td>clang</td>
+	 <td>Front end for LLVM, for C/C++/Objective C/C++</td>
+	 <td>\u2705</td>
+ </tr>
+ <tr>
+	 <td>gcc</td>
+	 <td>GNU Compiler Collection or driver, for C/C++ programs on Linux</td>
+	 <td>\u2705</td>
+ </tr>
+ <tr>
+	 <td>g++</td>
+	 <td>GCC for C++ programs on Linux</td>
+	 <td>\u2705</td>
+ </tr>
+ <tr>
+	 <td>java</td>
+	 <td>Java interpreter from Sun/Oracle/IBM</td>
+	 <td>\u2705</td>
+ </tr>
+ <tr>
+	 <td>python3</td>
+	 <td>Python for quick prototypes and Data Science/ML libraries</td>
+	 <td>\u2705</td>
+ </tr>
+ <tr>
+	 <td>Haskell</td>
+	 <td><a href="https://www.haskell.org/ghc/">GHC</a>, <a href="https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html">GHCi</a></td>
+	 <td>\u2705</td>
+ </tr>
 </table>
 
 To check if Java runtime environment (JRE) is installed: $ java --version   
