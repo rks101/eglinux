@@ -1157,7 +1157,7 @@ The following are some examples of file permissions.
 
 ```
 -rwx------ : regular file, (700), only the owner can read, write, and execute this file.   
--rw-r--r-- : regular file, (544), anyone can read, only the owner can modify or delete.   
+-rw-r--r-- : regular file, (644), anyone can read, only the owner can modify or delete.   
 drwxr-xr-x : directory, (755), owner can read, write, and access the directory, group and other users can read the contents and access it, cd is allowed   
 -rwxr-xr-x : regular file, (755), only the owner can modify or delete; however, anyone can read or execute it   
 ```
@@ -1349,7 +1349,7 @@ drwxrwxrwt 23 root root 4096 Nov 24 12:19 /tmp                  <== notice  t  i
 $ ls -ld /run/lock
 drwxrwxrwt 4 root root 100 May 11 18:02 /run/lock
 ```
-If the sticky bit is set for a directory, all files inside this directory can be deleted or moved by the owner of the files or the guru (root).    
+If the sticky bit is set for a directory, all files inside this directory can be deleted or moved by the owner of the files, directory owner, or root.    
 
 See if there are other such directories like tmp using find / -perm /1000 
 
@@ -1875,7 +1875,10 @@ Note: /etc/crontab is a global system-wide cron job scheduler. It contains a use
 Min Hr DoM Mth DoW user command     
 00 00 01 01 * root { cd / && echo "Happy New Year!" > greetings.txt }     
 
-Note: There is another option to schedule jobs using `crontab -e`, which is available by default for logged-in users. There is no user edit option present when editing using `crontab -e`. It can be run for a user rps using the -u flag =>  crontab -e -u rps     
+Note: There is another option to schedule jobs using `crontab -e`, which is available by default for the current logged-in user. Option -u can be used to specify another user's crontab subject to privileges.   
+```
+crontab -e -u rps
+```
 
 Also refer: [Cron periodic config](https://docs.freebsd.org/en/books/handbook/config/#cron-periodic)     
 
@@ -1883,17 +1886,15 @@ Also refer: [Cron periodic config](https://docs.freebsd.org/en/books/handbook/co
 
 ## nohup   
 
-When running a command in the terminal, it stops upon closing the terminal or disconnecting the remote session (SSH).   
+When running a command in the terminal, it stops upon closing the terminal or disconnecting the remote session (SSH). Suppose the command was executed interactively (sudo apt update, sudo apt upgrade); now the exit status may be unknown.    
 
-Suppose the command was executed interactively (update, upgrade); now the exit status may be unknown or incomplete.    
+`nohup` (no hang up) causes the invoked command to ignore SIGHUP signal and handles terminal output appropriately, thereby helping in interactive command execution. e.g.    
 
-We can use nohup (no hang up) to instruct the OS not to trap the SIGHUP signal, thereby preventing it from stopping interactive command execution.    
-
-Run a bash script to back up resources:   
+To run a bash script to back up resources:   
 ```
 nohup bash backup.sh    
 ```
-Run a system update that can run longer, uninterrupted, and may remain unattended   
+To run a system update that can run longer, uninterrupted, and may remain unattended   
 ```
 nohup sudo apt upgrade   
 ```
