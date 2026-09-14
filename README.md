@@ -6,7 +6,7 @@ eglinux, pronounced as “easy Linux”, compiles and presents helpful Linux com
 
 *Feedback*: If this page helps you understand Linux and gain hands-on experience, please cite or reference this page. Additionally, please share your suggestions on how I can improve the page in terms of coverage, clarity, and utility.   
 
-Linux powers many servers and large application deployments worldwide. Knowing how to navigate, search, get help, and troubleshoot on Linux is essential for any application developer, sysadmin, or defender.    
+Linux powers many servers and large application deployments worldwide. Knowing how to navigate, search, get help, and troubleshoot on Linux is essential for any application developer, sysadmin, or defender. In the age of generative AI, do not believe me, do not believe ChatGPT or other tools. Let's observe the system. Keep your curiosity alive, keep the spirit of inquiry alive, and develop the urge to challenge the answers.     
 
 **Come, let's make penguins happy! 🐧 :)** 
 
