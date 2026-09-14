@@ -29,7 +29,9 @@ echo "Hello! bash"
 
 To grant executable permissions to a script:   
 ```
-chmod a+x script.sh    <== or chmod 755 script.sh 
+chmod a+x script.sh
+or  
+chmod 755 script.sh   # 755 is a common explicit permission setting, but is not equivalent to a+x in all cases.
 ```
 
 To run or execute a bash script:     
