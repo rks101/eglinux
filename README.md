@@ -1866,7 +1866,7 @@ BOOT_IMAGE=/boot/vmlinuz-6.2.0-39-generic root=UUID=d56a27d6-0a3c-40a1-b85f-b4fa
 
 ## Process Creation  
 
-TODO: Introduce fork(), vfork() for process creation.    
+TODO: Introduce fork(), vfork() for process creation and execl() for execution.    
 
 TODO: Introduce orphan and zombies processes.    
 
