@@ -3518,9 +3518,10 @@ PART-5
 ## The One with UNIX or Linux History   
 
 Q. What is the meaning of free in open source software?     
-A. Free refers to freedom to choose.   
-- An open-source OS is free to download from an online repo, free to use, or modify (no license cost). Free refers to freedom of choice! There may be packaging, shipping, or support costs.    
-- A closed-source OS is someone's proprietary binary source files, and the user cannot modify the source. Usually, this comes with a license fee, or the cost is added to the price of the accompanying device.   
+A. Free refers to freedom to choose, freedom to get code and modify.   
+- An open-source OS is free to obtain, may be downloadable from an online repo, free to use, or modify. Free refers to freedom of choice! There may be media packaging, shipping, or commercial support/services costs.    
+- A closed-source OS is someone's proprietary binary source files, and the user cannot modify the source. Usually, this OS comes with a license fee, or the cost is added to the price of the accompanying device.
+- The distinction between open or closed-source OS is fundamentally about the rights granted by the accompanied license.   
 
 Some early UNIX flavors:   
 [BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) UNIX: Berkeley Software Distribution had three flavors or variants, including [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD), OpenBSD, and NetBSD. These are open-source BSD operating systems.     
