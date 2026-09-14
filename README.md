@@ -2374,20 +2374,6 @@ See 'git help git' for an overview of the system.
 
 ## Shell Scripting    
 
-To find valid shells:    
-```
-cat /etc/shells 
-# /etc/shells: valid login shells
-/bin/sh
-/usr/bin/sh     <== shell interpreter 
-/bin/bash
-/usr/bin/bash   <== shell interpreter in the bash script 
-/bin/rbash
-/usr/bin/rbash
-/usr/bin/dash
-/usr/bin/screen
-```
-
 Create a simple script:   
 ```
 $ cat << EOF  > hello.sh
@@ -2398,18 +2384,12 @@ EOF
 
 Grant executable permissions to a script:   
 ```
-chmod +x hello.sh    <== or, chmod 755 hello.sh 
+chmod a+x hello.sh    <== or chmod 755 hello.sh 
 ```
 
 Execute a bash script:    
 ```
-./checkDate.sh        <== execute a script in a child process or sub-shell 
-. ./checkDate.sh      <== execute a script in the current shell itself, affects variables set
-. ~/.bashrc.sh        <== same as above, imports variables set in the current shell from the script 
-source checkDate.sh   <== same as above, imports variables set     
-
-bash -v checkDate.sh  <== creates a child process/sub-shell, displays commands before running it, then executes and send output 
-bash -x checkDate.sh  <== creates a child process/sub-shell, displays commands after processing it, and expands variables 
+./hello.sh        <== execute a script in a child process or sub-shell 
 ```
 
 [bash page](bash/README.md)     
