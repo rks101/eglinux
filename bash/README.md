@@ -18,12 +18,11 @@
 
 ## Intro 
 
-Shell Scripting offers a nice and robust way to automate system administration and daily tasks on Linux for both sysadmins and normal Linux users.     
+Shell scripting provides a convenient way to automate system administration, software development, and routine tasks on Unix-like operating systems. Bash is one of the most widely used Unix shells and scripting languages.   
 
-Find out the current bash executable from `which bash` and add that after #! in the first line of .sh file. Save and grant executable permissions to this .sh file using `chmod` before executing it with parameters, if any.   
-
+For a Bash script, use a Bash shebang such as #!/usr/bin/env bash. This asks env to locate bash using the user's PATH.   
 ```
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 echo "Hello! bash"
 ````
