@@ -1870,6 +1870,17 @@ TODO: Introduce fork(), vfork() for process creation and execl() for execution.
 
 TODO: Introduce orphan and zombies processes.    
 
+There is a lot more to learn about process:    
+- process state
+- address space
+- PID, PPID
+- parent/child relationship
+- process credentials
+- open file descriptors
+- scheduling
+- virtual memory
+- kernel/user transition
+
 ---- 
 
 ## Process Termination 
