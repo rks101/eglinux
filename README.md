@@ -2377,7 +2377,7 @@ See 'git help git' for an overview of the system.
 Create a simple script:   
 ```
 $ cat << EOF  > hello.sh
-#!/usr/bin/bash
+#!/usr/bin/env bash
 echo -e "Hello! \nFirst script to output Hello...\n"
 EOF
 ```
