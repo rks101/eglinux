@@ -117,17 +117,12 @@ $ dircolors --print-ls-colors
 ```
 Q. Why do you recommend `ls -lrt` over `ls`?    
 A. This command can reveal a lot about recently modified files. Remember what we discussed about the Linux command.     
-> Command has got a name, options, and arguments!    
-We can get a list of the most recently modified files or directories without much effort.    
+> Command has got a name, options, and arguments!
 
-`ls -lrt <dir>` explains that about the command, and for the output difference, type the following in bash and see for yourself.    
-```
-$ diff <(ls) <(ls -lrt)
-```
-Note:- <() is process substitution, more on this under Bash.   
+We can get a list of the most recently modified files or directories using command `ls -lrt <dir>` 
 
 Q. How can we list out only directories inside the ~/Downloads directory, one on each line?    
-A. Use -d for directories and -1 for listing one per line.   
+A. Use -d for directories and -1 for listing one per line. Trailing /*/ is required.   
 ```
 ls -d -1 ~/Downloads/*/ 
 ```
@@ -145,7 +140,7 @@ Description:	Ubuntu 26.04.01 LTS
 Release:	26.04
 Codename:	resolute
 ```
-Note:- LSB is Linux Standard Base. For those interested in more detail, you can refer to [what is LSB](https://wiki.linuxfoundation.org/lsb/start) and [LSB Specs](https://refspecs.linuxfoundation.org/lsb.shtml). To maintain the flow, continue reading.   
+Note: LSB is Linux Standard Base. For those interested in more detail, you can refer to [what is LSB](https://wiki.linuxfoundation.org/lsb/start) and [LSB Specs](https://refspecs.linuxfoundation.org/lsb.shtml). To maintain the flow, continue reading.   
 
 TIMTOWTDI (There Is More Than One Way To Do It): You can use /etc/os-release 
 ```
@@ -259,7 +254,7 @@ That distinction is quite powerful pedagogically because we can then understand 
 
 **Hypervisor**: A hypervisor is software that creates and runs Virtual Machines (VMs) on a physical computer or server. It enables multiple guest operating systems to run simultaneously on a single host machine by allocating and managing hardware resources such as compute, memory, network interfaces, and persistent storage. There are two main types of hypervisors: bare-metal and hosted hypervisors. A bare-metal hypervisor runs directly on the host machine, such as VMware ESXi, Microsoft Hyper-V, and Xen. A hosted hypervisor runs as an application within a host operating system, such as VMware Workstation and Oracle VirtualBox.    
 
-Note on ESXi: ESXi uses its own VMKernel. The development environment of the VMkernel and ESXi software is Linux - in other words, a Linux system and the GNU C Compiler/GCC is used to compile the VMkernel. It also makes use of some of the Linux kernel include files to implement the Linux compatible driver interface. However, [ESXi is not a Linux system](https://www.v-front.de/2013/08/a-myth-busted-and-faq-esxi-is-not-based.html).     
+Note on ESXi: ESXi uses its own VMkernel. The development environment of the VMkernel and ESXi software is Linux - in other words, a Linux system and the GNU C Compiler/GCC is used to compile the VMkernel. It also makes use of some of the Linux kernel include files to implement the Linux compatible driver interface. However, [ESXi is not a Linux system](https://www.v-front.de/2013/08/a-myth-busted-and-faq-esxi-is-not-based.html).     
 
 More on these topics in next sections. Continue reading to maintain the flow.   
 
@@ -351,7 +346,7 @@ p - previous node/page in navigation
 n - next node/page in navigation   
 Up/Down keys, Pg Up/Down keys, Pg Scroll work.    
 
-You just and must try these:    
+You must try these:    
 ```
 info coreutils 
 info find 
@@ -437,7 +432,7 @@ Vulnerabilities:                                           <== Vulnerabilities w
   Tsx async abort:        Not affected
 ```
 
-Note:- For GPU information, you can check gpu-manager, nvidia-smi, nvidia-settings utilities.   
+Note: For GPU information, you can check gpu-manager, nvidia-smi, nvidia-settings utilities.   
 
 ----
 
@@ -451,7 +446,7 @@ Check the output for MemTotal, MemFree, and MemAvailable.
 
 Note: Why should you consider MemAvailable from 2014 onward? [Check this patch](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34e431b0ae398fc54ea69ff85ec700722c9da773) and [post 1](https://stackoverflow.com/questions/30869297/difference-between-memfree-and-memavailable) and [post 2](https://superuser.com/questions/980820/what-is-the-difference-between-memfree-and-memavailable-in-proc-meminfo). To maintain the flow, continue reading.   
 
-Note:- It is good to learn about [types of RAM](https://www.techtarget.com/searchstorage/definition/DIMM), such as earlier SIMM, and DIMM, buffered memory, Load-Reduced or LR-DIMM (with iMB to isolate data and address), Small Outline or SO-DIMM (compact form factor for recent laptops/tablets), etc. A post on [which one to use](https://www.dasher.com/server-memory-rdimm-vs-lrdimm-and-when-to-use-them/) and [difference](https://www.faceofit.com/rdimm-vs-irdimm-vs-udimms/) can be helpful. To maintain the flow, continue reading.    
+Note: It is good to learn about [types of RAM](https://www.techtarget.com/searchstorage/definition/DIMM), such as earlier SIMM, and DIMM, buffered memory, Load-Reduced or LR-DIMM (with iMB to isolate data and address), Small Outline or SO-DIMM (compact form factor for recent laptops/tablets), etc. A post on [which one to use](https://www.dasher.com/server-memory-rdimm-vs-lrdimm-and-when-to-use-them/) and [difference](https://www.faceofit.com/rdimm-vs-irdimm-vs-udimms/) can be helpful. To maintain the flow, continue reading.    
 
 [Advanced] Can we know the main memory (RAM) address ranges?   
 There you go with lsmem   
@@ -476,16 +471,16 @@ GB and GiB are data storage units in terms of bytes.
 GB  - Gigabyte: is based on the decimal system, 1 GB = 10^9 bytes (1,000,000,000 bytes or 1 billion bytes, 1 followed by 9 zeros)    
 GiB - Gibibyte: is based on the binary system, 1 GiB = 2^30 bytes (1,073,741,824 bytes).     
 
-1 GiB is slightly larger than 1 GB (7.3%)     
+1 GiB (gibibyte) is approximately 7.3% larger than 1 GB (gigabyte)     
 
 1 TB  = 10^12 bytes or 1,000,000,000,000 bytes or 1 trillion bytes, 1 followed by 12 zeros     
 1 TiB = 2^40 bytes  or 1,099,511,627,776 bytes     
 
-1 TiB is larger than 1 TB (9.9%)     
+1 TiB (tebibyte) is approximately 9.9% larger than 1 TB (terabyte)    
 
-A PiB (pebibyte) is approximately 12.6% larger than a PB (petabyte) (1 PiB ≈ 1.126 PB)    
+1 PiB (pebibyte) is approximately 12.6% larger than 1 PB (petabyte) (1 PiB approximately 1.126 PB)    
 
-Note:-    
+Note:    
 1. International Electrotechnical Commission (IEC - https://iec.ch) standardized the use of prefixes like "kibi-", "mebi-", "gibi-", "tebi-", "pebi-", etc., to represent binary multiples, reserving "kilo-", "mega-", "giga-", "tera-", "peta-", etc., for decimal multiples.     
 2. Certain OS or software utilities may display storage values slightly different or less than vendor published values because of the GB/GiB unit used. For TeraBytes, PetaBytes (and higher), the difference becomes significant because of the growth of the power of 2 versus the power of 10.     
 3. One can read the man page of the top command. There is no need to memorize the large numbers. Check `info numfmt` as well.    
@@ -1211,10 +1206,10 @@ r-- : 100 or 4
 ```
 
 Using r - regular file can be opened in read-only mode, and directory content can be listed (cd to the directory is not allowed by r)   
-Using w - regular file can be modified and saved, directory can be created inside a directory, deleted, renamed, access can be modifed as well.   
+Using w - regular file can be modified and saved, directory can be created inside a directory, deleted, renamed, access can be modified as well.   
 Using x - regular file can be executed if it is a script, the directory can be accessed, cd to the directory is allowed by x   
 
-Note:- Deletion and renaming of a file are controlled primarily by permissions on its parent directory, not by the file's own write permission.    
+Note: Deletion and renaming of a file are controlled primarily by permissions on its parent directory, not by the file's own write permission.    
 
 The following are some examples of file permissions.   
 
@@ -1236,7 +1231,7 @@ chmod go+r : grant read permission to group and other users, NOTE: Do not use nu
 chmod 777 : grant rwx to owner, group, and non-group users. NOTE: Be very careful about why such a permission mode is being set    
 chmod 744 : grant rwx to the user, read to the group, and others    
 
-Note:-    
+Note:    
 - Three most important files related to permissions: /etc/passwd, /etc/group, /etc/shadow
 - Three most important commands related to permissions: chmod (change permissions), chown (change ownership), chgrp (change group)
 - File Permissions are one way to implement and visualize Discretionary Access Control (DAC) on Linux.   
@@ -1491,7 +1486,7 @@ root@eg:~# exit
 logout
 
 ```
-Try `passwd -l root` to lock the password or `passwd -d root` to delete the password. Check entries in /etc/passwd and /etc/shadow around this.    
+Command `passwd -l <user>` can be used to lock the password and `passwd -d <user>` to delete the password. Check entries in /etc/passwd and /etc/shadow around this. Take care while locking or deleting passwords for privileged users.     
 
 Q. On a new debian/Linux installation, I am not able to execute a sudo?    
 A. Check if the current user is a member of the sudo group. File /etc/group    
@@ -1614,7 +1609,7 @@ Keyboard interrupt received, exiting.
 The web server started above can be opened in a web browser: http://0.0.0.0:8000/ (on the same system) or ip_address:8000 on other systems as well.    
 This page can be opened before you close the server using Ctrl+C.   
 
-Note:- In case you are struggling to connect to this web server to access files from another system, check your wired/wireless network or the VLAN you are on. It is likely that in a segmented network, users may not access the resources shared by this http web server.   
+Note: In case you are struggling to connect to this web server to access files from another system, check your wired/wireless network or the VLAN you are on. It is likely that in a segmented network, users may not access the resources shared by this http web server.   
 
 ----
 
@@ -1889,7 +1884,7 @@ $ kill -9 pid     <== kill will send a signal SIGKILL (9) to pid
 ```
 $ kill -9 -1
 ```
-Note:- In Linux, a negative PID has special process-group semantics, while -1 means sending the signal to processes the caller is permitted to signal, with kernel exclusions.     
+Note: In Linux, a negative PID has special process-group semantics, while -1 means sending the signal to processes the caller is permitted to signal, with kernel exclusions.     
 
 To list all signals that kill can send:   
 ```
@@ -2047,7 +2042,7 @@ Navigation in command mode:
 -  dw → delete a word
 -  d$ → delete from the cursor to the end of the line
 -  d0 → delete from the cursor to the beginning of the line
--  Note:- changes done to the buffer in the command mode are not yet saved. You need to explicitly save or discard the buffer. 
+-  Note: changes done to the buffer in the command mode are not yet saved. You need to explicitly save or discard the buffer. 
 
 
 Save, Search, or Replace text in command mode:          
@@ -2127,7 +2122,7 @@ Shell scripts use an even quieter way to discard stdout and stderr:
 command_goes_here > /dev/null 2>&1        <== /dev/null eats everything; super cool and quiet. Always test it once and then go quiet.    
 ```
 
-Note:- Using error and output redirection 2>&1 informs bash to have standard output (file descriptor 1, that is, to the terminal or a file) redirected to the same place to which standard error (file descriptor 2) is being sent.   
+Note: Using error and output redirection 2>&1 informs bash to have standard output (file descriptor 1, that is, to the terminal or a file) redirected to the same place to which standard error (file descriptor 2) is being sent.   
 
 Caution: stdout and stderr can both be redirected or piped using 2>&1; however, there is a difference in how they are used.    
 ```
@@ -2305,7 +2300,7 @@ f - archive file
 z/j/J - to define compression     
 The options above may change, though it gets easier to remember them this way.    
 
-Note:- Linux kernel (kernel.org) uses .tar.xz format to archive kernel releases and compress using XZ.    
+Note: Linux kernel (kernel.org) uses .tar.xz format to archive kernel releases and compress using XZ.    
 
 ----
 
@@ -2399,8 +2394,8 @@ Execute a bash script:
 ```
 ./checkDate.sh        <== execute a script in a child process or sub-shell 
 . ./checkDate.sh      <== execute a script in the current shell itself, affects variables set
-. ~/.bashrc.sh        <== same as above, gets variable set in the current shell from the script 
-source checkDate.sh   <== same as above
+. ~/.bashrc.sh        <== same as above, imports variables set in the current shell from the script 
+source checkDate.sh   <== same as above, imports variables set     
 
 bash -v checkDate.sh  <== creates a child process/sub-shell, displays commands before running it, then executes and send output 
 bash -x checkDate.sh  <== creates a child process/sub-shell, displays commands after processing it, and expands variables 
@@ -2604,7 +2599,7 @@ PART-3
 
 ## Windowing System for GUI   
 
-X11 or X is a Windowing System for Unix/Linux distributions. While Linux came essentially as a kernel in August 1991, it remained a terminal-based OS for time, for graphics or GUI on servers/desktops, X developed at MIT in the 80s has dominated. The last updated protocol version 11 of X gives it the name X11. In X11, there is no encryption between client and X server. [Wayland](https://wayland.freedesktop.org/architecture.html) has emerged as an alternative windowing system. Here is a [nice reading on X11](https://www.baeldung.com/linux/x11) and [GUI in Linux](https://www.baeldung.com/linux/gui).    
+X11 or X is a Windowing System for Unix/Linux distributions. While Linux came essentially as a kernel in August 1991, it remained a terminal-based OS for some time, for graphics or GUI on servers/desktops, X developed at MIT in the 80s has dominated. The last updated protocol version 11 of X gives it the name X11. In X11, there is no encryption between client and X server. [Wayland](https://wayland.freedesktop.org/architecture.html) has emerged as an alternative windowing system. Here is a [nice reading on X11](https://www.baeldung.com/linux/x11) and [GUI in Linux](https://www.baeldung.com/linux/gui).    
 
 **Switching between X11 and Wayland**   
 The Zoom app has an interesting bug for screen sharing in Linux systems (desktop/laptop) using the default Wayland windowing system. Only Whiteboard sharing is enabled, and there is no option to share desktop/laptop screens. It appears Zoom may have decided not to fix this bug.    
@@ -2619,9 +2614,9 @@ $ sudo vi /etc/gdm3/custom.conf    <== edit gdm custom.conf using editor
 
 Now, after this workaround, Zoom will show Desktop sharing alongside Whiteboard sharing.    
 
-Update: Ubuntu 26.04 - June 2026    
+Update: Ubuntu 26.04     
 0. You may struggle to share screen in Zoom on Ubuntu 26.04 with Wayland as windowing system unless zoom or wayland fixes it.   
-See this port from CMU on zoom and wayland love story: https://www.math.cmu.edu/~gautam/sj/blog/20220326-zoom-wayland.html    
+See [the post from CMU](https://www.math.cmu.edu/~gautam/sj/blog/20220326-zoom-wayland.html) on zoom and wayland love story.   
 
 1. Install [Zoom Desktop Client](https://zoom.us/download?os=linux) using GDebi package manager
 ```
@@ -3435,7 +3430,7 @@ Software archives or packages may be **signed** to verify the origin and authent
 
 The signing key may be a GPG file.    
 
-For the first time, we see [Kali lose access to the signing key and republish it](https://www.kali.org/blog/new-kali-archive-signing-key/); they did so, and with a genuine apology. Transparency, at its best! That's the spirit and trust of an open-sourced community with great maintainers.    
+For the first time, we see [Kali lose access to the signing key and republish it](https://www.kali.org/blog/new-kali-archive-signing-key/); they did so, and with a genuine apology. Transparency, at its best! That's the spirit and trust of an open-source community with great maintainers.    
 
 All you need is: replace the existing GPG key with the new one, update the repo info, and upgrade.    
 ```
@@ -3562,7 +3557,7 @@ Just a personal project he was curious enough to build. On August 25, 1991, he p
 
 He had no idea how far that “just a hobby” would go. Linux now runs over 95% of the world’s servers, powers Android for mobile devices, underpins much of the public cloud, and runs on everything from supercomputers to systems in space.     
 
-Just a small project on one person’s computer became foundational infrastructure for modern computing. And he called it “just a hobby” that is alive and thriving after 35 years. Linus also developed a culture of text-book style Linux kernel releases every 9 to 10 weeks.    
+Just a small project on one person’s computer became foundational infrastructure for modern computing. And he called it “just a hobby” that is alive and thriving after 35 years. Linus also developed a culture of textbook style Linux kernel releases every 9 to 10 weeks.    
 
 Then, again, with another project Git, Linus changed how we version and maintain source code releases.    
 
@@ -3574,11 +3569,12 @@ Pick up an open source project from the maintainer's website, join the mailing l
 
 ## D-Windows 
 
-[Govt around the world are switching to Linux](https://lowtechlinux.com/2025/07/07/governments-around-the-world-are-switching-to-linux/). This switch to Linux includes the OS, LibreOffice suite, email solutions, the Thunderbird email client, and other open-source tools. The switch is aimed at reducing licensing costs due to budgetary constraints, and promoting digital sovereignty.     
+[Governments around the world are switching to Linux](https://lowtechlinux.com/2025/07/07/governments-around-the-world-are-switching-to-linux/). This switch to Linux includes the OS, LibreOffice suite, email solutions, the Thunderbird email client, and other open-source tools. The switch is aimed at reducing licensing costs due to budgetary constraints, and promoting digital sovereignty.     
 
-France - [2026 update](https://www.zdnet.com/article/france-leaves-windows-for-linux-desktop/), [link2](https://www.techradar.com/computing/windows/france-has-ditched-windows-11-for-linux-on-2-5-million-government-pcs-heres-why-microsoft-should-worry-that-millions-more-could-follow-by-the-end-of-2026) and [link3](https://newsgroup.site/france-government-linux-migration-windows-2026/). France began switching government PCs to Linux.   
+France - [2026 update](https://www.zdnet.com/article/france-leaves-windows-for-linux-desktop/), [link2](https://www.techradar.com/computing/windows/france-has-ditched-windows-11-for-linux-on-2-5-million-government-pcs-heres-why-microsoft-should-worry-that-millions-more-could-follow-by-the-end-of-2026) and [link3](https://newsgroup.site/france-government-linux-migration-windows-2026/). These references show French govt began switching government PCs to Linux.   
 
 India (Defense and some Ministries) - 2025    
+
 
 Denmark - 2025   
 
