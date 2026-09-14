@@ -20,20 +20,55 @@
 
 Shell Scripting offers a nice and robust way to automate system administration and daily tasks on Linux for both sysadmins and normal Linux users.     
 
-Find out the current bash executable from `which bash` and add that after #! in the first line of .sh file. Save and grant executable permissions to this sh file using chmod +x filename.sh   
+Find out the current bash executable from `which bash` and add that after #! in the first line of .sh file. Save and grant executable permissions to this .sh file using `chmod` before executing it with parameters, if any.   
 
 ```
 #!/usr/bin/bash
+
 echo "Hello! bash"
 ````
+
+To grant executable permissions to a script:   
+```
+chmod a+x script.sh    <== or chmod 755 script.sh 
+```
+
 To run or execute a bash script:     
-`./filename.sh`  or  `bash filename.sh`    
-Read about the script and see if it requires any arguments or things to be set up before its execution.     
+```
+./script.sh        <== execute a script in a child process or sub-shell 
+bash script.sh     <== same as above 
+. ./script.sh      <== execute a script in the current shell itself, affects variables set
+. ~/.bashrc.sh     <== same as above, imports variables set in the current shell from the script 
+source script.sh   <== same as above, imports variables set     
+
+bash -v script.sh  <== creates a child process/sub-shell, displays commands before running it, then executes and send output 
+bash -x script.sh  <== creates a child process/sub-shell, displays commands after processing it, and expands variables 
+```
 
 Test the following:    
-- echo $SHELL 
-- cat /etc/shells 
-- which bash 
+- which -a bash      <== all binaries of bash in the current PATH 
+- echo $SHELL        <== SHELL environment variable, can be edited 
+- cat /etc/shells    <== To find valid shells 
+
+```
+$ echo $SHELL
+/bin/bash
+
+$ which -a bash 
+/usr/bin/bash        <== make sure you use desired bash in your script 
+/bin/bash
+
+$ cat /etc/shells 
+# /etc/shells: valid login shells
+/bin/sh
+/usr/bin/sh     <== shell interpreter 
+/bin/bash
+/usr/bin/bash   <== shell interpreter in the bash script 
+/bin/rbash
+/usr/bin/rbash
+/usr/bin/dash
+/usr/bin/screen
+```
 
 ----
 
@@ -65,6 +100,12 @@ While declaring and assigning value to string variables, often single quotes ('s
 Command substitution is accomplished using back-tick \`command\`:   
 ```
 PWD=`pwd`
+echo -e "PWD = $PWD \n"
+```
+
+Tip: Replace backtick syntax with $() for command substitution.    
+```
+PWD=$(pwd)
 echo -e "PWD = $PWD \n"
 ```
 
@@ -101,7 +142,7 @@ Bash built-in variables
 - `$-` : current shell options and flags (himBH)  
 
 Bash built-in    
-- compgen 
+- compgen      <== good to list commands   
 - cd 
 
 Read `man bash` and `compgen` for builtins.    
@@ -231,6 +272,8 @@ echo " legs."
 ---- 
 
 ## Help   
+
+[Coding Convention](https://github.com/testssl/testssl.sh/blob/3.3dev/Coding_Convention.md) can help to write clean code.   
 
 [Bash Scripting](https://linuxsimply.com/cheat-sheets/bash-scripting/)     
 
