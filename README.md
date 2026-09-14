@@ -136,7 +136,7 @@ A. Check using `lsb_release -a`, `cat /etc/os-release`, and `distro-info -af`
 ```
 $ lsb_release -a  
 Distributor ID:	Ubuntu
-Description:	Ubuntu 26.04.01 LTS
+Description:	Ubuntu 26.04.1 LTS
 Release:	26.04
 Codename:	resolute
 ```
