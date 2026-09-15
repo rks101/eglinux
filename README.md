@@ -156,12 +156,16 @@ LOGO=ubuntu-logo
 ```
 
 Previous Ubuntu distributions' information:   
+
+Fun fact: After October 2004 release of Ubuntu, back in 2005, 2006, Canonical Inc. (Mark Shuttleworth) used to ship Ubuntu CDs (installable CD and live CD), free of cost, even to remote places in India, using a portal shipit.ubuntu.com and a tagline "linux for human beings". RedHat and Fedora distributions were popular too. Dual booted from Win XP days. In those days, technical books and magazines used to share OS CDs free of cost, internet was mostly 56 kbps dial up till 2003, USB drive of 256 MB was a rarity, mobile was not around till 2005, personal laptops became affordable around 2007 and later.    
+
+Old releases of Ubuntu are indexed at [old-releases.ubuntu.com/releases](https://old-releases.ubuntu.com/releases/)   
 ```
 $ distro-info -af
-Ubuntu 4.10 "Warty Warthog"
+Ubuntu 4.10 "Warty Warthog"       <== October 2004 release 
 Ubuntu 5.04 "Hoary Hedgehog"
 Ubuntu 5.10 "Breezy Badger"
-Ubuntu 6.06 LTS "Dapper Drake"
+Ubuntu 6.06 LTS "Dapper Drake"    <== First desktop LTS (and only one without April) 
 Ubuntu 6.10 "Edgy Eft"
 Ubuntu 7.04 "Feisty Fawn"
 Ubuntu 7.10 "Gutsy Gibbon"
@@ -173,7 +177,7 @@ Ubuntu 10.04 LTS "Lucid Lynx"       <==
 Ubuntu 10.10 "Maverick Meerkat"
 Ubuntu 11.04 "Natty Narwhal"
 Ubuntu 11.10 "Oneiric Ocelot"
-Ubuntu 12.04 LTS "Precise Pangolin"  <== 
+Ubuntu 12.04 LTS "Precise Pangolin"  <== solid, first LTS release with 5 years support  
 Ubuntu 12.10 "Quantal Quetzal"
 Ubuntu 13.04 "Raring Ringtail"
 Ubuntu 13.10 "Saucy Salamander"
@@ -181,11 +185,11 @@ Ubuntu 14.04 LTS "Trusty Tahr"       <==
 Ubuntu 14.10 "Utopic Unicorn"
 Ubuntu 15.04 "Vivid Vervet"
 Ubuntu 15.10 "Wily Werewolf"
-Ubuntu 16.04 LTS "Xenial Xerus"      <== 
+Ubuntu 16.04 LTS "Xenial Xerus"      <== solid LTS release 
 Ubuntu 16.10 "Yakkety Yak"
 Ubuntu 17.04 "Zesty Zapus"
 Ubuntu 17.10 "Artful Aardvark"
-Ubuntu 18.04 LTS "Bionic Beaver"     <== 
+Ubuntu 18.04 LTS "Bionic Beaver"     <== solid LTS release  
 Ubuntu 18.10 "Cosmic Cuttlefish"
 Ubuntu 19.04 "Disco Dingo"
 Ubuntu 19.10 "Eoan Ermine"
