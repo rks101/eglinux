@@ -190,6 +190,18 @@ if [[ $# -eq 0 ]]; then
 fi
 ```
 
+With modern syntax, if conditional construct can be written as below:    
+```
+# If no arguments are supplied to the script,
+# send an error message and exit with an error code 
+if [[ $# -eq 0 ]]
+  then
+    echo "Insufficient arguments, quitting..."
+    exit 255 
+  fi
+```
+
+if conditional construct with an else part:   
 ```
 # Check if the first argument to the script is a valid IFSC
 # IFSC format is 4 alphabet letters (capitals), followed by a zero, and followed by 6 letters or digits
@@ -223,6 +235,9 @@ fi
 
 ## Loops    
 
+Repetitions or iterations can be managed with a loop construct.    
+
+A `while` loop can be written as below:   
 ```
 how_many=5
 i=0
@@ -235,6 +250,7 @@ while [ $i -lt "$how_many" ]; do
 done
 ```
 
+A `for` loop can be written as below:   
 ```
 for i in {a..t}; do
         filename="$i.txt" 
@@ -280,7 +296,7 @@ echo " legs."
 
 Check [Bash options](https://devhints.io/bash)    
 
-Note: Some options may vary from shell to shell and across versions installed and distributions. Do not worry; explore different options.     
+Note: In shell scripting, some options may vary from one shell type to another and across versions installed and Linux distributions. Do not worry; practice and explore different options.    
 
 [Bash cheatsheet](https://github.com/LeCoupa/awesome-cheatsheets/blob/master/languages/bash.sh)     
 
