@@ -103,7 +103,7 @@ If you want to understand operating systems deeply, why would you not study one 
 
 ## ls -lrt
 
-Every time you open a terminal and use a shell through a command line interpreter (CLI) in Linux, one of the first commands to try is `ls` to list files and directories in long format (-l), in reverse order (-r), sorted by (-t) modification time. Do compare this output with various other outputs from the `ls` options. Also, this command helps to see permissions and while files were modified recently.    
+Every time you open a terminal (an application or using a shortcut Ctrl+Alt+t) and use a shell through a command line interpreter (CLI) in Linux, one of the first commands to try is `ls` to list files and directories in long format (-l), in reverse order (-r), sorted by (-t) modification time. Do compare this output with various other outputs from the `ls` options. Also, this command helps to see permissions and while files were modified recently.    
 ```
 ls -lrt
 ```
@@ -115,20 +115,24 @@ A. For now, try this out using dircolors and check the colors used for the conve
 ```
 $ dircolors --print-ls-colors
 ```
+
 Q. Why do you recommend `ls -lrt` over `ls`?    
 A. This command can reveal a lot about recently modified files. Remember what we discussed about the Linux command.     
 > Command has got a name, options, and arguments!
 
-We can get a list of the most recently modified files or directories using command `ls -lrt <dir>` 
+We can get a list of the most recently modified files or directories, inside a directory, using command `ls -lrt <dir>`   
 
 Q. How can we list out only directories inside the ~/Downloads directory, one on each line?    
 A. Use -d for directories and -1 for listing one per line. Trailing /*/ is required.   
 ```
 ls -d -1 ~/Downloads/*/ 
 ```
+
 ----
 
 ## OS releases
+
+There are several Linux distributions available. This page uses Debian-based Ubuntu operating system for examples.    
 
 Q. What are the major and minor release numbers of the OS, and is there a codename associated with the release?   
 A. Check using `lsb_release -a`, `cat /etc/os-release`, and `distro-info -af`   
@@ -162,7 +166,7 @@ LOGO=ubuntu-logo
 
 Previous Ubuntu distributions' information:   
 
-Fun fact: After October 2004 release of Ubuntu, back in 2005, 2006, Canonical Inc. (Mark Shuttleworth) used to ship Ubuntu CDs (installable CD and live CD), free of cost, even to remote places in India, using a portal shipit.ubuntu.com and a tagline "linux for human beings". RedHat and Fedora distributions were popular too. Dual booted from Win XP days. In those days, technical books and magazines used to share OS CDs free of cost, internet was mostly 56 kbps dial up till 2003, USB drive of 256 MB was a rarity, mobile was not around till 2005, personal laptops became affordable around 2007 and later.    
+Fun fact: [After October 2004 release of Ubuntu, back in 2005, 2006, Canonical Inc. (Mark Shuttleworth) used to ship Ubuntu CDs (installable CD and live CD), free of cost, even to remote places in India, using a portal shipit.ubuntu.com and a tagline "linux for human beings". RedHat and Fedora distributions were popular too around the same time, dual booted from Win XP days. In those days, technical books and magazines used to share OS CDs free of cost, internet was mostly 56 kbps dial-up till 2003, chargeable @15 to 25/- per hour in India, USB drives of even 256 MB were a rarity, mobile phone was not common until 2005, personal laptops became affordable around 2007 and later.]    
 
 Old releases of Ubuntu are indexed at [old-releases.ubuntu.com/releases](https://old-releases.ubuntu.com/releases/)   
 ```
