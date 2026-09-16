@@ -509,7 +509,8 @@ Note:
 ## List hardware 
 
 Q. How can the hardware details be listed?    
-A. 
+A. Check lshw, lspci commands, and hardinfo2 (GUI).    
+
 ```
 $ sudo lshw -short  
 [sudo: authenticate] Password:        
