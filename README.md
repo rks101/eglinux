@@ -145,12 +145,17 @@ Note: LSB is Linux Standard Base. For those interested in more detail, you can r
 TIMTOWTDI (There Is More Than One Way To Do It): You can use /etc/os-release 
 ```
 $ cat /etc/os-release 
-PRETTY_NAME="Ubuntu 26.04 LTS"
+PRETTY_NAME="Ubuntu 26.04.1 LTS"
 NAME="Ubuntu"
 VERSION_ID="26.04"
-VERSION="26.04 LTS (Resolute Raccoon)"
+VERSION="26.04.1 LTS (Resolute Raccoon)"
 VERSION_CODENAME=resolute
-...
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
 UBUNTU_CODENAME=resolute
 LOGO=ubuntu-logo
 ```
@@ -216,7 +221,7 @@ Q. What is my system kernel name, nodename, kernel release, version?
 A. Ask `uname` (Unix Name) for kernel name, nodename, kernel version, target machine processor type (x86_64), hardware platform type (x86_64), etc. It does not give Linux distribution name.    
 ```
 $ uname -a  
-Linux Latitude-3490 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+Linux eg 7.0.0-31-generic #31-Ubuntu SMP PREEMPT_DYNAMIC Sat Aug  1 04:26:38 UTC 2026 x86_64 GNU/Linux
 ```
 
 A **computer system** provides four fundamental resources:    
@@ -371,15 +376,18 @@ bash --help
 
 ## Know processors
 
-How many processors does the system have? To know details and processor flags:   
+Q. How many processors does the system have?    
+A. To know processor details and processor flags, use cpuinfo or lscpu:   
 ```
 cat /proc/cpuinfo  
-cat /proc/cpuinfo | grep "processor"  
+cat /proc/cpuinfo | grep -i "processor"            <== filter lines containing text "processor" 
+cat /proc/cpuinfo | grep -i "processor" | wc -l    <== count lines containing text "processor" 
 ```
-Could you check the output? If you get eight entries with processors numbered from 0 to 7, this suggests eight logical cores.  
+If you get eight entries with processors numbered from 0 to 7, this suggests there are eight logical cores.  
 
-[Advanced]: Could you tell me more about CPU architecture, please?    
-There you go with lscpu    
+[Advanced]:    
+Q. Could you tell us more about CPU architecture?    
+A. There you go with lscpu    
 ```
 $ lscpu
 Architecture:             x86_64                              <== 64-bit 
@@ -436,13 +444,14 @@ Vulnerabilities:                                           <== Vulnerabilities w
   Tsx async abort:        Not affected
 ```
 
-Note: For GPU information, you can check gpu-manager, nvidia-smi, nvidia-settings utilities.   
+Note: For GPU information, you can check commands gpu-manager, nvidia-smi, nvidia-settings utilities.   
 
 ----
 
 ## Know memory
 
-How much memory (RAM / main memory / primary memory to run programs) does the system have? You can see installed, free, and other memory details:  
+Q. How much memory (RAM / main memory / primary memory to run programs) does the system have?    
+A. You can see installed, free, and other memory details using meminfo:   
 ```
 cat /proc/meminfo  
 ```
@@ -452,8 +461,9 @@ Note: Why should you consider MemAvailable from 2014 onward? [Check this patch](
 
 Note: It is good to learn about [types of RAM](https://www.techtarget.com/searchstorage/definition/DIMM), such as earlier SIMM, and DIMM, buffered memory, Load-Reduced or LR-DIMM (with iMB to isolate data and address), Small Outline or SO-DIMM (compact form factor for recent laptops/tablets), etc. A post on [which one to use](https://www.dasher.com/server-memory-rdimm-vs-lrdimm-and-when-to-use-them/) and [difference](https://www.faceofit.com/rdimm-vs-irdimm-vs-udimms/) can be helpful. To maintain the flow, continue reading.    
 
-[Advanced] Can we know the main memory (RAM) address ranges?   
-There you go with lsmem   
+[Advanced]    
+Q. Can we know the main memory (RAM) address ranges?   
+A. There you go with lsmem   
 ```
 $ lsmem 
 RANGE                                  SIZE  STATE REMOVABLE  BLOCK
@@ -494,9 +504,87 @@ Note:
 
 ## List hardware 
 
-How can I list hardware details?  
+Q. How can I list hardware details?    
+A. 
 ```
-lshw -short
+$ sudo lshw -short  
+[sudo: authenticate] Password:        
+H/W path       Device          Class          Description
+=========================================================
+                               system         Latitude 5420 (0A20)
+/0                             bus            014P1W
+/0/1                           memory         1MiB BIOS
+/0/400                         processor      11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+/0/400/701                     memory         128KiB L1 cache        <== L1d/L1i/L2/L3 caches can be seen with lscpu as well 
+/0/400/702                     memory         5MiB L2 cache
+/0/400/703                     memory         8MiB L3 cache
+/0/700                         memory         192KiB L1 cache
+/0/1000                        memory         16GiB System Memory    <== Main Memory or RAM 
+/0/1000/0                      memory         8GiB SODIMM DDR4 Synchronous 3200 MHz (0.3 ns)  <== 2 SODIMMs of 8 GB each 
+/0/1000/1                      memory         8GiB SODIMM DDR4 Synchronous 3200 MHz (0.3 ns) 
+/0/100                         bridge         Tiger Lake-UP3/H35 4 cores Host Bridge/DRAM Registers
+/0/100/2       /dev/fb0        display        TigerLake-LP GT2 [Iris Xe Graphics]
+/0/100/4                       generic        TigerLake-LP Dynamic Tuning Processor Participant
+/0/100/7                       bridge         Tiger Lake-LP Thunderbolt 4 PCI Express Root Port #0
+/0/100/7.1                     bridge         Tiger Lake-LP Thunderbolt 4 PCI Express Root Port #1
+/0/100/d                       bus            Tiger Lake-LP Thunderbolt 4 USB Controller
+/0/100/d/0     usb1            bus            xHCI Host Controller
+/0/100/d/1     usb2            bus            xHCI Host Controller
+/0/100/d.2                     bus            Tiger Lake-LP Thunderbolt 4 NHI #0
+/0/100/e                       storage        Volume Management Device NVMe RAID Controller
+/0/100/12                      communication  Tiger Lake-LP Integrated Sensor Hub
+/0/100/14                      bus            Tiger Lake-LP USB 3.2 Gen 2x1 xHCI Host Controller
+/0/100/14/0    usb3            bus            xHCI Host Controller
+/0/100/14/0/6                  multimedia     Integrated_Webcam_HD
+/0/100/14/0/8                  generic        58200
+/0/100/14/1    usb4            bus            xHCI Host Controller
+/0/100/14.2                    memory         RAM memory
+/0/100/14.3    wlp0s20f3       network        Wi-Fi 6 AX201               <== WiFi  
+/0/100/15                      bus            Tiger Lake-LP Serial IO I2C Controller #0
+/0/100/15.1                    bus            Tiger Lake-LP Serial IO I2C Controller #1
+/0/100/16                      communication  Tiger Lake-LP Management Engine Interface
+/0/100/17                      generic        RST VMD Managed Controller
+/0/100/1c                      bridge         Tiger Lake-LP PCI Express Root Port #7
+/0/100/1c/0    mmc0            bus            RTS525A PCI Express Card Reader
+/0/100/1d                      generic        RST VMD Managed Controller
+/0/100/1f                      bridge         Tiger Lake-LP LPC Controller
+/0/100/1f/0                    system         PnP device PNP0b00
+/0/100/1f/1                    input          PnP device PNP0303
+/0/100/1f/2                    generic        PnP device DLL0a20
+/0/100/1f.3    card0           multimedia     Tiger Lake-LP Smart Sound Technology Audio Controller
+/0/100/1f.3/0  input17         input          HDA Intel PCH Headphone Mic
+/0/100/1f.3/1  input18         input          HDA Intel PCH HDMI/DP,pcm=3
+/0/100/1f.3/2  input19         input          HDA Intel PCH HDMI/DP,pcm=7
+/0/100/1f.3/3  input20         input          HDA Intel PCH HDMI/DP,pcm=8
+/0/100/1f.3/4  input21         input          HDA Intel PCH HDMI/DP,pcm=9
+/0/100/1f.4                    bus            Tiger Lake-LP SMBus Controller
+/0/100/1f.5                    bus            Tiger Lake-LP SPI Controller
+/0/100/1f.6    enp0s31f6       network        Ethernet Connection (13) I219-V
+/0/17                          storage        Tiger Lake-LP SATA Controller
+/0/1d                          bridge         Tiger Lake-LP PCI Express Root Port #9
+/0/1d/0                        storage        Gold P31/BC711/PC711 NVMe Solid State Drive
+/1                             power          DELL M3KCN22
+/2                             power          
+/3             /dev/nvme0      storage        BC711 NVMe SK hynix 512GB     <== storage disk drive
+/3/0           hwmon2          disk           NVMe disk
+/3/2           /dev/ng0n1      disk           NVMe disk
+/3/1           /dev/nvme0n1    disk           512GB NVMe disk
+/3/1/1         /dev/nvme0n1p1  volume         1074MiB Windows FAT volume    <== partitions 
+/3/1/2         /dev/nvme0n1p2  volume         215GiB EXT4 volume
+/3/1/3         /dev/nvme0n1p3  volume         229GiB Windows NTFS volume
+/3/1/6         /dev/nvme0n1p6  volume         30GiB Linux swap volume
+/4             input0          input          Lid Switch
+/5             input1          input          Power Button
+/6             input10         input          DELL0A20:00 06CB:CE65 Touchpad
+/7             input12         input          Intel HID events
+/8             input13         input          Intel HID 5 button array
+/9             input14         input          Video Bus
+/a             input15         input          Dell Privacy Driver
+/b             input16         input          Dell WMI hotkeys
+/c             input2          input          Sleep Button
+/d             input3          input          AT Translated Set 2 keyboard
+/e             input5          input          PS/2 Generic Mouse
+/f             input9          input          DELL0A20:00 06CB:CE65 Mouse
 ```
 
 It is nice to know about system hardware such as hard disk, graphics card, audio, and network controllers (wired and wifi)  
