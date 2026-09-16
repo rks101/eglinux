@@ -251,7 +251,7 @@ An Operating System can be viewed from two important perspectives: the **kernel*
 
 So, when you use a terminal application, a simplified view of command-line interaction is:    
 
-**User → Terminal → Shell → System Calls → Kernel → Hardware**    
+**User → Terminal → Shell → Programs or Built-ins → Libraries or System Calls → Kernel → Hardware**    
 
 The kernel works largely behind the scenes, while the shell provides convenient means for users to request operations from the OS.    
 
@@ -508,7 +508,7 @@ Note:
 
 ## List hardware 
 
-Q. How can I list hardware details?    
+Q. How can the hardware details be listed?    
 A. 
 ```
 $ sudo lshw -short  
@@ -519,11 +519,11 @@ H/W path       Device          Class          Description
 /0                             bus            014P1W
 /0/1                           memory         1MiB BIOS
 /0/400                         processor      11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
-/0/400/701                     memory         128KiB L1 cache        <== L1d/L1i/L2/L3 caches can be seen with lscpu as well 
+/0/400/701                     memory         128KiB L1 cache            <== L1d/L1i/L2/L3 caches can be seen with lscpu as well 
 /0/400/702                     memory         5MiB L2 cache
 /0/400/703                     memory         8MiB L3 cache
 /0/700                         memory         192KiB L1 cache
-/0/1000                        memory         16GiB System Memory    <== Main Memory or RAM 
+/0/1000                        memory         16GiB System Memory        <== Main Memory or RAM 
 /0/1000/0                      memory         8GiB SODIMM DDR4 Synchronous 3200 MHz (0.3 ns)  <== 2 SODIMMs of 8 GB each 
 /0/1000/1                      memory         8GiB SODIMM DDR4 Synchronous 3200 MHz (0.3 ns) 
 /0/100                         bridge         Tiger Lake-UP3/H35 4 cores Host Bridge/DRAM Registers
@@ -543,7 +543,7 @@ H/W path       Device          Class          Description
 /0/100/14/0/8                  generic        58200
 /0/100/14/1    usb4            bus            xHCI Host Controller
 /0/100/14.2                    memory         RAM memory
-/0/100/14.3    wlp0s20f3       network        Wi-Fi 6 AX201               <== WiFi  
+/0/100/14.3    wlp0s20f3       network        Wi-Fi 6 AX201                        <== WiFi  
 /0/100/15                      bus            Tiger Lake-LP Serial IO I2C Controller #0
 /0/100/15.1                    bus            Tiger Lake-LP Serial IO I2C Controller #1
 /0/100/16                      communication  Tiger Lake-LP Management Engine Interface
@@ -569,11 +569,11 @@ H/W path       Device          Class          Description
 /0/1d/0                        storage        Gold P31/BC711/PC711 NVMe Solid State Drive
 /1                             power          DELL M3KCN22
 /2                             power          
-/3             /dev/nvme0      storage        BC711 NVMe SK hynix 512GB     <== storage disk drive
+/3             /dev/nvme0      storage        BC711 NVMe SK hynix 512GB             <== storage disk drive
 /3/0           hwmon2          disk           NVMe disk
 /3/2           /dev/ng0n1      disk           NVMe disk
 /3/1           /dev/nvme0n1    disk           512GB NVMe disk
-/3/1/1         /dev/nvme0n1p1  volume         1074MiB Windows FAT volume    <== partitions 
+/3/1/1         /dev/nvme0n1p1  volume         1074MiB Windows FAT volume            <== partitions 
 /3/1/2         /dev/nvme0n1p2  volume         215GiB EXT4 volume
 /3/1/3         /dev/nvme0n1p3  volume         229GiB Windows NTFS volume
 /3/1/6         /dev/nvme0n1p6  volume         30GiB Linux swap volume
@@ -591,23 +591,30 @@ H/W path       Device          Class          Description
 /f             input9          input          DELL0A20:00 06CB:CE65 Mouse
 ```
 
-It is nice to know about system hardware such as hard disk, graphics card, audio, and network controllers (wired and wifi)  
+It is useful to know about system hardware such as hard disk, graphics card, audio, and network controllers (wired and wifi).   
+
+You may run lshw and lspci commands with sudo if need be.    
 ```
-lshw | grep -A7 -i "disk"          <== Hard disk details  
-lshw -short                        <== for graphics card, look for display  
-lspci -v | grep -A7 -i "audio"     <== Audio device details  
-lspci -v | grep -A7 -i "ethernet"  <== Network Controller for Ethernet (LAN)  
-lspci -v | grep -A7 -i "wireless"  <== Network Controller for wireless (Wi-Fi)
-lspci -v | grep -A7 -i "graphics"  <== Graphics card or GPU 
-lspci -v | grep "  VGA"            <== Graphics card or GPU 
-lshw -C display                    <== Graphics card or GPU 
+lshw -businfo                           <== get class information (type of hardware)   
+
+lshw -class storage                     <== Storage controllers and disks 
+lshw | grep -A7 -i "disk"               <== Hard disk details  
+
+lshw -class display                     <== for graphics display 
+lspci -v | egrep -A7 -i "vga|graphics"  <== Graphics card or GPU 
+
+lshw -class multimedia                  <== Audio and Video (camera) device details  
+
+lshw -class network                     <== Ethernet and Wireless interface 
+lspci -v | egrep -A7 -i "net|wi-fi"     <== Network Controller for Ethernet (LAN) and wireless (Wi-Fi)
+
+lshw -class power                       <== battery info 
 ```
 
-There is also a GUI for hardware information.   
-
-On Ubuntu, to get hardinfo:  
+On Ubuntu, install hardinfo2 - a GUI for hardware information, includes benchmarks:    
 ```
-sudo apt install hardinfo 
+sudo apt install hardinfo2
+hardinfo2 & 
 ```
 
 To know about peripheral interconnects/ports:    
@@ -615,33 +622,15 @@ To know about peripheral interconnects/ports:
 lspci -vvv 
 ```
 
-Tell me about all that is USB:   
+To know about all that is USB:   
 ```
-$ lsusb -vt
-/:  Bus 001.Port 001: Dev 001, Class=root_hub, Driver=xhci_hcd/1p, 480M
-    ID 1d6b:0002 Linux Foundation 2.0 root hub
-/:  Bus 002.Port 001: Dev 001, Class=root_hub, Driver=xhci_hcd/4p, 10000M
-    ID 1d6b:0003 Linux Foundation 3.0 root hub
-/:  Bus 003.Port 001: Dev 001, Class=root_hub, Driver=xhci_hcd/12p, 480M
-    ID 1d6b:0002 Linux Foundation 2.0 root hub
-    |__ Port 006: Dev 002, If 0, Class=Video, Driver=uvcvideo, 480M
-        ID 1bcf:28cc Sunplus Innovation Technology Inc. 
-    |__ Port 006: Dev 002, If 1, Class=Video, Driver=uvcvideo, 480M
-        ID 1bcf:28cc Sunplus Innovation Technology Inc. 
-    |__ Port 008: Dev 003, If 0, Class=Application Specific Interface, Driver=[none], 480M
-        ID 0a5c:5843 Broadcom Corp. 
-    |__ Port 010: Dev 004, If 0, Class=Wireless, Driver=btusb, 12M
-        ID 8087:0026 Intel Corp. AX201 Bluetooth
-    |__ Port 010: Dev 004, If 1, Class=Wireless, Driver=btusb, 12M
-        ID 8087:0026 Intel Corp. AX201 Bluetooth
-/:  Bus 004.Port 001: Dev 001, Class=root_hub, Driver=xhci_hcd/4p, 10000M
-    ID 1d6b:0003 Linux Foundation 3.0 root hub
+$ lsusb -vvvt
 ```
 
-Q. I am not able to locate WiFi options or manage wifi?    
-A. First check: rfkill list and see if something is disabled at hardware or software level.    
+Q. User is not able to locate WiFi options or manage wifi?    
+A. First check rfkill list and see if something is disabled at hardware or software level.    
 
-rfkill is used to enabling and disabling wireless devices    
+rfkill is used for enabling and disabling wireless devices.    
 ```
 $ rfkill list 
 1: dell-wifi: Wireless LAN
