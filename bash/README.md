@@ -1,4 +1,5 @@
 # Shell Scripting    
+Shell scripting provides a convenient way to automate system administration, software development, and routine tasks on Unix-like operating systems. Bash is one of the most widely used Unix shells and scripting languages.   
 
 * [bash](#bash)
   * [Intro](#intro)
@@ -14,11 +15,7 @@
   * [Help](#help)
   * [bash one liners](#bash-one-liners)
 
-
-
 ## Intro 
-
-Shell scripting provides a convenient way to automate system administration, software development, and routine tasks on Unix-like operating systems. Bash is one of the most widely used Unix shells and scripting languages.   
 
 For a Bash script, use a Bash shebang such as #!/usr/bin/env bash. This asks env to locate bash using the user's PATH.   
 ```
