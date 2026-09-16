@@ -677,6 +677,8 @@ _=/usr/bin/printenv        <= check echo $_
 
 ## PATH   
 
+Linux maintains a single hierarchical directory structure to organize all files in the system. At the base of this hierarchy is the _root directory_, named / (slash) and all files and directories are children or further descendants of this root directory.     
+
 What is a path? No one figured this out quite so well. Jokes apart, in Linux, everything is a file, and we may need to refer to files and where they reside.    
 
 > In Linux, everything is a file (LIFE is FILE and FILE is LIFE).    
@@ -686,9 +688,7 @@ What is a path? No one figured this out quite so well. Jokes apart, in Linux, ev
 * An **absolute path** corresponds to a path beginning from / or root. e.g. /home/rps/example.desktop
 * A **relative path** corresponds to a path relative to the current directory (pwd) or any other directory. e.g. Downloads/package.deb or ../../home/rps/Downloads/package.deb or ~/data/file.txt     
 
-How do we refer to a path in commands?    
-
-List a special environment variable called PATH, which contains a list of directories separated by a colon (:)     
+A special environment variable called PATH, contains a list of directories separated by a colon (:) to be searched for a command, utility, or files and directories.     
 ```
 echo $PATH
 ```
@@ -719,6 +719,16 @@ A. Okay, echo/print PATH and replace or translate ':' to a newline character.
 ```
 $ echo $PATH | tr ':' '\n' 
 ```
+
+### File Types 
+
+f  regular files (in ls -lrt output, it is shown as -)
+d  directory 
+l  symbolic link 
+b  block device 
+c  character device 
+p  named pipe
+s  socket 
 
 ### Pathnames 
 
