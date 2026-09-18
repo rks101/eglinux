@@ -3684,15 +3684,19 @@ PART-6
 
 ## Course and Projects
 
-A large part of the content above has been covered in the three instances of an undergraduate course, "Linux System and Virtualization".    
+A substantial part of the content above has been covered throughout the four instances of an undergraduate course, "Linux System and Virtualization (LSAV)".    
 
 Learning:   
-- Students find a 2-hour session of topics-along-with-hands-on exhausting in the evening from 6 to 8 pm. The timetable does not leave much of a choice in this case. Frequent late-night outs do not help either.   
-- 50% of the students show great enthusiasm towards projects, posters, and building something new on their own! This does reflect in their above-average grades. 
-- [Professional and personal ethics are important at every level](https://www.youtube.com/watch?v=nyYQniTYwrA). Succinct articulation, connecting, relating, extracting maximum out of opportunities - these are more important than the technical acumen itself. Time management, taking notes online or offline, respecting deadlines, commitment, ownership, care for the other end, integrity, especially when no one is watching, humility, hard work, uncompromising attitude toward no-shortcuts-approach, learning to say no and when, giving your time and advice, reading paper books, spending wisely, courtesy, these are worth emulating. Listen often to [talk-1](https://www.youtube.com/watch?v=nyYQniTYwrA), [talk-2](https://www.youtube.com/watch?v=eUebtM-uS3w). 
-- [Link to sample answers to quizzes, mid and end-of-semester examination]() 
+- Students find a 2-hour session of topics-along-with-hands-on exhausting in the evening from 6 to 8 pm, partly due to regular late nights. Still they preferred this mode over sessions of one hour each, three times. In the fourth iteration, timing is early morning with one hour session.     
+- 40% of the students showed great enthusiasm towards projects, posters, and building something new on their own! This did reflect in their above-average grades, three times.  
+- Students do not appear to go back to discuss and review examinations, more so after a mid semester or an end semester examination! Students did not discuss examinations with previous batches either!  
+<!-- - The number of questions asked remain low. Doubt clearing post the sessions remained low and that speaks about the interest.   -->
+<!-- - Feedback remained encouraging with not many ideas to improve the next offerings.   -->
+- [Professional and personal ethics are important at every level](https://www.youtube.com/watch?v=nyYQniTYwrA). Succinct articulation, connecting, relating, extracting maximum out of opportunities - these are more important than the technical acumen itself. Time management, taking notes online or offline, respecting deadlines, commitment, ownership, integrity, especially when no one is watching, humility, hard work, uncompromising attitude toward no-shortcuts-approach, learning to say no and when, giving your time and advice, reading paper books, spending (time and money) wisely, courtesy, these are worth emulating. Listen often to [talk-1](https://www.youtube.com/watch?v=nyYQniTYwrA), [talk-2](https://www.youtube.com/watch?v=eUebtM-uS3w). 
+- [Link to sample answers to quizzes, mid and end-of-semester examination](https://github.com/rks101/eglinux/tree/main/docs) 
+<!--- 
 - [Link to projects by students]() 
 - [Meaningfully contributing to open source]() 
-
+--> 
 ---- 
 
