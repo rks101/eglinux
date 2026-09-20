@@ -2014,6 +2014,11 @@ $ kill -l
 Q. What are the signals that cannot be caught, blocked, or ignored in user space?   
 A. SIGKILL and SIGSTOP. Because the kernel is configured to do it.    
 [Related post](https://stackoverflow.com/questions/35569659/the-signals-sigkill-and-sigstop-cannot-be-caught-blocked-or-ignored-why)    
+ 
+Q. What happens when you type Ctrl+C, or Ctrl+Z on the bash terminal?     
+A. Ctrl+C sends SIGINT to terminate the foreground process while Ctrl+Z sends SIGTSTP signal to suspend or stop the process. [A longer answer](https://medium.com/@jayeshsaini820/what-happens-when-you-press-ctrl-c-and-ctrl-z-60003c0f435c).    
+
+Note:- Ctrl+D is not a signal. Ctrl+D is an end-of-file (EOF) marker for standard input when you reading input.    
 
 Q. [Interesting] Is Divide-by-Zero (DBZ or DIV0) a hardware or software interrupt?     
 A. This question is interesting, and you may find different answers. First, mathematics does not define division by zero. Think about zero partitions of a 12.4-meter pipe. Can you have zero partitions and then create a whole from these zero partitions?    
