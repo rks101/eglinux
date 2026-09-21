@@ -792,13 +792,24 @@ You can create files using Linux-native editors, such as vi, or other text edito
 
 **mkdir**    
 mkdir mydir - create a new directory mydir if it does not exist.    
-mkdir -p mydir - create a new directory if it does not exist, if it exists, keep quiet, show no error/warning. This is extensively used in scripts.    
+`mkdir` has an interesting option -p to make parent directories as needed. This option -p is helpful in creating nested directory structure while parent directory in the structure does not exist. If parent directory exists in dir structure, keep quiet, show no error/warning. This is extensively used in scripts.    
 
 Creating multiple directories:    
 ```
-mkdir -p qtemp/{cmd,logs,reports}             <== this command creates qtemp in current dir and three directories namely cmd, logs, and reports inside qtemp directory
+mkdir -p qtemp/{cmd,logs,reports}             <== this command creates qtemp in current dir and three directories namely cmd, logs, and reports inside qtemp directory, without -p option this command fails three times, each time with error "No such file or directory" because of the parent dir qtemp is not yet there.     
 
 for d in {1..10}; do mkdir -p qt/$d ; done    <== this one creates directories using a loop and a variable dir name     
+```
+
+e.g. Create the following directory structure using mkdir:     
+eglinux/
+├── bash
+├── cmd
+│   ├── common
+│   ├── net
+│   └── security
+└── docs
+```
 ```
 
 **rm**    
