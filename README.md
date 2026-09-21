@@ -802,6 +802,7 @@ for d in {1..10}; do mkdir -p qt/$d ; done    <== this one creates directories u
 ```
 
 e.g. Create the following directory structure using mkdir:     
+```
 eglinux/
 ├── bash
 ├── cmd
@@ -809,7 +810,6 @@ eglinux/
 │   ├── net
 │   └── security
 └── docs
-```
 ```
 
 **rm**    
