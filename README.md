@@ -796,8 +796,11 @@ mkdir mydir - create a new directory mydir if it does not exist.
 
 Creating multiple directories:    
 ```
-mkdir -p qtemp/{cmd,logs,reports}             <== this command creates qtemp in current dir and three directories namely cmd, logs, and reports inside qtemp directory, without -p option this command fails three times, each time with error "No such file or directory" because of the parent dir qtemp is not yet there.     
+mkdir -p qtemp/{cmd,logs,reports}
+```
+This above command creates qtemp in current dir and three directories namely cmd, logs, and reports inside qtemp directory, without -p option this command fails three times, each time with error "No such file or directory" because of the parent dir qtemp is not yet there.     
 
+```
 for d in {1..10}; do mkdir -p qt/$d ; done    <== this one creates directories using a loop and a variable dir name     
 ```
 
