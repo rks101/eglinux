@@ -2052,10 +2052,18 @@ Also, check this answer on gen AI tools and repeat on different days.
 ## Operators on commands 
 
 &   <== run a process in background, do not wait for it to finish     
-&&  <== run both command 1 AND command 2    
-||  <== run command 1 or command 2, used in cron jobs, usually test and scripts    
+&&  <== run command1 AND command2, command2 is executed if, and only if, command1 returns an exit status of zero (success).    
+||  <== run command1 OR command2, command2 is executed if, and only if, command1 returns a non-zero exit status.    
 bg  <== run a process in background    
-fg  <== bring the process in foreground that was    
+fg  <== bring the process in foreground that was back-grounded, or suspended using ^Z    
+
+A command or sequence of commands in shell, can be terminated by ';', '&', or newline <Enter key>.   
+
+If a command is terminated by the control operator ‘&’, the shell executes the command asynchronously in a subshell. This is known as executing the command in the background, and these are referred to as asynchronous commands. The shell does not wait for the command to finish, and the return status is 0 (true).   
+
+Commands separated by a ‘;’ are executed sequentially; the shell waits for each command to terminate in turn. The return status is the exit status of the last command executed.   
+
+AND and OR lists are sequences of one or more pipelines separated by the control operators ‘&&’ and ‘||’, respectively. AND and OR lists are executed with left associativity.
 
 e.g. 
 code &   <== run code IDE in the background, and continue the bash, do not wait for it    
@@ -2489,6 +2497,8 @@ See 'git help git' for an overview of the system.
 
 ## Shell Scripting    
 
+Shell scripting provides a convenient way to automate system administration, software development, and routine tasks on Unix-like operating systems. Bash is one of the most widely used Unix shells and scripting languages.   
+
 Create a simple script:   
 ```
 $ cat << EOF  > hello.sh
@@ -2499,8 +2509,9 @@ EOF
 
 Grant executable permissions to a script:   
 ```
-chmod a+x hello.sh    <== or chmod 755 hello.sh 
+chmod a+x hello.sh     
 ```
+Note: Granting executable permissions using `chmod 755 hello.sh` is not same as `chmod a+x hello.sh`.   
 
 Execute a bash script:    
 ```
