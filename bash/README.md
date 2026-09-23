@@ -317,7 +317,7 @@ Try [Bash one-liners](https://onceupon.github.io/Bash-Oneliner/) and [more](http
 
 **Escape Sequences-1** - non-printable while spaces    
 \a - alert bell sound    
-\b - backspace    
+\b - backspace (shift to right)    
 \t - horizontal tab    
 \n - newline    
 \v - vertical tab    
@@ -328,21 +328,21 @@ e.g.
 $ echo -e "\aEureka!" 
 Eureka!                     <== with alert bell sound 
 $ echo -e "Okay\b\bEureka!" 
-OkEureka!                   <== two backspaces to right 
+OkEureka!                   <== backspaces (shift) to right 
 $ echo -e "\nEureka! \n" 
-
+                            <== new line 
 Eureka! 
 
-$echo -e "\nEureka! \rJoe"
+$echo -e "\nEureka! \rJoe" 
 
-Joeeka!
+Joeeka!                     <== carriage return like type writer
 $ echo -e "\nEureka! \r\fJoe" 
 
 Eureka! 
-Joe
+Joe                          <== (advance) form feed
 $ echo -e "\n\t\tEureka! \n" 
 
-		Eureka! 
+		Eureka!              <== horizontal tab  
 
 ```
 
