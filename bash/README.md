@@ -288,6 +288,10 @@ echo " legs."
 
 ## Help   
 
+[Bash reference manual](https://tiswww.case.edu/php/chet/bash/bashref.html)    
+
+[Ctrl characters](https://linuxvox.com/blog/which-signal-does-ctrl-x-send-when-used-in-a-terminal/)    
+
 [Coding Convention](https://github.com/testssl/testssl.sh/blob/3.3dev/Coding_Convention.md) can help to write clean code.   
 
 [Bash Scripting](https://linuxsimply.com/cheat-sheets/bash-scripting/)     
