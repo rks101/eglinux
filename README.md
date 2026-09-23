@@ -3545,6 +3545,13 @@ sudo apt-get update --fix-missing
 sudo apt-get upgrade 
 ```
 
+----
+
+## The Architecture of Open Source Applications 
+
+[The Architecture of Open Source Applications](https://aosabook.org/en/index.html)    
+This page has some interesting ideas for projects.    
+
 ---- 
 
 ## Linux Kernel   
