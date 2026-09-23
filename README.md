@@ -41,6 +41,7 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Process Memory Layout using `proc`](#process-memory-layout)
       * [Process creation](#process-creation)
       * [Process termination](#process-termination)
+      * [Escape Sequence and Control Characters](#escape-sequence-and-control-characters)
       * [Operators on commands](#operators-on-commands)
       * [Scheduling jobs](#scheduling-jobs)
       * [`getent`](#getent)
@@ -2046,6 +2047,328 @@ A few opinions on DBZ: [1](https://stackoverflow.com/questions/21852270/number-d
 Results or penalties of a DBZ scenario can be catastrophic. Therefore, researchers emphasize the verification of DBZ properties, arithmetic overflows, and like.    
 
 Also, check this answer on gen AI tools and repeat on different days.     
+
+----
+
+## Escape Sequence and Control Characters 
+
+Print terminal characteristics:   <== Note control characters displayed    
+```
+$ stty -a
+speed 38400 baud; rows 31; columns 132; line = 0;
+intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = <undef>; eol2 = <undef>; swtch = <undef>; start = ^Q; stop = ^S;
+susp = ^Z; rprnt = ^R; werase = ^W; lnext = ^V; discard = ^O; min = 1; time = 0;
+-parenb -parodd -cmspar cs8 -hupcl -cstopb cread -clocal -crtscts
+-ignbrk -brkint -ignpar -parmrk -inpck -istrip -inlcr -igncr icrnl -ixoff -tandem ixon -ixany -imaxbel iutf8
+opost -olcuc -ocrnl onlcr -onocr -onlret -ofdel nl0 cr0 tab0 bs0 vt0 ff0
+isig icanon iexten echo echoe echok -echonl -noflsh -tostop -echoprt echoctl echoke -flusho -extproc
+```
+
+List Bash keybindings:   
+```
+$ bind -p 
+
+"\C-g": abort
+"\C-x\C-g": abort
+"\e\C-g": abort
+"\C-j": accept-line
+"\C-m": accept-line
+# alias-expand-line (not bound)
+# arrow-key-prefix (not bound)
+# backward-byte (not bound)
+"\C-b": backward-char
+"\eOD": backward-char
+"\e[D": backward-char
+"\C-h": backward-delete-char
+"\C-?": backward-delete-char
+"\C-x\C-?": backward-kill-line
+"\e\C-h": backward-kill-word
+"\e\C-?": backward-kill-word
+"\e\e[D": backward-word
+"\e[1;3D": backward-word
+"\e[1;5D": backward-word
+"\e[5D": backward-word
+"\eb": backward-word
+# bash-vi-complete (not bound)
+"\e<": beginning-of-history
+"\C-a": beginning-of-line
+"\eOH": beginning-of-line
+"\e[1~": beginning-of-line
+"\e[H": beginning-of-line
+"\e[200~": bracketed-paste-begin
+"\C-xe": call-last-kbd-macro
+"\ec": capitalize-word
+"\C-]": character-search
+"\e\C-]": character-search-backward
+"\e\C-l": clear-display
+"\C-l": clear-screen
+"\C-i": complete
+"\e\e": complete
+"\e!": complete-command
+"\e/": complete-filename
+"\e@": complete-hostname
+"\e{": complete-into-braces
+"\e~": complete-username
+"\e$": complete-variable
+# copy-backward-word (not bound)
+# copy-forward-word (not bound)
+# copy-region-as-kill (not bound)
+# dabbrev-expand (not bound)
+"\C-d": delete-char
+"\e[3~": delete-char
+# delete-char-or-list (not bound)
+"\e\\": delete-horizontal-space
+"\e-": digit-argument
+"\e0": digit-argument
+"\e1": digit-argument
+"\e2": digit-argument
+"\e3": digit-argument
+"\e4": digit-argument
+"\e5": digit-argument
+"\e6": digit-argument
+"\e7": digit-argument
+"\e8": digit-argument
+"\e9": digit-argument
+"\C-x\C-v": display-shell-version
+"\C-xA": do-lowercase-version
+"\C-xB": do-lowercase-version
+"\C-xC": do-lowercase-version
+...
+"\C-xX": do-lowercase-version
+"\C-xY": do-lowercase-version
+"\C-xZ": do-lowercase-version
+"\eA": do-lowercase-version
+"\eB": do-lowercase-version
+"\eC": do-lowercase-version
+...
+"\eX": do-lowercase-version
+"\eY": do-lowercase-version
+"\eZ": do-lowercase-version
+"\el": downcase-word
+# dump-functions (not bound)
+# dump-macros (not bound)
+# dump-variables (not bound)
+"\e\C-i": dynamic-complete-history
+"\C-x\C-e": edit-and-execute-command
+# emacs-editing-mode (not bound)
+"\C-x)": end-kbd-macro
+"\e>": end-of-history
+"\C-e": end-of-line
+"\eOF": end-of-line
+"\e[4~": end-of-line
+"\e[F": end-of-line
+"\C-x\C-x": exchange-point-and-mark
+"\ex": execute-named-command
+# export-completions (not bound)
+# fetch-history (not bound)
+# forward-backward-delete-char (not bound)
+# forward-byte (not bound)
+"\C-f": forward-char
+"\eOC": forward-char
+"\e[C": forward-char
+"\C-s": forward-search-history
+"\e\e[C": forward-word
+"\e[1;3C": forward-word
+"\e[1;5C": forward-word
+"\e[5C": forward-word
+"\ef": forward-word
+"\eg": glob-complete-word
+"\C-x*": glob-expand-word
+"\C-xg": glob-list-expansions
+# history-and-alias-expand-line (not bound)
+"\e^": history-expand-line
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
+# history-substring-search-backward (not bound)
+# history-substring-search-forward (not bound)
+"\e#": insert-comment
+"\e*": insert-completions
+"\e.": insert-last-argument
+"\e_": insert-last-argument
+"\C-k": kill-line
+# kill-region (not bound)
+# kill-whole-line (not bound)
+"\e[3;5~": kill-word
+"\ed": kill-word
+# magic-space (not bound)
+# menu-complete (not bound)
+# menu-complete-backward (not bound)
+"\C-n": next-history
+"\eOB": next-history
+"\e[B": next-history
+# next-screen-line (not bound)
+"\en": non-incremental-forward-search-history
+# non-incremental-forward-search-history-again (not bound)
+"\ep": non-incremental-reverse-search-history
+# non-incremental-reverse-search-history-again (not bound)
+# old-menu-complete (not bound)
+"\C-o": operate-and-get-next
+# overwrite-mode (not bound)
+"\C-x!": possible-command-completions
+"\e=": possible-completions
+"\e?": possible-completions
+"\C-x/": possible-filename-completions
+"\C-x@": possible-hostname-completions
+"\C-x~": possible-username-completions
+"\C-x$": possible-variable-completions
+"\C-p": previous-history
+"\eOA": previous-history
+"\e[A": previous-history
+# previous-screen-line (not bound)
+# print-last-kbd-macro (not bound)
+"\C-q": quoted-insert
+"\C-v": quoted-insert
+"\e[2~": quoted-insert
+# redraw-current-line (not bound)
+"\C-x\C-r": re-read-init-file
+"\C-r": reverse-search-history
+"\e\C-r": revert-line
+"\er": revert-line
+" ": self-insert
+"!": self-insert
+"\"": self-insert
+"#": self-insert
+"$": self-insert
+"%": self-insert
+"&": self-insert
+"'": self-insert
+"(": self-insert
+")": self-insert
+"*": self-insert
+"+": self-insert
+",": self-insert
+"-": self-insert
+".": self-insert
+"/": self-insert
+"0": self-insert
+"1": self-insert
+"2": self-insert
+"3": self-insert
+"4": self-insert
+"5": self-insert
+"6": self-insert
+"7": self-insert
+"8": self-insert
+"9": self-insert
+":": self-insert
+";": self-insert
+"<": self-insert
+"=": self-insert
+">": self-insert
+"?": self-insert
+"@": self-insert
+"A": self-insert
+"B": self-insert
+"C": self-insert
+...
+"X": self-insert
+"Y": self-insert
+"Z": self-insert
+"[": self-insert
+"\\": self-insert
+"]": self-insert
+"^": self-insert
+"_": self-insert
+"`": self-insert
+"a": self-insert
+"b": self-insert
+"c": self-insert
+...
+"x": self-insert
+"y": self-insert
+"z": self-insert
+"{": self-insert
+"|": self-insert
+"}": self-insert
+"~": self-insert
+"\200": self-insert
+"\201": self-insert
+"\202": self-insert
+... <== applicable keybindings 
+"\375": self-insert
+"\376": self-insert
+"\377": self-insert
+"\C-@": set-mark
+"\e ": set-mark
+# shell-backward-kill-word (not bound)
+"\e\C-b": shell-backward-word
+"\e\C-e": shell-expand-line
+"\e\C-f": shell-forward-word
+"\e\C-d": shell-kill-word
+"\e\C-t": shell-transpose-words
+# skip-csi-sequence (not bound)
+"\C-xs": spell-correct-word
+"\C-x(": start-kbd-macro
+# tab-insert (not bound)
+"\e&": tilde-expand
+"\C-t": transpose-chars
+"\et": transpose-words
+# tty-status (not bound)
+"\C-x\C-u": undo
+"\C-_": undo
+# universal-argument (not bound)
+# unix-filename-rubout (not bound)
+"\C-u": unix-line-discard
+"\C-w": unix-word-rubout
+"\eu": upcase-word
+# vi-append-eol (not bound)
+# vi-append-mode (not bound)
+# vi-arg-digit (not bound)
+# vi-back-to-indent (not bound)
+# vi-backward-bigword (not bound)
+# vi-backward-word (not bound)
+# vi-bword (not bound)
+# vi-bWord (not bound)
+# vi-change-case (not bound)
+# vi-change-char (not bound)
+# vi-change-to (not bound)
+# vi-char-search (not bound)
+# vi-column (not bound)
+# vi-complete (not bound)
+# vi-delete (not bound)
+# vi-delete-to (not bound)
+# vi-edit-and-execute-command (not bound)
+# vi-editing-mode (not bound)
+# vi-end-bigword (not bound)
+# vi-end-word (not bound)
+# vi-eof-maybe (not bound)
+# vi-eword (not bound)
+# vi-eWord (not bound)
+# vi-fetch-history (not bound)
+# vi-first-print (not bound)
+# vi-forward-bigword (not bound)
+# vi-forward-word (not bound)
+# vi-fword (not bound)
+# vi-fWord (not bound)
+# vi-goto-mark (not bound)
+# vi-insert-beg (not bound)
+# vi-insertion-mode (not bound)
+# vi-match (not bound)
+# vi-movement-mode (not bound)
+# vi-next-word (not bound)
+# vi-overstrike (not bound)
+# vi-overstrike-delete (not bound)
+# vi-prev-word (not bound)
+# vi-put (not bound)
+# vi-redo (not bound)
+# vi-replace (not bound)
+# vi-rubout (not bound)
+# vi-search (not bound)
+# vi-search-again (not bound)
+# vi-set-mark (not bound)
+# vi-subst (not bound)
+# vi-tilde-expand (not bound)
+# vi-undo (not bound)
+# vi-unix-word-rubout (not bound)
+# vi-yank-arg (not bound)
+# vi-yank-pop (not bound)
+# vi-yank-to (not bound)
+"\C-y": yank
+"\e.": yank-last-arg
+"\e_": yank-last-arg
+"\e\C-y": yank-nth-arg
+"\ey": yank-pop
+```
 
 ---- 
 
