@@ -645,6 +645,148 @@ $ rfkill list
 	Hard blocked: no
 ```
 
+### Sensors 
+
+`sensors` can be used to display CPU temperature. 
+
+```
+$ sensors
+dell_smm-virtual-0
+Adapter: Virtual device
+fan1:           0 RPM  (min =    0 RPM, max = 5300 RPM)
+temp1:        +36.0°C  
+temp2:        +34.0°C  
+temp3:        +27.0°C  
+temp4:        +33.0°C  
+temp5:        +25.0°C  
+pwm1:              0%  MANUAL CONTROL
+
+ucsi_source_psy_USBC000:002-isa-0000
+Adapter: ISA adapter
+in0:           5.00 V  (min =  +5.00 V, max =  +5.00 V)
+curr1:         0.00 A  (max =  +0.00 A)
+
+nvme-pci-e100
+Adapter: PCI adapter
+Composite:    +22.9°C  (low  =  -0.1°C, high = +82.8°C)
+                       (crit = +84.8°C)
+Sensor 1:     +22.9°C  (low  = -273.1°C, high = +65261.8°C)
+Sensor 2:     +27.9°C  (low  = -273.1°C, high = +65261.8°C)
+
+iwlwifi_1-virtual-0
+Adapter: Virtual device
+temp1:        +29.0°C  
+
+coretemp-isa-0000
+Adapter: ISA adapter
+Package id 0:  +37.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 0:        +32.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 1:        +37.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 2:        +35.0°C  (high = +100.0°C, crit = +100.0°C)
+Core 3:        +32.0°C  (high = +100.0°C, crit = +100.0°C)
+
+ucsi_source_psy_USBC000:001-isa-0000
+Adapter: ISA adapter
+in0:           0.00 V  (min =  +5.00 V, max = +20.00 V)
+curr1:         0.00 A  (max =  +3.25 A)
+
+BAT0-acpi-0
+Adapter: ACPI interface
+in0:          12.16 V  
+curr1:       250.00 mA 
+```
+
+`inxi -Fxxxz` can be used to display system information, hardware, CPU, memory, battery, drivers, etc.    
+```
+$ inxi -Fxxxz
+System:
+  Kernel: 7.0.0-31-generic arch: x86_64 bits: 64 compiler: gcc v: 15.2.0        <== Kernel 
+    clocksource: tsc
+  Desktop: GNOME v: 50.1 tk: GTK v: 3.24.52 wm: gnome-shell
+    tools: gsd-screensaver-proxy dm: GDM3 v: 50.1 Distro: Ubuntu 26.04.1 LTS    <== OS
+    (Resolute Raccoon)
+Machine:
+  Type: Laptop System: Dell product: Latitude 5420 v: N/A
+    serial: <superuser required> Chassis: type: 10 serial: <superuser required>
+  Mobo: Dell model: 014P1W v: A00 serial: <superuser required> part-nu: 0A20
+    uuid: <superuser required> Firmware: UEFI vendor: Dell v: 1.56.0
+    date: 06/30/2026
+Battery:
+  ID-1: BAT0 charge: 21.6 Wh (98.1%) condition: 22/42 Wh (52.4%) volts: 12.16   <== Battery
+    min: 11.4 model: BYD DELL M3KCN22 type: Li-poly serial: <filter> charging:  <== make, type 
+    status: charging control: start: 50% end: 90% type: fast cycles: N/A
+CPU:
+  Info: quad core model: 11th Gen Intel Core i5-1135G7 bits: 64 type: MT MCP    <== Multi Core Processor  
+    smt: enabled arch: Tiger Lake rev: 1 cache: L1: 320 KiB L2: 5 MiB L3: 8 MiB
+  Speed (MHz): avg: 1171 min/max: 400/4200 cores: 1: 1171 2: 1171 3: 1171
+    4: 1171 5: 1171 6: 1171 7: 1171 8: 1171 bogomips: 22118
+  Flags-basic: avx avx2 ht lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx
+Graphics:
+  Device-1: Intel TigerLake-LP GT2 [Iris Xe Graphics] vendor: Dell              <== Graphics 
+    driver: i915 v: kernel arch: Xe ports: active: eDP-1 empty: DP-1, DP-2,
+    HDMI-A-1, HDMI-A-2, HDMI-A-3 bus-ID: 0000:00:02.0 chip-ID: 8086:9a49
+    class-ID: 0300
+  Device-2: Sunplus Innovation Integrated_Webcam_HD driver: uvcvideo
+    type: USB rev: 2.0 speed: 480 Mb/s lanes: 1 bus-ID: 3-6:2 chip-ID: 1bcf:28cc
+    class-ID: 0e02 serial: <filter>
+  Display: wayland server: Xwayland v: 24.1.10 compositor: gnome-shell         <== Display 
+    driver: gpu: i915 display-ID: 0
+  Monitor-1: eDP-1 model: LG Display 0x068d res: 1920x1080 dpi: 158
+    size: 309x174mm (12.17x6.85") diag: 355mm (14") modes: 1920x1080
+  API: EGL v: 1.5 hw: drv: intel iris platforms: device: 0 drv: iris
+    device: 1 drv: swrast gbm: drv: iris surfaceless: drv: iris wayland:
+    drv: iris x11: drv: iris
+  API: OpenGL v: 4.6 compat-v: 4.5 vendor: intel mesa v: 26.0.8-1ubuntu0.3
+    glx-v: 1.4 direct-render: yes renderer: Mesa Intel Iris Xe Graphics (TGL
+    GT2) device-ID: 8086:9a49 display-ID: :0.0
+  API: Vulkan v: 1.4.341 layers: 5 surfaces: N/A device: 0
+    type: integrated-gpu driver: mesa intel device-ID: 8086:9a49 device: 1
+    type: cpu driver: mesa llvmpipe device-ID: 10005:0000
+  Info: Tools: api: eglinfo, glxinfo, vulkaninfo x11: xdriinfo, xdpyinfo,
+    xprop, xrandr
+Audio:
+  Device-1: Intel Tiger Lake-LP Smart Sound Audio vendor: Dell                  <== Audio 
+    driver: snd_hda_intel v: kernel bus-ID: 0000:00:1f.3 chip-ID: 8086:a0c8
+    class-ID: 0403
+  API: ALSA v: k7.0.0-31-generic status: kernel-api
+  Server-1: PipeWire v: 1.6.2 status: active with: 1: pipewire-pulse
+    status: active 2: wireplumber status: active 3: pipewire-alsa type: plugin
+Network:
+  Device-1: Intel Wi-Fi 6 AX201 driver: iwlwifi v: kernel bus-ID: 0000:00:14.3  <== Wi-Fi
+    chip-ID: 8086:a0f0 class-ID: 0280
+  IF: wlp0s20f3 state: up mac: <filter>
+  Device-2: Intel Ethernet I219-V vendor: Dell driver: e1000e v: kernel         <== Ethernet 
+    port: N/A bus-ID: 0000:00:1f.6 chip-ID: 8086:15fc class-ID: 0200
+  IF: enp0s31f6 state: down mac: <filter>
+RAID:
+  Hardware-1: Intel Volume Management Device NVMe RAID Controller driver: vmd
+    v: 0.6 port: N/A bus-ID: 0000:00:0e.0 chip-ID: 8086:9a0b rev: class-ID: 0104
+Drives:
+  Local Storage: total: 476.94 GiB used: 67.2 GiB (14.1%)                       <== Storage 
+  ID-1: /dev/nvme0n1 vendor: SK Hynix model: BC711 NVMe 512GB
+    size: 476.94 GiB speed: 31.6 Gb/s lanes: 4 tech: SSD serial: <filter>
+    fw-rev: 41002131 temp: 23.9 C scheme: GPT
+Partition:
+  ID-1: / size: 210.6 GiB used: 67.15 GiB (31.9%) fs: ext4 dev: /dev/nvme0n1p2  <== disk partitions 
+  ID-2: /boot/efi size: 1.05 GiB used: 49.9 MiB (4.7%) fs: vfat
+    dev: /dev/nvme0n1p1
+Swap:
+  ID-1: swap-1 type: file size: 4 GiB used: 1.51 GiB (37.7%) priority: -1
+    file: /swap.img
+Sensors:
+  Src: /sys System Temperatures: cpu: 37.0 C mobo: 35.0 C                       <== temperature
+  Fan Speeds (rpm): N/A
+  Power: 12v: N/A 5v: 5 3.3v: N/A vbat: N/A
+Info:
+  Memory: total: 16 GiB note: est. available: 14.28 GiB used: 6.55 GiB (45.9%)  <== memory 
+  Processes: 383 Power: uptime: 15d 23h 2m states: freeze,mem,disk
+    suspend: s2idle wakeups: 33 hibernate: platform Init: systemd v: 259
+    default: graphical
+  Packages: 2594 pm: dpkg pkgs: 2560 pm: snap pkgs: 34 Compilers:
+    clang: 21.1.8 gcc: 15.2.0 Shell: Bash v: 5.3.9 running-in: ptyxis-agent     <== Compiler
+    inxi: 3.3.40
+```
+
 ----
 
 ## Environment variables    
@@ -1895,8 +2037,12 @@ MiB Swap:  31250.0 total,  31168.0 free,     82.0 used.   8402.3 avail Mem
   38118 rps       20   0 1408.4g 182600 125344 S  10.0   1.2  15:28.51 chrome
     330 root     -51   0       0      0      0 S   0.0   0.0  15:21.82 irq/182+
 ```
-
 Interesting: Try pressing any arrow key while the top is on.   
+
+### htop  
+
+`htop` is an interactive process viewer. In comparison with top, `htop` allows to scroll freely and use column based filters to sort the process view. Because it is an ncurses-based utility, its screen text output cannot be pasted here.    
+
 
 ----
 
