@@ -1253,6 +1253,19 @@ Note the file system types we have on the system.
 ```
 $ du -hs ~/Downloads/
 64G	/home/rps/Downloads/
+
+$ du -hs ~/* | sort -hr
+18G	/home/rks/Downloads
+3.0G	/home/rps/snap
+935M	/home/rps/lsav
+120M	/home/rps/Desktop
+29M		/home/rps/Pictures
+4.0K	/home/rps/VirtualBox VMs
+4.0K	/home/rps/Videos
+4.0K	/home/rps/Templates
+4.0K	/home/rps/Public
+4.0K	/home/rps/Music
+4.0K	/home/rps/Documents
 ```
 
 ```
