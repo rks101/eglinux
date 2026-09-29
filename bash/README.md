@@ -13,7 +13,7 @@ Shell scripting provides a convenient way to automate system administration, sof
   * [Loops](#loops)
   * [Case](#case)
   * [Help](#help)
-  * [Bash One Liners(BOL)](#bash-one-liners)
+  * [Bash One Liners](#bash-one-liners)
   * [Escape Sequence and Control Characters](#escape-sequence-and-control-characters)
 
 ## Intro 
@@ -339,7 +339,7 @@ Under the bash directory, locate and play with a few sample scripts.
 
 ---- 
 
-## Bash One Liners (BOL)    
+## Bash One Liners   
 
 Try [Bash one-liners](https://onceupon.github.io/Bash-Oneliner/) and [more](https://www.bashoneliners.com/oneliners/newest/) for a collection of handy Bash One-Liners and terminal tricks for data processing and Linux system maintenance, and to the expressiveness of bash scripting.     
 
