@@ -152,6 +152,8 @@ Feel free to `sleep` or `exit`.
 - sleep n - pause execution or wait for an specified number of seconds, minutes, hours, etc. 
 - exit n - exit with a return code, that can be captured and checked using $? by the calling program/script/shell.
 
+Input, output redirection, pipe with commands can be used within scripts.    
+
 Wild cards:   
 - \*  :  any number of characters or occurrences
 - \+  :  one or more occurences 
