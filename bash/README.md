@@ -153,9 +153,9 @@ Feel free to `sleep` or `exit`.
 - exit n - exit with a return code, that can be captured and checked using $? by the calling program/script/shell.
 
 Wild cards:   
-- \*  :  any number of characters
+- \*  :  any number of characters or occurrences
 - \+  :  one or more occurences 
-- ?  :  any one character    
+- ?  :  exactly one character    
 -  \[  \]  : constrain search to defined characters    
 - \[^ \]  : constrain search to exclude characters, not this will not work in a regex    
 
