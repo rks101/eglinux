@@ -156,7 +156,7 @@ Wild cards:
 - \*  :  any number of characters
 - \+  :  one or more occurences 
 - ?  :  any one character    
--  \[ \]  : constrain search to defined characters    
+-  \[ ]  : constrain search to defined characters    
 - \[^ \]  : constrain search to exclude characters, not this will not work in a regex    
 
 ---- 
