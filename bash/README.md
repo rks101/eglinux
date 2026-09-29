@@ -148,6 +148,10 @@ Bash built-in
 
 Read `man bash` and `compgen` for builtins.    
 
+Feel free to `sleep` or `exit`.   
+- sleep n - pause execution or wait for an specified number of seconds, minutes, hours, etc. 
+- exit n - exit with a return code, that can be captured and checked using $? by the calling program/script/shell.
+
 Wild cards:   
 - \*  :  any number of characters
 - \+  :  one or more occurences 
@@ -174,7 +178,7 @@ The source is in the coreutils package, src/lbracket.c and src/test.c
 
 Check sample scripts added for more syntactic sugar.    
 
-----
+---- 
 
 ## Conditions    
 
