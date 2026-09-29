@@ -5,7 +5,7 @@ Shell scripting provides a convenient way to automate system administration, sof
   * [Intro](#intro)
   * [`echo`](#echo)
   * [Using quotes for string literals](#using-quotes-for-string-literals) 
-  * [Comamnd Substitution](#command-substitution)
+  * [Command Substitution](#command-substitution)
   * [Reading input](#reading-input)
   * [Bash builtin](#bash-builtin)
   * [Test expressions](#test-expressions)
@@ -13,7 +13,7 @@ Shell scripting provides a convenient way to automate system administration, sof
   * [Loops](#loops)
   * [Case](#case)
   * [Help](#help)
-  * [bash one liners](#bash-one-liners)
+  * [Bash One Liners(BOL)](#bash-one-liners)
   * [Escape Sequence and Control Characters](#escape-sequence-and-control-characters)
 
 ## Intro 
@@ -79,7 +79,7 @@ echo -e "Starting script to print diagnostic information...\n"
 ```
 
 Note:     
-"-e" flag allows escape sequence \n characters.    
+"-e" flag allows escape sequence newline \n characters.    
 "-n" flag omits the trailing newline character, that is, continue printing.    
 
 [bash grammar](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_10_02) for what characters need to be escaped or require quoting.   
@@ -147,9 +147,10 @@ Bash built-in
 Read `man bash` and `compgen` for builtins.    
 
 Wild cards:   
-- \*  :  any number of characters     
+- \*  :  any number of characters
+- \+  :  one or more occurences 
 - ?  :  any one character    
--  \[]  : constrain search to defined characters    
+-  \[ \]  : constrain search to defined characters    
 - \[^ \]  : constrain search to exclude characters, not this will not work in a regex    
 
 ---- 
@@ -166,7 +167,7 @@ The source is in the coreutils package, src/lbracket.c and src/test.c
 [Bash Conditional Expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)     
 - [[ expression  ]] compound command    
 - [ expression ] test command    
-- (( expression )) evaluate and substitute the expression    
+- (( expression )) evaluate and substitute the expression, e.g. product=$((x * y))     
 
 
 Check sample scripts added for more syntactic sugar.    
@@ -188,7 +189,7 @@ if [[ $# -eq 0 ]]; then
 fi
 ```
 
-With modern syntax, if conditional construct can be written as below:    
+With modern syntax, if conditional construct can be written as below, space around keywords, test expression remain the same:    
 ```
 # If no arguments are supplied to the script,
 # send an error message and exit with an error code 
@@ -209,23 +210,27 @@ ifsc=$1
 # create a regex pattern to match 
 regexIFSC="^[A-Z]{4}0[A-Z0-9]{6}$";
 
-if [[ $ifsc =~ $regexIFSC ]]; then
-        echo "IFSC is valid"
+if [[ $ifsc =~ $regexIFSC ]]
+  then
+    echo "IFSC is valid"
 else
-        echo "IFSC is NOT valid"
+    echo "IFSC is NOT valid"
 fi
 ```
 
 An else-if ladder   
 ```
-if [ $# -eq 3 ]; then
-        echo -e "Three arguments.\n"
-elif [ $# -eq 2 ]; then
-        echo -e "Two arguments.\n"
-elif [ $# -eq 1 ]; then
-        echo -e "One arguments.\n"
+if [[ $# -eq 3 ]]
+  then
+    echo -e "Three arguments.\n"
+elif [[ $# -eq 2 ]]
+  then
+    echo -e "Two arguments.\n"
+elif [[ $# -eq 1 ]]
+  then
+    echo -e "One arguments.\n"
 else 
-        echo -e "number of arguments = $#"
+  echo -e "number of arguments = $#"
 fi
 ```
 
@@ -240,11 +245,11 @@ A `while` loop can be written as below:
 how_many=5
 i=0
 # read in a while loop
-while [ $i -lt "$how_many" ]; do
-        i=$((i + 1))
-        #echo "enter number $i: "
-        read -p "Enter number $i : " x
-        echo $x 
+while [[ $i -lt "$how_many" ]]
+  do
+    i=$((i + 1))
+    read -p "Enter number$i : " x
+    echo $x 
 done
 ```
 
@@ -284,6 +289,26 @@ esac
 echo " legs."
 ```
 
+With little effort, you can write the same case statement using else-if ladder.    
+```
+#!/usr/bin/env bash
+
+read -p "Enter the name of an animal (cat, dog, horse, kangaroo, man, pypy) : " animal
+echo -n "The $animal has "
+
+if [[ $animal == "cat" || $animal == "dog" || $animal == "horse" ]]
+  then 
+    echo -n "four"
+elif [[ $animal == "kangaroo" || $animal == "man" ]]
+  then
+    echo -n "two"
+else
+  echo -n "an unknown number of"
+fi
+
+echo " legs."
+```
+
 ---- 
 
 ## Help   
@@ -312,8 +337,12 @@ Under the bash directory, locate and play with a few sample scripts.
 
 ---- 
 
-## bash one liners    
-Try [Bash one-liners](https://onceupon.github.io/Bash-Oneliner/) and [more](https://www.bashoneliners.com/oneliners/newest/) to see the expressiveness of bash scripting    
+## Bash One Liners (BOL)    
+
+Try [Bash one-liners](https://onceupon.github.io/Bash-Oneliner/) and [more](https://www.bashoneliners.com/oneliners/newest/) for a collection of handy Bash One-Liners and terminal tricks for data processing and Linux system maintenance, and to the expressiveness of bash scripting.     
+
+e.g.    
+
 
 ----
 
