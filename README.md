@@ -956,6 +956,9 @@ eglinux/
 │   └── security
 └── docs
 ```
+```
+mkdir -p eglinux/{bash,cmd/{common,network,security},docs}  <== -p flag is a must to create parent directory first, if it does not exist. 
+```
 
 **rm**    
 `rm xfile` - remove xfile, a regular file, link, or an empty directory.   
