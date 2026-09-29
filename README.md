@@ -821,6 +821,17 @@ _=/usr/bin/printenv        <= check echo $_
 
 Linux maintains a single hierarchical directory structure to organize all files in the system. At the base of this hierarchy is the _root directory_, named / (slash) and all files and directories are children or further descendants of this root directory.     
 
+Some of the common directories under root ( / ) are:     
+- /etc 
+- /home 
+- /proc  
+- /dev
+- /bin 
+- /usr
+- /mnt 
+- /run 
+- /var 
+
 What is a path? No one figured this out quite so well. Jokes apart, in Linux, everything is a file, and we may need to refer to files and where they reside.    
 
 > In Linux, everything is a file (LIFE is FILE and FILE is LIFE).    
