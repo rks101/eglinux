@@ -88,9 +88,11 @@ Note:
 
 ## Using quotes for string literals   
 
-While declaring and assigning value to string variables, often single quotes ('something') or double quotes ("something") are used. In bash scripting, using double quotes is safer.    
-- Double quotes (" "): support variable expansion, i.e., any variable's value is also expanded in the string literal. e.g., "image$count" will be replaced with "image" followed by the value of $count.    
-- Single quotes (' '): no variable expansion is done, i.e., 'string$count' stays as string$count.    
+While declaring and assigning value to string variables, often single quotes ('something') or double quotes ("something else") are used. In bash scripting, to express string literals, using double quotes is safer.    
+- Double quotes sequence (" "): support variable expansion, command substitution, i.e., any variable's value is also expanded in the string literal, command is expanded. e.g., "image$count" will be replaced with "image" followed by the value of $count.    
+- Single quotes sequence (' '): no variable expansion or command substitution is performed, i.e., 'string$count' stays as string$count.    
+
+Note: A single-quoted or double-quoted string should have matching quote. If any single or double quoted string that begins, but does not end, within the "`...`" sequence, can produce undefined result.[ref](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html)      
 
 ----
 
