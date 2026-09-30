@@ -18,19 +18,25 @@ Shell scripting provides a convenient way to automate system administration, sof
 
 ## Intro 
 
-For a Bash script, use a Bash shebang such as #!/usr/bin/env bash. This asks env to locate bash using the user's PATH.   
+For a Bash script, use a Bash Shebang such as #!/usr/bin/env bash. This asks env to locate bash using the user's PATH.   
 ```
 #!/usr/bin/env bash
 
 echo "Hello! bash"
-````
+```
 
-To grant executable permissions to a script:   
+Q. We have seen #!/bin/bash, then why do you use env?   
+A. `#!/bin/bash` is Shebang at the beginning of a shell script to specify the interpreter.   
+
+`#!/usr/bin/env bash` is Shebang at the beginning of a shell script, using environment variable to specify the interpreter.    
+This is preferred over direct /bin/bash. You may check `which bash` to find out the path for the interpreter.   
+
+To grant executable permissions to a script, you will notice the changed colour of file name in `ls` output as set by `LS_COLORS`:   
 ```
 chmod a+x script.sh
-or  
-chmod 755 script.sh   # 755 is a common explicit permission setting, but is not equivalent to a+x in all cases.
-```
+... 
+
+Note: `chmod 755 script.sh` and chmod a+x script.sh are not same always. Permissions 755 is a common explicit permission setting, it may change write permissions for other users in the group and all other users outside the group.   
 
 To run or execute a bash script:     
 ```
@@ -46,23 +52,27 @@ bash -x script.sh  <== creates a child process/sub-shell, displays commands afte
 
 Test the following:    
 - which -a bash      <== all binaries of bash in the current PATH 
-- echo $SHELL        <== SHELL environment variable, can be edited 
-- cat /etc/shells    <== To find valid shells 
+- echo $SHELL        <== SHELL environment variable, can be edited
+- echo $BASH         <== BASH environment variable 
+- cat /etc/shells    <== To find valid shells available 
 
 ```
 $ echo $SHELL
 /bin/bash
 
+$ echo $BASH
+/usr/bin/bash
+
 $ which -a bash 
-/usr/bin/bash        <== make sure you use desired bash in your script 
+/usr/bin/bash        <== make sure you use desired interpreter in your scripts  
 /bin/bash
 
 $ cat /etc/shells 
 # /etc/shells: valid login shells
 /bin/sh
-/usr/bin/sh     <== shell interpreter 
+/usr/bin/sh     <== sh shell interpreter 
 /bin/bash
-/usr/bin/bash   <== shell interpreter in the bash script 
+/usr/bin/bash   <== bash (Borne Again sh) shell interpreter  
 /bin/rbash
 /usr/bin/rbash
 /usr/bin/dash
@@ -73,9 +83,10 @@ $ cat /etc/shells
 
 ## echo  
 
-To print something: 
+To print string literals and values of variables:  
 ```
 echo -e "Starting script to print diagnostic information...\n"    
+echo -e "Sum of the terms = $sum " 
 ```
 
 Note:     
@@ -127,6 +138,8 @@ To read a value without echoing it on the screen, like a password or passphrase:
 read -p "Enter password: " -s pass
 ```
 
+Note: If a script has command line arguments, make sure you do not prompt the user to enter values for those arguments inside the script.
+
 ----
 
 ## Bash builtin  
@@ -142,11 +155,10 @@ Bash built-in variables
 - `$*` : command line arguments as a string 
 - `$-` : current shell options and flags (himBH)  
 
-Bash built-in    
-- compgen      <== good to list commands   
-- cd 
+Bash builtin    
+- compgen -b    <== list all bash builtins    
 
-Read `man bash` and `compgen` for builtins.    
+Read `man bash` and `compgen` for builtin.    
 
 Feel free to `sleep` or `exit`.   
 - sleep n - pause execution or wait for an specified number of seconds, minutes, hours, etc. 
@@ -349,8 +361,34 @@ Under the bash directory, locate and play with a few sample scripts.
 
 Try [Bash one-liners](https://onceupon.github.io/Bash-Oneliner/) and [more](https://www.bashoneliners.com/oneliners/newest/) for a collection of handy Bash One-Liners and terminal tricks for data processing and Linux system maintenance, and to the expressiveness of bash scripting.     
 
-e.g.    
+e.g.
 
+---- 
+
+## sed
+
+sed is a stream editor to process files without opening them. 
+
+Q. A file contains student id, add a domain suffix to create email ids. 
+```
+$ cat SID.txt          <==
+2016UCS0001
+2017UCS0001
+2018UCS0001
+2026UCS0001
+
+$ sed  -i  's/$/@iitjammu.ac.in/' SID.txt 
+
+$ cat  SID.txt 
+2016UCS0001@iitjammu.ac.in
+2017UCS0001@iitjammu.ac.in
+2018UCS0001@iitjammu.ac.in
+2026UCS0001@iitjammu.ac.in
+```
+
+----
+
+## awk 
 
 ----
 
