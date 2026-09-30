@@ -2674,10 +2674,9 @@ Shell scripting provides a convenient way to automate system administration, sof
 
 Create a simple script:   
 ```
-$ cat << EOF  > hello.sh
 #!/usr/bin/env bash
-echo -e "Hello! \nFirst script to output Hello...\n"
-EOF
+
+echo -e "Hello! \nA simple script to output Hello...\n"
 ```
 
 Grant executable permissions to a script:   
