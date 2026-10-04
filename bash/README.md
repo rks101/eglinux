@@ -12,6 +12,7 @@ Shell scripting provides a convenient way to automate system administration, sof
   * [Conditions](#conditions)
   * [Loops](#loops)
   * [Case](#case)
+  * [Bash function](#bash-function)
   * [Help](#help)
   * [Bash One Liners](#bash-one-liners)
   * [Escape Sequence and Control Characters](#escape-sequence-and-control-characters)
@@ -328,6 +329,18 @@ fi
 
 echo " legs."
 ```
+
+----
+
+## Bash function  
+
+There are two ways to encode a function in bash.    
+ 
+1. function_name () compound-command              <== without using function keyword, () are required
+2. function funtion_name [()] compound-command    <== with function keyword, () is optional 
+
+e.g.
+
 
 ---- 
 
