@@ -2690,7 +2690,8 @@ Execute a bash script:
 ./hello.sh        <== execute a script in a child process or sub-shell 
 ```
 
-[bash page](bash/README.md)     
+Q. Do you want to read what these mean?  :() {  : | :&  }; :   
+A. See the [bash page](bash/README.md)     
 
 Here are some good scripts:     
 /usr/share/bash-completion/bash_completion     
