@@ -1,7 +1,7 @@
 # Shell Scripting    
 Shell scripting provides a convenient way to automate system administration, software development, and routine tasks on Unix-like operating systems. Bash is one of the most widely used Unix shells and scripting languages.   
 
-Very recently, something has changed in markdown files on GitHub around $ sign or mathmod, and output is scrambled. This needs a fix.    
+A missing or misplaced code snippet marker, (three backticks) in markdown files, can scramble the output.    
 
 * [bash](#bash)
   * [Intro](#intro)
@@ -71,7 +71,7 @@ which -a bash
 /bin/bash
 
 cat /etc/shells 
-/etc/shells: valid login shells
+#\ /etc/shells: valid login shells
 /bin/sh
 /usr/bin/sh     <== sh shell interpreter 
 /bin/bash
@@ -203,9 +203,9 @@ Check [Shell Conditional Expressions](https://www.gnu.org/software/bash/manual/h
 [Shell Arithmetic](https://www.gnu.org/software/bash/manual/html_node/Shell-Arithmetic.html)    
 
 Sample conditions:
+```
 # If no arguments are supplied to the script,
 # send an error message and exit with an error code 
-```
 if [[ $# -eq 0 ]]; then
         echo "Insufficient arguments, quitting..."
         exit 255 
@@ -213,9 +213,9 @@ fi
 ```
 
 With modern syntax, if conditional construct can be written as below, space around keywords, test expression remain the same:    
+```
 # If no arguments are supplied to the script,
 # send an error message and exit with an error code 
-```
 if [[ $# -eq 0 ]]
   then
     echo "Insufficient arguments, quitting..."
@@ -224,9 +224,10 @@ if [[ $# -eq 0 ]]
 ```
 
 if conditional construct with an else part:   
+```
 # Check if the first argument to the script is a valid IFSC
 # IFSC format is 4 alphabet letters (capitals), followed by a zero, and followed by 6 letters or digits
-```
+
 # input IFSC as argument
 ifsc=$1
 
@@ -276,7 +277,7 @@ while [[ $i -lt "$how_many" ]]
 done
 ```
 
-A `for` loop can be written as below:   
+A `for` loop with an iterator can be written as below:   
 ```
 for i in {a..t}; do
         filename="$i.txt" 
@@ -284,6 +285,7 @@ for i in {a..t}; do
 done
 ```
 
+For a sequence, use start..stop..step    
 ```
 for i in {5..50..5}; do
     echo "Welcome $i"
@@ -341,9 +343,6 @@ There are two ways to encode a function in bash.
 1. function_name () compound-command              <== without using function keyword, () are required
 2. function funtion_name [()] compound-command    <== with function keyword, () is optional 
 
-e.g.
-
-
 ---- 
 
 ## Help   
@@ -392,13 +391,13 @@ cat SID.txt          <==
 2018UCS0001
 2026UCS0001
 
-sed  -i  's/$/@iitjammu.ac.in/' SID.txt 
+sed  -i  's/$/@iit.ac.in/' SID.txt 
 
 cat  SID.txt 
-2016UCS0001@iitjammu.ac.in
-2017UCS0001@iitjammu.ac.in
-2018UCS0001@iitjammu.ac.in
-2026UCS0001@iitjammu.ac.in
+2016UCS0001@iit.ac.in
+2017UCS0001@iit.ac.in
+2018UCS0001@iit.ac.in
+2026UCS0001@iit.ac.in
 ```
 
 ----
