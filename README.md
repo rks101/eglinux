@@ -166,7 +166,7 @@ LOGO=ubuntu-logo
 
 Previous Ubuntu distributions' information:   
 
-Fun fact: [After October 2004 release of Ubuntu, back in 2005, 2006, Canonical Inc. (Mark Shuttleworth) used to ship Ubuntu CDs (installable CD and live CD), free of cost, even to remote places in India, using a portal shipit.ubuntu.com and a tagline "linux for human beings". RedHat and Fedora distributions were popular too around the same time, dual booted from Win XP days. In those days, technical books and magazines used to share OS CDs free of cost, internet was mostly 56 kbps dial-up till 2003, chargeable @15 to 25/- per hour in India, USB drives of even 256 MB were a rarity, mobile phone was not common until 2005, personal laptops became affordable around 2007 and later.]    
+Fun fact: [After October 2004 release of Ubuntu, back in 2005, 2006, Canonical Inc. (Mark Shuttleworth) used to ship Ubuntu CDs ([installable CD and live CD](https://github.com/rks101/eglinux/blob/main/docs/shipit_ubuntu_cd2.png)), free of cost, even to remote places in India, using a portal shipit.ubuntu.com and a tagline "[linux for human beings](https://github.com/rks101/eglinux/blob/main/docs/shipit_ubuntu_cd1.png)". RedHat and Fedora distributions were popular too around the same time, dual booted from Win XP days. In those days, technical books and magazines used to share OS CDs free of cost, internet was mostly 56 kbps dial-up till 2003, chargeable @15 to 25/- per hour in India, USB drives of even 256 MB were a rarity, mobile phone was not common until 2005, personal laptops became affordable around 2007 and later.]    
 
 Old releases of Ubuntu are indexed at [old-releases.ubuntu.com/releases](https://old-releases.ubuntu.com/releases/)   
 ```
