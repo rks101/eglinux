@@ -1,6 +1,8 @@
 # Shell Scripting    
 Shell scripting provides a convenient way to automate system administration, software development, and routine tasks on Unix-like operating systems. Bash is one of the most widely used Unix shells and scripting languages.   
 
+Very recently, something has changed in markdown files on GitHub around $ sign or mathmod, and output is scrambled. This needs a fix.    
+
 * [bash](#bash)
   * [Intro](#intro)
   * [`echo`](#echo)
@@ -58,17 +60,17 @@ Test the following:
 - cat /etc/shells    <== To find valid shells available 
 
 ```
-$ echo $SHELL
+echo $SHELL
 /bin/bash
 
-$ echo $BASH
+echo $BASH
 /usr/bin/bash
 
-$ which -a bash 
+which -a bash 
 /usr/bin/bash        <== make sure you use desired interpreter in your scripts  
 /bin/bash
 
-$ cat /etc/shells 
+cat /etc/shells 
 /etc/shells: valid login shells
 /bin/sh
 /usr/bin/sh     <== sh shell interpreter 
@@ -224,13 +226,13 @@ if [[ $# -eq 0 ]]
 if conditional construct with an else part:   
 # Check if the first argument to the script is a valid IFSC
 # IFSC format is 4 alphabet letters (capitals), followed by a zero, and followed by 6 letters or digits
-# input IFSC as argument
-# regexIFSC - create a regex pattern to match 
 ```
+# input IFSC as argument
 ifsc=$1
 
 regexIFSC="^[A-Z]{4}0[A-Z0-9]{6}$";
 
+# create a regex pattern to match 
 if [[ $ifsc =~ $regexIFSC ]]
   then
     echo "IFSC is valid"
@@ -384,15 +386,15 @@ sed is a stream editor to process files without opening them.
 
 Q. A file contains student id, add a domain suffix to create email ids. 
 ```
-$ cat SID.txt          <==
+cat SID.txt          <==
 2016UCS0001
 2017UCS0001
 2018UCS0001
 2026UCS0001
 
-$ sed  -i  's/$/@iitjammu.ac.in/' SID.txt 
+sed  -i  's/$/@iitjammu.ac.in/' SID.txt 
 
-$ cat  SID.txt 
+cat  SID.txt 
 2016UCS0001@iitjammu.ac.in
 2017UCS0001@iitjammu.ac.in
 2018UCS0001@iitjammu.ac.in
@@ -408,6 +410,7 @@ $ cat  SID.txt
 ## Escape Sequence and Control Characters 
 
 **Escape Sequences-1** - non-printable while spaces    
+```
 \a - alert bell sound    
 \b - backspace (shift to right)    
 \t - horizontal tab    
@@ -415,6 +418,8 @@ $ cat  SID.txt
 \v - vertical tab    
 \f - form feed (advance the feed)    
 \r - carriage return (bring cursor to column1 or beginning of the line)     
+```
+
 e.g. 
 ```
 $ echo -e "\aEureka!" 
@@ -440,7 +445,7 @@ $ echo -e "\n\t\tEureka! \n"
 
 Print terminal characteristics:   <== Note control characters displayed    
 ```
-$ stty -a
+stty -a
 speed 38400 baud; rows 31; columns 132; line = 0;
 intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = <undef>; eol2 = <undef>; swtch = <undef>; start = ^Q; stop = ^S;
 susp = ^Z; rprnt = ^R; werase = ^W; lnext = ^V; discard = ^O; min = 1; time = 0;
@@ -452,7 +457,7 @@ isig icanon iexten echo echoe echok -echonl -noflsh -tostop -echoprt echoctl ech
 
 Print all Bash keybindings:    
 ```
-$ bind -p 
+bind -p 
 
 "\C-g": abort
 "\C-x\C-g": abort
