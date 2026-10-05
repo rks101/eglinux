@@ -37,7 +37,7 @@ This is preferred over direct /bin/bash. You may check `which bash` to find out 
 To grant executable permissions to a script, you will notice the changed colour of file name in ls output as set by LS_COLORS:   
 ```
 chmod a+x script.sh
-... 
+```
 
 Note: `chmod 755 script.sh` and chmod a+x script.sh are not same always. Permissions 755 is a common explicit permission setting, it may change write permissions for other users in the group and all other users outside the group.   
 
@@ -193,7 +193,7 @@ The source is in the coreutils package, src/lbracket.c and src/test.c
 - [[ expression  ]] compound command    
 - [ expression ] test command    
 - (( expression )) evaluate and substitute the expression, e.g. product=$((x * y))     
-```
+
 
 Check sample scripts added for more syntactic sugar.    
 
