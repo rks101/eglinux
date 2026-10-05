@@ -2734,6 +2734,29 @@ There is a nice reading on: globbing pathnames using `man 7 glob`
 
 Familiarize with wildcard matching, character classes, ranges, and complement for exclusion and ranges. With regex, this gets a lot clearer.   
 
+Regex vocabulary     
+- Wildcards:
+	- \*  :  any number of characters or occurrences
+	- \+  :  one or more occurences 
+	- ?  :  exactly one character
+ 	- . :  one character, outside character classes 
+	-  \[  \]  : constrain search to defined characters    
+	- \[^ \]  : constrain search to exclude characters, not this will not work in a regex    
+
+- Anchors:
+	- ^ - begins with 
+ 	- $ - ends with
+
+- Character classes: 
+	- \d or [0-9] for Arabic digits 
+ 	- \D or [^0-9] for non-digits 
+  	- \w - alphanumeric characters (letters and digits) and underscore 
+  	- \W - non-alphanumeric characters and underscore 
+  	- \s - white-spaces (space, tab, newline, all non-printable escape sequences) 
+  	- \S - non-white-space characters 
+
+During learning and practice, use [regex101](https://regex101.com/) to check for regex matching the patterns.    
+
 ----
 
 ## xdg-open 
