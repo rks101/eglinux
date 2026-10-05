@@ -2742,7 +2742,7 @@ Regex vocabulary
  	- . -  one character, outside character classes 
 	-  \[  \]  - constrain search to defined characters    
 	- \[^ \]  - constrain search to exclude characters, not this will not work in a regex
- 	- Note: To literally match special characters, or those part of regex syntax, escape with a backslash, e.g. \\*
+ 	- Note: To literally match special characters, or those part of regex syntax, escape with a backslash, e.g. \\*, \\. 
     
 - Anchors:
 	- ^ - match begins with 
