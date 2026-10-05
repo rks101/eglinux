@@ -69,7 +69,7 @@ $ which -a bash
 /bin/bash
 
 $ cat /etc/shells 
-# /etc/shells: valid login shells
+/etc/shells: valid login shells
 /bin/sh
 /usr/bin/sh     <== sh shell interpreter 
 /bin/bash
@@ -200,10 +200,10 @@ Check sample scripts added for more syntactic sugar.
 Check [Shell Conditional Expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)    
 [Shell Arithmetic](https://www.gnu.org/software/bash/manual/html_node/Shell-Arithmetic.html)    
 
-Sample conditions:    
-```
+Sample conditions:
 # If no arguments are supplied to the script,
 # send an error message and exit with an error code 
+```
 if [[ $# -eq 0 ]]; then
         echo "Insufficient arguments, quitting..."
         exit 255 
@@ -211,9 +211,9 @@ fi
 ```
 
 With modern syntax, if conditional construct can be written as below, space around keywords, test expression remain the same:    
-```
 # If no arguments are supplied to the script,
 # send an error message and exit with an error code 
+```
 if [[ $# -eq 0 ]]
   then
     echo "Insufficient arguments, quitting..."
@@ -222,13 +222,13 @@ if [[ $# -eq 0 ]]
 ```
 
 if conditional construct with an else part:   
-```
 # Check if the first argument to the script is a valid IFSC
 # IFSC format is 4 alphabet letters (capitals), followed by a zero, and followed by 6 letters or digits
 # input IFSC as argument
+# regexIFSC - create a regex pattern to match 
+```
 ifsc=$1
 
-# create a regex pattern to match 
 regexIFSC="^[A-Z]{4}0[A-Z0-9]{6}$";
 
 if [[ $ifsc =~ $regexIFSC ]]
