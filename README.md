@@ -2736,16 +2736,17 @@ Familiarize with wildcard matching, character classes, ranges, and complement fo
 
 Regex vocabulary     
 - Wildcards:
-	- \*  :  any number of characters or occurrences
-	- \+  :  one or more occurences 
-	- ?  :  exactly one character
- 	- . :  one character, outside character classes 
-	-  \[  \]  : constrain search to defined characters    
-	- \[^ \]  : constrain search to exclude characters, not this will not work in a regex    
-
+	- \*  -  any number of characters or occurrences
+	- \+  -  one or more occurences 
+	- ?  -  exactly one character
+ 	- . -  one character, outside character classes 
+	-  \[  \]  - constrain search to defined characters    
+	- \[^ \]  - constrain search to exclude characters, not this will not work in a regex
+ 	- Note: To literally match special characters, or those part of regex syntax, escape with a backslash, e.g. \\*
+    
 - Anchors:
-	- ^ - begins with 
- 	- $ - ends with
+	- ^ - match begins with 
+ 	- $ - match ends with
 
 - Character classes: 
 	- \d or [0-9] for Arabic digits 
@@ -2754,6 +2755,13 @@ Regex vocabulary
   	- \W - non-alphanumeric characters and underscore 
   	- \s - white-spaces (space, tab, newline, all non-printable escape sequences) 
   	- \S - non-white-space characters 
+
+- Frequency or repetitions:
+	- {n} - match repeat n times
+ 	- {m, } - match at least (minimum) m times
+	- { ,n} - match at most (maximum) n times
+ 	- {m,n} - match at least (minimum) m and at most (maximum) n times, both included
+
 
 During learning and practice, use [regex101](https://regex101.com/) to check for regex matching the patterns.    
 
