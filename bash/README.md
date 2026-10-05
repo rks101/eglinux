@@ -191,7 +191,7 @@ The source is in the coreutils package, src/lbracket.c and src/test.c
 - [[ expression  ]] compound command    
 - [ expression ] test command    
 - (( expression )) evaluate and substitute the expression, e.g. product=$((x * y))     
-
+```
 
 Check sample scripts added for more syntactic sugar.    
 
