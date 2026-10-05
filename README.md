@@ -2068,7 +2068,7 @@ Interesting: Try pressing any arrow key while the top is on.
 
 ### htop  
 
-`htop` is an interactive process viewer. In comparison with top, `htop` allows to scroll freely and use column based filters to sort the process view. Because it is an ncurses-based utility, its screen text output cannot be pasted here.    
+`htop` is an interactive process viewer. In comparison with top, `htop` allows to scroll freely and use column based filters to sort the process view. Because it is an ncurses-based utility, its [screen text output](https://github.com/rks101/eglinux/blob/main/docs/htop.png) cannot be pasted here.    
 
 
 ----
