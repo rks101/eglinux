@@ -29,12 +29,12 @@ echo "Hello! bash"
 ```
 
 Q. We have seen #!/bin/bash, then why do you use env?   
-A. `#!/bin/bash` is Shebang at the beginning of a shell script to specify the interpreter.   
+A. `#! /bin/bash` is Shebang at the beginning of a shell script to specify the interpreter.   
 
-`#!/usr/bin/env bash` is Shebang at the beginning of a shell script, using environment variable to specify the interpreter.    
+`#! /usr/bin/env bash` is Shebang at the beginning of a shell script, using environment variable to specify the interpreter.    
 This is preferred over direct /bin/bash. You may check `which bash` to find out the path for the interpreter.   
 
-To grant executable permissions to a script, you will notice the changed colour of file name in `ls` output as set by `LS_COLORS`:   
+To grant executable permissions to a script, you will notice the changed colour of file name in ls output as set by LS_COLORS:   
 ```
 chmod a+x script.sh
 ... 
@@ -132,10 +132,12 @@ To read a value from stdin (standard input stream):
 ```
 read var_name
 ```
+
 To read a value with a message: 
 ```
 read -p "Enter a number: " var_name 
 ```
+
 To read a value without echoing it on the screen, like a password or passphrase: 
 ```
 read -p "Enter password: " -s pass
