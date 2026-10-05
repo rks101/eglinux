@@ -1007,6 +1007,11 @@ locate which
 locate bash_completion
 ```
 
+To update database for locate or plocate, use the following command: 
+```
+sudo updatedb 
+```
+
 `whereis`           <== is used to locate a binary, its source, and man page files for a command
 ```
 whereis which
