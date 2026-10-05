@@ -1,7 +1,7 @@
 # Shell Scripting    
 Shell scripting provides a convenient way to automate system administration, software development, and routine tasks on Unix-like operating systems. Bash is one of the most widely used Unix shells and scripting languages.   
 
-A missing or misplaced code snippet marker, (three backticks) in markdown files, can scramble the output.    
+A missing or misplaced code snippet marker, three backticks, or three dots instead of three backticks, in markdown files, can scramble the output.    
 
 * [bash](#bash)
   * [Intro](#intro)
@@ -71,7 +71,7 @@ which -a bash
 /bin/bash
 
 cat /etc/shells 
-#\ /etc/shells: valid login shells
+# /etc/shells: valid login shells
 /bin/sh
 /usr/bin/sh     <== sh shell interpreter 
 /bin/bash
