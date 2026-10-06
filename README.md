@@ -60,27 +60,29 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Systemd versus init based Systems](#systemd-versus-init-based-systems)
       * [`timedatectl`](#timedatectl)
       * [Monitoring Performance](#monitoring-performance)
+      * [Managing server logs](#managing-server-logs)
       * [Audit System Logs](#audit-system-logs) 
       * [Installed packages](#installed-packages)
       * [Remove old Linux kernel images](#remove-old-linux-kernel-images)
-      * [Managing server logs](#managing-server-logs)
       * [Free space on Ubuntu system](#free-space-on-ubuntu-system)
       * [The One with mysql admin password](#the-one-with-mysql-admin-password)
   * Part-4
-      * [Online Resources](#online-resources)
       * [Linux toolchain](#linux-toolchain) 
       * [Linux for Networking](#linux-for-networking)
       * [Linux for Security](#linux-for-security)
       * [HTTPS and Certificates](#https-and-certificates)
       * [Software archives and signing](#software-archives-and-signing)
+      * [The Architecture of Open Source Applications](#The-Architecture-of-Open-Source-Applications)
       * [Linux Kernel](#linux-kernel)
       * [Virtualization](#virtualization)
+      * [Online Resources](#online-resources)
   * Part-5 Misc
       * [The One with UNIX or Linux History](#the-one-with-unix-or-linux-history)
       * [The One with Linus](#the-one-with-linus)
       * [D-Windows](#d-windows)
   * Part-6 Projects
       * [Course and Projects](#course-and-projects)
+      * [Reproducible Research Projects](#Reproducible-Research-Projects)
 
 
 
@@ -3274,8 +3276,6 @@ $ sudo perf stat -ddd ls -R /home
        0.466687000 seconds sys
 ```
 
-### `nload`   
-
 
 ### `iptraf` - IP Network Statistics Utility   
 
@@ -3306,6 +3306,106 @@ iptraf-ng 1.2.1
 
 ### `wavemon` - Wireless network monitor 
 
+[screengrab of wavemon in action]()
+
+----
+
+## Managing server logs 
+
+Over time, just like software caches, server logs may increase and occupy a significant amount of disk space.    
+
+`logrotate` can be used with a scheduled cron job to rotate, compress, and archive large log files.    
+
+man says:   
+
+```
+logrotate is designed to ease the administration of systems that generate large 
+numbers  of log files. It allows automatic rotation, compression, removal, and 
+mailing of log files. Each log file may be handled daily, weekly, monthly, or 
+when it grows too large.
+```
+
+logrotate config files are:   
+```
+/etc/logrotate.conf
+/etc/logrotate.d/*
+```
+
+Sample logrotate configuration   
+```
+# logrotate file for apt
+/var/log/apt/term.log {
+  rotate 12
+  monthly
+  compress
+  missingok
+  notifempty
+}
+
+/var/log/apt/history.log {
+  rotate 12
+  monthly
+  compress
+  missingok
+  notifempty
+}
+
+# logrotate file for dpkg
+/var/log/dpkg.log {
+        monthly
+        rotate 12
+        compress
+        delaycompress
+        missingok
+        notifempty
+        create 644 root root
+}
+
+# logrotate file for rsyslog (/var/log) 
+/var/log/syslog
+/var/log/mail.log
+/var/log/kern.log
+/var/log/auth.log
+/var/log/user.log
+/var/log/cron.log
+{
+        rotate 4
+        weekly
+        missingok
+        notifempty
+        compress
+        delaycompress
+        sharedscripts
+        postrotate
+                /usr/lib/rsyslog/rsyslog-rotate
+        endscript
+}
+
+# logrotate file for cups-daemon
+/var/log/cups/*log {
+        daily
+        missingok
+        rotate 7
+        sharedscripts
+        postrotate
+                invoke-rc.d --quiet cups restart > /dev/null
+        endscript
+        compress
+        delaycompress
+        notifempty
+        create
+}
+
+# logrotate file for iptraf-ng
+/var/log/iptraf/*.log {
+        compress
+        delaycompress
+        missingok
+        notifempty
+        rotate 4
+        create 0600 root root
+}
+```
 
 ----
 
@@ -3448,105 +3548,6 @@ Purging configuration files for linux-image-5.3.0-40-generic (5.3.0-40.32~18.04.
 ```
 ----
 
-## Managing server logs 
-
-Over time, just like software caches, server logs may increase and occupy a significant amount of disk space.    
-
-`logrotate` can be used with a scheduled cron job to rotate, compress, and archive large log files.    
-
-man says:   
-
-```
-logrotate is designed to ease the administration of systems that generate large 
-numbers  of log files. It allows automatic rotation, compression, removal, and 
-mailing of log files. Each log file may be handled daily, weekly, monthly, or 
-when it grows too large.
-```
-
-logrotate config files are:   
-```
-/etc/logrotate.conf
-/etc/logrotate.d/*
-```
-
-Sample logrotate configuration   
-```
-# logrotate file for apt
-/var/log/apt/term.log {
-  rotate 12
-  monthly
-  compress
-  missingok
-  notifempty
-}
-
-/var/log/apt/history.log {
-  rotate 12
-  monthly
-  compress
-  missingok
-  notifempty
-}
-
-# logrotate file for dpkg
-/var/log/dpkg.log {
-        monthly
-        rotate 12
-        compress
-        delaycompress
-        missingok
-        notifempty
-        create 644 root root
-}
-
-# logrotate file for rsyslog (/var/log) 
-/var/log/syslog
-/var/log/mail.log
-/var/log/kern.log
-/var/log/auth.log
-/var/log/user.log
-/var/log/cron.log
-{
-        rotate 4
-        weekly
-        missingok
-        notifempty
-        compress
-        delaycompress
-        sharedscripts
-        postrotate
-                /usr/lib/rsyslog/rsyslog-rotate
-        endscript
-}
-
-# logrotate file for cups-daemon
-/var/log/cups/*log {
-        daily
-        missingok
-        rotate 7
-        sharedscripts
-        postrotate
-                invoke-rc.d --quiet cups restart > /dev/null
-        endscript
-        compress
-        delaycompress
-        notifempty
-        create
-}
-
-# logrotate file for iptraf-ng
-/var/log/iptraf/*.log {
-        compress
-        delaycompress
-        missingok
-        notifempty
-        rotate 4
-        create 0600 root root
-}
-```
-
-----
-
 ## Free space on Ubuntu system
 
 Find thumbnail images and remove them. 
@@ -3624,32 +3625,6 @@ Relevant posts on this authentication type conundrum:
 ---- 
 
 PART-4     
-
-## Online Resources  
-
-Now, you can view and refer to some online resources (Remember man, info, and command-specific help):    
-[Baeldung](https://www.baeldung.com/linux/)     
-[It's FOSS](https://itsfoss.com/)     
-[Linuxconfig](https://linuxconfig.org/)    
-
-[Linux Software](https://github.com/luong-komorebi/Awesome-Linux-Software)    
-
-[Writing mathematical equations in Libre Office Writer](https://www.ubuntubuzz.com/2016/09/libreoffice-writer-equation-editor-writing-mathematical-formulas.html)     
-
-TODO: Add link to LaTeX page.    
-
-[Linux Weekly News](https://lwn.net/)    
-
-[Linux Journey](https://labex.io/linuxjourney)    
-
-@Blindos    
-Windows Subsystem for Linux (WSL) allows a minimal shell like support of Linux commands within Windows OS.    
-Wine used to support execution of lightweight .exe executables in Linux without porting.    
-Mingcw compiler allowed gcc support in Windows OS.    
-
-[State of Developing iOS apps in Linux](https://linuxvox.com/blog/what-s-the-state-of-developing-ios-apps-in-linux/)     
-
----- 
 
 ## Linux toolchain   
 
@@ -3835,6 +3810,32 @@ source /home/qtemp/myenv/bin/activate
 
 ----
 
+## Online Resources  
+
+Now, you can view and refer to some online resources (Remember man, info, and command-specific help):    
+[Baeldung](https://www.baeldung.com/linux/)     
+[It's FOSS](https://itsfoss.com/)     
+[Linuxconfig](https://linuxconfig.org/)    
+
+[Linux Software](https://github.com/luong-komorebi/Awesome-Linux-Software)    
+
+[Writing mathematical equations in Libre Office Writer](https://www.ubuntubuzz.com/2016/09/libreoffice-writer-equation-editor-writing-mathematical-formulas.html)     
+
+TODO: Add link to LaTeX page.    
+
+[Linux Weekly News](https://lwn.net/)    
+
+[Linux Journey](https://labex.io/linuxjourney)    
+
+@Blindos    
+Windows Subsystem for Linux (WSL) allows a minimal shell like support of Linux commands within Windows OS.    
+Wine used to support execution of lightweight .exe executables in Linux without porting.    
+Mingcw compiler allowed gcc support in Windows OS.    
+
+[State of Developing iOS apps in Linux](https://linuxvox.com/blog/what-s-the-state-of-developing-ios-apps-in-linux/)     
+
+----
+
 PART-5
 
 ## The One with UNIX or Linux History   
@@ -3946,3 +3947,8 @@ Learning:
 --> 
 ---- 
 
+## Reproducible Research Projects 
+
+* Reproducible Research Projects:    
+
+---- 
