@@ -2717,19 +2717,12 @@ Regular expressions can be used with bash:
 
 [Regular Expressions](https://computing.stat.berkeley.edu/tutorial-using-bash/regex.html)    
 [regex with grep](https://www.cyberciti.biz/faq/grep-regular-expressions/)    
+[Regular Expressions specs from Open Group](https://pubs.opengroup.org/onlinepubs/9799919799/nframe.html)    
 
 Do not miss:    
-man regex    
-info 8.5 Regular Expressions   
 ```
-* Menu:
-
-* findutils-default regular expression syntax::
-* gnu-awk regular expression syntax::
-* grep regular expression syntax::
-* awk regular expression syntax::
-* egrep regular expression syntax::
-* posix-extended regular expression syntax::
+man regex    
+info regex    
 ```
 
 There is a nice reading on: globbing pathnames using `man 7 glob`    
