@@ -3817,6 +3817,8 @@ Now, you can view and refer to some online resources (Remember man, info, and co
 [It's FOSS](https://itsfoss.com/)     
 [Linuxconfig](https://linuxconfig.org/)    
 
+[The Linux Command Line for Beginners](https://ubuntu.com/desktop/docs/en/latest/tutorial/the-linux-command-line-for-beginners/)     
+
 [Linux Software](https://github.com/luong-komorebi/Awesome-Linux-Software)    
 
 [Writing mathematical equations in Libre Office Writer](https://www.ubuntubuzz.com/2016/09/libreoffice-writer-equation-editor-writing-mathematical-formulas.html)     
