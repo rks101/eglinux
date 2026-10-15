@@ -1778,6 +1778,14 @@ Q. On a new debian/Linux installation, I am not able to execute a sudo?
 A. Check if the current user is a member of the sudo group. File /etc/group    
 
 
+Q. When should I use sudo?    
+A. Consider using sudo - while you are executing a privileged operation, on encountering permission denied errors, or on missing or hidden output of some commands. For example:    
+```
+$ apt remove dnsrecon 
+Error: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+Error: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+```
+
 Q. Should I use "su" or "su -" as administrator?     
 A. Always use "su -" for a clean substitution to the intended user identity.    
 "su -" substitutes the root/target user and creates a login shell and resets much of the environment. It's a complete user substitution.    
