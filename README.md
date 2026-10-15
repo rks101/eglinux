@@ -834,6 +834,24 @@ Some of the common directories under root ( / ) are:
 - /run 
 - /var 
 
+Each directory contains two special directories labelled as . (dot) and .. (double dot), . (dot) refers to current directory and .. (double dot) refers to parent directory. Tilde (~) refers to home directory ($HOME) of the logged is user ($USERNAME).    
+
+Environment variable PWD and OLDPWD can refer to the same directory within root (/).    
+```
+$ cd /
+$ cd ..
+$ pwd
+/
+$ cd -
+/
+$ pwd
+/
+$ echo $PWD
+/
+$ echo $OLDPWD
+/
+```
+
 What is a path? No one figured this out quite so well. Jokes apart, in Linux, everything is a file, and we may need to refer to files and where they reside.    
 
 > In Linux, everything is a file (LIFE is FILE and FILE is LIFE).    
