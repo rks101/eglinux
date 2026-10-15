@@ -1906,7 +1906,9 @@ GUI-based package managers: Synaptic Package Manager, Ubuntu App Center
 
 ## Simple web server 
 
-Python provides a one-line web server and this is one simple way to show files from a directory   
+Python provides a one-line HTTP web server and this is one simple way to show files from a directory or local share.   
+
+Note: a) the directory you execute the command from and its sub directories and files are visible, and b) there is no authentication to access this page. Only IP address and web server port are needed.    
 
 ```
 $ python3 -m http.server 
@@ -1918,8 +1920,7 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 Keyboard interrupt received, exiting.
 ```
 
-The web server started above can be opened in a web browser: http://0.0.0.0:8000/ (on the same system) or ip_address:8000 on other systems as well.    
-This page can be opened before you close the server using Ctrl+C.   
+The web server started above can be opened in a web browser: http://0.0.0.0:8000/ (on the same system) or ip_address:8000 on other systems as well. This page can be opened before you close the server using Ctrl+C.   
 
 Note: In case you are struggling to connect to this web server to access files from another system, check your wired/wireless network or the VLAN you are on. It is likely that in a segmented network, users may not access the resources shared by this http web server.   
 
