@@ -36,6 +36,7 @@ Linux powers many servers and large application deployments worldwide. Knowing h
       * [Simple web server](#simple-web-server)
       * [Remote login using `ssh`](#remote-login-using-ssh)
       * [Transfer files using Secure Copy `scp`](#transfer-files-using-secure-copy-scp)
+      * [Get files using wget](#get-files-using-wget)
   * Part-2
       * [Processes](#processes)
       * [Process Memory Layout using `proc`](#process-memory-layout)
@@ -1970,6 +1971,16 @@ scp -i filename.pem user@remote-system:/path-of-remote-file-dir  path-of-local-f
 ```
 
 While writing to the target location, make sure there is no file with the same name. It may get overwritten.   
+
+----
+
+## Get files using wget 
+
+You can download files or documentation with many files using **wget**. This is very much like your own web-doc-ripper!   
+
+```
+wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://developer.android.com/reference/packages  
+```
 
 ----
 
