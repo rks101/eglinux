@@ -3844,6 +3844,7 @@ source /home/qtemp/myenv/bin/activate
 
 ## Online Resources  
 
+[Test drive Linux distributions online](https://distrosea.com/).    
 Now, you can view and refer to some online resources (Remember man, info, and command-specific help):    
 [Baeldung](https://www.baeldung.com/linux/)     
 [It's FOSS](https://itsfoss.com/)     
