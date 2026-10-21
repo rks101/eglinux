@@ -3309,7 +3309,7 @@ $ sudo perf stat -ddd ls -R /home
 ```
 
 
-### `iptraf` - IP Network Statistics Utility   
+### `iptraf` IP Traffic Monitor   
 
 ```
 $ sudo iptraf
@@ -3336,7 +3336,9 @@ iptraf-ng 1.2.1
  Up/Down-Move selector  Enter-execute
 ```
 
-### `wavemon` - Wireless network monitor 
+### `wavemon` 
+
+Wavemon is NCurses-based Wireless network monitor and shows output updated in realtime.    
 
 [screengrab of wavemon in action]()
 
