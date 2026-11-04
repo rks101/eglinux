@@ -1956,14 +1956,14 @@ The default port number to use SSH is 22; this port number can be changed at ser
 
 ## Transfer files using Secure Copy scp   
 
-Using Secure Copy or SCP, we can transfer files to and from local to remote systems. Underneath, scp uses SSH for authentication and encryption.    
+Using Secure Copy or scp, we can transfer files to and from local to remote systems. Underneath, scp uses the SFTP protocol over an ssh connection for data transfer, and authentication and provides the same security as a login session.    
 
 ```
 scp SOURCE DESTINATION    
 
-scp  path-of-local-file-or-dir  user@remote-system:/path-to-remote-file-or-dir    
+scp  path-of-local-file-or-dir  user@remote-system:/path-to-remote-file-or-dir     <== local to remote 
 
-scp  user@remote-system:/path-of-remote-file-dir  path-of-local-file-or-dir
+scp  user@remote-system:/path-of-remote-file-dir  path-of-local-file-or-dir        <== remote to local 
 
 scp -i filename.pem path-of-local-file-or-dir  user@remote-system:/path-to-remote-file-or-dir
 
@@ -1971,6 +1971,9 @@ scp -i filename.pem user@remote-system:/path-of-remote-file-dir  path-of-local-f
 ```
 
 While writing to the target location, make sure there is no file with the same name. It may get overwritten.   
+
+scp -p  ==> **p**reserves modification times, access times, and file mode bits from the source file.   
+scp -P  ==> **P**ort to connect to on the remote host.   
 
 ----
 
