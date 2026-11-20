@@ -3874,6 +3874,10 @@ Mingcw compiler allowed gcc support in Windows OS.
 
 [State of Developing iOS apps in Linux](https://linuxvox.com/blog/what-s-the-state-of-developing-ios-apps-in-linux/)     
 
+Online Channels/Communities:    
+Marcel Dempers     
+
+
 ----
 
 PART-5
